@@ -10,6 +10,7 @@ import {
   FaHeartbeat,
   FaGraduationCap
 } from 'react-icons/fa';
+import Link from 'next/link';
 
 const jobs = [
   {
@@ -67,7 +68,7 @@ const galleryImages = Array.from({ length: 8 }, (_, i) => `/gallery_0${i + 1}.jp
 const CareersSection = () => {
   return (
     <section className="relative py-12 bg-white dark:bg-[#23272b]">
-      <div className="relative z-10 mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="mb-10 text-center">
           <h1 className="text-4xl font-extrabold text-[#323b42] dark:text-white mb-2 tracking-tight animate-fadeUp drop-shadow-lg flex items-center justify-center gap-2">
             Join our Team
@@ -82,14 +83,23 @@ const CareersSection = () => {
             {jobs.map((job, idx) => (
               <div
                 key={idx}
-                className="bg-white/90 dark:bg-[#2d3440] rounded-2xl shadow-2xl p-8 border border-[#323b42]/30 dark:border-[#3a4152] flex flex-col items-center">
+                className="bg-white/90 dark:bg-[#2d3440] rounded-2xl shadow-2xl p-8 border border-[#323b42]/30 dark:border-[#3a4152] flex flex-col items-center h-full min-h-[240px]">
                 <div className="mb-3">{job.icon}</div>
                 <h3 className="text-xl font-bold text-red-700 dark:text-white mb-1 text-center">{job.title}</h3>
                 <p className="text-sm text-gray-700 dark:text-white mb-2 text-center">{job.experience}</p>
                 <p className="text-base text-gray-600 dark:text-white mb-4 text-center">{job.description}</p>
-                <button className="bg-red-700 text-white font-bold py-2 px-6 rounded-lg shadow hover:bg-red-600 transition w-full">
-                  {job.button}
-                </button>
+                <div className="mt-auto w-full flex justify-center">
+                  <Link
+                    href="https://www.linkedin.com/company/acutix-soft-llp/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-red-700 text-white text-center font-bold py-2 px-6 rounded-lg shadow hover:bg-red-600 transition w-full">
+                    {job.button}
+                  </Link>
+                  {/* <button className="bg-red-700 text-white font-bold py-2 px-6 rounded-lg shadow hover:bg-red-600 transition w-full">
+                    {job.button}
+                  </button> */}
+                </div>
               </div>
             ))}
           </div>

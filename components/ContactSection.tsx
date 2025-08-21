@@ -47,7 +47,7 @@ const ContactSection = () => {
   };
 
   return (
-    <section className="relative py-2">
+    <section className="relative py-12">
       <div
         className="absolute inset-0 w-full h-full bg-gradient-to-br from-primary-100 via-white to-primary-200 dark:from-primary-950 dark:via-gray-900 dark:to-primary-900 z-0"
         style={{ filter: 'blur(8px)', opacity: 0.5 }}></div>
@@ -65,7 +65,7 @@ const ContactSection = () => {
         </div>
         <div className="bg-white/90 dark:bg-gray-900/90 rounded-2xl shadow-2xl p-8 border border-red-200 dark:border-red-900 backdrop-blur-md">
           <h2 className="text-2xl font-bold text-red-700 dark:text-red-400 mb-6 flex items-center gap-2">
-            <FaCalendarAlt className="text-red-400" /> Schedule a Call
+            <FaCalendarAlt className="text-red-400" /> Let us know your purpose
           </h2>
           <form className="space-y-6" onSubmit={handleSubmit}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
