@@ -35,6 +35,7 @@ const Header = () => {
         <nav className="hidden lg:flex space-x-8 xl:space-x-10">
           {[
             { name: 'Home', href: '/' },
+            { name: 'Products', href: '/products' },
             { name: 'Services', href: '/services' },
             { name: 'Careers', href: '/careers' },
             { name: 'Blogs', href: '/blogs' },
@@ -70,6 +71,7 @@ const Header = () => {
           <div className="pt-4 pb-4 px-4 space-y-1">
             {[
               { name: 'Home', href: '/' },
+              { name: 'Products', href: '/products' },
               { name: 'Services', href: '/services' },
               { name: 'Careers', href: '/careers' },
               { name: 'Blogs', href: '/blogs' },
