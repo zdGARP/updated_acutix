@@ -25,94 +25,94 @@ const products = [
         name: 'Gym Pad',
         icon: <Activity className="w-10 h-10 text-blue-500" />,
         tagline: 'Operational Clarity & Control',
-        summary: 'A revolutionary digital ecosystem streamlining gym operations through role-based clarity and automated workflows.',
-        image: '/04.jpg',
+        summary: 'A structured digital ecosystem that streamlines gym operations through interconnected portals, enhancing the overall fitness management experience.',
+        image: '/fithub.png',
         themeColor: 'blue',
         accentColor: '#3b82f6',
         features: [
             {
-                title: 'Trainee Ecosystem',
-                desc: 'Personalized weight loss, muscle gain plans & slot booking.',
+                title: 'Trainee Portal',
+                desc: 'Manage fitness journey, enroll in goal-aligned subscriptions (Weight Loss, Muscle Gain), book training slots, track attendance, and monitor physical progress.',
                 icon: <Users className="w-5 h-5" />
             },
             {
-                title: 'Trainer Command',
-                desc: 'Diet charts, metrics tracking & direct chat integration.',
+                title: 'Trainer Dashboard',
+                desc: 'View assigned trainees and schedules, manage daily attendance, create/update diet charts, and monitor performance metrics through a centralized view.',
                 icon: <LayoutDashboard className="w-5 h-5" />
             },
             {
-                title: 'Admin Intelligence',
-                desc: 'Full oversight of trainers, memberships & attendance.',
+                title: 'Admin Control Center',
+                desc: 'Full oversight of gym operations: add/update/remove trainers, manage memberships, monitor overall attendance, and maintain operational consistency.',
                 icon: <BadgeCheck className="w-5 h-5" />
             }
         ],
-        highlights: ['Attendance CRM', 'Secure RBAC', 'Slot Management', 'Live Engagement']
+        highlights: ['Goal-Aligned Subscriptions', 'Integrated Trainer Chat', 'Real-time Slot Booking', 'Direct Trainer Guidance']
     },
     {
         id: 'clinic-cms',
         name: 'Clinic CMS',
         icon: <Hospital className="w-10 h-10 text-emerald-500" />,
         tagline: 'Efficiency & Patient Care',
-        summary: 'Consolidating records and automating routine tasks for hospitals to ensure professional excellence and client visibility.',
+        summary: 'A comprehensive role-based digital platform designed to centralize client onboarding, scheduling, and communication while ensuring data integrity.',
         image: '/01.jpg',
         themeColor: 'emerald',
         accentColor: '#10b981',
         features: [
             {
-                title: 'Self-Service Portal',
-                desc: 'Real-time scheduling & secure document verification.',
+                title: 'Client Self-Service',
+                desc: 'Schedule appointments based on real-time availability, securely access shared documents through verification, and monitor request statuses.',
                 icon: <Clock className="w-5 h-5" />
             },
             {
-                title: 'Internal Ops Layer',
-                desc: 'Record automation & responsive notify systems.',
+                title: 'Staff/User Portal',
+                desc: 'Manage assigned clients, update records, upload reports, and maintain consistent communication with automated status notifications.',
                 icon: <FileText className="w-5 h-5" />
             },
             {
-                title: 'Governance Engine',
-                desc: 'Configurable workflows & data security compliance.',
+                title: 'Admin Command Layer',
+                desc: 'Manage users and roles, configure complex workflows, monitor system health, and enforce strict data security and compliance protocols.',
                 icon: <ShieldCheck className="w-5 h-5" />
             }
         ],
-        highlights: ['Onboarding Flow', 'Record Integrity', 'Auto-Notif', 'Workflow Logic']
+        highlights: ['Secure Onboarding', 'Verified Doc Access', 'Automated Notifications', 'Workflow Configuration']
     },
     {
         id: 'ascas-fertility',
         name: 'ASCAS System',
         icon: <HeartPulse className="w-10 h-10 text-rose-500" />,
-        tagline: 'Specialized Fertility Care',
-        summary: 'The ultimate patient handling system for clinics, featuring specialized treatment tracking and intelligent billing.',
-        image: '/02.jpg',
+        tagline: 'Precision Fertility Management',
+        summary: 'A specialized fertility center system optimizing patient activities from appointment booking to specialized treatment tracking and integrated billing.',
+        image: '/ascas.png',
         themeColor: 'rose',
         accentColor: '#f43f5e',
-        techStack: ['React', 'Django', 'AWS', 'AiSensy'],
+        techStack: ['React', 'Django', 'SQLite', 'AWS', 'AiSensy'],
         features: [
             {
                 title: 'Patient Journey',
-                desc: 'WhatsApp-powered reminders & detailed medical history.',
+                desc: 'Manage fertility journey from a single dashboard. Book/reschedule appointments with WhatsApp reminders and view complete medical history.',
                 icon: <MessageSquare className="w-5 h-5" />
             },
             {
-                title: 'Clinical Modules',
-                desc: 'IUI, DFI, IVF templates & structured clinical notes.',
+                title: 'Clinical Workspace',
+                desc: 'Specialized modules for Pregnancy Care, IUI, DFI, IVF. Ready-made templates for documented consultations, procedures, and clinical notes.',
                 icon: <Zap className="w-5 h-5" />
             },
             {
-                title: 'Revenue Guard',
-                desc: 'Integrated billing and error-free in-patient tracking.',
+                title: 'Administrative Billing',
+                desc: 'Oversee in-patient stays, capture every consultation/procedure investigation, and generate error-free invoices to reduce revenue leakage.',
                 icon: <BadgeCheck className="w-5 h-5" />
             }
         ],
-        highlights: ['WhatsApp Integration', 'Treatment Logic', 'Ready Templates', 'AI-Powered Insights']
+        highlights: ['WhatsApp Integration', 'IUI/IVF Templates', 'In-Patient Tracking', 'Automated Invoicing']
     }
 ];
 
 const ProductSection = () => {
     return (
-        <div className="bg-gradient-to-br from-white via-gray-50 to-primary-50 dark:from-gray-900 dark:via-gray-800 dark:to-primary-900 py-12">
+        <div className="bg-gradient-to-br from-white via-gray-50 to-primary-50 dark:from-gray-900 dark:via-gray-800 dark:to-primary-900 py-12 overflow-x-hidden">
 
             {/* Centered Header (Matches Services Design) */}
-            <section className="relative py-12">
+            <section className="relative pt-0 pb-4">
                 <div className="container mx-auto px-6 text-center">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -131,10 +131,10 @@ const ProductSection = () => {
             </section>
 
             {/* Main Products Grid */}
-            <section className="pb-32 container mx-auto px-6">
-                <div className="space-y-48">
+            <section className="pb-12 container mx-auto px-6">
+                <div className="space-y-16">
                     {products.map((product, pIdx) => (
-                        <div key={product.id} className="relative group">
+                        <div key={product.id} className="relative group overflow-hidden">
                             {/* Product Background Accents */}
                             <div className={`absolute -inset-10 bg-${product.themeColor}-500/5 rounded-[4rem] blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-1000`} />
 
@@ -151,7 +151,7 @@ const ProductSection = () => {
                                             src={product.image}
                                             alt={product.name}
                                             fill
-                                            className="object-cover group-hover:scale-110 transition-transform duration-1000 ease-out"
+                                            className="object-contain group-hover:scale-110 transition-transform duration-1000 ease-out"
                                         />
                                         <div className="absolute inset-0 bg-gradient-to-t from-[#0f1115]/80 via-transparent to-transparent opacity-60" />
 
@@ -230,17 +230,6 @@ const ProductSection = () => {
                                         ))}
                                     </div>
 
-                                    <motion.div
-                                        initial={{ opacity: 0 }}
-                                        whileInView={{ opacity: 1 }}
-                                        viewport={{ once: true }}
-                                        className="pt-6"
-                                    >
-                                        <button className="px-8 py-4 bg-[#1a1f24] dark:bg-white text-white dark:text-[#1a1f24] rounded-2xl font-black text-sm uppercase tracking-widest hover:scale-105 active:scale-95 transition-all shadow-xl dark:shadow-white/10 flex items-center gap-3">
-                                            View Live Case Study
-                                            <ChevronRight className="w-4 h-4" />
-                                        </button>
-                                    </motion.div>
                                 </div>
                             </div>
                         </div>
@@ -248,36 +237,6 @@ const ProductSection = () => {
                 </div>
             </section>
 
-            {/* CTA Section */}
-            <section className="container mx-auto px-6 pb-40">
-                <motion.div
-                    initial={{ opacity: 0, y: 40 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    className="bg-[#1a1f24] dark:bg-white rounded-[4rem] p-12 md:p-24 text-center relative overflow-hidden shadow-[0_40px_100px_-20px_rgba(0,0,0,0.3)]"
-                >
-                    {/* Decorative shapes */}
-                    <div className="absolute top-0 right-0 w-96 h-96 bg-primary/20 rounded-full blur-[100px] -mr-48 -mt-48" />
-                    <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-500/20 rounded-full blur-[80px] -ml-32 -mb-32" />
-
-                    <div className="relative z-10">
-                        <h2 className="text-4xl md:text-6xl font-black text-white dark:text-[#1a1f24] mb-8 tracking-tighter uppercase italic">
-                            Ready to <span className="text-primary italic">Digitalize</span> Your Brand?
-                        </h2>
-                        <p className="max-w-xl mx-auto text-gray-400 dark:text-gray-600 mb-12 text-lg font-medium">
-                            Join the growing list of businesses transforming their operations with Acutix specialized ecosystems.
-                        </p>
-                        <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                            <a href="/contact" className="px-10 py-5 bg-primary text-white font-black uppercase text-sm tracking-widest rounded-2xl hover:bg-primary/90 transition-all shadow-[0_20px_40px_-10px_rgba(255,217,138,0.3)]">
-                                Start a Conversation
-                            </a>
-                            <a href="/about" className="px-10 py-5 bg-white/10 dark:bg-black/5 text-white dark:text-[#1a1f24] font-black uppercase text-sm tracking-widest rounded-2xl backdrop-blur-md border border-white/10 dark:border-black/10 hover:bg-white/20 dark:hover:bg-black/10 transition-all uppercase">
-                                Meet the Experts
-                            </a>
-                        </div>
-                    </div>
-                </motion.div>
-            </section>
         </div>
     );
 };
