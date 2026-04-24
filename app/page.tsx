@@ -4,6 +4,44 @@ import WhoWeAre from '../components/WhoWeAre';
 import WhatWeDo from '../components/WhatWeDo';
 
 export default function Home() {
+    const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What services does Acutix Soft provide?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Acutix Soft provides software development, web development, and digital solutions tailored for startups and small businesses."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Who should use Acutix Soft services?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Our services are ideal for startups, entrepreneurs, and small businesses looking to build scalable digital products."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What technologies are used by Acutix Soft?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We use modern technologies including web frameworks, AI tools, and cloud platforms to build efficient and scalable applications."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Acutix Soft offer custom software development?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, Acutix Soft specializes in custom software solutions designed to meet specific business needs."
+        }
+      }
+    ]
+  };
   return (
     <main>
       <div className="relative h-[200vh]">
@@ -56,6 +94,45 @@ export default function Home() {
         <WhoWeAre />
         <WhatWeDo />
       </div>
+
+      <section className="bg-white dark:bg-[#181c24] py-16 px-4 sm:px-6 lg:px-8 border-t border-gray-100 dark:border-gray-800">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-[#323b42] dark:text-white">Frequently Asked Questions</h2>
+          <div className="space-y-6">
+            <div className="bg-[#F8F3ED] dark:bg-[#23272b] p-6 rounded-lg shadow-sm">
+              <h3 className="text-xl font-semibold mb-2 text-[#323b42] dark:text-white">What services does Acutix Soft provide?</h3>
+              <p className="text-[#323b42] dark:text-gray-300">
+                Acutix Soft provides software development, web development, and digital solutions tailored for startups and small businesses.
+              </p>
+            </div>
+
+            <div className="bg-[#F8F3ED] dark:bg-[#23272b] p-6 rounded-lg shadow-sm">
+              <h3 className="text-xl font-semibold mb-2 text-[#323b42] dark:text-white">Who should use Acutix Soft services?</h3>
+              <p className="text-[#323b42] dark:text-gray-300">
+                Our services are ideal for startups, entrepreneurs, and small businesses looking to build scalable digital products.
+              </p>
+            </div>
+
+            <div className="bg-[#F8F3ED] dark:bg-[#23272b] p-6 rounded-lg shadow-sm">
+              <h3 className="text-xl font-semibold mb-2 text-[#323b42] dark:text-white">Does Acutix Soft offer custom software development?</h3>
+              <p className="text-[#323b42] dark:text-gray-300">
+                Yes, Acutix Soft specializes in custom software solutions designed to meet specific business needs.
+              </p>
+            </div>
+
+            <div className="bg-[#F8F3ED] dark:bg-[#23272b] p-6 rounded-lg shadow-sm">
+              <h3 className="text-xl font-semibold mb-2 text-[#323b42] dark:text-white">What technologies are used by Acutix Soft?</h3>
+              <p className="text-[#323b42] dark:text-gray-300">
+                We use modern technologies including web frameworks, AI tools, and cloud platforms to build efficient and scalable applications.
+              </p>
+            </div>
+          </div>
+        </div>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      </section>
     </main>
   );
 }
