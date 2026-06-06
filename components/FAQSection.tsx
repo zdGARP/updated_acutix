@@ -60,9 +60,9 @@ export default function FAQSection() {
         {faqs.map((faq, index) => (
           <details 
             key={index} 
-            className="group border border-gray-200 rounded-lg bg-white p-6 shadow-sm cursor-pointer [&_summary::-webkit-details-marker]:hidden"
+            className="group border border-blue-100 dark:border-[#23272b] rounded-xl bg-white dark:bg-gray-900 p-6 shadow-md cursor-pointer [&_summary::-webkit-details-marker]:hidden"
           >
-            <summary className="flex items-center justify-between font-semibold text-gray-900 text-lg">
+            <summary className="flex items-center justify-between font-semibold text-black dark:text-white text-lg hover:text-blue-600 dark:hover:text-blue-400 transition cursor-pointer">
               {faq.question}
               <span className="transition duration-300 group-open:rotate-180">
                 {/* A simple arrow icon */}
@@ -71,7 +71,7 @@ export default function FAQSection() {
                 </svg>
               </span>
             </summary>
-            <p className="mt-4 text-gray-600 leading-relaxed">
+            <p className="mt-4 text-gray-700 dark:text-white leading-relaxed">
               {faq.answer}
             </p>
           </details>

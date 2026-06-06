@@ -100,24 +100,3 @@ export default function Home() {
       </main>
     )
 }
-                Yes, Acutix Soft specializes in custom software solutions designed to meet specific business needs.
-              </p>
-            </div>
-
-            <div className="bg-[#F8F3ED] dark:bg-[#23272b] p-6 rounded-lg shadow-sm">
-              <h3 className="text-xl font-semibold mb-2 text-[#323b42] dark:text-white">What technologies are used by Acutix Soft?</h3>
-              <p className="text-[#323b42] dark:text-gray-300">
-                We use modern technologies including web frameworks, AI tools, and cloud platforms to build efficient and scalable applications.
-              </p>
-            </div>
-          </div>
-        </div>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-        />
-      </section>
-    </main>
-  );
-}
->>>>>>> origin/Divyanand
