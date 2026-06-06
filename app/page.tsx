@@ -2,6 +2,7 @@ import Image from 'next/image';
 import WhyAcutix from '../components/WhyAcutix';
 import WhoWeAre from '../components/WhoWeAre';
 import WhatWeDo from '../components/WhatWeDo';
+import FAQSection from '../components/FAQSection'; 
 
 export default function Home() {
   return (
@@ -52,10 +53,11 @@ export default function Home() {
         </section>
       </div>
       <div className="relative z-20 bg-white dark:bg-[#181c24]">
-        <WhyAcutix />
-        <WhoWeAre />
-        <WhatWeDo />
-      </div>
-    </main>
-  );
+          <WhyAcutix />
+          <WhoWeAre />
+          <WhatWeDo />
+          <FAQSection /> 
+        </div>
+      </main>
+    )
 }
