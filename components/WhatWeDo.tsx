@@ -1,3 +1,4 @@
+'use client';
 import { FaLaptopCode, FaChartLine, FaUniversity } from 'react-icons/fa';
 
 const services = [

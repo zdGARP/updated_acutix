@@ -1,8 +1,9 @@
+'use client';
 import Image from 'next/image';
-import WhyAcutix from '../components/WhyAcutix';
-import WhoWeAre from '../components/WhoWeAre';
-import WhatWeDo from '../components/WhatWeDo';
-import FAQSection from '../components/FAQSection'; 
+import WhyAcutix from '@/components/WhyAcutix';
+import WhoWeAre from '@/components/WhoWeAre';
+import WhatWeDo from '@/components/WhatWeDo';
+import FAQSection from '@/components/FAQSection'; 
 
 export default function Home() {
   return (
@@ -56,7 +57,7 @@ export default function Home() {
           <WhyAcutix />
           <WhoWeAre />
           <WhatWeDo />
-          <FAQSection /> 
+          <FAQSection />  
         </div>
       </main>
     )
