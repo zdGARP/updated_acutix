@@ -16,28 +16,59 @@ import {
     MessageSquare,
     Clock,
     FileText,
-    BadgeCheck
+    BadgeCheck,
+    Car,
+    Package
 } from 'lucide-react';
 
 const products = [
     {
+        id: 'ferticare',
+        name: 'FertiCare',
+        icon: <HeartPulse className="w-10 h-10 text-rose-500" />,
+        tagline: 'Fertility & Women\'s Health',
+        summary: 'FertiCare is a comprehensive clinic management platform designed for Obstetricians & Gynecologists (OBG), Fertility Specialists, IVF Centres, and Women\'s Healthcare Clinics.',
+        image: '/ascas.png',
+        themeColor: 'rose',
+        accentColor: '#f43f5e',
+        techStack: ['Next.js', 'React', 'Node.js', 'AWS'],
+        features: [
+            {
+                title: 'Patient Management',
+                desc: 'Digital patient registration, couple-based records, Electronic Medical Records (EMR), medical history tracking, and document storage.',
+                icon: <Users className="w-5 h-5" />
+            },
+            {
+                title: 'Fertility Tracking',
+                desc: 'Monitor Ovulation Induction (OI), Intrauterine Insemination (IUI), and In Vitro Fertilization (IVF) cycles with treatment history.',
+                icon: <Activity className="w-5 h-5" />
+            },
+            {
+                title: 'Lab & Billing',
+                desc: 'Investigation tracking, lab report management, semen analysis, DFI reports, package tracking, and payment collection.',
+                icon: <FileText className="w-5 h-5" />
+            }
+        ],
+        highlights: ['Couple-Based EMR', 'IUI/IVF Tracking', 'Semen & DFI Reports', 'WhatsApp Reminders']
+    },
+    {
         id: 'gym-pad',
-        name: 'Gym Pad',
+        name: 'GymPad',
         icon: <Activity className="w-10 h-10 text-blue-500" />,
-        tagline: 'Operational Clarity & Control',
-        summary: 'A structured digital ecosystem that streamlines gym operations through interconnected portals, enhancing the overall fitness management experience.',
+        tagline: 'Smart Fitness Management',
+        summary: 'GymPad is a comprehensive gym management platform designed to centralize gym operations, automate subscriptions, coordinate trainers, and deliver a better member experience.',
         image: '/fithub.png',
         themeColor: 'blue',
         accentColor: '#3b82f6',
         features: [
             {
                 title: 'Trainee Portal',
-                desc: 'Manage fitness journey, enroll in goal-aligned subscriptions (Weight Loss, Muscle Gain), book training slots, track attendance, and monitor physical progress.',
+                desc: 'Manage fitness journey, enroll in goal-aligned subscriptions, book training slots, track attendance, and monitor physical progress.',
                 icon: <Users className="w-5 h-5" />
             },
             {
                 title: 'Trainer Dashboard',
-                desc: 'View assigned trainees and schedules, manage daily attendance, create/update diet charts, and monitor performance metrics through a centralized view.',
+                desc: 'View assigned trainees and schedules, manage daily attendance, create/update diet charts, and monitor performance metrics.',
                 icon: <LayoutDashboard className="w-5 h-5" />
             },
             {
@@ -47,6 +78,62 @@ const products = [
             }
         ],
         highlights: ['Goal-Aligned Subscriptions', 'Integrated Trainer Chat', 'Real-time Slot Booking', 'Direct Trainer Guidance']
+    },
+    {
+        id: 'motor-consult',
+        name: 'MotorConsult',
+        icon: <Car className="w-10 h-10 text-amber-500" />,
+        tagline: 'Insurance & Vehicle Consulting',
+        summary: 'MotorConsult is a comprehensive business management platform designed for motor insurance consultants, vehicle brokers, RTO agents, and automotive service professionals.',
+        image: '/02.jpg',
+        themeColor: 'amber',
+        accentColor: '#f59e0b',
+        features: [
+            {
+                title: 'Policy Management',
+                desc: 'Track new policy registration, manage renewals, multiple providers, and policy history with automated alerts.',
+                icon: <FileText className="w-5 h-5" />
+            },
+            {
+                title: 'Claims Tracking',
+                desc: 'Digital claim registration, documentation uploads, real-time status tracking, and claim settlement records.',
+                icon: <Clock className="w-5 h-5" />
+            },
+            {
+                title: 'Commission Tracker',
+                desc: 'Monitor service charges, commission tracking, payment management, and comprehensive revenue analytics.',
+                icon: <LayoutDashboard className="w-5 h-5" />
+            }
+        ],
+        highlights: ['Automated Renewal Alerts', 'Claims Management', 'WhatsApp Notifications', 'Revenue & Commission']
+    },
+    {
+        id: 'box-care',
+        name: 'BoxCare',
+        icon: <Package className="w-10 h-10 text-purple-500" />,
+        tagline: 'CRM & E-Commerce for Packaging',
+        summary: 'BoxCare is a specialized CRM and e-commerce platform designed for corrugated box manufacturers, carton box manufacturers, and custom box suppliers.',
+        image: '/03.jpg',
+        themeColor: 'purple',
+        accentColor: '#a855f7',
+        features: [
+            {
+                title: 'Quotation Engine',
+                desc: 'Generate professional custom box quotations, support product-based pricing, and run quick approval workflows.',
+                icon: <FileText className="w-5 h-5" />
+            },
+            {
+                title: 'E-Commerce Portal',
+                desc: 'Self-service portal with product catalogs, custom order requests, online enquiry submissions, and tracking.',
+                icon: <LayoutDashboard className="w-5 h-5" />
+            },
+            {
+                title: 'CRM & Order Pipeline',
+                desc: 'Sales lead management, quotation-to-order conversion, production team access, and delivery status tracking.',
+                icon: <Users className="w-5 h-5" />
+            }
+        ],
+        highlights: ['CRM + E-Commerce Portal', 'Quotation Automation', 'Inventory Raw Materials', 'WhatsApp Order Updates']
     },
     {
         id: 'clinic-cms',
@@ -75,36 +162,6 @@ const products = [
             }
         ],
         highlights: ['Secure Onboarding', 'Verified Doc Access', 'Automated Notifications', 'Workflow Configuration']
-    },
-    //re
-    {
-        id: 'ascas-fertility',
-        name: 'ASCAS System',
-        icon: <HeartPulse className="w-10 h-10 text-rose-500" />,
-        tagline: 'Precision Fertility Management',
-        summary: 'A specialized fertility center system optimizing patient activities from appointment booking to specialized treatment tracking and integrated billing.',
-        image: '/ascas.png',
-        themeColor: 'rose',
-        accentColor: '#f43f5e',
-        techStack: ['React', 'Django', 'SQLite', 'AWS', 'AiSensy'],
-        features: [
-            {
-                title: 'Patient Journey',
-                desc: 'Manage fertility journey from a single dashboard. Book/reschedule appointments with WhatsApp reminders and view complete medical history.',
-                icon: <MessageSquare className="w-5 h-5" />
-            },
-            {
-                title: 'Clinical Workspace',
-                desc: 'Specialized modules for Pregnancy Care, IUI, DFI, IVF. Ready-made templates for documented consultations, procedures, and clinical notes.',
-                icon: <Zap className="w-5 h-5" />
-            },
-            {
-                title: 'Administrative Billing',
-                desc: 'Oversee in-patient stays, capture every consultation/procedure investigation, and generate error-free invoices to reduce revenue leakage.',
-                icon: <BadgeCheck className="w-5 h-5" />
-            }
-        ],
-        highlights: ['WhatsApp Integration', 'IUI/IVF Templates', 'In-Patient Tracking', 'Automated Invoicing']
     }
 ];
 

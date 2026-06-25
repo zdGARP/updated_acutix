@@ -6,44 +6,6 @@ import WhatWeDo from '@/components/WhatWeDo';
 import FAQSection from '@/components/FAQSection'; 
 
 export default function Home() {
-    const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "What services does Acutix Soft provide?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Acutix Soft provides software development, web development, and digital solutions tailored for startups and small businesses."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Who should use Acutix Soft services?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Our services are ideal for startups, entrepreneurs, and small businesses looking to build scalable digital products."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What technologies are used by Acutix Soft?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "We use modern technologies including web frameworks, AI tools, and cloud platforms to build efficient and scalable applications."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Does Acutix Soft offer custom software development?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes, Acutix Soft specializes in custom software solutions designed to meet specific business needs."
-        }
-      }
-    ]
-  };
   return (
     <main>
       <div className="relative h-[200vh]">
