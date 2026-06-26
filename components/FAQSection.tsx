@@ -35,13 +35,13 @@ export default function FAQSection() {
   ];
 
   return (
-    <section className="py-16 px-4 max-w-4xl mx-auto my-10">
-      <div className="text-center mb-10">
-        <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
+    <section className="py-20 px-6 max-w-4xl mx-auto">
+      <div className="text-center mb-16">
+        <h2 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl uppercase">
           Frequently Asked Questions
         </h2>
-        <p className="mt-4 text-lg leading-7 text-gray-600 dark:text-gray-300">
-          Everything you need to know about our company and services.
+        <p className="mt-4 text-base sm:text-lg text-gray-400 font-medium">
+          Everything you need to know about our digital systems and incubator workspace.
         </p>
       </div>
 
@@ -49,18 +49,18 @@ export default function FAQSection() {
         {faqs.map((faq, index) => (
           <details 
             key={index} 
-            className="group border border-blue-100 dark:border-[#23272b] rounded-xl bg-white dark:bg-gray-900 p-6 shadow-md cursor-pointer [&_summary::-webkit-details-marker]:hidden"
+            className="group border border-white/5 rounded-2xl bg-[#090b10]/60 p-6 shadow-xl hover:border-cyan-500/20 transition-all duration-300 cursor-pointer [&_summary::-webkit-details-marker]:hidden"
           >
-            <summary className="flex items-center justify-between font-semibold text-black dark:text-white text-lg hover:text-blue-600 dark:hover:text-blue-400 transition cursor-pointer">
+            <summary className="flex items-center justify-between font-bold text-gray-200 text-base sm:text-lg hover:text-cyan-400 transition-colors cursor-pointer">
               {faq.question}
-              <span className="transition duration-300 group-open:rotate-180">
+              <span className="transition duration-300 group-open:rotate-180 text-gray-500 group-hover:text-cyan-400">
                 {/* A simple arrow icon */}
                 <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24">
                   <path d="M6 9l6 6 6-6"></path>
                 </svg>
               </span>
             </summary>
-            <p className="mt-4 text-gray-700 dark:text-white leading-relaxed">
+            <p className="mt-4 text-gray-400 leading-relaxed text-sm sm:text-base">
               {faq.answer}
             </p>
           </details>

@@ -6,8 +6,6 @@ import {
   ArrowRight, 
   Sparkles, 
   Layers, 
-  Users, 
-  Briefcase, 
   GraduationCap, 
   CheckCircle
 } from 'lucide-react';
@@ -58,37 +56,37 @@ export default function HeroProductScroll() {
 
   const rotateVal = useTransform(scrollYProgress, [0, 1], [0, 360]);
   const counterRotateVal = useTransform(scrollYProgress, [0, 1], [0, -360]);
-  const scaleVal = useTransform(scrollYProgress, [0, 0.5, 1], [0.95, 1.08, 1]);
+  const scaleVal = useTransform(scrollYProgress, [0, 0.5, 1], [0.95, 1.05, 1]);
 
-  // Color mapping based on scroll index (4 sections)
+  // Distinct Color mapping based on scroll index (4 sections)
   const themeColors = [
     {
       accent: '#f97316', // Orange
       accentRgb: '249, 115, 22',
-      glow: 'rgba(249, 115, 22, 0.2)',
+      glow: 'rgba(249, 115, 22, 0.15)',
       textColor: 'text-orange-400',
       label: 'BRAND MISSION'
     },
     {
-      accent: '#06b6d4', // Cyan
-      accentRgb: '6, 182, 212',
-      glow: 'rgba(6, 182, 212, 0.2)',
-      textColor: 'text-cyan-400',
-      label: 'PRODUCTION TECH STACK'
+      accent: '#10b981', // Emerald Green
+      accentRgb: '16, 185, 129',
+      glow: 'rgba(16, 185, 129, 0.15)',
+      textColor: 'text-emerald-400',
+      label: 'CORE STACK & SERVICES'
     },
     {
-      accent: '#3b82f6', // Blue
+      accent: '#3b82f6', // Sapphire Blue
       accentRgb: '59, 130, 246',
-      glow: 'rgba(59, 130, 246, 0.2)',
+      glow: 'rgba(59, 130, 246, 0.15)',
       textColor: 'text-blue-400',
       label: 'PROPRIETARY SAAS SUITE'
     },
     {
-      accent: '#8b5cf6', // Purple
-      accentRgb: '139, 92, 246',
-      glow: 'rgba(139, 92, 246, 0.2)',
-      textColor: 'text-purple-400',
-      label: 'TARGET AUDIENCES & VALUES'
+      accent: '#ec4899', // Rose Pink
+      accentRgb: '236, 72, 153',
+      glow: 'rgba(236, 72, 153, 0.15)',
+      textColor: 'text-rose-400',
+      label: 'TALENT INCUBATOR'
     }
   ];
 
@@ -113,7 +111,7 @@ export default function HeroProductScroll() {
     >
       {/* Dynamic Ambient Background Glow */}
       <div 
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] rounded-full blur-[100px] sm:blur-[150px] opacity-25 pointer-events-none transition-all duration-1000 ease-out transform-gpu z-0"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] rounded-full blur-[100px] sm:blur-[150px] opacity-20 pointer-events-none transition-all duration-1000 ease-out transform-gpu z-0"
         style={{
           background: `radial-gradient(circle, ${currentTheme.accent} 0%, transparent 70%)`
         }}
@@ -137,7 +135,7 @@ export default function HeroProductScroll() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="space-y-6"
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-semibold tracking-wider text-orange-400 animate-pulse">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-semibold tracking-wider text-orange-400">
               <Sparkles className="w-3.5 h-3.5" />
               01 // ENTERPRISE SAAS & TECH INCUBATION
             </div>
@@ -160,17 +158,11 @@ export default function HeroProductScroll() {
               >
                 Explore B2B Solutions <ArrowRight className="w-4 h-4" />
               </a>
-              <a 
-                href="/careers" 
-                className="px-6 py-3 rounded-lg font-semibold text-sm bg-transparent border border-[#f97316] text-[#f97316] hover:bg-[#f97316]/10 transition duration-200"
-              >
-                Apply for Internship
-              </a>
             </div>
           </motion.div>
         </div>
 
-        {/* Block 02: Services & Tech (Theme: Cyan) */}
+        {/* Block 02: Services & Tech (Theme: Emerald Green) */}
         <div 
           data-index={1}
           className="scroll-section-trigger min-h-screen flex flex-col justify-center px-6 sm:px-12 lg:pl-20 lg:pr-10 py-24 sm:py-32"
@@ -182,14 +174,14 @@ export default function HeroProductScroll() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="space-y-6"
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-semibold tracking-wider text-cyan-400">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-semibold tracking-wider text-emerald-400">
               <Layers className="w-3.5 h-3.5" />
               02 // CORE TECHNOLOGY & SERVICES
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1]">
               Engineered For <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-500">
                 Speed & Scale
               </span>
             </h1>
@@ -201,26 +193,41 @@ export default function HeroProductScroll() {
             {/* Sleek list highlighting tech stack */}
             <div className="space-y-4 pt-2">
               <div className="flex items-start gap-3 p-4 rounded-xl bg-white/5 border border-white/10">
-                <CheckCircle className="w-5 h-5 text-cyan-400 mt-0.5 flex-shrink-0" />
+                <CheckCircle className="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0" />
                 <div>
                   <h4 className="font-semibold text-white text-sm sm:text-base">Web & Digital Development</h4>
                   <p className="text-xs sm:text-sm text-gray-400 font-medium">Next.js, React, Node.js, Python.</p>
                 </div>
               </div>
               <div className="flex items-start gap-3 p-4 rounded-xl bg-white/5 border border-white/10">
-                <CheckCircle className="w-5 h-5 text-cyan-400 mt-0.5 flex-shrink-0" />
+                <CheckCircle className="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0" />
                 <div>
                   <h4 className="font-semibold text-white text-sm sm:text-base">Custom Business Solutions</h4>
                   <p className="text-xs sm:text-sm text-gray-400 font-medium">High-performance cross-platform apps via Flutter.</p>
                 </div>
               </div>
               <div className="flex items-start gap-3 p-4 rounded-xl bg-white/5 border border-white/10">
-                <CheckCircle className="w-5 h-5 text-cyan-400 mt-0.5 flex-shrink-0" />
+                <CheckCircle className="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0" />
                 <div>
                   <h4 className="font-semibold text-white text-sm sm:text-base">Cloud Infrastructure</h4>
                   <p className="text-xs sm:text-sm text-gray-400 font-medium">AWS hosting, built-in AEO compliance, strict SSL.</p>
                 </div>
               </div>
+            </div>
+
+            <div className="flex flex-wrap gap-4 items-center mt-8">
+              <a 
+                href="/services" 
+                className="px-6 py-3 rounded-lg font-bold text-sm bg-emerald-500 text-black shadow-lg hover:scale-105 transition duration-200 inline-flex items-center gap-2"
+              >
+                Our Services <ArrowRight className="w-4 h-4" />
+              </a>
+              <a 
+                href="/blogs" 
+                className="px-6 py-3 rounded-lg font-bold text-sm border border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/10 hover:border-emerald-500 transition duration-200 inline-flex items-center gap-2"
+              >
+                Read Tech Blogs <ArrowRight className="w-4 h-4" />
+              </a>
             </div>
           </motion.div>
         </div>
@@ -250,7 +257,7 @@ export default function HeroProductScroll() {
             </h1>
 
             <p className="text-gray-300 text-base sm:text-lg leading-relaxed">
-              Discover our suite of proprietary enterprise engines designed to automate complex workflows across multiple sectors.
+              Discover our suite of proprietary enterprise engines designed to automate complex workflows across multiple sectors. We build custom-tailored B2B systems that eliminate manual inefficiencies, standardise operational data, and provide role-based access controls for optimal workflow coordination and long-term business growth.
             </p>
 
             {/* Sleek 2x2 grid displaying the 4 product names */}
@@ -284,7 +291,7 @@ export default function HeroProductScroll() {
           </motion.div>
         </div>
 
-        {/* Block 04: Audiences & Why Us (Theme: Purple) */}
+        {/* Block 04: Audiences & Value (Theme: Rose Pink) - Student focused */}
         <div 
           data-index={3}
           className="scroll-section-trigger min-h-screen flex flex-col justify-center px-6 sm:px-12 lg:pl-20 lg:pr-10 py-24 sm:py-32"
@@ -296,38 +303,46 @@ export default function HeroProductScroll() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="space-y-6"
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-semibold tracking-wider text-purple-400">
-              <Users className="w-3.5 h-3.5" />
-              04 // TARGET AUDIENCES & VALUE
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-semibold tracking-wider text-rose-400">
+              <Sparkles className="w-3.5 h-3.5" />
+              04 // STUDENT TECH INCUBATION & VALUE
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1]">
-              Bridging B2B & <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-indigo-500">
-                Emerging Talent
+              Cultivating Next-Gen <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-400 to-pink-500">
+                Tech Talent
               </span>
             </h1>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-2">
-              <div className="p-5 rounded-2xl bg-white/5 border border-white/10 hover:border-purple-500/30 transition-colors">
-                <Briefcase className="w-6 h-6 text-purple-400 mb-3" />
-                <h4 className="font-bold text-white mb-1.5 uppercase text-sm tracking-wider">FOR B2B CLIENTS</h4>
-                <p className="text-xs text-gray-400 leading-relaxed">
-                  Highly scalable, cost-effective SaaS products and custom systems designed to automate workflows and drive digital growth.
-                </p>
+            <p className="text-gray-300 text-base sm:text-lg leading-relaxed">
+              Our tech incubation program in Chennai provides final-year students and emerging tech professionals with a structured, high-intensity internship environment. Under the guidance of senior architects, interns work directly on live, commercial-grade enterprise applications, bridging the gap between academic theory and practical software engineering. We offer robust career placement assistance, mock interviews, and final-year thesis mentorship.
+            </p>
+
+            <div className="grid grid-cols-1 gap-4 pt-2">
+              <div className="p-5 rounded-2xl bg-white/5 border border-white/10 hover:border-rose-500/30 transition-colors flex gap-4 items-start">
+                <GraduationCap className="w-8 h-8 text-rose-400 flex-shrink-0 mt-1" />
+                <div>
+                  <h4 className="font-bold text-white mb-1.5 uppercase text-sm tracking-wider">FOR TECH STUDENTS</h4>
+                  <p className="text-xs text-gray-400 leading-relaxed">
+                    Immerse yourself in live, production-grade applications under direct guidance. Master full-stack architectures (Next.js, Node, Flutter, AWS) and gain practical experience to secure placements at leading technology firms.
+                  </p>
+                </div>
               </div>
-              <div className="p-5 rounded-2xl bg-white/5 border border-white/10 hover:border-purple-500/30 transition-colors">
-                <GraduationCap className="w-6 h-6 text-purple-400 mb-3" />
-                <h4 className="font-bold text-white mb-1.5 uppercase text-sm tracking-wider">FOR TECH STUDENTS</h4>
-                <p className="text-xs text-gray-400 leading-relaxed">
-                  A high-intensity internship environment featuring live projects, placement coaching, and mentorship for final-year research.
-                </p>
-              </div>
+            </div>
+
+            <div className="pt-4 flex flex-wrap gap-4 items-center">
+              <a 
+                href="/careers" 
+                className="px-6 py-3 rounded-lg font-bold text-sm bg-[#ec4899] text-white shadow-lg hover:scale-105 transition duration-200 inline-flex items-center gap-2"
+              >
+                Apply for Internship <ArrowRight className="w-4 h-4" />
+              </a>
             </div>
 
             {/* Legacy Core values text row */}
             <div className="pt-8 border-t border-white/5">
-              <p className="text-[10px] sm:text-xs font-mono tracking-widest text-purple-400/80 uppercase text-center sm:text-left leading-relaxed">
+              <p className="text-[10px] sm:text-xs font-mono tracking-widest text-rose-400/80 uppercase text-center sm:text-left leading-relaxed">
                 Transformative Solutions &bull; Rapid Results &bull; Empowering Local Talent
               </p>
             </div>
@@ -337,34 +352,34 @@ export default function HeroProductScroll() {
       </div>
 
       {/* RIGHT COLUMN: Pinned Visual Graphic */}
-      <div className="w-full lg:w-1/2 h-[45vh] lg:h-screen sticky top-[64px] lg:top-0 flex items-center justify-center p-6 z-20 pointer-events-none lg:pointer-events-auto bg-[#07090e] lg:bg-transparent border-b lg:border-b-0 border-white/5">
+      <div className="w-full lg:w-1/2 h-[45vh] lg:h-screen sticky top-[64px] lg:top-0 flex flex-col items-center justify-center p-6 z-20 pointer-events-none lg:pointer-events-auto bg-[#07090e] lg:bg-transparent border-b lg:border-b-0 border-white/5">
         
-        <div className="relative w-full max-w-[450px] aspect-square flex items-center justify-center">
+        <div className="relative w-full max-w-[420px] aspect-[4/3] sm:aspect-square flex items-center justify-center">
           
           {/* Subtle Ambient Behind Graphic */}
           <div 
-            className="absolute inset-0 rounded-full blur-3xl opacity-30 transition-all duration-1000"
+            className="absolute inset-0 rounded-full blur-3xl opacity-20 transition-all duration-1000"
             style={{
               background: `radial-gradient(circle, ${currentTheme.accent} 0%, transparent 60%)`
             }}
           />
 
-          {/* Centered Acutix Core Sphere/Box - Scales on scroll */}
+          {/* Centered Acutix Core Sphere/Box - Scaled down slightly to prevent overlapping text */}
           <motion.div 
             style={{ scale: scaleVal }}
-            className="relative w-72 h-72 flex items-center justify-center z-10"
+            className="relative w-64 h-64 flex items-center justify-center z-10"
           >
             {/* Concentric Circle 3 (Outer - Rotates clock-wise) */}
             <motion.div 
               style={{ rotate: rotateVal }}
-              className="absolute w-72 h-72 rounded-full border border-dashed border-white/10 flex items-center justify-center"
+              className="absolute w-60 h-60 rounded-full border border-dashed border-white/10 flex items-center justify-center"
             >
               <div 
-                className="absolute top-0 w-3 h-3 rounded-full transition-all duration-1000 shadow-[0_0_12px_currentColor]"
+                className="absolute top-0 w-2.5 h-2.5 rounded-full transition-all duration-1000 shadow-[0_0_10px_currentColor]"
                 style={{ color: currentTheme.accent, backgroundColor: currentTheme.accent }}
               />
               <div 
-                className="absolute bottom-0 w-3 h-3 rounded-full transition-all duration-1000 shadow-[0_0_12px_currentColor]"
+                className="absolute bottom-0 w-2.5 h-2.5 rounded-full transition-all duration-1000 shadow-[0_0_10px_currentColor]"
                 style={{ color: currentTheme.accent, backgroundColor: currentTheme.accent }}
               />
             </motion.div>
@@ -372,7 +387,7 @@ export default function HeroProductScroll() {
             {/* Concentric Circle 2 (Middle - Rotates counter clock-wise) */}
             <motion.div 
               style={{ rotate: counterRotateVal }}
-              className="absolute w-52 h-52 rounded-full border border-double border-white/15 flex items-center justify-center"
+              className="absolute w-44 h-44 rounded-full border border-double border-white/15 flex items-center justify-center"
             >
               <div 
                 className="absolute left-0 w-2 h-2 rounded-full opacity-70 transition-all duration-1000"
@@ -447,15 +462,15 @@ export default function HeroProductScroll() {
 
             {/* Inner Core Sphere (Central glowing core) */}
             <div 
-              className="absolute w-28 h-28 rounded-full border border-white/20 flex flex-col items-center justify-center bg-[#0d1017] shadow-inner transition-all duration-1000"
+              className="absolute w-24 h-24 rounded-full border border-white/20 flex flex-col items-center justify-center bg-[#0d1017] shadow-inner transition-all duration-1000"
               style={{
-                boxShadow: `inset 0 0 20px ${currentTheme.glow}, 0 0 35px ${currentTheme.glow}`
+                boxShadow: `inset 0 0 15px ${currentTheme.glow}, 0 0 25px ${currentTheme.glow}`
               }}
             >
               {/* Inner Pulsing Element */}
               <motion.div 
                 animate={{ 
-                  scale: [1, 1.1, 1],
+                  scale: [1, 1.08, 1],
                   opacity: [0.8, 1, 0.8]
                 }}
                 transition={{ 
@@ -463,7 +478,7 @@ export default function HeroProductScroll() {
                   duration: 2.5, 
                   ease: "easeInOut" 
                 }}
-                className="w-16 h-16 rounded-full flex items-center justify-center font-black tracking-widest text-[11px] font-mono select-none"
+                className="w-14 h-14 rounded-full flex items-center justify-center font-black tracking-widest text-[10px] font-mono select-none"
                 style={{ 
                   color: currentTheme.accent,
                   background: `rgba(${currentTheme.accentRgb}, 0.05)`,
@@ -491,7 +506,7 @@ export default function HeroProductScroll() {
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.8 }}
-                  className="absolute -top-16 bg-[#0c0f16]/95 border border-cyan-500/30 px-3 py-1.5 rounded-lg text-[10px] font-bold font-mono tracking-wider shadow-lg text-cyan-400"
+                  className="absolute -top-16 bg-[#0c0f16]/95 border border-emerald-500/30 px-3 py-1.5 rounded-lg text-[10px] font-bold font-mono tracking-wider shadow-lg text-emerald-400"
                 >
                   NEXT.JS // FLUTTER // AWS
                 </motion.div>
@@ -511,9 +526,9 @@ export default function HeroProductScroll() {
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.8 }}
-                  className="absolute -top-16 bg-[#0c0f16]/95 border border-purple-500/30 px-3 py-1.5 rounded-lg text-[10px] font-bold font-mono tracking-wider shadow-lg text-purple-400"
+                  className="absolute -top-16 bg-[#0c0f16]/95 border border-rose-500/30 px-3 py-1.5 rounded-lg text-[10px] font-bold font-mono tracking-wider shadow-lg text-rose-400"
                 >
-                  B2B CLIENTS & STUDENT WORKSPACE
+                  TALENT INCUBATOR
                 </motion.div>
               )}
             </AnimatePresence>
@@ -521,13 +536,16 @@ export default function HeroProductScroll() {
           </motion.div>
           
           {/* Dynamic Info overlays */}
-          <div className="absolute bottom-4 left-4 font-mono text-xs text-gray-500 tracking-widest flex items-center gap-1.5 select-none pointer-events-none">
-            <span className="w-1.5 h-1.5 rounded-full animate-ping" style={{ backgroundColor: currentTheme.accent }}></span>
-            <span>SYSTEM STATE: {currentTheme.label}</span>
-          </div>
-
-          <div className="absolute bottom-4 right-4 font-mono text-xs text-gray-500 tracking-widest select-none pointer-events-none">
-            INDEX: 0{activeIndex + 1} {"//"} 04
+          <div className="absolute bottom-4 left-0 right-0 w-full flex flex-col sm:flex-row items-center sm:justify-between gap-2 px-6 font-mono text-[10px] sm:text-xs text-gray-500 tracking-widest select-none pointer-events-none">
+            <div className="flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full animate-ping" style={{ backgroundColor: currentTheme.accent }}></span>
+              <span>
+                SYSTEM STATE: <span className="transition-colors duration-500 font-bold" style={{ color: currentTheme.accent }}>{currentTheme.label}</span>
+              </span>
+            </div>
+            <div className="text-gray-400 font-medium">
+              INDEX: 0{activeIndex + 1} {"//"} 04
+            </div>
           </div>
 
         </div>
