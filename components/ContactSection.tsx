@@ -47,13 +47,13 @@ const ContactSection = () => {
   };
 
   return (
-    <section className="relative py-12">
+    <section className="relative pt-32 pb-12">
       <div
         className="absolute inset-0 w-full h-full bg-gradient-to-br from-primary-100 via-white to-primary-200 dark:from-primary-950 dark:via-gray-900 dark:to-primary-900 z-0"
         style={{ filter: 'blur(8px)', opacity: 0.5 }}></div>
       <div className="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         <div className="mb-10 text-center">
-          <h1 className="text-4xl font-extrabold text-[#323b42] dark:text-[#323b42] mb-2 tracking-tight animate-fadeUp drop-shadow-lg flex items-center justify-center gap-2">
+          <h1 className="text-4xl font-extrabold text-[#323b42] dark:text-white mb-2 tracking-tight animate-fadeUp drop-shadow-lg flex items-center justify-center gap-2">
             Contact Acutix
           </h1>
 

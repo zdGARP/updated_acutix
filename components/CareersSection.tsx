@@ -67,7 +67,7 @@ const galleryImages = Array.from({ length: 8 }, (_, i) => `/gallery_0${i + 1}.jp
 
 const CareersSection = () => {
   return (
-    <section className="relative py-12 bg-white dark:bg-[#23272b]">
+    <section className="relative pt-32 pb-12 bg-white dark:bg-[#23272b]">
       <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="mb-10 text-center">
           <h1 className="text-4xl font-extrabold text-[#323b42] dark:text-white mb-2 tracking-tight animate-fadeUp drop-shadow-lg flex items-center justify-center gap-2">
