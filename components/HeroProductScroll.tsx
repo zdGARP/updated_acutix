@@ -5,9 +5,7 @@ import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion'
 import { 
   ArrowRight, 
   Sparkles, 
-  MapPin, 
   Layers, 
-  Cpu, 
   Users, 
   Briefcase, 
   GraduationCap, 
@@ -137,45 +135,36 @@ export default function HeroProductScroll() {
           >
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-semibold tracking-wider text-orange-400">
               <Sparkles className="w-3.5 h-3.5" />
-              01 // BRAND IDENTITY & MISSION
+              01 // ENTERPRISE SAAS & TECH INCUBATION
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1]">
-              Digital Transformation <br />
+              Architecting Scalable SaaS. <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-400">
-                Redefined
+                Cultivating Tech Talent.
               </span>
             </h1>
 
             <p className="text-gray-300 text-base sm:text-lg leading-relaxed">
-              Based in Chennai, India, Acutix Soft LLP is a digital transformation and custom software engineering firm. We specialize in delivering highly scalable, custom enterprise solutions while simultaneously cultivating emerging tech talent.
+              Based in Chennai, Acutix Soft LLP bridges the critical gap between commercial software execution and hands-on developer training. We are a digital transformation hub uniquely designed to serve both enterprise clients and emerging professionals.
             </p>
 
-            <p className="text-gray-400 text-base">
-              By bridging the gap between high-end commercial delivery and hands-on training, we enable businesses to leverage cutting-edge platforms while providing vital industrial exposure to final-year students.
+            <p className="text-gray-400 text-base sm:text-lg leading-relaxed">
+              We build highly scalable, pocket-friendly SaaS solutions that drive measurable business impact, while immersing final-year students in live, commercial-grade projects under expert mentorship.
             </p>
 
-            <div className="grid grid-cols-2 gap-6 pt-4 border-t border-white/5">
-              <div className="space-y-1.5">
-                <div className="flex items-center gap-2 text-orange-400 font-bold text-sm">
-                  <MapPin className="w-4 h-4" /> CHENNAI, INDIA
-                </div>
-                <p className="text-xs text-gray-500">HQ & Incubation Facility</p>
-              </div>
-              <div className="space-y-1.5">
-                <div className="flex items-center gap-2 text-orange-400 font-bold text-sm">
-                  <Cpu className="w-4 h-4" /> ENTERPRISE DEV
-                </div>
-                <p className="text-xs text-gray-500">High-Performance Platforms</p>
-              </div>
-            </div>
-
-            <div className="pt-6">
+            <div className="flex flex-wrap gap-4 items-center mt-8">
               <a 
                 href="/contact" 
-                className="px-6 py-3 rounded-lg font-bold text-sm bg-gradient-to-r from-orange-500 to-amber-500 text-black shadow-lg hover:brightness-110 transition inline-flex items-center gap-2"
+                className="px-6 py-3 rounded-lg font-bold text-sm bg-[#f97316] text-black shadow-lg hover:scale-105 transition duration-200 flex items-center gap-2"
               >
-                Work With Us <ArrowRight className="w-4 h-4" />
+                Explore B2B Solutions <ArrowRight className="w-4 h-4" />
+              </a>
+              <a 
+                href="/careers" 
+                className="px-6 py-3 rounded-lg font-semibold text-sm bg-transparent border border-[#f97316] text-[#f97316] hover:bg-[#f97316]/10 transition duration-200"
+              >
+                Apply for Internship
               </a>
             </div>
           </motion.div>
@@ -450,7 +439,7 @@ export default function HeroProductScroll() {
                   exit={{ opacity: 0, scale: 0.8 }}
                   className="absolute -top-16 bg-[#0c0f16]/95 border border-orange-500/30 px-3 py-1.5 rounded-lg text-[10px] font-bold font-mono tracking-wider shadow-lg text-orange-400"
                 >
-                  DIGITAL TRANSFORMATION
+                  ACUTIX CORE ENGINE
                 </motion.div>
               )}
               {activeIndex === 1 && (
@@ -478,12 +467,12 @@ export default function HeroProductScroll() {
           </motion.div>
           
           {/* Dynamic Info overlays */}
-          <div className="absolute bottom-4 left-4 font-mono text-[9px] text-gray-500 tracking-wider flex items-center gap-1.5 select-none pointer-events-none">
+          <div className="absolute bottom-4 left-4 font-mono text-xs text-gray-500 tracking-widest flex items-center gap-1.5 select-none pointer-events-none">
             <span className="w-1.5 h-1.5 rounded-full animate-ping" style={{ backgroundColor: currentTheme.accent }}></span>
             <span>SYSTEM STATE: {currentTheme.label}</span>
           </div>
 
-          <div className="absolute bottom-4 right-4 font-mono text-[9px] text-gray-500 select-none pointer-events-none">
+          <div className="absolute bottom-4 right-4 font-mono text-xs text-gray-500 tracking-widest select-none pointer-events-none">
             INDEX: 0{activeIndex + 1} {"//"} 03
           </div>
 
