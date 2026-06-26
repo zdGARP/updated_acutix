@@ -60,13 +60,12 @@ export default function HeroProductScroll() {
   const counterRotateVal = useTransform(scrollYProgress, [0, 1], [0, -360]);
   const scaleVal = useTransform(scrollYProgress, [0, 0.5, 1], [0.95, 1.08, 1]);
 
-  // Color mapping based on scroll index
+  // Color mapping based on scroll index (4 sections)
   const themeColors = [
     {
       accent: '#f97316', // Orange
       accentRgb: '249, 115, 22',
       glow: 'rgba(249, 115, 22, 0.2)',
-      bgClass: 'from-orange-500/20 to-amber-500/5',
       textColor: 'text-orange-400',
       label: 'BRAND MISSION'
     },
@@ -74,17 +73,22 @@ export default function HeroProductScroll() {
       accent: '#06b6d4', // Cyan
       accentRgb: '6, 182, 212',
       glow: 'rgba(6, 182, 212, 0.2)',
-      bgClass: 'from-cyan-500/20 to-blue-500/5',
       textColor: 'text-cyan-400',
       label: 'PRODUCTION TECH STACK'
+    },
+    {
+      accent: '#3b82f6', // Blue
+      accentRgb: '59, 130, 246',
+      glow: 'rgba(59, 130, 246, 0.2)',
+      textColor: 'text-blue-400',
+      label: 'PROPRIETARY SAAS SUITE'
     },
     {
       accent: '#8b5cf6', // Purple
       accentRgb: '139, 92, 246',
       glow: 'rgba(139, 92, 246, 0.2)',
-      bgClass: 'from-purple-500/20 to-indigo-500/5',
       textColor: 'text-purple-400',
-      label: 'TARGET AUDIENCES'
+      label: 'TARGET AUDIENCES & VALUES'
     }
   ];
 
@@ -94,8 +98,8 @@ export default function HeroProductScroll() {
   if (!mounted) {
     return (
       <div className="w-full min-h-screen bg-[#07090e] flex items-center justify-center">
-        <div className="text-orange-500/60 font-mono text-sm tracking-widest animate-pulse flex items-center gap-3">
-          <span className="w-2 h-2 rounded-full bg-orange-500 animate-ping"></span>
+        <div className="text-cyan-500/60 font-mono text-sm tracking-widest animate-pulse flex items-center gap-3">
+          <span className="w-2 h-2 rounded-full bg-cyan-500 animate-ping"></span>
           <span>LOADING ACUTIX ENGINE...</span>
         </div>
       </div>
@@ -105,7 +109,7 @@ export default function HeroProductScroll() {
   return (
     <div 
       ref={containerRef} 
-      className="relative w-full bg-[#07090e] text-white flex flex-col lg:flex-row items-stretch min-h-[300vh] z-10"
+      className="relative w-full bg-[#07090e] text-white flex flex-col lg:flex-row items-stretch min-h-[400vh] z-10"
     >
       {/* Dynamic Ambient Background Glow */}
       <div 
@@ -121,7 +125,7 @@ export default function HeroProductScroll() {
       {/* LEFT COLUMN: The Scrolling Story */}
       <div className="w-full lg:w-1/2 flex flex-col relative z-10">
         
-        {/* Block 1: Brand Identity & Mission */}
+        {/* Block 01: Brand Identity & Mission (Theme: Orange) */}
         <div 
           data-index={0}
           className="scroll-section-trigger min-h-screen flex flex-col justify-center px-6 sm:px-12 lg:pl-20 lg:pr-10 py-24 sm:py-32"
@@ -133,7 +137,7 @@ export default function HeroProductScroll() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="space-y-6"
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-semibold tracking-wider text-orange-400">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-semibold tracking-wider text-orange-400 animate-pulse">
               <Sparkles className="w-3.5 h-3.5" />
               01 // ENTERPRISE SAAS & TECH INCUBATION
             </div>
@@ -146,11 +150,7 @@ export default function HeroProductScroll() {
             </h1>
 
             <p className="text-gray-300 text-base sm:text-lg leading-relaxed">
-              Based in Chennai, Acutix Soft LLP bridges the critical gap between commercial software execution and hands-on developer training. We are a digital transformation hub uniquely designed to serve both enterprise clients and emerging professionals.
-            </p>
-
-            <p className="text-gray-400 text-base sm:text-lg leading-relaxed">
-              We build highly scalable, pocket-friendly SaaS solutions that drive measurable business impact, while immersing final-year students in live, commercial-grade projects under expert mentorship.
+              Based in Chennai, Acutix Soft LLP bridges the critical gap between commercial software execution and hands-on developer training. We are a digital transformation hub uniquely designed to serve both enterprise clients and emerging professionals. We build highly scalable, pocket-friendly SaaS solutions that drive measurable business impact, while immersing final-year students in live, commercial-grade projects under expert mentorship.
             </p>
 
             <div className="flex flex-wrap gap-4 items-center mt-8">
@@ -170,7 +170,7 @@ export default function HeroProductScroll() {
           </motion.div>
         </div>
 
-        {/* Block 2: Core Technology Stack */}
+        {/* Block 02: Services & Tech (Theme: Cyan) */}
         <div 
           data-index={1}
           className="scroll-section-trigger min-h-screen flex flex-col justify-center px-6 sm:px-12 lg:pl-20 lg:pr-10 py-24 sm:py-32"
@@ -184,7 +184,7 @@ export default function HeroProductScroll() {
           >
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-semibold tracking-wider text-cyan-400">
               <Layers className="w-3.5 h-3.5" />
-              02 // CORE TECHNOLOGY STACK
+              02 // CORE TECHNOLOGY & SERVICES
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1]">
@@ -195,46 +195,37 @@ export default function HeroProductScroll() {
             </h1>
 
             <p className="text-gray-300 text-base sm:text-lg leading-relaxed">
-              We construct lightweight, secure cloud-native platforms with built-in Answer Engine Optimization (AEO) compliance. This demands fast page loading, highly structured metadata, and clean semantic markup.
+              We construct lightweight, secure cloud-native platforms with built-in Answer Engine Optimization (AEO) compliance. This demands fast page loading, highly structured metadata, and clean semantic HTML markup.
             </p>
 
-            {/* Bullet list of tech stack components */}
-            <div className="space-y-3 pt-2">
-              <div className="flex items-start gap-3">
+            {/* Sleek list highlighting tech stack */}
+            <div className="space-y-4 pt-2">
+              <div className="flex items-start gap-3 p-4 rounded-xl bg-white/5 border border-white/10">
                 <CheckCircle className="w-5 h-5 text-cyan-400 mt-0.5 flex-shrink-0" />
                 <div>
-                  <h4 className="font-semibold text-white text-sm sm:text-base">Web & Backend Architecture</h4>
-                  <p className="text-xs sm:text-sm text-gray-400">Next.js (App Router), React, Node.js REST APIs, and Python engines.</p>
+                  <h4 className="font-semibold text-white text-sm sm:text-base">Web & Digital Development</h4>
+                  <p className="text-xs sm:text-sm text-gray-400 font-medium">Next.js, React, Node.js, Python.</p>
                 </div>
               </div>
-              <div className="flex items-start gap-3">
+              <div className="flex items-start gap-3 p-4 rounded-xl bg-white/5 border border-white/10">
                 <CheckCircle className="w-5 h-5 text-cyan-400 mt-0.5 flex-shrink-0" />
                 <div>
-                  <h4 className="font-semibold text-white text-sm sm:text-base">Mobile App Ecosystem</h4>
-                  <p className="text-xs sm:text-sm text-gray-400">High-performance cross-platform apps via Flutter and React Native.</p>
+                  <h4 className="font-semibold text-white text-sm sm:text-base">Custom Business Solutions</h4>
+                  <p className="text-xs sm:text-sm text-gray-400 font-medium">High-performance cross-platform apps via Flutter.</p>
                 </div>
               </div>
-              <div className="flex items-start gap-3">
+              <div className="flex items-start gap-3 p-4 rounded-xl bg-white/5 border border-white/10">
                 <CheckCircle className="w-5 h-5 text-cyan-400 mt-0.5 flex-shrink-0" />
                 <div>
                   <h4 className="font-semibold text-white text-sm sm:text-base">Cloud Infrastructure</h4>
-                  <p className="text-xs sm:text-sm text-gray-400">AWS hosting with multi-zone redundancy, CDN caching, and strict SSL policies.</p>
+                  <p className="text-xs sm:text-sm text-gray-400 font-medium">AWS hosting, built-in AEO compliance, strict SSL.</p>
                 </div>
               </div>
-            </div>
-
-            <div className="pt-6">
-              <a 
-                href="/services" 
-                className="px-6 py-3 rounded-lg font-bold text-sm bg-gradient-to-r from-cyan-500 to-blue-500 text-black shadow-lg hover:brightness-110 transition inline-flex items-center gap-2"
-              >
-                Our Services <ArrowRight className="w-4 h-4" />
-              </a>
             </div>
           </motion.div>
         </div>
 
-        {/* Block 3: Target Audiences */}
+        {/* Block 03: The SaaS Suite (Theme: Blue) */}
         <div 
           data-index={2}
           className="scroll-section-trigger min-h-screen flex flex-col justify-center px-6 sm:px-12 lg:pl-20 lg:pr-10 py-24 sm:py-32"
@@ -246,9 +237,68 @@ export default function HeroProductScroll() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="space-y-6"
           >
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-semibold tracking-wider text-blue-400">
+              <Sparkles className="w-3.5 h-3.5" />
+              03 // PROPRIETARY SAAS SUITE
+            </div>
+
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1]">
+              Industry-Specific <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-500">
+                Platforms
+              </span>
+            </h1>
+
+            <p className="text-gray-300 text-base sm:text-lg leading-relaxed">
+              Discover our suite of proprietary enterprise engines designed to automate complex workflows across multiple sectors.
+            </p>
+
+            {/* Sleek 2x2 grid displaying the 4 product names */}
+            <div className="grid grid-cols-2 gap-4 my-6">
+              <div className="p-4 rounded-xl bg-white/5 border border-white/10 flex items-center gap-3">
+                <span className="w-2.5 h-2.5 rounded-full bg-blue-500 shadow-[0_0_8px_rgba(59,130,246,0.6)]"></span>
+                <span className="font-semibold text-sm tracking-wide">FertiCare</span>
+              </div>
+              <div className="p-4 rounded-xl bg-white/5 border border-white/10 flex items-center gap-3">
+                <span className="w-2.5 h-2.5 rounded-full bg-blue-500 shadow-[0_0_8px_rgba(59,130,246,0.6)]"></span>
+                <span className="font-semibold text-sm tracking-wide">GymPad</span>
+              </div>
+              <div className="p-4 rounded-xl bg-white/5 border border-white/10 flex items-center gap-3">
+                <span className="w-2.5 h-2.5 rounded-full bg-blue-500 shadow-[0_0_8px_rgba(59,130,246,0.6)]"></span>
+                <span className="font-semibold text-sm tracking-wide">MotorConsult</span>
+              </div>
+              <div className="p-4 rounded-xl bg-white/5 border border-white/10 flex items-center gap-3">
+                <span className="w-2.5 h-2.5 rounded-full bg-blue-500 shadow-[0_0_8px_rgba(59,130,246,0.6)]"></span>
+                <span className="font-semibold text-sm tracking-wide">BoxCare</span>
+              </div>
+            </div>
+
+            <div className="pt-2">
+              <a 
+                href="/products" 
+                className="px-6 py-3 rounded-lg font-bold text-sm bg-blue-600 hover:bg-blue-500 text-white shadow-[0_0_15px_rgba(59,130,246,0.4)] transition-all duration-200 inline-flex items-center gap-2"
+              >
+                View All Products <ArrowRight className="w-4 h-4" />
+              </a>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Block 04: Audiences & Why Us (Theme: Purple) */}
+        <div 
+          data-index={3}
+          className="scroll-section-trigger min-h-screen flex flex-col justify-center px-6 sm:px-12 lg:pl-20 lg:pr-10 py-24 sm:py-32"
+        >
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.3 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="space-y-6"
+          >
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-semibold tracking-wider text-purple-400">
               <Users className="w-3.5 h-3.5" />
-              03 // TARGET AUDIENCES
+              04 // TARGET AUDIENCES & VALUE
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1]">
@@ -258,34 +308,28 @@ export default function HeroProductScroll() {
               </span>
             </h1>
 
-            <p className="text-gray-300 text-base sm:text-lg leading-relaxed">
-              We operate as a dual-mission firm: delivering high-end digital infrastructure to businesses while incubating final-year students into industry-ready engineers.
-            </p>
-
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-2">
               <div className="p-5 rounded-2xl bg-white/5 border border-white/10 hover:border-purple-500/30 transition-colors">
                 <Briefcase className="w-6 h-6 text-purple-400 mb-3" />
-                <h4 className="font-bold text-white mb-1.5 uppercase text-sm tracking-wider">For B2B Clients</h4>
+                <h4 className="font-bold text-white mb-1.5 uppercase text-sm tracking-wider">FOR B2B CLIENTS</h4>
                 <p className="text-xs text-gray-400 leading-relaxed">
                   Highly scalable, cost-effective SaaS products and custom systems designed to automate workflows and drive digital growth.
                 </p>
               </div>
               <div className="p-5 rounded-2xl bg-white/5 border border-white/10 hover:border-purple-500/30 transition-colors">
                 <GraduationCap className="w-6 h-6 text-purple-400 mb-3" />
-                <h4 className="font-bold text-white mb-1.5 uppercase text-sm tracking-wider">For Tech Students</h4>
+                <h4 className="font-bold text-white mb-1.5 uppercase text-sm tracking-wider">FOR TECH STUDENTS</h4>
                 <p className="text-xs text-gray-400 leading-relaxed">
                   A high-intensity internship environment featuring live projects, placement coaching, and mentorship for final-year research.
                 </p>
               </div>
             </div>
 
-            <div className="pt-6">
-              <a 
-                href="/careers" 
-                className="px-6 py-3 rounded-lg font-bold text-sm bg-gradient-to-r from-purple-500 to-indigo-500 text-white shadow-lg hover:brightness-110 transition inline-flex items-center gap-2"
-              >
-                Join the Talent Program <ArrowRight className="w-4 h-4" />
-              </a>
+            {/* Legacy Core values text row */}
+            <div className="pt-8 border-t border-white/5">
+              <p className="text-[10px] sm:text-xs font-mono tracking-widest text-purple-400/80 uppercase text-center sm:text-left leading-relaxed">
+                Transformative Solutions &bull; Rapid Results &bull; Empowering Local Talent
+              </p>
             </div>
           </motion.div>
         </div>
@@ -387,7 +431,7 @@ export default function HeroProductScroll() {
                 <motion.path 
                   d="M100,100 L150,150 L180,150" 
                   initial={{ pathLength: 0 }}
-                  animate={activeIndex === 2 ? { pathLength: 1 } : { pathLength: 0.2 }}
+                  animate={activeIndex === 3 ? { pathLength: 1 } : { pathLength: 0.2 }}
                   transition={{ duration: 0.8 }}
                 />
               </g>
@@ -457,6 +501,16 @@ export default function HeroProductScroll() {
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.8 }}
+                  className="absolute -top-16 bg-[#0c0f16]/95 border border-blue-500/30 px-3 py-1.5 rounded-lg text-[10px] font-bold font-mono tracking-wider shadow-lg text-blue-400"
+                >
+                  PROPRIETARY SAAS SUITE
+                </motion.div>
+              )}
+              {activeIndex === 3 && (
+                <motion.div 
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.8 }}
                   className="absolute -top-16 bg-[#0c0f16]/95 border border-purple-500/30 px-3 py-1.5 rounded-lg text-[10px] font-bold font-mono tracking-wider shadow-lg text-purple-400"
                 >
                   B2B CLIENTS & STUDENT WORKSPACE
@@ -473,7 +527,7 @@ export default function HeroProductScroll() {
           </div>
 
           <div className="absolute bottom-4 right-4 font-mono text-xs text-gray-500 tracking-widest select-none pointer-events-none">
-            INDEX: 0{activeIndex + 1} {"//"} 03
+            INDEX: 0{activeIndex + 1} {"//"} 04
           </div>
 
         </div>
