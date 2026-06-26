@@ -167,7 +167,7 @@ const products = [
 
 const ProductSection = () => {
     return (
-        <div className="bg-gradient-to-br from-white via-gray-50 to-primary-50 dark:from-gray-900 dark:via-gray-800 dark:to-primary-900 py-12 overflow-x-hidden">
+        <div className="bg-gradient-to-br from-white via-gray-50 to-gray-100 dark:from-[#0d1117] dark:via-[#1a2333] dark:to-[#0d1117] pt-32 pb-12 overflow-x-hidden">
 
             {/* Centered Header (Matches Services Design) */}
             <section className="relative pt-0 pb-4">
