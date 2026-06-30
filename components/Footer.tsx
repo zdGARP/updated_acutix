@@ -17,7 +17,8 @@ import {
   FaFacebook,
   FaMapMarkerAlt,
   FaPhone,
-  FaRegCopyright
+  FaRegCopyright,
+  FaHandshake
 } from 'react-icons/fa';
 
 const Footer = () => {
@@ -88,6 +89,7 @@ const Footer = () => {
               {[
                 { href: '/', icon: <FaHome className="w-3.5 h-3.5" />, text: 'Home' },
                 { href: '/services', icon: <FaBriefcase className="w-3.5 h-3.5" />, text: 'Services' },
+                { href: '/collaborations', icon: <FaHandshake className="w-3.5 h-3.5" />, text: 'Collaboration' },
                 { href: '/careers', icon: <FaUserTie className="w-3.5 h-3.5" />, text: 'Careers' },
                 { href: '/blogs', icon: <FaBlog className="w-3.5 h-3.5" />, text: 'Blog' },
                 { href: '/about', icon: <FaInfoCircle className="w-3.5 h-3.5" />, text: 'About us' },
