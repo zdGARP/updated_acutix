@@ -37,8 +37,8 @@ export default function FAQSection() {
   return (
     <section className="py-20 px-6 max-w-4xl mx-auto">
       <div className="text-center mb-16">
-        <h2 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl uppercase">
-          Frequently Asked Questions
+        <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl uppercase text-white">
+          Frequently <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFD98A] via-[#F7B7A3] to-[#5EC6D9]">Asked Questions</span>
         </h2>
         <p className="mt-4 text-base sm:text-lg text-gray-400 font-medium">
           Everything you need to know about our digital systems and incubator workspace.
