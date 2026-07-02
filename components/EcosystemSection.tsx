@@ -118,8 +118,8 @@ export default function EcosystemSection() {
       </section>
 
       {/* 2. 'IMPACT BY THE NUMBERS' COUNTER GRID */}
-      <section className="relative z-10 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto mb-20">
-        <div className="border border-white/10 bg-gray-900/40 backdrop-blur-xl rounded-2xl py-8 px-6 md:py-10 md:px-8 shadow-[0_0_30px_rgba(6,182,212,0.05)]">
+      <section className="relative z-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto mb-28">
+        <div className="border border-white/10 bg-gray-900/40 backdrop-blur-xl rounded-3xl py-10 px-8 md:py-12 md:px-16 shadow-[0_0_50px_rgba(6,182,212,0.08)]">
           <div className="grid grid-cols-2 md:grid-cols-5 gap-6 md:gap-8">
             {stats.map((stat, idx) => (
               <motion.div
@@ -151,7 +151,7 @@ export default function EcosystemSection() {
         </div>
 
         {/* Explore Academic Partners button placed below the stats counter bar with balanced font sizing */}
-        <div className="mt-12 flex justify-center">
+        <div className="mt-20 flex justify-center">
           <motion.a
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
