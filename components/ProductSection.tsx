@@ -1,5 +1,5 @@
 'use client';
-
+ 
 import React from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
@@ -10,10 +10,8 @@ import {
     CheckCircle2,
     ChevronRight,
     ShieldCheck,
-    Zap,
     Users,
     LayoutDashboard,
-    MessageSquare,
     Clock,
     FileText,
     BadgeCheck,
@@ -167,7 +165,11 @@ const products = [
 
 const ProductSection = () => {
     return (
-        <div className="bg-gradient-to-br from-white via-gray-50 to-gray-100 dark:from-[#0d1117] dark:via-[#1a2333] dark:to-[#0d1117] pt-32 pb-12 overflow-x-hidden">
+        <div className="bg-gray-950 min-h-screen text-gray-100 selection:bg-cyan-500/30 selection:text-cyan-200 pt-32 pb-12 overflow-x-hidden relative">
+            {/* Background elements */}
+            <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-5 pointer-events-none" style={{ backgroundSize: '30px 30px', backgroundImage: 'linear-gradient(to right, #ffffff10 1px, transparent 1px), linear-gradient(to bottom, #ffffff10 1px, transparent 1px)' }}></div>
+            <div className="absolute top-1/4 -left-32 w-96 h-96 bg-cyan-600 rounded-full mix-blend-multiply filter blur-[128px] opacity-40 animate-pulse pointer-events-none"></div>
+            <div className="absolute top-1/3 -right-32 w-96 h-96 bg-purple-600 rounded-full mix-blend-multiply filter blur-[128px] opacity-40 animate-pulse pointer-events-none" style={{ animationDelay: '2s' }}></div>
 
             {/* Centered Header (Matches Services Design) */}
             <section className="relative pt-0 pb-4">
@@ -178,10 +180,10 @@ const ProductSection = () => {
                         viewport={{ once: true }}
                         className="mb-12"
                     >
-                        <h1 className="text-4xl font-extrabold text-[#323b42] dark:text-white mb-2 tracking-tight animate-fadeUp drop-shadow-lg flex items-center justify-center gap-2 uppercase">
-                            Our Product Suite
+                        <h1 className="text-4xl font-extrabold text-white mb-2 tracking-tight animate-fadeUp drop-shadow-lg flex items-center justify-center gap-2 uppercase">
+                            Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500">Product Suite</span>
                         </h1>
-                        <p className="text-lg text-gray-600 dark:text-gray-400 max-w-4xl mx-auto animate-fadeIn font-medium">
+                        <p className="text-lg text-gray-400 max-w-4xl mx-auto animate-fadeIn font-medium">
                             The Acutix Product Suite provides scalable, web-based solutions designed to optimize operational efficiency and standardize digital workflows. Built with secure role-based access and long-term adaptability in mind, each product is developed by Acutix interns under expert guidance.
                         </p>
                     </motion.div>
@@ -194,7 +196,7 @@ const ProductSection = () => {
                     {products.map((product, pIdx) => (
                         <div key={product.id} className="relative group overflow-hidden">
                             {/* Product Background Accents */}
-                            <div className={`absolute -inset-10 bg-${product.themeColor}-500/5 rounded-[4rem] blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-1000`} />
+                            <div className={`absolute -inset-10 bg-${product.themeColor}-500/10 rounded-[4rem] blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-1000`} />
 
                             <div className="grid lg:grid-cols-12 gap-12 lg:gap-24 items-start relative z-10">
                                 {/* Visual Side */}
@@ -204,7 +206,7 @@ const ProductSection = () => {
                                     viewport={{ once: true, margin: "-100px" }}
                                     className={`lg:col-span-6 ${pIdx % 2 === 1 ? 'lg:order-last' : ''}`}
                                 >
-                                    <div className="relative aspect-[4/3] rounded-[2.5rem] overflow-hidden shadow-2xl border border-gray-200/50 dark:border-gray-800/50 group-hover:border-primary/30 transition-colors duration-500">
+                                    <div className="relative aspect-[4/3] rounded-[2.5rem] overflow-hidden shadow-2xl border border-white/5 bg-gray-900/40 backdrop-blur-md hover:border-cyan-500/30 transition-all duration-300">
                                         <Image
                                             src={product.image}
                                             alt={product.name}
@@ -217,7 +219,7 @@ const ProductSection = () => {
                                         {product.techStack && (
                                             <div className="absolute bottom-8 left-8 flex gap-3">
                                                 {product.techStack.map(tech => (
-                                                    <div key={tech} className="px-3 py-1.5 bg-white/10 backdrop-blur-md rounded-lg text-[10px] font-black uppercase tracking-widest text-white border border-white/20">
+                                                    <div key={tech} className="px-3 py-1.5 bg-gray-900/80 backdrop-blur-md rounded-lg text-[10px] font-black uppercase tracking-widest text-white border border-white/10">
                                                         {tech}
                                                     </div>
                                                 ))}
@@ -227,10 +229,10 @@ const ProductSection = () => {
 
                                     {/* Highlights Grid */}
                                     <div className="mt-8 grid grid-cols-2 gap-4">
-                                        {product.highlights.map((h, i) => (
-                                            <div key={h} className="flex items-center gap-3 p-4 bg-white dark:bg-gray-900/50 rounded-2xl border border-gray-100 dark:border-gray-800 shadow-sm transition-all hover:translate-y-[-2px] hover:shadow-md">
-                                                <CheckCircle2 className="w-5 h-5 text-primary" />
-                                                <span className="text-sm font-bold text-gray-700 dark:text-gray-300">{h}</span>
+                                        {product.highlights.map((h) => (
+                                            <div key={h} className="flex items-center gap-3 p-4 bg-gray-900/40 backdrop-blur-md rounded-2xl border border-white/5 shadow-sm transition-all hover:translate-y-[-2px] hover:border-cyan-500/30 hover:bg-gray-800/50 duration-300">
+                                                <CheckCircle2 className="w-5 h-5 text-cyan-400" />
+                                                <span className="text-sm font-bold text-gray-300">{h}</span>
                                             </div>
                                         ))}
                                     </div>
@@ -245,19 +247,19 @@ const ProductSection = () => {
                                         className="space-y-6"
                                     >
                                         <div className="flex items-center gap-4">
-                                            <div className="p-3 bg-white dark:bg-gray-800 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700">
+                                            <div className="p-3 bg-gray-900/80 border border-white/10 backdrop-blur-md rounded-2xl shadow-xl">
                                                 {product.icon}
                                             </div>
                                             <div>
-                                                <span className={`text-${product.themeColor}-500 text-xs font-black uppercase tracking-[0.2em] mb-1 block`}>
+                                                <span className={`text-${product.themeColor}-400 text-xs font-black uppercase tracking-[0.2em] mb-1 block`}>
                                                     {product.tagline}
                                                 </span>
-                                                <h2 className="text-4xl md:text-5xl font-black text-[#1a1f24] dark:text-white tracking-tight uppercase">
+                                                <h2 className="text-4xl md:text-5xl font-black text-white tracking-tight uppercase">
                                                     {product.name}
                                                 </h2>
                                             </div>
                                         </div>
-                                        <p className="text-xl text-gray-600 dark:text-gray-400 font-medium leading-relaxed">
+                                        <p className="text-xl text-gray-400 font-medium leading-relaxed">
                                             {product.summary}
                                         </p>
                                     </motion.div>
@@ -271,18 +273,18 @@ const ProductSection = () => {
                                                 whileInView={{ opacity: 1, y: 0 }}
                                                 viewport={{ once: true }}
                                                 transition={{ delay: i * 0.1 }}
-                                                className="group/card flex gap-5 p-6 rounded-[2rem] bg-white dark:bg-[#1a1c22] border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-2xl hover:border-primary/20 transition-all duration-300 relative overflow-hidden"
+                                                className="group/card flex gap-5 p-6 rounded-[2rem] bg-gray-900/40 backdrop-blur-md border border-white/5 shadow-sm hover:shadow-2xl hover:border-cyan-500/30 hover:bg-gray-800/50 transition-all duration-300 relative overflow-hidden text-white"
                                             >
-                                                <div className={`absolute top-0 right-0 w-32 h-32 bg-${product.themeColor}-500/5 rounded-full -mr-16 -mt-16 blur-2xl group-hover/card:bg-${product.themeColor}-500/10 transition-colors`} />
-                                                <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-2xl bg-gray-50 dark:bg-gray-800 text-gray-600 dark:text-gray-400 group-hover/card:bg-primary/10 group-hover/card:text-primary transition-colors">
+                                                <div className={`absolute top-0 right-0 w-32 h-32 bg-${product.themeColor}-500/10 rounded-full -mr-16 -mt-16 blur-2xl group-hover/card:bg-${product.themeColor}-500/20 transition-colors`} />
+                                                <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-2xl bg-gray-800 text-gray-400 group-hover/card:bg-cyan-500/10 group-hover/card:text-cyan-400 transition-colors border border-gray-700">
                                                     {feature.icon}
                                                 </div>
                                                 <div className="space-y-1 relative z-10">
-                                                    <h4 className="text-lg font-black text-gray-900 dark:text-white uppercase tracking-tight">{feature.title}</h4>
-                                                    <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed font-medium">{feature.desc}</p>
+                                                    <h4 className="text-lg font-black text-white uppercase tracking-tight group-hover/card:text-cyan-300 transition-colors">{feature.title}</h4>
+                                                    <p className="text-gray-400 text-sm leading-relaxed font-medium">{feature.desc}</p>
                                                 </div>
                                                 <div className="ml-auto opacity-0 group-hover/card:opacity-100 transition-opacity self-center">
-                                                    <ChevronRight className="w-5 h-5 text-primary" />
+                                                    <ChevronRight className="w-5 h-5 text-cyan-400" />
                                                 </div>
                                             </motion.div>
                                         ))}
