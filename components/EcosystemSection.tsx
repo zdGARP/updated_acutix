@@ -118,19 +118,19 @@ export default function EcosystemSection() {
       </section>
 
       {/* 2. 'IMPACT BY THE NUMBERS' COUNTER GRID */}
-      <section className="relative z-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto mb-28">
-        <div className="border border-white/10 bg-gray-900/40 backdrop-blur-xl rounded-3xl p-12 md:p-16 shadow-[0_0_50px_rgba(6,182,212,0.08)]">
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-8 md:gap-12">
+      <section className="relative z-10 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto mb-20">
+        <div className="border border-white/10 bg-gray-900/40 backdrop-blur-xl rounded-2xl py-8 px-6 md:py-10 md:px-8 shadow-[0_0_30px_rgba(6,182,212,0.05)]">
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-6 md:gap-8">
             {stats.map((stat, idx) => (
               <motion.div
                 key={stat.label}
-                className="text-center p-4 border-r last:border-r-0 border-white/5 flex flex-col justify-center h-full"
+                className="text-center p-2 border-r last:border-r-0 border-white/5 flex flex-col justify-center h-full"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
               >
-                <h3 className={`text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-3 tracking-tight ${
+                <h3 className={`text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-2 tracking-tight ${
                   idx === 0 ? 'text-[#5EC6D9]' : // cyan
                   idx === 1 ? 'text-[#FFD98A]' : // yellow
                   idx === 2 ? 'text-[#F7B7A3]' : // peach
@@ -139,10 +139,10 @@ export default function EcosystemSection() {
                 }`}>
                   <CountUp end={stat.value} />
                 </h3>
-                <h4 className="text-xs sm:text-sm font-mono font-bold tracking-widest text-slate-200 uppercase mb-2 leading-snug">
+                <h4 className="text-[10px] sm:text-[11px] font-mono font-bold tracking-wider text-slate-200 uppercase mb-1.5 leading-snug">
                   {stat.label}
                 </h4>
-                <p className="text-xs sm:text-sm text-slate-400 leading-normal">
+                <p className="text-[10px] sm:text-[11px] text-slate-400 leading-normal">
                   {stat.detail}
                 </p>
               </motion.div>
@@ -150,13 +150,13 @@ export default function EcosystemSection() {
           </div>
         </div>
 
-        {/* Explore Academic Partners button moved below the stats counter bar with bigger font */}
-        <div className="mt-16 flex justify-center">
+        {/* Explore Academic Partners button placed below the stats counter bar with balanced font sizing */}
+        <div className="mt-12 flex justify-center">
           <motion.a
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             href="/collaborations#alliance-hub"
-            className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-extrabold px-10 py-4.5 rounded-xl transition-all duration-300 text-base md:text-lg flex items-center gap-2 shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/30 cursor-pointer"
+            className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-extrabold px-8 py-3.5 rounded-xl transition-all duration-300 text-sm md:text-base flex items-center gap-2 shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/30 cursor-pointer"
           >
             Explore Academic Partners
           </motion.a>
