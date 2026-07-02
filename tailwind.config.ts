@@ -85,6 +85,20 @@ const config = {
           '0%': { opacity: '0', transform: 'scale(0.8)' },
           '80%': { opacity: '1', transform: 'scale(1.05)' },
           '100%': { opacity: '1', transform: 'scale(1)' }
+        },
+        blob: {
+          '0%': { transform: 'translate(0px, 0px) scale(1)' },
+          '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+          '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+          '100%': { transform: 'translate(0px, 0px) scale(1)' }
+        },
+        marquee: {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-50%)' }
+        },
+        marquee2: {
+          '0%': { transform: 'translateX(-50%)' },
+          '100%': { transform: 'translateX(0%)' }
         }
       },
       animation: {
@@ -92,7 +106,10 @@ const config = {
         'accordion-up': 'accordion-up 0.2s ease-out',
         fadeIn: 'fadeIn 1s ease-out',
         fadeUp: 'fadeUp 1s ease-out',
-        popupAppear: 'popupAppear 0.4s cubic-bezier(0.23, 1, 0.32, 1)'
+        popupAppear: 'popupAppear 0.4s cubic-bezier(0.23, 1, 0.32, 1)',
+        blob: 'blob 7s infinite',
+        marquee: 'marquee 25s linear infinite',
+        marquee2: 'marquee2 25s linear infinite'
       }
     }
   },
