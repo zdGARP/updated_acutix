@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { sendForm } from '../lib/sendForm';
@@ -8,70 +9,87 @@ import { motion, AnimatePresence } from 'framer-motion';
 import {
   ChevronRight,
   Send,
-  GraduationCap,
-  Code,
-  UserCheck,
-  Plus,
   X,
-  School
+  School,
+  Terminal,
+  ArrowRight
 } from 'lucide-react';
 
-
-
-// Academic Alliance Hub Data
+// Academic Alliance Hub Data in user-requested order:
+// 1. VISTAS 2. SRM 3. SA Engineering 4. Jeppiaar
 const institutions = [
-  {
-    id: "saec",
-    name: "SA Engineering College",
-    location: "Chennai, TN",
-    desc: "Industry internships, hands-on development workshops, project mentoring, and customized technology initiatives.",
-    details: {
-      framework: "Joint MoU signed in 2024. Focus areas include: \n- Semester-long student internship allocations.\n- Expert-led React and Next.js developer workshops.\n- Direct sponsorship of final year capstone projects.\n- Industry-guided tech guest lectures.",
-      initiatives: ["React & Node Training", "Final Year Capstone Mentoring", "Intern Cohorts"]
-    }
-  },
-  {
-    id: "srmv",
-    name: "SRM Valliammai Engineering College",
-    location: "Kattankulathur, TN",
-    desc: "Joint industrial training programs, technical webinars, live product demos, and emerging talent acceleration.",
-    details: {
-      framework: "Strategic talent alliance targeting modern web development. Focus areas:\n- Multi-week full stack developer crash courses.\n- Joint webinars on cloud computing and AWS deployment.\n- Evaluation of final year student research projects.\n- Fast-track incubation interview passes.",
-      initiatives: ["Cloud Architecture Webinars", "Fast-track Placement Interviews", "Fullstack Bootcamps"]
-    }
-  },
-  {
-    id: "jit",
-    name: "Jeppiaar Institute of Technology",
-    location: "Sriperumbudur, TN",
-    desc: "Live commercial-grade project immersion, interactive tech meetups, and specialized developer bootcamps.",
-    details: {
-      framework: "Joint innovation incubation pathway. Focus areas:\n- Immersion in live SaaS product development (GymPad, FertiCare).\n- Bi-monthly campus technology meetups and hackathons.\n- Specialized training in mobile app development (Flutter/React Native).\n- On-campus industrial visit training modules.",
-      initiatives: ["Live SaaS Coding Immersion", "Flutter Bootcamps", "Bi-monthly Campus Meetups"]
-    }
-  },
   {
     id: "vistas",
     name: "Vels Institute of Science Technology & Advanced Studies (VISTAS)",
     location: "Pallavaram, TN",
     desc: "Co-hosts of national initiatives, advanced healthcare AI hackathons, and research mentorship.",
     details: {
-      framework: "Advanced academic research and co-venturing alliance. Focus areas:\n- HackFusion and MedNexus healthcare AI hackathons.\n- Collaborative research on AI applications in clinical software.\n- Mentorship of post-graduate IT research projects.\n- Enterprise system design workshops for faculty members.",
+      framework: "Advanced academic research and co-venturing alliance. Main partnership items include:\n- Co-hosting of regional hackathons and technology incubation challenges.\n- Research collaboration in machine learning applications within women's health.\n- Development of pilot AI models alongside industry specialists.\n- Mentorship of graduate-level research designs and scientific projects.",
       initiatives: ["MedNexus AI Hackathons", "Healthcare AI Research", "Faculty System Design Workshops"]
-    }
+    },
+    images: {
+      mou: "/gallery_02.jpg",
+      event1: "/gallery_03.jpg",
+      event2: "/gallery_04.jpg"
+    },
+    logo: "/logo_vistas.png"
+  },
+  {
+    id: "srmv",
+    name: "SRM Valliammai Engineering College",
+    location: "Kattankulathur, TN",
+    desc: "Joint industrial training programs, technical webinars, and emerging talent acceleration.",
+    details: {
+      framework: "Strategic talent alliance targeting modern web development. Collaborative tracks include:\n- Accelerated industrial full stack development courses.\n- Specialized webinars on AWS cloud integration and containerization.\n- Active faculty development programs on agile software execution.\n- Fast-track placement evaluation pathways for final-year candidates.",
+      initiatives: ["Cloud Architecture Webinars", "Fast-track Placement Interviews", "Fullstack Bootcamps"]
+    },
+    images: {
+      mou: "/mou_srmv.jpg",
+      event1: "/gallery_05.jpg",
+      event2: "/gallery_06.jpg"
+    },
+    logo: "/logo_srmv.png"
+  },
+  {
+    id: "saec",
+    name: "SA Engineering College",
+    location: "Chennai, TN",
+    desc: "Industry internships, workshops, project mentoring, and technology initiatives.",
+    details: {
+      framework: "Established a strategic cooperation focused on frontend and fullstack developer preparation. Keys of alliance include:\n- Allocation of semester-long internships for core development teams.\n- Direct mentorship on real-world engineering project lifecycles.\n- On-campus web framework seminars and coding competitions.\n- Direct recruitment channels for outstanding final-year graduates.",
+      initiatives: ["React & Node Training", "Final Year Capstone Mentoring", "Intern Cohorts"]
+    },
+    images: {
+      mou: "/mou_saec.png",
+      event1: "/gallery_02.jpg",
+      event2: "/gallery_03.jpg"
+    },
+    logo: "/logo_saec.png"
+  },
+  {
+    id: "jit",
+    name: "Jeppiaar Institute of Technology",
+    location: "Sriperumbudur, TN",
+    desc: "Live commercial-grade project immersion, tech meetups, and specialized developer training.",
+    details: {
+      framework: "Joint innovation incubation pathway targeting mobile and web product engineering. Activities involve:\n- Active training bootcamps using React Native and Flutter environments.\n- Practical engineering sprints inside proprietary SaaS product lines.\n- Campus hackathons with technical evaluations and career fast-tracks.\n- Structured visits to the development head office for project reviews.",
+      initiatives: ["Live SaaS Coding Immersion", "Flutter Bootcamps", "Bi-monthly Campus Meetups"]
+    },
+    images: {
+      mou: "/mou_jit.png",
+      event1: "/hackathon_jit.jpg",
+      event2: "/seminar_jit.jpg"
+    },
+    logo: "/logo_jit.png"
   }
 ];
-
-
-
-
 
 const CollaborationsSection = () => {
   // Modal states
   const [selectedInst, setSelectedInst] = useState<typeof institutions[0] | null>(null);
-  const [activeModal, setActiveModal] = useState<'mou' | 'mentor' | null>(null);
+  const [activeModal, setActiveModal] = useState<'mou' | null>(null);
 
-  // Form states
+  // Form state
   const [mouForm, setMouForm] = useState({
     collegeName: '',
     contactPerson: '',
@@ -82,26 +100,11 @@ const CollaborationsSection = () => {
     details: ''
   });
 
-  const [mentorForm, setMentorForm] = useState({
-    fullName: '',
-    email: '',
-    phone: '',
-    experience: '',
-    expertise: 'Frontend Development',
-    linkedin: '',
-    motivation: ''
-  });
-
   const [submittingMou, setSubmittingMou] = useState(false);
-  const [submittingMentor, setSubmittingMentor] = useState(false);
 
   // Handle Form Inputs
   const handleMouChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     setMouForm({ ...mouForm, [e.target.name]: e.target.value });
-  };
-
-  const handleMentorChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
-    setMentorForm({ ...mentorForm, [e.target.name]: e.target.value });
   };
 
   // Submit MoU Form
@@ -136,210 +139,213 @@ const CollaborationsSection = () => {
     }
   };
 
-  // Submit Mentor Form
-  const handleMentorSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setSubmittingMentor(true);
-    toast.info('Submitting onboarding request...', { autoClose: false, toastId: 'submittingMentor' });
-
-    const result = await sendForm({
-      ...mentorForm,
-      type: 'Mentor Network Onboarding',
-      to: process.env.EMAIL_RECEIVER
-    });
-
-    toast.dismiss('submittingMentor');
-    setSubmittingMentor(false);
-
-    if (result.success) {
-      toast.success('Success! Your application to join our Mentor Network has been sent.');
-      setMentorForm({
-        fullName: '',
-        email: '',
-        phone: '',
-        experience: '',
-        expertise: 'Frontend Development',
-        linkedin: '',
-        motivation: ''
-      });
-      setActiveModal(null);
-    } else {
-      toast.error(result.error || 'Failed to submit application. Please try again.');
-    }
-  };
-
   return (
-    <div className="bg-[#07090e] text-white min-h-screen relative overflow-hidden font-sans pb-24">
-      {/* Abstract Grid + Ambient Glow */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b0c_1px,transparent_1px),linear-gradient(to_bottom,#1e293b0c_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none z-0" />
-      <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-gradient-to-br from-cyan-500/10 to-transparent blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-[20%] right-[-10%] w-[50%] h-[50%] bg-gradient-to-tr from-amber-500/5 to-transparent blur-[120px] pointer-events-none" />
+    <div className="bg-gradient-to-br from-white via-gray-50 to-gray-100 dark:from-[#0d1117] dark:via-[#1a2333] dark:to-[#0d1117] text-[#323b42] dark:text-white min-h-screen relative overflow-hidden font-sans pb-24 pt-32">
+      {/* Background Subtle Highlights */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000003_1px,transparent_1px),linear-gradient(to_bottom,#00000003_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#ffffff02_1px,transparent_1px),linear-gradient(to_bottom,#ffffff02_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none z-0" />
+      <div className="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] bg-cyan-500/5 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-[10%] right-[-10%] w-[40vw] h-[40vw] bg-blue-500/5 rounded-full blur-[140px] pointer-events-none" />
 
-      {/* 3. ACADEMIC ALLIANCE HUB */}
-      <section id="alliance-hub" className="relative z-10 pt-36 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto mb-32">
-        <div className="text-center mb-16">
-          <span className="text-[10px] font-mono tracking-widest text-cyan-400 bg-cyan-500/10 px-3 py-1 rounded border border-cyan-500/20 uppercase">
-            Incubation Partners
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-bold mt-4 tracking-tight">Our Academic Collaborations</h2>
-          <p className="text-slate-400 max-w-2xl mx-auto mt-2 text-sm">
-            We partner with premier engineering colleges to incubate talent via active industry training frameworks.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {institutions.map((inst, idx) => (
-            <motion.div
+      {/* College Showcases Grid */}
+      <section className="relative z-10 px-6 max-w-7xl mx-auto mb-20 pt-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          {institutions.map((inst) => (
+            <div
               key={inst.id}
-              className="bg-white/5 border border-white/10 p-8 rounded-2xl flex flex-col justify-between hover:border-cyan-500/30 hover:bg-white/[0.07] transition-all duration-300 group shadow-lg"
-              initial={{ opacity: 0, x: idx % 2 === 0 ? -30 : 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+              className="bg-white dark:bg-white/[0.02] backdrop-blur-xl border border-gray-200/80 dark:border-white/10 hover:border-cyan-500/40 dark:hover:border-cyan-500/40 rounded-2xl p-8 transition-all duration-500 shadow-lg dark:shadow-[0_4px_30px_rgba(0,0,0,0.5)] hover:shadow-[0_0_30px_rgba(6,182,212,0.15)] group flex flex-col justify-between"
             >
               <div>
-                <div className="flex items-start justify-between mb-4">
-                  <div className="p-3 bg-cyan-500/10 rounded-xl text-cyan-400 group-hover:bg-cyan-500/20 transition-all duration-300">
-                    <GraduationCap className="w-6 h-6" />
+                {/* Top Header: Logo & Title Layout */}
+                <div className="flex items-center gap-4 mb-4">
+                  {/* Round profile picture logo container */}
+                  <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-cyan-500/20 dark:border-white/10 bg-white relative flex-shrink-0 shadow-[0_0_15px_rgba(6,182,212,0.1)]">
+                    <Image
+                      src={inst.logo}
+                      alt={`${inst.name} Logo`}
+                      fill
+                      className="object-contain p-1"
+                    />
                   </div>
-                  <span className="text-[10px] font-mono bg-white/5 px-2.5 py-1 rounded text-slate-400">
-                    {inst.location}
-                  </span>
+                  <div>
+                    <span className="font-mono text-[9px] tracking-wider text-cyan-600 dark:text-cyan-400 uppercase bg-cyan-50 dark:bg-white/5 px-2.5 py-0.5 rounded border border-cyan-100 dark:border-white/5">
+                      {inst.location}
+                    </span>
+                    <h3 className="text-lg font-bold text-slate-800 dark:text-white group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors duration-300 mt-1 leading-snug">
+                      {inst.name}
+                    </h3>
+                  </div>
                 </div>
-                <h3 className="text-xl font-bold text-white group-hover:text-cyan-400 transition-colors duration-300 mb-3">
-                  {inst.name}
-                </h3>
-                <p className="text-slate-400 text-sm leading-relaxed mb-6">
+
+                {/* Description */}
+                <p className="text-sm text-gray-600 dark:text-gray-400 mt-4 leading-relaxed">
                   {inst.desc}
                 </p>
+                
+                {/* Initiatives/Tags */}
+                <div className="flex flex-wrap gap-2 mt-4">
+                  {inst.details.initiatives.map((tag) => (
+                    <span 
+                      key={tag} 
+                      className="text-[10px] font-mono bg-slate-100 dark:bg-white/[0.03] text-slate-700 dark:text-gray-300 px-2.5 py-1 rounded border border-slate-200/60 dark:border-white/5"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </div>
 
-              <div className="flex flex-wrap gap-2 mb-6">
-                {inst.details.initiatives.map((tag) => (
-                  <span key={tag} className="text-[10px] font-mono bg-black/40 text-slate-300 px-2 py-1 rounded border border-white/5">
-                    {tag}
-                  </span>
-                ))}
-              </div>
-
+              {/* Bottom: View Gallery Button */}
               <button
                 onClick={() => setSelectedInst(inst)}
-                className="w-fit text-xs font-mono font-bold text-cyan-400 hover:text-white transition-colors duration-200 flex items-center gap-1.5 cursor-pointer uppercase"
+                className="font-mono text-cyan-600 dark:text-cyan-400 text-xs tracking-wider flex items-center gap-2 mt-8 hover:text-cyan-500 dark:hover:text-cyan-300 transition-colors uppercase border border-cyan-200 dark:border-cyan-500/20 hover:border-cyan-400/50 dark:hover:border-cyan-500/40 bg-cyan-50/50 dark:bg-cyan-950/10 hover:bg-cyan-100/50 dark:hover:bg-cyan-950/30 px-4 py-2.5 rounded-lg w-fit cursor-pointer"
               >
-                📄 View Partnership Framework <ChevronRight className="w-3.5 h-3.5" />
+                [ ⚡ VIEW MOU & EVENT GALLERY ]
               </button>
-            </motion.div>
+            </div>
           ))}
         </div>
       </section>
 
+      {/* Onboarding CTA Section (Cleaned up, only Institutions) */}
+      <section className="relative z-10 px-6 max-w-7xl mx-auto">
+        <div className="max-w-3xl mx-auto bg-white dark:bg-white/[0.02] border border-gray-200 dark:border-white/10 rounded-3xl p-8 sm:p-12 shadow-xl dark:shadow-2xl relative overflow-hidden">
+          {/* Decorative backdrop gradients */}
+          <div className="absolute top-0 right-0 w-64 h-64 rounded-full bg-cyan-500/5 blur-3xl pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-64 h-64 rounded-full bg-blue-500/5 blur-3xl pointer-events-none" />
 
-      {/* 6. DUAL-TRACK CALL TO ACTION (MoU or Mentor) */}
-      <section className="relative z-10 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
-        <motion.div
-          className="bg-white/5 border border-white/10 rounded-3xl p-8 sm:p-12 backdrop-blur-lg overflow-hidden shadow-2xl relative"
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          {/* Highlights */}
-          <div className="absolute top-0 right-0 w-64 h-64 rounded-full bg-cyan-500/10 blur-3xl pointer-events-none" />
-          <div className="absolute bottom-0 left-0 w-64 h-64 rounded-full bg-amber-500/5 blur-3xl pointer-events-none" />
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 relative z-10 divide-y md:divide-y-0 md:divide-x divide-white/10">
-            
-            {/* Left Track (Academic) */}
-            <div className="space-y-6 pb-8 md:pb-0">
-              <div className="flex items-center gap-3">
-                <div className="p-3 bg-cyan-500/10 rounded-xl text-cyan-400">
-                  <School className="w-6 h-6" />
-                </div>
-                <h3 className="text-2xl font-bold">For Institutions</h3>
+          <div className="relative z-10 text-center space-y-6 max-w-2xl mx-auto">
+            <div className="flex justify-center">
+              <div className="p-4 bg-cyan-500/10 rounded-2xl text-cyan-600 dark:text-cyan-400 border border-cyan-500/20">
+                <School className="w-8 h-8" />
               </div>
-              <p className="text-slate-400 text-sm leading-relaxed">
-                Connect your engineering department with our software labs. Establish a structured MoU for student internships, industrial visits, guest workshops, and curriculum alignment.
-              </p>
+            </div>
+            <h3 className="text-2xl font-bold text-slate-800 dark:text-white">Partner With Acutix</h3>
+            <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+              Connect your engineering department with our software labs. Establish a structured MoU for student internships, industrial visits, guest workshops, and curriculum alignment.
+            </p>
+            <div className="pt-4 flex justify-center">
               <button
                 onClick={() => setActiveModal('mou')}
-                className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 text-white font-bold px-6 py-3.5 rounded-lg shadow transition-all duration-300 w-full flex items-center justify-center gap-2 cursor-pointer text-sm"
+                className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 text-white font-bold px-8 py-3.5 rounded-xl shadow-lg hover:shadow-cyan-500/20 transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer text-sm"
               >
-                Initiate Academic MoU <ChevronRight className="w-4 h-4" />
+                Initiate Academic MoU <ArrowRight className="w-4 h-4" />
               </button>
             </div>
-
-            {/* Right Track (Mentors) */}
-            <div className="space-y-6 pt-8 md:pt-0 md:pl-12">
-              <div className="flex items-center gap-3">
-                <div className="p-3 bg-amber-500/10 rounded-xl text-amber-400">
-                  <UserCheck className="w-6 h-6" />
-                </div>
-                <h3 className="text-2xl font-bold">For Industry Experts</h3>
-              </div>
-              <p className="text-slate-400 text-sm leading-relaxed">
-                Empower emerging engineers with your practical expertise. Review code, advise on final-year research designs, and guide students through live tech cohorts.
-              </p>
-              <button
-                onClick={() => setActiveModal('mentor')}
-                className="bg-transparent border border-white/20 hover:border-amber-400 hover:bg-amber-500/5 text-slate-300 hover:text-amber-400 font-bold px-6 py-3.5 rounded-lg transition-all duration-300 w-full flex items-center justify-center gap-2 cursor-pointer text-sm"
-              >
-                Join Our Mentor Network <Plus className="w-4 h-4" />
-              </button>
-            </div>
-
           </div>
-        </motion.div>
+        </div>
       </section>
 
-      {/* DETAIL MODAL: ACADEMIC PARTNERSHIP FRAMEWORK */}
+      {/* Gallery Modal (Framer-motion powered) */}
       <AnimatePresence>
         {selectedInst && (
-          <motion.div
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-          >
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+            {/* Backdrop overlay */}
             <motion.div
-              className="bg-[#0b0f19] border border-white/10 rounded-2xl shadow-2xl p-6 md:p-8 max-w-2xl w-full relative overflow-hidden"
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              transition={{ type: 'spring', damping: 25, stiffness: 350 }}
+              className="absolute inset-0 bg-black/75 backdrop-blur-md"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setSelectedInst(null)}
+            />
+
+            {/* Modal Box */}
+            <motion.div
+              className="bg-white dark:bg-[#0c0c0e]/95 border border-gray-200 dark:border-white/10 rounded-2xl shadow-2xl p-6 md:p-8 max-w-4xl w-full max-h-[90vh] overflow-y-auto relative z-10 backdrop-blur-2xl text-[#323b42] dark:text-white"
+              initial={{ scale: 0.92, opacity: 0, y: 15 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.92, opacity: 0, y: 15 }}
+              transition={{ type: 'spring', damping: 25, stiffness: 300 }}
             >
               {/* Header */}
-              <div className="flex justify-between items-start mb-6">
+              <div className="flex justify-between items-start mb-6 pb-4 border-b border-gray-100 dark:border-white/5">
                 <div>
-                  <span className="text-[9px] font-mono text-cyan-400 uppercase tracking-widest block mb-1">
-                    Partnership Framework Details
+                  <span className="text-[10px] font-mono text-cyan-600 dark:text-cyan-400 uppercase tracking-widest block mb-1">
+                    Partnership Gallery & MoU details
                   </span>
-                  <h3 className="text-xl sm:text-2xl font-bold text-white">
+                  <h3 className="text-xl sm:text-2xl font-bold text-slate-800 dark:text-white">
                     {selectedInst.name}
                   </h3>
                 </div>
                 <button
                   onClick={() => setSelectedInst(null)}
-                  className="p-1.5 rounded-full bg-white/5 border border-white/10 text-slate-400 hover:text-white transition-colors cursor-pointer"
+                  className="p-1.5 rounded-full bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10 text-gray-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-white transition-colors cursor-pointer"
                 >
                   <X className="w-5 h-5" />
                 </button>
               </div>
 
-              {/* Terminal Style Content */}
-              <div className="bg-black/50 border border-white/5 rounded-xl p-5 font-mono text-xs text-slate-300 space-y-4 max-h-[350px] overflow-y-auto mb-6 leading-relaxed">
-                <div className="flex items-center gap-2 border-b border-white/5 pb-2 text-cyan-400">
-                  <Code className="w-4 h-4" />
-                  <span>MEMORANDUM_OF_UNDERSTANDING // ACTIVE</span>
+              {/* Layout: Split Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-5 gap-6 mb-6">
+                {/* Details Section (2 cols) */}
+                <div className="md:col-span-2 space-y-4">
+                  <div className="bg-gray-50 dark:bg-black/50 border border-gray-200 dark:border-white/5 rounded-xl p-5 font-mono text-xs text-gray-700 dark:text-slate-300 space-y-3 leading-relaxed h-full">
+                    <div className="flex items-center gap-2 border-b border-gray-200 dark:border-white/5 pb-2 text-cyan-600 dark:text-cyan-400">
+                      <Terminal className="w-4 h-4" />
+                      <span>COOPERATION_MANIFEST // ACTIVE</span>
+                    </div>
+                    <p className="whitespace-pre-line leading-relaxed text-gray-600 dark:text-gray-300">
+                      {selectedInst.details.framework}
+                    </p>
+                  </div>
                 </div>
-                <div className="whitespace-pre-line">
-                  {selectedInst.details.framework}
+
+                {/* Images Section (3 cols) */}
+                <div className="md:col-span-3 space-y-4">
+                  {/* Left/Main Column: Official MoU Signing Moment */}
+                  <div className="relative aspect-[16/10] w-full rounded-xl overflow-hidden border border-gray-200 dark:border-white/10 group bg-gray-50 dark:bg-white/5">
+                    <Image
+                      src={selectedInst.images.mou}
+                      alt="MoU Signing Moment"
+                      fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className="object-cover group-hover:scale-105 transition-transform duration-700"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-4">
+                      <span className="font-mono text-[9px] text-cyan-400 bg-cyan-950/80 px-2 py-1 rounded border border-cyan-500/20 uppercase">
+                        ⚡ MoU Signing Moment
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Two Smaller Live Campus Photos */}
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="relative aspect-[4/3] rounded-xl overflow-hidden border border-gray-200 dark:border-white/10 group bg-gray-50 dark:bg-white/5">
+                      <Image
+                        src={selectedInst.images.event1}
+                        alt="Live campus technical seminar"
+                        fill
+                        sizes="(max-width: 768px) 50vw, 25vw"
+                        className="object-cover group-hover:scale-105 transition-transform duration-700"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-3">
+                        <span className="font-mono text-[8px] text-cyan-300 uppercase">
+                          🖥️ Live Seminars
+                        </span>
+                      </div>
+                    </div>
+                    <div className="relative aspect-[4/3] rounded-xl overflow-hidden border border-gray-200 dark:border-white/10 group bg-gray-50 dark:bg-white/5">
+                      <Image
+                        src={selectedInst.images.event2}
+                        alt="Technical hackathon and workshop"
+                        fill
+                        sizes="(max-width: 768px) 50vw, 25vw"
+                        className="object-cover group-hover:scale-105 transition-transform duration-700"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-3">
+                        <span className="font-mono text-[8px] text-cyan-300 uppercase">
+                          ⚙️ Hackathons
+                        </span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
 
-              <div className="flex justify-end gap-3">
+              {/* Modal Actions */}
+              <div className="flex justify-end gap-3 pt-4 border-t border-gray-100 dark:border-white/5">
                 <button
                   onClick={() => setSelectedInst(null)}
-                  className="bg-white/5 border border-white/10 text-slate-300 font-semibold px-5 py-2.5 rounded-lg text-xs hover:bg-white/10 transition cursor-pointer"
+                  className="bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10 text-gray-700 dark:text-slate-300 font-semibold px-5 py-2.5 rounded-lg text-xs hover:bg-gray-200 dark:hover:bg-white/10 transition cursor-pointer font-mono"
                 >
                   Close Document
                 </button>
@@ -349,43 +355,46 @@ const CollaborationsSection = () => {
                     setMouForm(prev => ({ ...prev, collegeName: selectedInst.name }));
                     setActiveModal('mou');
                   }}
-                  className="bg-cyan-500 text-white font-semibold px-5 py-2.5 rounded-lg text-xs hover:bg-cyan-400 transition cursor-pointer"
+                  className="bg-cyan-500 text-white dark:text-black font-extrabold px-5 py-2.5 rounded-lg text-xs hover:bg-cyan-600 dark:hover:bg-cyan-400 transition cursor-pointer font-mono flex items-center gap-1.5"
                 >
-                  Expand Cooperation
+                  Expand Cooperation <ChevronRight className="w-3.5 h-3.5" />
                 </button>
               </div>
             </motion.div>
-          </motion.div>
+          </div>
         )}
       </AnimatePresence>
 
       {/* MODAL FORM: INITIATE MOU */}
       <AnimatePresence>
         {activeModal === 'mou' && (
-          <motion.div
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-          >
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
             <motion.div
-              className="bg-[#0b0f19] border border-white/10 rounded-2xl shadow-2xl p-6 md:p-8 max-w-2xl w-full relative"
-              initial={{ scale: 0.9, opacity: 0 }}
+              className="absolute inset-0 bg-black/75 backdrop-blur-md"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setActiveModal(null)}
+            />
+
+            <motion.div
+              className="bg-white dark:bg-[#0c0c0e]/95 border border-gray-200 dark:border-white/10 rounded-2xl shadow-2xl p-6 md:p-8 max-w-2xl w-full relative z-10 backdrop-blur-2xl text-[#323b42] dark:text-white"
+              initial={{ scale: 0.92, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
+              exit={{ scale: 0.92, opacity: 0 }}
             >
               <div className="flex justify-between items-start mb-6">
                 <div>
-                  <h3 className="text-xl sm:text-2xl font-bold flex items-center gap-2">
-                    <School className="text-cyan-400 w-6 h-6" /> Initiate Academic MoU
+                  <h3 className="text-xl sm:text-2xl font-bold flex items-center gap-2 text-slate-800 dark:text-white">
+                    <School className="text-cyan-500 dark:text-cyan-400 w-6 h-6" /> Initiate Academic MoU
                   </h3>
-                  <p className="text-xs text-slate-400 mt-1">
+                  <p className="text-xs text-gray-500 dark:text-slate-400 mt-1">
                     Connect your institution with our engineering training framework.
                   </p>
                 </div>
                 <button
                   onClick={() => setActiveModal(null)}
-                  className="p-1.5 rounded-full bg-white/5 border border-white/10 text-slate-400 hover:text-white transition-colors cursor-pointer"
+                  className="p-1.5 rounded-full bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10 text-gray-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-white transition-colors cursor-pointer"
                 >
                   <X className="w-5 h-5" />
                 </button>
@@ -393,85 +402,97 @@ const CollaborationsSection = () => {
 
               <form onSubmit={handleMouSubmit} className="space-y-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <label className="block text-xs font-mono text-slate-400 uppercase">
-                    Institution Name *
+                  <div>
+                    <label className="block text-xs font-mono text-gray-500 dark:text-slate-400 uppercase mb-1.5">
+                      Institution Name *
+                    </label>
                     <input
                       required
                       type="text"
                       name="collegeName"
                       value={mouForm.collegeName}
                       onChange={handleMouChange}
-                      className="mt-1.5 block w-full rounded bg-black/40 border border-white/10 px-3 py-2 text-white text-xs focus:border-cyan-400 focus:outline-none transition"
+                      className="block w-full rounded bg-gray-50 dark:bg-black/60 border border-gray-200 dark:border-white/10 px-3 py-2.5 text-slate-800 dark:text-white text-xs focus:border-cyan-500 dark:focus:border-cyan-400 focus:outline-none transition font-sans"
                       placeholder="e.g. SRM Valliammai"
                       disabled={submittingMou}
                     />
-                  </label>
+                  </div>
 
-                  <label className="block text-xs font-mono text-slate-400 uppercase">
-                    Contact Person Name *
+                  <div>
+                    <label className="block text-xs font-mono text-gray-500 dark:text-slate-400 uppercase mb-1.5">
+                      Contact Person Name *
+                    </label>
                     <input
                       required
                       type="text"
                       name="contactPerson"
                       value={mouForm.contactPerson}
                       onChange={handleMouChange}
-                      className="mt-1.5 block w-full rounded bg-black/40 border border-white/10 px-3 py-2 text-white text-xs focus:border-cyan-400 focus:outline-none transition"
+                      className="block w-full rounded bg-gray-50 dark:bg-black/60 border border-gray-200 dark:border-white/10 px-3 py-2.5 text-slate-800 dark:text-white text-xs focus:border-cyan-500 dark:focus:border-cyan-400 focus:outline-none transition font-sans"
                       placeholder="e.g. Dr. A. Kumar"
                       disabled={submittingMou}
                     />
-                  </label>
+                  </div>
 
-                  <label className="block text-xs font-mono text-slate-400 uppercase">
-                    Designation *
+                  <div>
+                    <label className="block text-xs font-mono text-gray-500 dark:text-slate-400 uppercase mb-1.5">
+                      Designation *
+                    </label>
                     <input
                       required
                       type="text"
                       name="designation"
                       value={mouForm.designation}
                       onChange={handleMouChange}
-                      className="mt-1.5 block w-full rounded bg-black/40 border border-white/10 px-3 py-2 text-white text-xs focus:border-cyan-400 focus:outline-none transition"
+                      className="block w-full rounded bg-gray-50 dark:bg-black/60 border border-gray-200 dark:border-white/10 px-3 py-2.5 text-slate-800 dark:text-white text-xs focus:border-cyan-500 dark:focus:border-cyan-400 focus:outline-none transition font-sans"
                       placeholder="e.g. HOD / Placement Officer"
                       disabled={submittingMou}
                     />
-                  </label>
+                  </div>
 
-                  <label className="block text-xs font-mono text-slate-400 uppercase">
-                    Email Address *
+                  <div>
+                    <label className="block text-xs font-mono text-gray-500 dark:text-slate-400 uppercase mb-1.5">
+                      Email Address *
+                    </label>
                     <input
                       required
                       type="email"
                       name="email"
                       value={mouForm.email}
                       onChange={handleMouChange}
-                      className="mt-1.5 block w-full rounded bg-black/40 border border-white/10 px-3 py-2 text-white text-xs focus:border-cyan-400 focus:outline-none transition"
+                      className="block w-full rounded bg-gray-50 dark:bg-black/60 border border-gray-200 dark:border-white/10 px-3 py-2.5 text-slate-800 dark:text-white text-xs focus:border-cyan-500 dark:focus:border-cyan-400 focus:outline-none transition font-sans"
                       placeholder="hod.cse@college.edu"
                       disabled={submittingMou}
                     />
-                  </label>
+                  </div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <label className="block text-xs font-mono text-slate-400 uppercase">
-                    Phone Number *
+                  <div>
+                    <label className="block text-xs font-mono text-gray-500 dark:text-slate-400 uppercase mb-1.5">
+                      Phone Number *
+                    </label>
                     <input
                       required
                       type="tel"
                       name="phone"
                       value={mouForm.phone}
                       onChange={handleMouChange}
-                      className="mt-1.5 block w-full rounded bg-black/40 border border-white/10 px-3 py-2 text-white text-xs focus:border-cyan-400 focus:outline-none transition"
+                      className="block w-full rounded bg-gray-50 dark:bg-black/60 border border-gray-200 dark:border-white/10 px-3 py-2.5 text-slate-800 dark:text-white text-xs focus:border-cyan-500 dark:focus:border-cyan-400 focus:outline-none transition font-sans"
                       placeholder="+91 98765 43210"
                       disabled={submittingMou}
                     />
-                  </label>
+                  </div>
 
-                  <label className="block text-xs font-mono text-slate-400 uppercase">
-                    Cooperation Focus *
+                  <div>
+                    <label className="block text-xs font-mono text-gray-500 dark:text-slate-400 uppercase mb-1.5">
+                      Cooperation Focus *
+                    </label>
                     <select
                       name="proposalType"
                       value={mouForm.proposalType}
                       onChange={handleMouChange}
-                      className="mt-1.5 block w-full rounded bg-black/40 border border-white/10 px-3 py-2 text-white text-xs focus:border-cyan-400 focus:outline-none transition"
+                      className="block w-full rounded bg-gray-50 dark:bg-black/60 border border-gray-200 dark:border-white/10 px-3 py-2.5 text-slate-800 dark:text-white text-xs focus:border-cyan-500 dark:focus:border-cyan-400 focus:outline-none transition font-sans"
                       disabled={submittingMou}
                     >
                       <option>Workshop & Technical Training</option>
@@ -479,34 +500,36 @@ const CollaborationsSection = () => {
                       <option>Joint AI/SaaS Research</option>
                       <option>Comprehensive institutional MoU</option>
                     </select>
-                  </label>
+                  </div>
                 </div>
 
-                <label className="block text-xs font-mono text-slate-400 uppercase">
-                  Additional Details / Proposals
+                <div>
+                  <label className="block text-xs font-mono text-gray-500 dark:text-slate-400 uppercase mb-1.5">
+                    Additional Details / Proposals
+                  </label>
                   <textarea
                     name="details"
                     rows={4}
                     value={mouForm.details}
                     onChange={handleMouChange}
-                    className="mt-1.5 block w-full rounded bg-black/40 border border-white/10 px-3 py-2 text-white text-xs focus:border-cyan-400 focus:outline-none transition"
+                    className="block w-full rounded bg-gray-50 dark:bg-black/60 border border-gray-200 dark:border-white/10 px-3 py-2.5 text-slate-800 dark:text-white text-xs focus:border-cyan-500 dark:focus:border-cyan-400 focus:outline-none transition font-sans"
                     placeholder="Provide details on target student departments, year, or custom ideas..."
                     disabled={submittingMou}
                   />
-                </label>
+                </div>
 
-                <div className="flex justify-end gap-3 pt-4 border-t border-white/5">
+                <div className="flex justify-end gap-3 pt-4 border-t border-gray-100 dark:border-white/5">
                   <button
                     type="button"
                     onClick={() => setActiveModal(null)}
-                    className="bg-white/5 border border-white/10 text-slate-300 font-semibold px-5 py-2.5 rounded-lg text-xs hover:bg-white/10 transition cursor-pointer"
+                    className="bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10 text-gray-700 dark:text-slate-300 font-semibold px-5 py-2.5 rounded-lg text-xs hover:bg-gray-200 dark:hover:bg-white/10 transition cursor-pointer font-mono"
                     disabled={submittingMou}
                   >
                     Cancel
                   </button>
                   <button
                     type="submit"
-                    className="bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-bold px-6 py-2.5 rounded-lg text-xs hover:from-cyan-400 hover:to-blue-400 transition flex items-center gap-1.5 cursor-pointer"
+                    className="bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-extrabold px-6 py-2.5 rounded-lg text-xs hover:from-cyan-400 hover:to-blue-400 transition flex items-center gap-1.5 cursor-pointer font-mono"
                     disabled={submittingMou}
                   >
                     {submittingMou ? 'Sending...' : 'Send MoU Request'} <Send className="w-3.5 h-3.5" />
@@ -514,168 +537,7 @@ const CollaborationsSection = () => {
                 </div>
               </form>
             </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      {/* MODAL FORM: JOIN MENTOR NETWORK */}
-      <AnimatePresence>
-        {activeModal === 'mentor' && (
-          <motion.div
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-          >
-            <motion.div
-              className="bg-[#0b0f19] border border-white/10 rounded-2xl shadow-2xl p-6 md:p-8 max-w-2xl w-full relative"
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-            >
-              <div className="flex justify-between items-start mb-6">
-                <div>
-                  <h3 className="text-xl sm:text-2xl font-bold flex items-center gap-2">
-                    <UserCheck className="text-amber-400 w-6 h-6" /> Join Our Mentor Network
-                  </h3>
-                  <p className="text-xs text-slate-400 mt-1">
-                    Help guide next-gen developers and review live codebase designs.
-                  </p>
-                </div>
-                <button
-                  onClick={() => setActiveModal(null)}
-                  className="p-1.5 rounded-full bg-white/5 border border-white/10 text-slate-400 hover:text-white transition-colors cursor-pointer"
-                >
-                  <X className="w-5 h-5" />
-                </button>
-              </div>
-
-              <form onSubmit={handleMentorSubmit} className="space-y-4">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <label className="block text-xs font-mono text-slate-400 uppercase">
-                    Full Name *
-                    <input
-                      required
-                      type="text"
-                      name="fullName"
-                      value={mentorForm.fullName}
-                      onChange={handleMentorChange}
-                      className="mt-1.5 block w-full rounded bg-black/40 border border-white/10 px-3 py-2 text-white text-xs focus:border-amber-400 focus:outline-none transition"
-                      placeholder="e.g. Rajesh Kumar"
-                      disabled={submittingMentor}
-                    />
-                  </label>
-
-                  <label className="block text-xs font-mono text-slate-400 uppercase">
-                    Email Address *
-                    <input
-                      required
-                      type="email"
-                      name="email"
-                      value={mentorForm.email}
-                      onChange={handleMentorChange}
-                      className="mt-1.5 block w-full rounded bg-black/40 border border-white/10 px-3 py-2 text-white text-xs focus:border-amber-400 focus:outline-none transition"
-                      placeholder="rajesh@company.com"
-                      disabled={submittingMentor}
-                    />
-                  </label>
-
-                  <label className="block text-xs font-mono text-slate-400 uppercase">
-                    Phone Number *
-                    <input
-                      required
-                      type="tel"
-                      name="phone"
-                      value={mentorForm.phone}
-                      onChange={handleMentorChange}
-                      className="mt-1.5 block w-full rounded bg-black/40 border border-white/10 px-3 py-2 text-white text-xs focus:border-amber-400 focus:outline-none transition"
-                      placeholder="+91 99999 88888"
-                      disabled={submittingMentor}
-                    />
-                  </label>
-
-                  <label className="block text-xs font-mono text-slate-400 uppercase">
-                    Years of Experience *
-                    <input
-                      required
-                      type="text"
-                      name="experience"
-                      value={mentorForm.experience}
-                      onChange={handleMentorChange}
-                      className="mt-1.5 block w-full rounded bg-black/40 border border-white/10 px-3 py-2 text-white text-xs focus:border-amber-400 focus:outline-none transition"
-                      placeholder="e.g. 5+ years"
-                      disabled={submittingMentor}
-                    />
-                  </label>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <label className="block text-xs font-mono text-slate-400 uppercase">
-                    Domain Expertise *
-                    <select
-                      name="expertise"
-                      value={mentorForm.expertise}
-                      onChange={handleMentorChange}
-                      className="mt-1.5 block w-full rounded bg-black/40 border border-white/10 px-3 py-2 text-white text-xs focus:border-amber-400 focus:outline-none transition"
-                      disabled={submittingMentor}
-                    >
-                      <option>Frontend Development (React/Next.js)</option>
-                      <option>Backend & DB (Node/Go/PostgreSQL)</option>
-                      <option>DevOps & Cloud (AWS/CI/CD/Docker)</option>
-                      <option>AI & Data Engineering (Python/ML)</option>
-                      <option>Product Management & UI/UX</option>
-                    </select>
-                  </label>
-
-                  <label className="block text-xs font-mono text-slate-400 uppercase">
-                    LinkedIn URL *
-                    <input
-                      required
-                      type="url"
-                      name="linkedin"
-                      value={mentorForm.linkedin}
-                      onChange={handleMentorChange}
-                      className="mt-1.5 block w-full rounded bg-black/40 border border-white/10 px-3 py-2 text-white text-xs focus:border-amber-400 focus:outline-none transition"
-                      placeholder="https://linkedin.com/in/username"
-                      disabled={submittingMentor}
-                    />
-                  </label>
-                </div>
-
-                <label className="block text-xs font-mono text-slate-400 uppercase">
-                  Why do you want to join our Incubation wing? *
-                  <textarea
-                    required
-                    name="motivation"
-                    rows={4}
-                    value={mentorForm.motivation}
-                    onChange={handleMentorChange}
-                    className="mt-1.5 block w-full rounded bg-black/40 border border-white/10 px-3 py-2 text-white text-xs focus:border-amber-400 focus:outline-none transition"
-                    placeholder="Share how you wish to collaborate, offer reviews, or hold technical sessions..."
-                    disabled={submittingMentor}
-                  />
-                </label>
-
-                <div className="flex justify-end gap-3 pt-4 border-t border-white/5">
-                  <button
-                    type="button"
-                    onClick={() => setActiveModal(null)}
-                    className="bg-white/5 border border-white/10 text-slate-300 font-semibold px-5 py-2.5 rounded-lg text-xs hover:bg-white/10 transition cursor-pointer"
-                    disabled={submittingMentor}
-                  >
-                    Cancel
-                  </button>
-                  <button
-                    type="submit"
-                    className="bg-[#FFD98A] text-[#171717] font-bold px-6 py-2.5 rounded-lg text-xs hover:bg-[#ffe1a6] transition flex items-center gap-1.5 cursor-pointer"
-                    disabled={submittingMentor}
-                  >
-                    {submittingMentor ? 'Sending...' : 'Join Mentor Network'} <Send className="w-3.5 h-3.5" />
-                  </button>
-                </div>
-              </form>
-            </motion.div>
-          </motion.div>
+          </div>
         )}
       </AnimatePresence>
 
