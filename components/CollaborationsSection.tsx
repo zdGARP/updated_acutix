@@ -12,11 +12,21 @@ import {
   X,
   School,
   Terminal,
-  ArrowRight
+  ArrowRight,
+  Sparkles
 } from 'lucide-react';
 
-// Academic Alliance Hub Data in user-requested order:
-// 1. VISTAS 2. SRM 3. SA Engineering 4. Jeppiaar
+// Subcomponents imports
+import FloatingParticles from './collaborations/FloatingParticles';
+import ImpactStats from './collaborations/ImpactStats';
+import IndiaMap from './collaborations/IndiaMap';
+import MarqueeLogos from './collaborations/MarqueeLogos';
+import CollaborationCard from './collaborations/CollaborationCard';
+import Timeline from './collaborations/Timeline';
+import SuccessStories from './collaborations/SuccessStories';
+import ProcessSection from './collaborations/ProcessSection';
+
+// Upgrade data structure
 const institutions = [
   {
     id: "vistas",
@@ -32,7 +42,19 @@ const institutions = [
       event1: "/gallery_03.jpg",
       event2: "/gallery_04.jpg"
     },
-    logo: "/logo_vistas.png"
+    logo: "/logo_vistas.png",
+    banner: "/gallery_02.jpg",
+    stats: [
+      { label: "Participants", value: "300+" },
+      { label: "Joint Papers", value: "5+" },
+      { label: "Hackathons", value: "3" }
+    ],
+    achievements: [
+      "Best Healthtech Innovation Partner 2024",
+      "Pilot AI diagnostics incubator nodes established",
+      "Shared research database integration model"
+    ],
+    focusAreas: ["Healthcare AI", "Predictive Diagnostics", "Applied ML", "Data Ethics"]
   },
   {
     id: "srmv",
@@ -48,7 +70,19 @@ const institutions = [
       event1: "/gallery_05.jpg",
       event2: "/gallery_06.jpg"
     },
-    logo: "/logo_srmv.png"
+    logo: "/logo_srmv.png",
+    banner: "/gallery_05.jpg",
+    stats: [
+      { label: "Trained", value: "500+" },
+      { label: "Placements", value: "15+" },
+      { label: "Success Rate", value: "95%" }
+    ],
+    achievements: [
+      "Established fast-track Cloud Developer recruitment pipeline",
+      "Trained 500+ candidates in docker and AWS networks",
+      "Accredited placement partner status"
+    ],
+    focusAreas: ["AWS Cloud", "Docker Containerization", "CI/CD Pipelines", "Node REST APIs"]
   },
   {
     id: "saec",
@@ -64,7 +98,19 @@ const institutions = [
       event1: "/gallery_02.jpg",
       event2: "/gallery_03.jpg"
     },
-    logo: "/logo_saec.png"
+    logo: "/logo_saec.png",
+    banner: "/mou_saec.png",
+    stats: [
+      { label: "Intern Cohorts", value: "12+" },
+      { label: "React bootcamps", value: "3" },
+      { label: "Grad Rate", value: "100%" }
+    ],
+    achievements: [
+      "Direct frontend developer internship pathways",
+      "100% submission rating on commercial-grade capstones",
+      "Direct student mentoring by SaaS engineering leads"
+    ],
+    focusAreas: ["React & Next.js", "State Management", "Tailwind styling", "Git Workflows"]
   },
   {
     id: "jit",
@@ -80,7 +126,19 @@ const institutions = [
       event1: "/hackathon_jit.jpg",
       event2: "/seminar_jit.jpg"
     },
-    logo: "/logo_jit.png"
+    logo: "/logo_jit.png",
+    banner: "/seminar_jit.jpg",
+    stats: [
+      { label: "Bootcamp Grads", value: "350+" },
+      { label: "SaaS Sprints", value: "8" },
+      { label: "Campus Meetups", value: "10+" }
+    ],
+    achievements: [
+      "First-ever campus mobile app developer lab node",
+      "Active contributors to live FertiCare mobile assets",
+      "3 innovation sponsorships awarded in campus sprints"
+    ],
+    focusAreas: ["React Native", "Flutter Mobile SDKs", "SaaS Core Engineering", "UI/UX Prototyping"]
   }
 ];
 
@@ -140,114 +198,139 @@ const CollaborationsSection = () => {
   };
 
   return (
-    <div className="bg-gray-950 min-h-screen text-gray-100 selection:bg-cyan-500/30 selection:text-cyan-200 relative overflow-hidden font-sans pb-24 pt-32">
-      {/* Background elements */}
-      <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-5 pointer-events-none" style={{ backgroundSize: '30px 30px', backgroundImage: 'linear-gradient(to right, #ffffff10 1px, transparent 1px), linear-gradient(to bottom, #ffffff10 1px, transparent 1px)' }}></div>
-      <div className="absolute top-1/4 -left-32 w-96 h-96 bg-cyan-600 rounded-full mix-blend-multiply filter blur-[128px] opacity-40 animate-pulse pointer-events-none"></div>
-      <div className="absolute top-1/3 -right-32 w-96 h-96 bg-purple-600 rounded-full mix-blend-multiply filter blur-[128px] opacity-40 animate-pulse pointer-events-none" style={{ animationDelay: '2s' }}></div>
+    <div className="bg-black min-h-screen text-gray-100 selection:bg-cyan-500/30 selection:text-cyan-200 relative overflow-hidden font-sans pb-24 pt-32">
+      {/* Canvas Particles & Backdrop Lights */}
+      <FloatingParticles />
+      <div className="absolute top-1/4 -left-32 w-[500px] h-[500px] bg-cyan-600/10 rounded-full blur-[160px] pointer-events-none" />
+      <div className="absolute top-1/3 -right-32 w-[500px] h-[500px] bg-purple-600/10 rounded-full blur-[160px] pointer-events-none" />
 
-      {/* College Showcases Grid */}
-      <section className="relative z-10 px-6 max-w-7xl mx-auto mb-20 pt-8">
-        {/* Header Block (Aligns with Services / Products) */}
+      {/* Hero Section */}
+      <section className="relative z-10 px-6 max-w-7xl mx-auto text-center pt-8 pb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          className="space-y-6"
+        >
+          {/* Tagline */}
+          <div className="inline-flex items-center space-x-2 bg-cyan-500/10 border border-cyan-400/20 px-3.5 py-1.5 rounded-full text-xs font-mono text-cyan-300">
+            <Sparkles className="w-3.5 h-3.5 animate-pulse text-cyan-400" />
+            <span>ACADEMIC CO-VENTURING & ALLIANCES</span>
+          </div>
+
+          {/* Title */}
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white tracking-tight uppercase leading-none">
+            Academic{' '}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-400 to-emerald-400 drop-shadow-[0_0_30px_rgba(6,182,212,0.15)]">
+              Alliance Hub
+            </span>
+          </h1>
+
+          {/* Description */}
+          <p className="text-base sm:text-lg text-gray-400 max-w-3xl mx-auto leading-relaxed">
+            Bridging the gap between commercial SaaS engineering and hands-on developer training. We partner with leading institutions to establish campus innovation centers, incubate talent, and deploy live production systems.
+          </p>
+
+          {/* CTA Buttons */}
+          <div className="pt-4 flex flex-wrap justify-center gap-4">
+            <button
+              onClick={() => setActiveModal('mou')}
+              className="bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 hover:from-cyan-400 hover:to-purple-500 text-white font-mono text-xs font-bold px-8 py-4 rounded-xl shadow-lg hover:shadow-cyan-500/20 transition-all duration-300 flex items-center gap-2 cursor-pointer uppercase border border-cyan-400/20"
+            >
+              Initiate Academic MoU <ArrowRight className="w-4 h-4" />
+            </button>
+            <a
+              href="#alliance-cards"
+              className="bg-white/5 border border-white/10 hover:border-white/20 text-gray-300 hover:text-white font-mono text-xs font-bold px-8 py-4 rounded-xl transition-all duration-300 flex items-center gap-2 cursor-pointer uppercase"
+            >
+              Explore Partners
+            </a>
+          </div>
+        </motion.div>
+      </section>
+
+      {/* Impact Stats Section */}
+      <ImpactStats />
+
+      {/* Interactive India Map */}
+      <IndiaMap />
+
+      {/* Auto-scrolling logo wall */}
+      <MarqueeLogos />
+
+      {/* College Showcase Cards Grid */}
+      <section id="alliance-cards" className="relative z-10 px-6 max-w-7xl mx-auto my-24 scroll-mt-24">
         <div className="text-center mb-16">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mb-12"
-          >
-            <h1 className="text-4xl font-extrabold text-white mb-2 tracking-tight animate-fadeUp drop-shadow-lg flex items-center justify-center gap-2 uppercase">
-              Academic <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500">Alliance Hub</span>
-            </h1>
-            <p className="text-lg text-gray-400 max-w-3xl mx-auto animate-fadeIn font-medium">
-              Bridging the gap between commercial software development and hands-on developer training through strategic collaborations with leading institutions.
-            </p>
-          </motion.div>
+          <h2 className="text-xs font-mono uppercase tracking-widest text-cyan-400 mb-2">
+            INCUBATION NODES
+          </h2>
+          <h3 className="text-3xl font-extrabold text-white">
+            Active Academic Alliances
+          </h3>
+          <p className="text-sm text-gray-400 max-w-2xl mx-auto mt-3">
+            Explore our co-established labs, student cohorts, and live SaaS project sprint deliverables inside each university campus.
+          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {institutions.map((inst) => (
-            <div
+            <motion.div
               key={inst.id}
-              className="bg-gray-900/40 backdrop-blur-md border border-white/5 hover:border-cyan-500/30 hover:bg-gray-800/50 rounded-2xl p-8 transition-all duration-300 group flex flex-col justify-between shadow-lg"
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-100px' }}
+              transition={{ duration: 0.5 }}
             >
-              <div>
-                {/* Top Header: Logo & Title Layout */}
-                <div className="flex items-center gap-4 mb-4">
-                  {/* Round profile picture logo container */}
-                  <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-cyan-500/20 dark:border-white/10 bg-white relative flex-shrink-0 shadow-[0_0_15px_rgba(6,182,212,0.1)]">
-                    <Image
-                      src={inst.logo}
-                      alt={`${inst.name} Logo`}
-                      fill
-                      className="object-contain p-1"
-                    />
-                  </div>
-                  <div>
-                    <span className="font-mono text-[9px] tracking-wider text-cyan-400 uppercase bg-white/5 px-2.5 py-0.5 rounded border border-white/5">
-                      {inst.location}
-                    </span>
-                    <h3 className="text-lg font-bold text-white group-hover:text-cyan-400 transition-colors duration-300 mt-1 leading-snug">
-                      {inst.name}
-                    </h3>
-                  </div>
-                </div>
-
-                {/* Description */}
-                <p className="text-sm text-gray-400 mt-4 leading-relaxed">
-                  {inst.desc}
-                </p>
-                
-                {/* Initiatives/Tags */}
-                <div className="flex flex-wrap gap-2 mt-4">
-                  {inst.details.initiatives.map((tag) => (
-                    <span 
-                      key={tag} 
-                      className="text-[10px] font-mono bg-white/5 text-gray-300 px-2.5 py-1 rounded border border-white/5"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              {/* Bottom: View Gallery Button */}
-              <button
-                onClick={() => setSelectedInst(inst)}
-                className="font-mono text-cyan-400 text-xs tracking-wider flex items-center gap-2 mt-8 hover:text-cyan-300 transition-colors uppercase border border-cyan-500/20 hover:border-cyan-400/50 bg-cyan-950/10 hover:bg-cyan-950/30 px-4 py-2.5 rounded-lg w-fit cursor-pointer"
-              >
-                [ ⚡ VIEW MOU & EVENT GALLERY ]
-              </button>
-            </div>
+              <CollaborationCard
+                institution={inst}
+                onViewCollaboration={(i) => setSelectedInst(i)}
+                onEventGallery={(i) => setSelectedInst(i)}
+              />
+            </motion.div>
           ))}
         </div>
       </section>
 
-      {/* Onboarding CTA Section (Cleaned up, only Institutions) */}
-      <section className="relative z-10 px-6 max-w-7xl mx-auto">
-        <div className="max-w-3xl mx-auto bg-gray-900/40 backdrop-blur-md border border-white/5 rounded-3xl p-8 sm:p-12 shadow-xl relative overflow-hidden">
-          {/* Decorative backdrop gradients */}
-          <div className="absolute top-0 right-0 w-64 h-64 rounded-full bg-cyan-500/10 blur-3xl pointer-events-none" />
-          <div className="absolute bottom-0 left-0 w-64 h-64 rounded-full bg-blue-500/10 blur-3xl pointer-events-none" />
+      {/* Interactive Partnership Timeline */}
+      <Timeline />
 
-          <div className="relative z-10 text-center space-y-6 max-w-2xl mx-auto">
-            <div className="flex justify-center">
-              <div className="p-4 bg-cyan-500/10 rounded-2xl text-cyan-400 border border-cyan-500/20">
-                <School className="w-8 h-8" />
-              </div>
+      {/* Student Success Stories */}
+      <SuccessStories />
+
+      {/* Collaboration Process */}
+      <ProcessSection />
+
+      {/* Visual Final CTA */}
+      <section className="relative z-10 px-6 max-w-7xl mx-auto my-24">
+        <div className="max-w-4xl mx-auto bg-gradient-to-br from-gray-950 via-gray-900/60 to-gray-950 border border-white/5 rounded-3xl p-8 sm:p-14 shadow-2xl relative overflow-hidden text-center space-y-8">
+          {/* Glow spots */}
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-72 h-72 rounded-full bg-cyan-500/10 blur-3xl pointer-events-none" />
+          <div className="absolute bottom-0 left-1/4 w-48 h-48 rounded-full bg-purple-500/10 blur-3xl pointer-events-none" />
+
+          <div className="flex justify-center">
+            <div className="p-4 bg-cyan-500/10 rounded-2xl text-cyan-400 border border-cyan-500/20 shadow-inner">
+              <School className="w-8 h-8" />
             </div>
-            <h3 className="text-2xl font-bold text-white">Partner With Acutix</h3>
-            <p className="text-gray-400 text-sm leading-relaxed">
-              Connect your engineering department with our software labs. Establish a structured MoU for student internships, industrial visits, guest workshops, and curriculum alignment.
-            </p>
-            <div className="pt-4 flex justify-center">
-              <button
-                onClick={() => setActiveModal('mou')}
-                className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-bold px-8 py-3.5 rounded-xl shadow-lg hover:shadow-cyan-500/20 transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer text-sm"
-              >
-                Initiate Academic MoU <ArrowRight className="w-4 h-4" />
-              </button>
-            </div>
+          </div>
+
+          <h3 className="text-3xl font-extrabold text-white uppercase">
+            Partner With{' '}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400">
+              Acutix Soft
+            </span>
+          </h3>
+
+          <p className="text-gray-400 text-sm leading-relaxed max-w-2xl mx-auto">
+            Connect your engineering department with our software labs. Establish a structured MoU for student internships, industrial visits, guest workshops, and curriculum alignment to give your developers edge in commercial SaaS spaces.
+          </p>
+
+          <div className="flex justify-center pt-4">
+            <button
+              onClick={() => setActiveModal('mou')}
+              className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-extrabold px-10 py-4.5 rounded-xl shadow-lg shadow-cyan-500/15 hover:shadow-cyan-400/25 transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer text-sm font-mono uppercase border border-cyan-400/30"
+            >
+              Initiate Academic MoU <ArrowRight className="w-4 h-4" />
+            </button>
           </div>
         </div>
       </section>
@@ -258,7 +341,7 @@ const CollaborationsSection = () => {
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
             {/* Backdrop overlay */}
             <motion.div
-              className="absolute inset-0 bg-black/75 backdrop-blur-md"
+              className="absolute inset-0 bg-black/80 backdrop-blur-md"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -267,7 +350,7 @@ const CollaborationsSection = () => {
 
             {/* Modal Box */}
             <motion.div
-              className="bg-gray-950/95 border border-white/10 rounded-2xl shadow-2xl p-6 md:p-8 max-w-4xl w-full max-h-[90vh] overflow-y-auto relative z-10 backdrop-blur-2xl text-white"
+              className="bg-gray-950/95 border border-white/10 rounded-3xl shadow-2xl p-6 md:p-8 max-w-4xl w-full max-h-[90vh] overflow-y-auto relative z-10 backdrop-blur-2xl text-white"
               initial={{ scale: 0.92, opacity: 0, y: 15 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
               exit={{ scale: 0.92, opacity: 0, y: 15 }}
@@ -285,7 +368,7 @@ const CollaborationsSection = () => {
                 </div>
                 <button
                   onClick={() => setSelectedInst(null)}
-                  className="p-1.5 rounded-full bg-white/5 border border-white/10 text-slate-400 hover:text-white transition-colors cursor-pointer"
+                  className="p-2 rounded-full bg-white/5 border border-white/10 text-slate-400 hover:text-white transition-colors cursor-pointer"
                 >
                   <X className="w-5 h-5" />
                 </button>
@@ -369,7 +452,7 @@ const CollaborationsSection = () => {
                 <button
                   onClick={() => {
                     setSelectedInst(null);
-                    setMouForm(prev => ({ ...prev, collegeName: selectedInst.name }));
+                    setMouForm((prev) => ({ ...prev, collegeName: selectedInst.name }));
                     setActiveModal('mou');
                   }}
                   className="bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-extrabold px-5 py-2.5 rounded-lg text-xs hover:from-cyan-400 hover:to-blue-500 transition cursor-pointer font-mono flex items-center gap-1.5"
@@ -387,7 +470,7 @@ const CollaborationsSection = () => {
         {activeModal === 'mou' && (
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
             <motion.div
-              className="absolute inset-0 bg-black/75 backdrop-blur-md"
+              className="absolute inset-0 bg-black/80 backdrop-blur-md"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -395,14 +478,14 @@ const CollaborationsSection = () => {
             />
 
             <motion.div
-              className="bg-gray-950/95 border border-white/10 rounded-2xl shadow-2xl p-6 md:p-8 max-w-2xl w-full relative z-10 backdrop-blur-2xl text-white"
+              className="bg-gray-950/95 border border-white/10 rounded-3xl shadow-2xl p-6 md:p-8 max-w-2xl w-full relative z-10 backdrop-blur-2xl text-white"
               initial={{ scale: 0.92, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.92, opacity: 0 }}
             >
               <div className="flex justify-between items-start mb-6">
                 <div>
-                  <h3 className="text-xl sm:text-2xl font-bold flex items-center gap-2 text-white">
+                  <h3 className="text-xl sm:text-2xl font-bold flex items-center gap-2 text-white uppercase">
                     <School className="text-cyan-400 w-6 h-6" /> Initiate Academic MoU
                   </h3>
                   <p className="text-xs text-slate-400 mt-1">
@@ -411,7 +494,7 @@ const CollaborationsSection = () => {
                 </div>
                 <button
                   onClick={() => setActiveModal(null)}
-                  className="p-1.5 rounded-full bg-white/5 border border-white/10 text-slate-400 hover:text-white transition-colors cursor-pointer"
+                  className="p-2 rounded-full bg-white/5 border border-white/10 text-slate-400 hover:text-white transition-colors cursor-pointer"
                 >
                   <X className="w-5 h-5" />
                 </button>
