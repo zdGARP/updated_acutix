@@ -67,11 +67,11 @@ const institutions = [
     },
     images: {
       mou: "/mou_srmv.jpg",
-      event1: "/gallery_05.jpg",
+      event1: "/gallery_02.jpg",
       event2: "/gallery_06.jpg"
     },
     logo: "/logo_srmv.png",
-    banner: "/gallery_05.jpg",
+    banner: "/gallery_02.jpg",
     stats: [
       { label: "Trained", value: "500+" },
       { label: "Placements", value: "15+" },
@@ -95,7 +95,7 @@ const institutions = [
     },
     images: {
       mou: "/mou_saec.png",
-      event1: "/gallery_02.jpg",
+      event1: "/gallery_05.jpg",
       event2: "/gallery_03.jpg"
     },
     logo: "/logo_saec.png",

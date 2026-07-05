@@ -1,9 +1,10 @@
 'use client';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 export default function FinalCTA() {
   return (
-    <section className="relative py-32 bg-gray-950 overflow-hidden border-t border-white/5">
+    <section id="contact" className="relative py-32 bg-gray-950 overflow-hidden border-t border-white/5">
       {/* Animated gradient waves background */}
       <div className="absolute inset-0 w-full h-full">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-tr from-cyan-600/30 to-purple-600/30 rounded-full blur-[100px] animate-pulse"></div>
@@ -25,20 +26,15 @@ export default function FinalCTA() {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <motion.button 
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 bg-white text-gray-950 rounded-xl font-bold shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.5)] transition-all"
-            >
-              Get Free Consultation
-            </motion.button>
-            <motion.button 
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 bg-gray-900/50 text-white backdrop-blur-md border border-gray-700 rounded-xl font-bold hover:bg-gray-800 transition-all"
-            >
-              Contact Us
-            </motion.button>
+            <Link href="/contact" className="contents">
+              <motion.button 
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="px-8 py-4 bg-white text-gray-950 rounded-xl font-bold shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.5)] transition-all cursor-pointer text-center"
+              >
+                Get Free Consultation
+              </motion.button>
+            </Link>
           </div>
         </motion.div>
       </div>

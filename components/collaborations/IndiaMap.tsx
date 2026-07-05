@@ -23,8 +23,8 @@ export default function IndiaMap() {
       id: 'vistas',
       name: 'VISTAS (Vels University)',
       location: 'Pallavaram, Southwest',
-      x: 180,
-      y: 190,
+      x: 160 - 7,
+      y: 180 - 7,
       color: '#06b6d4', // Cyan
       details: 'Healthcare AI, MedNexus Hackathons & Research Alliance.',
     },
@@ -32,8 +32,8 @@ export default function IndiaMap() {
       id: 'srmv',
       name: 'SRM Valliammai Eng College',
       location: 'Kattankulathur, South',
-      x: 160,
-      y: 290,
+      x: 110 - 7,
+      y: 280 - 7,
       color: '#8b5cf6', // Purple
       details: 'AWS Cloud webinars, Fullstack Bootcamps, Placement evaluations.',
     },
@@ -41,8 +41,8 @@ export default function IndiaMap() {
       id: 'saec',
       name: 'SA Engineering College',
       location: 'Poonamallee, West',
-      x: 110,
-      y: 150,
+      x: 100 - 7,
+      y: 90 - 7,
       color: '#10b981', // Emerald
       details: 'Frontend developer cohorts, direct capstone project mentorship.',
     },
@@ -50,8 +50,8 @@ export default function IndiaMap() {
       id: 'jit',
       name: 'Jeppiaar Institute of Tech',
       location: 'Sriperumbudur, West-Southwest',
-      x: 80,
-      y: 230,
+      x: 60 - 7,
+      y: 200 - 7,
       color: '#f59e0b', // Amber
       details: 'Live SaaS coding sprints, React Native and Flutter mobile bootcamps.',
     },
@@ -119,22 +119,22 @@ export default function IndiaMap() {
                 className="relative w-[340px] h-[440px]"
               >
                 {/* SVG Digital India map */}
-                <svg className="w-full h-full opacity-35" viewBox="0 0 400 480">
+                <svg className="w-full h-full opacity-80" viewBox="0 0 400 480">
                   {indiaDots.map((dot, idx) => (
                     <circle
                       key={idx}
                       cx={dot.x}
                       cy={dot.y}
-                      r="2"
-                      fill="#ffffff"
-                      opacity="0.3"
+                      r="2.5"
+                      fill="#06b6d4"
+                      opacity="0.8"
                     />
                   ))}
                   {/* Subtle connection grid paths */}
                   <path
                     d="M 205 30 L 220 65 L 200 120 L 140 160 L 95 215 L 150 240 L 160 360 L 205 445 L 235 350 L 290 255 L 360 185 L 310 190 L 235 125 Z"
                     fill="none"
-                    stroke="rgba(6, 182, 212, 0.08)"
+                    stroke="rgba(6, 182, 212, 0.25)"
                     strokeWidth="1"
                     strokeDasharray="4 4"
                   />
@@ -176,29 +176,110 @@ export default function IndiaMap() {
                 {/* Radar Line Sweep */}
                 <div className="absolute inset-0 bg-gradient-to-tr from-cyan-500/0 via-cyan-500/0 to-cyan-500/5 rounded-full animate-spin" style={{ animationDuration: '8s' }} />
 
-                {/* Chennai Coastline Representation (Faint) */}
-                <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-20" viewBox="0 0 300 300">
+                {/* Faint Grid and Chennai Coastline / Roads Representation */}
+                <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 340 340">
+                  <defs>
+                    <linearGradient id="oceanGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="rgba(6, 182, 212, 0.0)" />
+                      <stop offset="100%" stopColor="rgba(6, 182, 212, 0.08)" />
+                    </linearGradient>
+                  </defs>
+
+                  <style>{`
+                    @keyframes dash {
+                      to {
+                        stroke-dashoffset: -20;
+                      }
+                    }
+                    .animated-route {
+                      stroke-dasharray: 5 5;
+                      animation: dash 2.5s linear infinite;
+                    }
+                  `}</style>
+
+                  {/* Ocean Area */}
                   <path
-                    d="M 230 0 C 230 100, 240 180, 260 300"
-                    fill="none"
-                    stroke="#06b6d4"
-                    strokeWidth="2"
-                    strokeDasharray="6 6"
+                    d="M 290 0 Q 305 170 325 340 L 340 340 L 340 0 Z"
+                    fill="url(#oceanGradient)"
                   />
-                  <text x="245" y="40" fill="#06b6d4" fontSize="8" fontFamily="monospace" transform="rotate(90 245 40)">
+
+                  {/* Coastline */}
+                  <path
+                    d="M 290 0 Q 305 170 325 340"
+                    fill="none"
+                    stroke="rgba(6, 182, 212, 0.4)"
+                    strokeWidth="1.5"
+                    strokeDasharray="4 4"
+                  />
+
+                  <text x="315" y="80" fill="rgba(6, 182, 212, 0.4)" fontSize="8" fontFamily="monospace" fontWeight="bold" letterSpacing="2" transform="rotate(90 315 80)">
                     BAY OF BENGAL
                   </text>
+
+                  {/* Concentric Radar Rings centered at Hub (240, 100) */}
+                  <circle cx="240" cy="100" r="70" fill="none" stroke="rgba(6, 182, 212, 0.08)" strokeWidth="1" strokeDasharray="3 9" />
+                  <circle cx="240" cy="100" r="140" fill="none" stroke="rgba(6, 182, 212, 0.05)" strokeWidth="1" />
+                  <circle cx="240" cy="100" r="220" fill="none" stroke="rgba(6, 182, 212, 0.03)" strokeWidth="1" />
+
+                  {/* Major Expressways / Connected Routes */}
+                  {/* GST Road (NH-45) */}
+                  <path
+                    d="M 240 100 L 160 180 L 110 280"
+                    fill="none"
+                    stroke="rgba(139, 92, 246, 0.4)"
+                    strokeWidth="1.5"
+                    className="animated-route"
+                  />
+                  <text x="210" y="135" fill="rgba(139, 92, 246, 0.5)" fontSize="6" fontFamily="monospace" transform="rotate(45 210 135)" fontWeight="bold">
+                    NH-45 (GST RD)
+                  </text>
+
+                  {/* Poonamallee High Road (NH-48) */}
+                  <path
+                    d="M 240 100 L 100 90"
+                    fill="none"
+                    stroke="rgba(16, 185, 129, 0.4)"
+                    strokeWidth="1.5"
+                    className="animated-route"
+                  />
+                  <text x="170" y="91" fill="rgba(16, 185, 129, 0.5)" fontSize="6" fontFamily="monospace" transform="rotate(-4 170 91)" fontWeight="bold">
+                    NH-48 (POONAMALLEE HIGH RD)
+                  </text>
+
+                  {/* Bengaluru Highway Link */}
+                  <path
+                    d="M 100 90 L 60 200"
+                    fill="none"
+                    stroke="rgba(245, 158, 11, 0.4)"
+                    strokeWidth="1.5"
+                    className="animated-route"
+                  />
+                  <text x="72" y="140" fill="rgba(245, 158, 11, 0.5)" fontSize="6" fontFamily="monospace" transform="rotate(70 72 140)" fontWeight="bold">
+                    BANGALURU HWY
+                  </text>
+
                   {/* Center Node: Chennai Core */}
-                  <circle cx="210" cy="120" r="4" fill="#ffffff" />
-                  <line x1="210" y1="120" x2="180" y2="190" stroke="rgba(255,255,255,0.15)" strokeWidth="0.8" />
-                  <line x1="210" y1="120" x2="160" y2="290" stroke="rgba(255,255,255,0.15)" strokeWidth="0.8" />
-                  <line x1="210" y1="120" x2="110" y2="150" stroke="rgba(255,255,255,0.15)" strokeWidth="0.8" />
-                  <line x1="210" y1="120" x2="80" y2="230" stroke="rgba(255,255,255,0.15)" strokeWidth="0.8" />
+                  <circle cx="240" cy="100" r="5" fill="#06b6d4" />
+                  <circle cx="240" cy="100" r="10" fill="none" stroke="#06b6d4" strokeWidth="1" className="animate-ping" style={{ animationDuration: '3s' }} />
+
+                  {/* Geographic Labels */}
+                  <text x="160" y="168" fill="rgba(255,255,255,0.4)" fontSize="7" fontFamily="monospace" textAnchor="middle" fontWeight="bold">
+                    PALLAVARAM
+                  </text>
+                  <text x="110" y="268" fill="rgba(255,255,255,0.4)" fontSize="7" fontFamily="monospace" textAnchor="middle" fontWeight="bold">
+                    KATTANKULATHUR
+                  </text>
+                  <text x="100" y="78" fill="rgba(255,255,255,0.4)" fontSize="7" fontFamily="monospace" textAnchor="middle" fontWeight="bold">
+                    POONAMALLEE
+                  </text>
+                  <text x="60" y="188" fill="rgba(255,255,255,0.4)" fontSize="7" fontFamily="monospace" textAnchor="middle" fontWeight="bold">
+                    SRIPERUMBUDUR
+                  </text>
                 </svg>
 
                 {/* Chennai Center indicator */}
-                <div className="absolute left-[210px] top-[108px] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
-                  <span className="text-[7px] font-mono text-gray-500">CHENNAI HUB</span>
+                <div className="absolute left-[240px] top-[115px] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center pointer-events-none">
+                  <span className="text-[7px] font-mono text-[#06b6d4] font-bold">CHENNAI HUB</span>
                 </div>
 
                 {/* Zoom out button */}

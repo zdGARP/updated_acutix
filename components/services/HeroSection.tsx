@@ -2,6 +2,7 @@
 import { motion } from 'framer-motion';
 import { Cloud, Smartphone, LayoutDashboard, Cpu, Shield, Network } from 'lucide-react';
 import { useState } from 'react';
+import Link from 'next/link';
 
 const options = [
   { label: 'Build a Website', id: 'website' },
@@ -57,20 +58,24 @@ export default function HeroSection() {
               From scalable enterprise software and AI solutions to cloud infrastructure and stunning mobile apps, we engineer the future of your business.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <motion.button 
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-xl font-semibold shadow-lg shadow-cyan-500/30 hover:shadow-cyan-500/50 transition-all"
-              >
-                Get Free Consultation
-              </motion.button>
-              <motion.button 
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 bg-white/10 text-white backdrop-blur-md border border-white/20 rounded-xl font-semibold hover:bg-white/20 transition-all"
-              >
-                Explore Services
-              </motion.button>
+              <Link href="/contact" className="contents">
+                <motion.button 
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-xl font-semibold shadow-lg shadow-cyan-500/30 hover:shadow-cyan-500/50 transition-all cursor-pointer text-center"
+                >
+                  Get Free Consultation
+                </motion.button>
+              </Link>
+              <Link href="#services-bento" className="contents">
+                <motion.button 
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="px-8 py-4 bg-white/10 text-white backdrop-blur-md border border-white/20 rounded-xl font-semibold hover:bg-white/20 transition-all cursor-pointer text-center"
+                >
+                  Explore Services
+                </motion.button>
+              </Link>
             </div>
           </motion.div>
 

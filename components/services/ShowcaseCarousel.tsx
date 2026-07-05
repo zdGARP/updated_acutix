@@ -2,13 +2,14 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import Image from 'next/image';
 
 const projects = [
-  { id: 1, title: 'Hospital Management Dashboard', image: '/images/services/healthcare.jpg', category: 'Healthcare' },
-  { id: 2, title: 'Corporate Website Redesign', image: '/images/services/website.jpg', category: 'Web Development' },
-  { id: 3, title: 'E-commerce Mobile App', image: '/images/services/mobile.jpg', category: 'Mobile App' },
-  { id: 4, title: 'Cloud Data Platform', image: '/images/services/cloud.jpg', category: 'Cloud Infrastructure' },
-  { id: 5, title: 'Business Analytics Dashboard', image: '/images/services/analytics.jpg', category: 'Data & AI' },
+  { id: 1, title: 'FertiCare', image: '/ascas.png', category: 'Fertility & Women\'s Health' },
+  { id: 2, title: 'GymPad', image: '/fithub.png', category: 'Smart Fitness Management' },
+  { id: 3, title: 'MotorConsult', image: '/02.jpg', category: 'Insurance & Vehicle Consulting' },
+  { id: 4, title: 'BoxCare', image: '/03.jpg', category: 'CRM & E-Commerce for Packaging' },
+  { id: 5, title: 'Clinic CMS', image: '/01.jpg', category: 'Efficiency & Patient Care' },
 ];
 
 export default function ShowcaseCarousel() {
@@ -52,10 +53,13 @@ export default function ShowcaseCarousel() {
               transition={{ duration: 0.6 }}
               className="absolute inset-0 flex items-center justify-center bg-gray-800"
             >
-              {/* Note: The user will place real images in the public folder. Here we use a stylized placeholder fallback. */}
-              <div className="absolute inset-0 bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center">
-                <span className="text-gray-700 text-3xl font-bold uppercase tracking-widest opacity-30">Image Placeholder</span>
-              </div>
+              <Image
+                src={projects[index].image}
+                alt={projects[index].title}
+                fill
+                className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
+                priority
+              />
               
               <div className="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-950/40 to-transparent z-10 opacity-90"></div>
               
