@@ -1,4 +1,5 @@
 'use client';
+import styles from '@/app/services/services.module.css';
 import HeroSection from './services/HeroSection';
 import StatsSection from './services/StatsSection';
 import ServicesBentoGrid from './services/ServicesBentoGrid';
@@ -13,7 +14,7 @@ import FinalCTA from './services/FinalCTA';
 
 export default function OurServices() {
   return (
-    <div className="bg-gray-950 min-h-screen text-gray-100 selection:bg-cyan-500/30 selection:text-cyan-200">
+    <div className={`${styles.services} services-page min-h-screen text-gray-100 selection:bg-cyan-500/30 selection:text-cyan-200`}>
       <HeroSection />
       <StatsSection />
       <ServicesBentoGrid />

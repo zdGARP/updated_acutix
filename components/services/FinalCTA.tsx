@@ -4,9 +4,9 @@ import Link from 'next/link';
 
 export default function FinalCTA() {
   return (
-    <section id="contact" className="relative py-32 bg-gray-950 overflow-hidden border-t border-white/5">
+    <section id="contact" className="services-final-cta relative py-32 bg-gray-950 overflow-hidden border-t border-white/5">
       {/* Animated gradient waves background */}
-      <div className="absolute inset-0 w-full h-full">
+      <div className="services-final-cta-glow absolute inset-0 w-full h-full" aria-hidden="true">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-tr from-cyan-600/30 to-purple-600/30 rounded-full blur-[100px] animate-pulse"></div>
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-br from-emerald-600/20 to-blue-600/20 rounded-full blur-[80px] animate-pulse" style={{ animationDelay: '2s' }}></div>
       </div>

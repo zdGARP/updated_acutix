@@ -61,7 +61,7 @@ export default function ShowcaseCarousel() {
                 priority
               />
               
-              <div className="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-950/40 to-transparent z-10 opacity-90"></div>
+              <div className="showcase-image-overlay absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-950/40 to-transparent z-10 opacity-90"></div>
               
               <div className="absolute bottom-0 left-0 p-8 md:p-12 z-20 w-full flex flex-col md:flex-row md:items-end justify-between">
                 <div>

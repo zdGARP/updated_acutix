@@ -87,38 +87,52 @@ const stats = [
 
 export default function EcosystemSection() {
   return (
-    <div className="relative overflow-hidden font-sans pb-24 bg-[#07090e] text-white">
+    <div className="relative overflow-hidden font-sans pb-8 bg-[#07090e] text-white">
       {/* Abstract Grid + Ambient Glow */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b0c_1px,transparent_1px),linear-gradient(to_bottom,#1e293b0c_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none z-0" />
       <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-gradient-to-br from-cyan-500/10 to-transparent blur-[120px] pointer-events-none" />
       <div className="absolute bottom-[20%] right-[-10%] w-[50%] h-[50%] bg-gradient-to-tr from-amber-500/5 to-transparent blur-[120px] pointer-events-none" />
 
       {/* 1. PAGE HERO SECTION (Credibility First) */}
-      <section className="relative pt-36 pb-20 z-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto text-center">
+      <section className="landing-intro relative pt-36 pb-20 z-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          {/* DPIIT Badge */}
-          <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full text-xs font-mono font-bold tracking-wider text-amber-400 bg-amber-500/5 border border-amber-500/20 shadow-[0_0_15px_rgba(245,158,11,0.08)] mb-8 mx-auto uppercase">
-            <span className="w-2.5 h-2.5 rounded-full bg-amber-500 animate-pulse" />
-            🔒 RECOGNIZED DPIIT STARTUP // GOVERNMENT OF INDIA
+          <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full text-xs font-mono font-semibold tracking-wide text-amber-300 bg-white/[0.04] border border-white/10 mb-7 mx-auto uppercase">
+            <span className="w-2 h-2 rounded-full bg-amber-400" />
+            DPIIT-recognized startup · Government of India
           </div>
 
-          <h2 className="text-4xl sm:text-6xl font-extrabold tracking-tight leading-tight max-w-5xl mx-auto mb-6 bg-clip-text text-transparent bg-gradient-to-r from-[#FFD98A] via-[#F7B7A3] to-[#5EC6D9]">
-            Forging Industry-Academia Ecosystems
+          <h2 className="text-4xl sm:text-6xl font-bold tracking-tight leading-tight max-w-5xl mx-auto mb-6 text-[#f1f0ed]">
+            Digital products built for real-world growth.
           </h2>
 
-          <p className="text-lg sm:text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed mb-10">
-            Bridging the critical gap between commercial enterprise execution and hands-on developer training. We incubate elite academic talent on live product cycles.
+          <p className="text-base sm:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed mb-8">
+            Acutix helps businesses build dependable software and gives emerging developers hands-on experience through real product work.
           </p>
+
+          <div className="flex flex-wrap justify-center gap-3">
+            <a
+              href="/services"
+              className="inline-flex items-center justify-center rounded-xl bg-[#d8955d] px-6 py-3 text-sm font-bold text-[#201810] transition-colors hover:bg-[#e6a873]"
+            >
+              Explore our services
+            </a>
+            <a
+              href="/careers"
+              className="inline-flex items-center justify-center rounded-xl border border-white/15 bg-white/[0.04] px-6 py-3 text-sm font-semibold text-slate-100 transition-colors hover:border-white/30 hover:bg-white/[0.08]"
+            >
+              Discover internships
+            </a>
+          </div>
 
         </motion.div>
       </section>
 
       {/* 2. 'IMPACT BY THE NUMBERS' COUNTER GRID */}
-      <section className="relative z-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto mb-28">
+      <section className="landing-stats relative z-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto mb-10">
         <div className="border border-white/10 bg-gray-900/40 backdrop-blur-xl rounded-3xl py-10 px-8 md:py-12 md:px-16 shadow-[0_0_50px_rgba(6,182,212,0.08)]">
           <div className="grid grid-cols-2 md:grid-cols-5 gap-6 md:gap-8">
             {stats.map((stat, idx) => (
@@ -151,12 +165,12 @@ export default function EcosystemSection() {
         </div>
 
         {/* Explore Academic Partners button placed below the stats counter bar with balanced font sizing */}
-        <div className="mt-20 flex justify-center">
+        <div className="mt-16 flex justify-center">
           <motion.a
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             href="/collaborations#alliance-hub"
-            className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-extrabold px-8 py-3.5 rounded-xl transition-all duration-300 text-sm md:text-base flex items-center gap-2 shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/30 cursor-pointer"
+            className="bg-[#d8955d] hover:bg-[#e6a873] text-[#201810] font-bold px-8 py-3.5 rounded-xl transition-all duration-300 text-sm md:text-base flex items-center gap-2 shadow-none cursor-pointer"
           >
             Explore Academic Partners
           </motion.a>

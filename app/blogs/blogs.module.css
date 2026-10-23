@@ -1,0 +1,8 @@
+.blogs {
+  min-height: 100vh;
+  background: var(--landing-stage);
+}
+
+.blogs :global(section) {
+  background: transparent;
+}

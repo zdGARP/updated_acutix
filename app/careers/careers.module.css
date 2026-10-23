@@ -1,0 +1,78 @@
+.careers {
+  min-height: 100vh;
+  background: var(--landing-stage);
+  color: var(--landing-text);
+  font-family: var(--font-geist-sans), Arial, sans-serif;
+}
+
+.careers :global(*) {
+  font-family: var(--font-geist-sans), Arial, sans-serif !important;
+}
+
+.careers :global(section) {
+  background: transparent;
+}
+
+.careers :global(h1),
+.careers :global(h2),
+.careers :global(h3) {
+  color: var(--landing-text);
+}
+
+.careers :global(p) {
+  color: var(--landing-muted);
+}
+
+.careers :global([class*="bg-white"]),
+.careers :global([class*="bg-[#fff8dc]"]),
+.careers :global([class*="dark:bg-[#2d3440]"]),
+.careers :global([class*="dark:bg-[#3a4152]"]) {
+  background-color: var(--landing-card);
+}
+
+.careers :global([class*="border-[#323b42]"]),
+.careers :global([class*="dark:border-[#3a4152]"]),
+.careers :global([class*="border-l-4"]) {
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.careers :global([class*="text-red-700"]) {
+  color: var(--landing-text);
+}
+
+.careers :global([class*="bg-red-700"]) {
+  background-color: var(--landing-orange);
+  color: #211810;
+  box-shadow: none;
+}
+
+.careers :global([class*="hover:bg-red-600"]:hover) {
+  background-color: var(--landing-orange-hover);
+}
+
+.careers :global([class*="text-blue-400"]),
+.careers :global([class*="text-cyan-400"]),
+.careers :global([class*="text-purple-400"]) {
+  color: var(--landing-violet);
+}
+
+.careers :global([class*="text-pink-400"]),
+.careers :global([class*="text-green-400"]),
+.careers :global([class*="text-yellow-400"]),
+.careers :global([class*="text-red-400"]) {
+  color: var(--landing-orange);
+}
+
+.careers :global([class*="text-gray-700"]),
+.careers :global([class*="text-gray-600"]) {
+  color: var(--landing-muted);
+}
+
+.careers :global([class*="shadow-2xl"]),
+.careers :global([class*="shadow-lg"]) {
+  box-shadow: 0 16px 38px rgba(14, 15, 24, 0.16);
+}
+
+.careers :global(img) {
+  border-radius: inherit;
+}

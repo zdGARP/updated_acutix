@@ -25,7 +25,7 @@ export default function SuccessStories() {
       avatarText: 'AR',
       quote: "The live SaaS coding immersion bootcamp at Jeppiaar was my launchpad. Building real modules for FertiCare during my final year helped me develop commercial-grade React Native patterns. Now, I work full-time leading core mobile sprints.",
       project: 'FertiCare Clinic App Module',
-      color: '#f59e0b', // Amber
+      color: '#f39a55',
     },
     {
       name: 'Priyanka S.',
@@ -34,7 +34,7 @@ export default function SuccessStories() {
       avatarText: 'PS',
       quote: "Co-venturing in the MedNexus AI Hackathon gave me access to real dataset outlines. Developing pilot IVF diagnostics models alongside senior specialists from Acutix helped me map clinical data rules effectively. It was hands-on research at its best.",
       project: 'IVF Predictive AI Model',
-      color: '#06b6d4', // Cyan
+      color: '#9387f5',
     },
     {
       name: 'Sanjay Kumar',
@@ -43,7 +43,7 @@ export default function SuccessStories() {
       avatarText: 'SK',
       quote: "The AWS cloud integration webinars led by Acutix engineers introduced me to containerization and automated pipeline architectures. Applying these techniques on live sandboxes helped me complete my AWS Solutions Architect credential ahead of graduation.",
       project: 'AWS Container Pipeline Setup',
-      color: '#8b5cf6', // Purple
+      color: '#9387f5',
     },
     {
       name: 'Meera N.',
@@ -52,7 +52,7 @@ export default function SuccessStories() {
       avatarText: 'MN',
       quote: "My semester-long internship on BoxCare's E-commerce framework was incredibly challenging. I learned professional responsive styling protocols, Git workflows, and API consumption. Having direct mentors from industry software labs made a massive difference.",
       project: 'BoxCare E-comm Dashboard',
-      color: '#10b981', // Emerald
+      color: '#f39a55',
     },
   ];
 
@@ -97,7 +97,7 @@ export default function SuccessStories() {
               {/* Quote details */}
               <div className="space-y-6">
                 <Quote className="w-10 h-10 text-cyan-400 opacity-60" style={{ color: stories[activeIdx].color }} />
-                <p className="text-base sm:text-lg text-gray-200 leading-relaxed font-medium italic">
+                <p className="collaboration-quote text-base sm:text-lg text-gray-200 leading-relaxed font-medium italic">
                   &ldquo;{stories[activeIdx].quote}&rdquo;
                 </p>
               </div>

@@ -25,7 +25,7 @@ export default function ProcessSection() {
       icon: <MessageSquare className="w-5 h-5" />,
       duration: '1-2 Weeks',
       deliverable: 'Initial Engagement Roadmap Proposal',
-      color: 'from-cyan-500 to-blue-500',
+      color: 'from-orange-400 to-amber-500',
     },
     {
       number: '02',
@@ -34,7 +34,7 @@ export default function ProcessSection() {
       icon: <Settings className="w-5 h-5" />,
       duration: '1 Week',
       deliverable: 'Bootcamp & Tech Lab Syllabus Outline',
-      color: 'from-blue-500 to-purple-500',
+      color: 'from-violet-400 to-indigo-500',
     },
     {
       number: '03',
@@ -43,7 +43,7 @@ export default function ProcessSection() {
       icon: <FileText className="w-5 h-5" />,
       duration: '2-3 Weeks',
       deliverable: 'Signed Academic MoU & Cohort Enrolments',
-      color: 'from-purple-500 to-pink-500',
+      color: 'from-orange-400 to-violet-500',
     },
     {
       number: '04',
@@ -52,7 +52,7 @@ export default function ProcessSection() {
       icon: <Play className="w-5 h-5" />,
       duration: '4-6 Weeks',
       deliverable: 'Student Assessments & Certificate Distribution',
-      color: 'from-pink-500 to-rose-500',
+      color: 'from-violet-400 to-indigo-500',
     },
     {
       number: '05',
@@ -61,7 +61,7 @@ export default function ProcessSection() {
       icon: <Rocket className="w-5 h-5" />,
       duration: '3-6 Months',
       deliverable: 'Live Code Commits & Graduate Placement Offers',
-      color: 'from-rose-500 to-orange-500',
+      color: 'from-orange-400 to-amber-500',
     },
   ];
 

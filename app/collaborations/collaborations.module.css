@@ -1,0 +1,154 @@
+.collaborations {
+  isolation: isolate;
+  background: var(--landing-stage);
+  color: var(--landing-text);
+  font-family: var(--font-geist-sans), Arial, sans-serif;
+}
+
+.collaborations :global(*) {
+  font-family: var(--font-geist-sans), Arial, sans-serif !important;
+}
+
+.collaborations::before {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 12% 8%, rgba(243, 154, 85, 0.1), transparent 34rem),
+    radial-gradient(ellipse at 90% 18%, rgba(147, 135, 245, 0.12), transparent 36rem);
+  content: "";
+  pointer-events: none;
+}
+
+.collaborations :global(section h2) {
+  color: var(--landing-violet);
+}
+
+.collaborations :global(section h3),
+.collaborations :global(section h4),
+.collaborations :global(section h5) {
+  color: var(--landing-text);
+}
+
+.collaborations :global(section p),
+.collaborations :global(section li) {
+  color: var(--landing-muted);
+}
+
+.collaborations :global(.text-transparent) {
+  color: var(--landing-orange);
+  background: none;
+  -webkit-text-fill-color: currentColor;
+}
+
+.collaborations :global(.text-cyan-300),
+.collaborations :global(.text-cyan-400),
+.collaborations :global(.text-cyan-500),
+.collaborations :global(.text-blue-400),
+.collaborations :global(.text-emerald-400),
+.collaborations :global(.text-amber-400),
+.collaborations :global(.text-purple-400),
+.collaborations :global(.text-pink-400),
+.collaborations :global(.text-rose-400) {
+  color: var(--landing-violet);
+}
+
+.collaborations :global([class*="bg-gray-950"]),
+.collaborations :global([class*="bg-gray-900"]),
+.collaborations :global([class*="bg-black"]) {
+  background-color: var(--landing-card);
+}
+
+.collaborations :global([class*="border-cyan-"]),
+.collaborations :global([class*="border-purple-"]),
+.collaborations :global([class*="border-white/5"]) {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.collaborations :global(.text-white) {
+  color: var(--landing-text);
+}
+
+.collaborations :global(.text-gray-300),
+.collaborations :global(.text-gray-400) {
+  color: var(--landing-muted);
+}
+
+.collaborations :global(.text-gray-500) {
+  color: #a5a7b4;
+}
+
+.collaborations :global(.collaboration-title-accent) {
+  color: var(--landing-orange);
+}
+
+.collaborations :global(.collaboration-quote) {
+  font-family: var(--font-geist-sans), Arial, sans-serif !important;
+  font-style: italic;
+  font-weight: 500;
+}
+
+.collaborations :global(.collaboration-primary-button) {
+  border-color: rgba(243, 154, 85, 0.35);
+  background: var(--landing-orange);
+  color: #211810;
+  box-shadow: none;
+}
+
+.collaborations :global(.collaboration-primary-button:hover) {
+  background: var(--landing-orange-hover);
+}
+
+.collaborations :global(.collaboration-secondary-button) {
+  border-color: rgba(147, 135, 245, 0.4);
+  color: var(--landing-violet);
+}
+
+.collaborations :global(.collaboration-secondary-button:hover) {
+  background: rgba(147, 135, 245, 0.1);
+  color: #b7afff;
+}
+
+.collaborations :global(.collaboration-final-card) {
+  border-color: rgba(255, 255, 255, 0.1);
+  background: linear-gradient(145deg, #393a48, var(--landing-card));
+  box-shadow: 0 24px 60px rgba(14, 15, 24, 0.18);
+}
+
+.collaborations :global(.collaboration-final-button) {
+  border-color: rgba(243, 154, 85, 0.35);
+  background: var(--landing-orange);
+  color: #211810;
+  box-shadow: none;
+}
+
+.collaborations :global(.collaboration-final-button:hover) {
+  background: var(--landing-orange-hover);
+  box-shadow: none;
+}
+
+.collaborations :global(input),
+.collaborations :global(select),
+.collaborations :global(textarea) {
+  border-color: rgba(255, 255, 255, 0.14);
+  background-color: #282a36;
+  color: var(--landing-text);
+}
+
+.collaborations :global(input:focus),
+.collaborations :global(select:focus),
+.collaborations :global(textarea:focus) {
+  border-color: rgba(147, 135, 245, 0.65);
+  outline-color: rgba(147, 135, 245, 0.35);
+}
+
+.collaborations :global(input::placeholder),
+.collaborations :global(textarea::placeholder) {
+  color: #a5a7b4;
+}
+
+@media (max-width: 640px) {
+  .collaborations {
+    padding-bottom: 3.5rem;
+  }
+}

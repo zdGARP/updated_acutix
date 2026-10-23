@@ -6,6 +6,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { sendForm } from '../lib/sendForm';
 import { motion, AnimatePresence } from 'framer-motion';
+import styles from '@/app/collaborations/collaborations.module.css';
 import {
   ChevronRight,
   Send,
@@ -198,11 +199,11 @@ const CollaborationsSection = () => {
   };
 
   return (
-    <div className="bg-black min-h-screen text-gray-100 selection:bg-cyan-500/30 selection:text-cyan-200 relative overflow-hidden font-sans pb-24 pt-32">
+    <div className={`${styles.collaborations} collaboration-page min-h-screen text-gray-100 relative overflow-hidden font-sans pb-24 pt-32`}>
       {/* Canvas Particles & Backdrop Lights */}
       <FloatingParticles />
-      <div className="absolute top-1/4 -left-32 w-[500px] h-[500px] bg-cyan-600/10 rounded-full blur-[160px] pointer-events-none" />
-      <div className="absolute top-1/3 -right-32 w-[500px] h-[500px] bg-purple-600/10 rounded-full blur-[160px] pointer-events-none" />
+      <div className="absolute top-1/4 -left-32 w-[500px] h-[500px] bg-orange-500/10 rounded-full blur-[160px] pointer-events-none" />
+      <div className="absolute top-1/3 -right-32 w-[500px] h-[500px] bg-violet-500/10 rounded-full blur-[160px] pointer-events-none" />
 
       {/* Hero Section */}
       <section className="relative z-10 px-6 max-w-7xl mx-auto text-center pt-8 pb-16">
@@ -221,7 +222,7 @@ const CollaborationsSection = () => {
           {/* Title */}
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white tracking-tight uppercase leading-none">
             Academic{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-400 to-emerald-400 drop-shadow-[0_0_30px_rgba(6,182,212,0.15)]">
+            <span className="collaboration-title-accent text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-400 to-emerald-400">
               Alliance Hub
             </span>
           </h1>
@@ -235,13 +236,13 @@ const CollaborationsSection = () => {
           <div className="pt-4 flex flex-wrap justify-center gap-4">
             <button
               onClick={() => setActiveModal('mou')}
-              className="bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 hover:from-cyan-400 hover:to-purple-500 text-white font-mono text-xs font-bold px-8 py-4 rounded-xl shadow-lg hover:shadow-cyan-500/20 transition-all duration-300 flex items-center gap-2 cursor-pointer uppercase border border-cyan-400/20"
+              className="collaboration-primary-button bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 hover:from-cyan-400 hover:to-purple-500 text-white font-mono text-xs font-bold px-8 py-4 rounded-xl transition-all duration-300 flex items-center gap-2 cursor-pointer uppercase border border-cyan-400/20"
             >
               Initiate Academic MoU <ArrowRight className="w-4 h-4" />
             </button>
             <a
               href="#alliance-cards"
-              className="bg-white/5 border border-white/10 hover:border-white/20 text-gray-300 hover:text-white font-mono text-xs font-bold px-8 py-4 rounded-xl transition-all duration-300 flex items-center gap-2 cursor-pointer uppercase"
+              className="collaboration-secondary-button bg-white/5 border border-white/10 hover:border-white/20 text-gray-300 hover:text-white font-mono text-xs font-bold px-8 py-4 rounded-xl transition-all duration-300 flex items-center gap-2 cursor-pointer uppercase"
             >
               Explore Partners
             </a>
@@ -302,7 +303,7 @@ const CollaborationsSection = () => {
 
       {/* Visual Final CTA */}
       <section className="relative z-10 px-6 max-w-7xl mx-auto my-24">
-        <div className="max-w-4xl mx-auto bg-gradient-to-br from-gray-950 via-gray-900/60 to-gray-950 border border-white/5 rounded-3xl p-8 sm:p-14 shadow-2xl relative overflow-hidden text-center space-y-8">
+        <div className="collaboration-final-card max-w-4xl mx-auto bg-gradient-to-br from-gray-950 via-gray-900/60 to-gray-950 border border-white/5 rounded-3xl p-8 sm:p-14 shadow-2xl relative overflow-hidden text-center space-y-8">
           {/* Glow spots */}
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-72 h-72 rounded-full bg-cyan-500/10 blur-3xl pointer-events-none" />
           <div className="absolute bottom-0 left-1/4 w-48 h-48 rounded-full bg-purple-500/10 blur-3xl pointer-events-none" />
@@ -315,7 +316,7 @@ const CollaborationsSection = () => {
 
           <h3 className="text-3xl font-extrabold text-white uppercase">
             Partner With{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400">
+            <span className="collaboration-title-accent text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400">
               Acutix Soft
             </span>
           </h3>
@@ -327,7 +328,7 @@ const CollaborationsSection = () => {
           <div className="flex justify-center pt-4">
             <button
               onClick={() => setActiveModal('mou')}
-              className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-extrabold px-10 py-4.5 rounded-xl shadow-lg shadow-cyan-500/15 hover:shadow-cyan-400/25 transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer text-sm font-mono uppercase border border-cyan-400/30"
+              className="collaboration-final-button bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-extrabold px-10 py-4.5 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer text-sm font-mono uppercase border border-cyan-400/30"
             >
               Initiate Academic MoU <ArrowRight className="w-4 h-4" />
             </button>

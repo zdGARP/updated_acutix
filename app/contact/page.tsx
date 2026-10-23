@@ -1,8 +1,9 @@
 import ContactSection from '../../components/ContactSection';
+import styles from './contact.module.css';
 
 export default function Contact() {
   return (
-    <main className="bg-gradient-to-br from-white via-gray-50 to-primary-50 dark:from-gray-900 dark:via-gray-800 dark:to-primary-900">
+    <main className={`${styles.contact} contact-page`}>
       <ContactSection />
     </main>
   );

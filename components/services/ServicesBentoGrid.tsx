@@ -225,23 +225,21 @@ export default function ServicesBentoGrid() {
                   key={service.id}
                   id={`service-${service.id}`}
                   onClick={() => setExpandedCard(service.id)}
-                  className={`group relative rounded-3xl p-8 bg-gray-900/50 backdrop-blur-md border border-white/5 cursor-pointer overflow-hidden transition-all duration-500 hover:shadow-[0_0_30px_rgba(6,182,212,0.15)] hover:-translate-y-2 hover:border-cyan-500/30 ${
+                  className={`service-card group relative rounded-3xl p-8 bg-gray-900/50 backdrop-blur-md border border-white/5 cursor-pointer overflow-hidden transition-all duration-500 ${
                     service.size === 'large' ? 'md:col-span-2 lg:col-span-2 row-span-2' :
                     service.size === 'medium' ? 'md:col-span-2 lg:col-span-2 row-span-1' :
                     'col-span-1 row-span-1'
                   }`}
                 >
-                  <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
-                  
                   {service.image && (
-                    <div className="absolute inset-0 z-0 opacity-50 group-hover:opacity-80 transition-opacity duration-500">
+                    <div className="service-card-image absolute inset-0 z-0 opacity-50 group-hover:opacity-80 transition-opacity duration-500">
                       <Image 
                         src={service.image} 
                         alt={service.title} 
                         fill 
                         className="object-cover"
                       />
-                      <div className="absolute inset-0 bg-gray-950/50"></div>
+                      <div className="service-card-image-overlay absolute inset-0 bg-gray-950/50"></div>
                     </div>
                   )}
                   

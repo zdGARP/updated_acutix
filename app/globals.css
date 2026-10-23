@@ -7,6 +7,14 @@ html {
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --landing-shell: #222433;
+  --landing-stage: #2a2c38;
+  --landing-card: #353744;
+  --landing-text: #f4f2ef;
+  --landing-muted: #c3c4cd;
+  --landing-orange: #f39a55;
+  --landing-orange-hover: #ffad6c;
+  --landing-violet: #9387f5;
   /* ACUTIX Logo Theme Colors */
   --color-primary: #FFD98A; /* pastel yellow */
   --color-accent: #F7B7A3; /* peach */
@@ -50,6 +58,472 @@ body {
   
     margin-top: 0 !important;
     margin-bottom: 0 !important;
+}
+
+body:has(.landing-page) > header {
+  background-color: var(--landing-shell);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 2px 18px rgba(0, 0, 0, 0.18);
+}
+
+body:has(.landing-page) > header nav a {
+  color: var(--landing-text);
+}
+
+body:has(.landing-page) > header nav a:hover {
+  color: var(--landing-orange-hover);
+  filter: none;
+}
+
+body:has(.landing-page) > header nav a span {
+  background-color: var(--landing-orange);
+}
+
+body:has(.landing-page) > header button:hover {
+  color: var(--landing-orange-hover);
+  border-color: rgba(243, 154, 85, 0.5);
+}
+
+body:has(.landing-page) > header > div + div {
+  background-color: var(--landing-shell);
+}
+
+body:has(.landing-page) > footer {
+  background: var(--landing-shell);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+body:has(.landing-page) > footer h4 {
+  color: var(--landing-violet);
+}
+
+body:has(.landing-page) > footer h4 > div {
+  color: var(--landing-orange);
+  background-color: rgba(243, 154, 85, 0.1);
+  border-color: rgba(243, 154, 85, 0.26);
+}
+
+body:has(.landing-page) > footer a:hover {
+  color: var(--landing-orange-hover);
+}
+
+body:has(.landing-page) > footer > div > div:last-child > div:last-child {
+  color: var(--landing-violet);
+}
+
+body:has(.products-page) > header {
+  background-color: var(--landing-shell);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 2px 18px rgba(0, 0, 0, 0.18);
+}
+
+body:has(.products-page) > header nav a {
+  color: var(--landing-text);
+}
+
+body:has(.products-page) > header nav a:hover,
+body:has(.products-page) > header nav a[aria-current="page"] {
+  color: var(--landing-orange-hover);
+  filter: none;
+}
+
+body:has(.products-page) > header nav a span {
+  background-color: var(--landing-orange);
+}
+
+body:has(.products-page) > header button:hover {
+  color: var(--landing-orange-hover);
+  border-color: rgba(243, 154, 85, 0.5);
+}
+
+body:has(.products-page) > header > div + div {
+  background-color: var(--landing-shell);
+}
+
+body:has(.products-page) > footer {
+  background: var(--landing-shell);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+body:has(.products-page) > footer h4 {
+  color: var(--landing-violet);
+}
+
+body:has(.products-page) > footer h4 > div {
+  color: var(--landing-orange);
+  background-color: rgba(243, 154, 85, 0.1);
+  border-color: rgba(243, 154, 85, 0.26);
+}
+
+body:has(.products-page) > footer a:hover {
+  color: var(--landing-orange-hover);
+}
+
+body:has(.products-page) > footer > div > div:last-child > div:last-child {
+  color: var(--landing-violet);
+}
+
+body:has(.collaboration-page) > header {
+  background-color: var(--landing-shell);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 2px 18px rgba(0, 0, 0, 0.18);
+}
+
+body:has(.collaboration-page) > header nav a {
+  color: var(--landing-text);
+}
+
+body:has(.collaboration-page) > header nav a:hover,
+body:has(.collaboration-page) > header nav a[aria-current="page"] {
+  color: var(--landing-orange-hover);
+  filter: none;
+}
+
+body:has(.collaboration-page) > header nav a span {
+  background-color: var(--landing-orange);
+}
+
+body:has(.collaboration-page) > header button:hover {
+  color: var(--landing-orange-hover);
+  border-color: rgba(243, 154, 85, 0.5);
+}
+
+body:has(.collaboration-page) > header > div + div {
+  background-color: var(--landing-shell);
+}
+
+body:has(.collaboration-page) > footer {
+  background: var(--landing-shell) !important;
+  background-image: none !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  color: var(--landing-text);
+  font-family: var(--font-geist-sans), Arial, sans-serif !important;
+}
+
+body:has(.collaboration-page) > footer h4 {
+  color: var(--landing-violet) !important;
+  font-family: var(--font-geist-sans), Arial, sans-serif !important;
+}
+
+body:has(.collaboration-page) > footer h4 > div {
+  color: var(--landing-orange);
+  background-color: rgba(243, 154, 85, 0.1);
+  border-color: rgba(243, 154, 85, 0.26);
+}
+
+body:has(.collaboration-page) > footer a:hover {
+  color: var(--landing-orange-hover) !important;
+}
+
+body:has(.collaboration-page) > footer :is(p, a, address, span, h4) {
+  font-family: var(--font-geist-sans), Arial, sans-serif !important;
+}
+
+body:has(.collaboration-page) > footer > div > div:last-child > div:last-child {
+  color: var(--landing-violet) !important;
+}
+
+body:has(.services-page) > header {
+  background-color: var(--landing-shell);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 2px 18px rgba(0, 0, 0, 0.18);
+}
+
+body:has(.services-page) > header nav a {
+  color: var(--landing-text);
+}
+
+body:has(.services-page) > header nav a:hover,
+body:has(.services-page) > header nav a[aria-current="page"] {
+  color: var(--landing-orange-hover);
+  filter: none;
+}
+
+body:has(.services-page) > header nav a span {
+  background-color: var(--landing-orange);
+}
+
+body:has(.services-page) > header button:hover {
+  color: var(--landing-orange-hover);
+  border-color: rgba(243, 154, 85, 0.5);
+}
+
+body:has(.services-page) > header > div + div {
+  background-color: var(--landing-shell);
+}
+
+body:has(.services-page) > footer {
+  background: var(--landing-shell) !important;
+  background-image: none !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  color: var(--landing-text);
+  font-family: var(--font-geist-sans), Arial, sans-serif !important;
+}
+
+body:has(.services-page) > footer h4 {
+  color: var(--landing-violet) !important;
+}
+
+body:has(.services-page) > footer h4 > div {
+  color: var(--landing-orange);
+  background-color: rgba(243, 154, 85, 0.1);
+  border-color: rgba(243, 154, 85, 0.26);
+}
+
+body:has(.services-page) > footer a:hover {
+  color: var(--landing-orange-hover) !important;
+}
+
+body:has(.services-page) > footer :is(p, a, address, span, h4) {
+  font-family: var(--font-geist-sans), Arial, sans-serif !important;
+}
+
+body:has(.services-page) > footer > div > div:last-child > div:last-child {
+  color: var(--landing-violet) !important;
+}
+
+body:has(.careers-page) > header {
+  background-color: var(--landing-shell);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 2px 18px rgba(0, 0, 0, 0.18);
+}
+
+body:has(.careers-page) > header nav a {
+  color: var(--landing-text);
+}
+
+body:has(.careers-page) > header nav a:hover,
+body:has(.careers-page) > header nav a[aria-current="page"] {
+  color: var(--landing-orange-hover);
+  filter: none;
+}
+
+body:has(.careers-page) > header nav a span {
+  background-color: var(--landing-orange);
+}
+
+body:has(.careers-page) > header button:hover {
+  color: var(--landing-orange-hover);
+  border-color: rgba(243, 154, 85, 0.5);
+}
+
+body:has(.careers-page) > header > div + div {
+  background-color: var(--landing-shell);
+}
+
+body:has(.careers-page) > footer {
+  background: var(--landing-shell) !important;
+  background-image: none !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  color: var(--landing-text);
+  font-family: var(--font-geist-sans), Arial, sans-serif !important;
+}
+
+body:has(.careers-page) > footer h4 {
+  color: var(--landing-violet) !important;
+}
+
+body:has(.careers-page) > footer h4 > div {
+  color: var(--landing-orange);
+  background-color: rgba(243, 154, 85, 0.1);
+  border-color: rgba(243, 154, 85, 0.26);
+}
+
+body:has(.careers-page) > footer a:hover {
+  color: var(--landing-orange-hover) !important;
+}
+
+body:has(.careers-page) > footer :is(p, a, address, span, h4) {
+  font-family: var(--font-geist-sans), Arial, sans-serif !important;
+}
+
+body:has(.careers-page) > footer > div > div:last-child > div:last-child {
+  color: var(--landing-violet) !important;
+}
+
+body:has(.blogs-page) > header {
+  background-color: var(--landing-shell);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 2px 18px rgba(0, 0, 0, 0.18);
+}
+
+body:has(.blogs-page) > header nav a {
+  color: var(--landing-text);
+}
+
+body:has(.blogs-page) > header nav a:hover,
+body:has(.blogs-page) > header nav a[aria-current="page"] {
+  color: var(--landing-orange-hover);
+  filter: none;
+}
+
+body:has(.blogs-page) > header nav a span {
+  background-color: var(--landing-orange);
+}
+
+body:has(.blogs-page) > header button:hover {
+  color: var(--landing-orange-hover);
+  border-color: rgba(243, 154, 85, 0.5);
+}
+
+body:has(.blogs-page) > header > div + div {
+  background-color: var(--landing-shell);
+}
+
+body:has(.blogs-page) footer {
+  background-color: var(--landing-shell) !important;
+  background-image: none !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  color: var(--landing-text);
+}
+
+body:has(.blogs-page) footer > div:first-child,
+body:has(.blogs-page) footer > div:nth-child(2) {
+  display: none;
+}
+
+body:has(.blogs-page) footer h4 {
+  color: var(--landing-violet) !important;
+}
+
+body:has(.blogs-page) footer h4 > div {
+  color: var(--landing-orange);
+  background-color: rgba(243, 154, 85, 0.1);
+  border-color: rgba(243, 154, 85, 0.26);
+}
+
+body:has(.blogs-page) footer a:hover {
+  color: var(--landing-orange-hover) !important;
+}
+
+body:has(.blogs-page) footer > div > div:last-child > div:last-child {
+  color: var(--landing-violet) !important;
+}
+
+body:has(.about-page) > header {
+  background-color: var(--landing-shell);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 2px 18px rgba(0, 0, 0, 0.18);
+}
+
+body:has(.about-page) > header nav a {
+  color: var(--landing-text);
+}
+
+body:has(.about-page) > header nav a:hover,
+body:has(.about-page) > header nav a[aria-current="page"] {
+  color: var(--landing-orange-hover);
+  filter: none;
+}
+
+body:has(.about-page) > header nav a span {
+  background-color: var(--landing-orange);
+}
+
+body:has(.about-page) > header button:hover {
+  color: var(--landing-orange-hover);
+  border-color: rgba(243, 154, 85, 0.5);
+}
+
+body:has(.about-page) > header > div + div {
+  background-color: var(--landing-shell);
+}
+
+body:has(.about-page) footer {
+  background-color: var(--landing-shell) !important;
+  background-image: none !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  color: var(--landing-text);
+}
+
+body:has(.about-page) footer > div:first-child,
+body:has(.about-page) footer > div:nth-child(2) {
+  display: none;
+}
+
+body:has(.about-page) footer h4 {
+  color: var(--landing-violet) !important;
+}
+
+body:has(.about-page) footer h4 > div {
+  color: var(--landing-orange);
+  background-color: rgba(243, 154, 85, 0.1);
+  border-color: rgba(243, 154, 85, 0.26);
+}
+
+body:has(.about-page) footer a:hover {
+  color: var(--landing-orange-hover) !important;
+}
+
+body:has(.about-page) footer :is(p, a, address, span, h4) {
+  font-family: var(--font-geist-sans), Arial, sans-serif !important;
+}
+
+body:has(.about-page) footer > div > div:last-child > div:last-child {
+  color: var(--landing-violet) !important;
+}
+
+body:has(.contact-page) > header {
+  background-color: var(--landing-shell);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 2px 18px rgba(0, 0, 0, 0.18);
+}
+
+body:has(.contact-page) > header nav a {
+  color: var(--landing-text);
+}
+
+body:has(.contact-page) > header nav a:hover,
+body:has(.contact-page) > header nav a[aria-current="page"] {
+  color: var(--landing-orange-hover);
+  filter: none;
+}
+
+body:has(.contact-page) > header nav a span {
+  background-color: var(--landing-orange);
+}
+
+body:has(.contact-page) > header button:hover {
+  color: var(--landing-orange-hover);
+  border-color: rgba(243, 154, 85, 0.5);
+}
+
+body:has(.contact-page) > header > div + div {
+  background-color: var(--landing-shell);
+}
+
+body:has(.contact-page) footer {
+  background-color: var(--landing-shell) !important;
+  background-image: none !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  color: var(--landing-text);
+}
+
+body:has(.contact-page) footer > div:first-child,
+body:has(.contact-page) footer > div:nth-child(2) {
+  display: none;
+}
+
+body:has(.contact-page) footer h4 {
+  color: var(--landing-violet) !important;
+}
+
+body:has(.contact-page) footer h4 > div {
+  color: var(--landing-orange);
+  background-color: rgba(243, 154, 85, 0.1);
+  border-color: rgba(243, 154, 85, 0.26);
+}
+
+body:has(.contact-page) footer a:hover {
+  color: var(--landing-orange-hover) !important;
+}
+
+body:has(.contact-page) footer :is(p, a, address, span, h4) {
+  font-family: var(--font-geist-sans), Arial, sans-serif !important;
+}
+
+body:has(.contact-page) footer > div > div:last-child > div:last-child {
+  color: var(--landing-violet) !important;
 }
 
 .mb-12 {

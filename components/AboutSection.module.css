@@ -1,0 +1,345 @@
+.section {
+  position: relative;
+  padding: 2rem 0 5rem;
+  color: var(--landing-text);
+  font-family: var(--font-geist-sans), Arial, sans-serif;
+}
+
+.container {
+  width: min(100% - 2rem, 72rem);
+  margin-inline: auto;
+}
+
+.intro {
+  max-width: 54rem;
+  margin: 0 auto 3.5rem;
+  text-align: center;
+}
+
+.eyebrow {
+  margin: 0 0 0.75rem;
+  color: var(--landing-orange);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.intro h1,
+.sectionHeading h2 {
+  margin: 0;
+  color: var(--landing-text);
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1.12;
+}
+
+.lead {
+  max-width: 50rem;
+  margin: 1.25rem auto 0;
+  color: var(--landing-muted);
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
+  line-height: 1.8;
+}
+
+.purposeGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 5rem;
+}
+
+.purposeCard,
+.valueCard,
+.directorCard,
+.testimonialCard {
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  background: var(--landing-card);
+  box-shadow: 0 16px 40px rgba(10, 12, 20, 0.16);
+}
+
+.purposeCard {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  min-height: 12rem;
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  border-radius: 1.1rem;
+  border-top: 3px solid var(--landing-orange);
+}
+
+.purposeCard:nth-child(2) {
+  border-top-color: var(--landing-violet);
+}
+
+.purposeIcon {
+  flex: 0 0 3rem;
+}
+
+.purposeIcon svg {
+  display: block;
+  width: 3rem;
+  height: 3rem;
+}
+
+.purposeIcon circle {
+  fill: rgba(243, 154, 85, 0.14);
+}
+
+.purposeCard:nth-child(2) .purposeIcon circle {
+  fill: rgba(147, 135, 245, 0.16);
+}
+
+.purposeIcon path {
+  stroke: var(--landing-orange);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.purposeCard:nth-child(2) .purposeIcon path {
+  stroke: var(--landing-violet);
+}
+
+.purposeCard h2 {
+  margin: 0 0 0.65rem;
+  color: var(--landing-text);
+  font-size: 1.35rem;
+  font-weight: 650;
+}
+
+.purposeCard p,
+.valueCard p,
+.directorContent > p,
+.testimonialCard > p {
+  margin: 0;
+  color: var(--landing-muted);
+  font-size: 0.98rem;
+  line-height: 1.75;
+}
+
+.valuesSection,
+.testimonialsSection {
+  margin-bottom: 5rem;
+}
+
+.sectionHeading {
+  margin-bottom: 1.75rem;
+  text-align: center;
+}
+
+.sectionHeading h2 {
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+}
+
+.valuesGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.valueCard {
+  min-height: 13rem;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  border-left: 3px solid var(--landing-violet);
+}
+
+.valueCard:nth-child(odd) {
+  border-left-color: var(--landing-orange);
+}
+
+.valueCard h3 {
+  margin: 0 0 0.7rem;
+  color: var(--landing-text);
+  font-size: 1.08rem;
+  font-weight: 650;
+}
+
+.valueCard p {
+  font-size: 0.92rem;
+}
+
+.directorCard {
+  display: grid;
+  grid-template-columns: 12rem minmax(0, 1fr);
+  align-items: start;
+  gap: clamp(1.5rem, 4vw, 3.25rem);
+  margin-bottom: 5rem;
+  padding: clamp(1.5rem, 4vw, 3rem);
+  border-radius: 1.25rem;
+  border-top: 3px solid var(--landing-violet);
+}
+
+.directorPhoto {
+  display: flex;
+  justify-content: center;
+  padding-top: 0.5rem;
+}
+
+.directorImage {
+  width: 10rem;
+  height: 10rem;
+  border: 3px solid rgba(147, 135, 245, 0.7);
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.directorContent {
+  min-width: 0;
+}
+
+.quote {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+  margin: 0 0 1.25rem;
+  color: var(--landing-orange);
+  font-size: 1rem;
+  font-style: italic;
+  font-weight: 550;
+  line-height: 1.6;
+}
+
+.quote svg {
+  flex: 0 0 auto;
+  margin-top: 0.2rem;
+}
+
+.directorContent h2 {
+  margin: 0 0 1rem;
+  color: var(--landing-text);
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.directorContent > p + p {
+  margin-top: 0.8rem;
+}
+
+.directorContent .signoff {
+  margin-top: 1.25rem;
+  color: var(--landing-orange);
+  font-weight: 650;
+}
+
+.testimonialsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.testimonialCard {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.5rem;
+  border-radius: 1rem;
+}
+
+.testimonialCard:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+}
+
+.testimonialAuthor {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.testimonialAuthor > span {
+  display: grid;
+  width: 2.65rem;
+  height: 2.65rem;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(243, 154, 85, 0.15);
+  color: var(--landing-orange);
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.testimonialAuthor h3 {
+  margin: 0;
+  color: var(--landing-text);
+  font-size: 1rem;
+  font-weight: 650;
+}
+
+.rating {
+  display: flex;
+  gap: 0.25rem;
+  margin-top: auto;
+  color: #f4bc67;
+}
+
+@media (max-width: 900px) {
+  .valuesGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .directorCard {
+    grid-template-columns: 9rem minmax(0, 1fr);
+  }
+
+  .directorImage {
+    width: 8rem;
+    height: 8rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .section {
+    padding-top: 1.25rem;
+    padding-bottom: 3rem;
+  }
+
+  .container {
+    width: min(100% - 1.25rem, 72rem);
+  }
+
+  .intro {
+    margin-bottom: 2.5rem;
+  }
+
+  .purposeGrid,
+  .testimonialsGrid,
+  .valuesGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .purposeGrid,
+  .valuesSection,
+  .directorCard,
+  .testimonialsSection {
+    margin-bottom: 3.25rem;
+  }
+
+  .purposeCard {
+    min-height: 0;
+    padding: 1.35rem;
+  }
+
+  .valueCard {
+    min-height: 0;
+  }
+
+  .directorCard {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .directorPhoto {
+    justify-content: flex-start;
+  }
+
+  .testimonialCard:last-child:nth-child(odd) {
+    grid-column: auto;
+  }
+}

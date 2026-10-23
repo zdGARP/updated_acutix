@@ -27,7 +27,7 @@ export default function Timeline() {
         '15 candidates fast-tracked into core development teams.',
         'Established direct campus recruitment placement channel.',
       ],
-      color: '#8b5cf6', // Purple
+      color: '#9387f5',
     },
     {
       year: '2024',
@@ -39,7 +39,7 @@ export default function Timeline() {
         'Integrated student researchers into clinical software pilot programs.',
         'Shared joint publications in applied AI models for clinics.',
       ],
-      color: '#06b6d4', // Cyan
+      color: '#f39a55',
     },
     {
       year: '2024 (Mid)',
@@ -51,7 +51,7 @@ export default function Timeline() {
         'Enabled 12 final-year students to submit commercial capstone projects.',
         '100% internship-to-grad placement rating for selected cohorts.',
       ],
-      color: '#10b981', // Emerald
+      color: '#9387f5',
     },
     {
       year: '2025',
@@ -63,7 +63,7 @@ export default function Timeline() {
         'Integrated 8 student developers directly into live SaaS code sprints.',
         'Awarded 3 student teams with innovation sponsorships.',
       ],
-      color: '#f59e0b', // Amber
+      color: '#f39a55',
     },
     {
       year: '2026',
@@ -75,7 +75,7 @@ export default function Timeline() {
         'Standardizing academic curriculum alignment with enterprise-grade tech.',
         'Expanding live SaaS training environments to 1000+ new developers.',
       ],
-      color: '#ec4899', // Pink
+      color: '#9387f5',
     },
   ];
 

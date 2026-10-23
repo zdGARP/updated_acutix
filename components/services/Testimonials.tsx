@@ -13,8 +13,8 @@ const testimonials = [
 export default function Testimonials() {
   return (
     <section className="py-24 bg-gray-950 relative overflow-hidden border-t border-white/5">
-      <div className="absolute inset-y-0 left-0 w-16 md:w-32 bg-gradient-to-r from-gray-950 to-transparent z-10 pointer-events-none"></div>
-      <div className="absolute inset-y-0 right-0 w-16 md:w-32 bg-gradient-to-l from-gray-950 to-transparent z-10 pointer-events-none"></div>
+      <div className="testimonial-edge absolute inset-y-0 left-0 w-16 md:w-32 bg-gradient-to-r from-gray-950 to-transparent z-10 pointer-events-none"></div>
+      <div className="testimonial-edge absolute inset-y-0 right-0 w-16 md:w-32 bg-gradient-to-l from-gray-950 to-transparent z-10 pointer-events-none"></div>
 
       <div className="text-center mb-16 relative z-20">
         <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">Client Testimonials</h2>
