@@ -1,4 +1,12 @@
 .about {
+  position: relative;
   min-height: 100vh;
-  background: var(--landing-stage);
+  background-color: #ffffff;
+  color: #111111;
+  font-family: var(--font-geist-sans), Arial, sans-serif;
+  overflow-x: hidden;
+}
+
+.about * {
+  box-sizing: border-box;
 }

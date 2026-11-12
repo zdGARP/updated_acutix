@@ -63,7 +63,7 @@ export default function FloatingParticles() {
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(6, 182, 212, 0.25)'; // Cyan particles
+        ctx.fillStyle = 'rgba(255, 170, 85, 0.4)'; // Cyan particles
         ctx.fill();
       });
 
@@ -81,7 +81,7 @@ export default function FloatingParticles() {
             ctx.beginPath();
             ctx.moveTo(p1.x, p1.y);
             ctx.lineTo(p2.x, p2.y);
-            ctx.strokeStyle = `rgba(139, 92, 246, ${alpha})`; // Purple connection lines
+            ctx.strokeStyle = `rgba(255, 170, 85, ${alpha * 0.7})`; // Purple connection lines
             ctx.lineWidth = 0.7;
             ctx.stroke();
           }

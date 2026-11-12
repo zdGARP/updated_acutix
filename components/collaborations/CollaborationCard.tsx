@@ -86,13 +86,13 @@ export default function CollaborationCard({
         transform: `perspective(1000px) rotateX(${tilt.x}deg) rotateY(${tilt.y}deg)`,
         transition: isHovered ? 'none' : 'transform 0.5s cubic-bezier(0.25, 1, 0.5, 1)',
       }}
-      className="relative bg-gray-950 border border-white/5 hover:border-cyan-500/30 rounded-3xl overflow-hidden transition-all duration-300 group shadow-2xl flex flex-col justify-between h-full"
+      className="relative bg-gray-950 border border-white/5 hover:border-[#FFAA55] rounded-3xl overflow-hidden transition-all duration-300 group shadow-2xl flex flex-col justify-between h-full"
     >
       {/* Spotlight overlay */}
       <div
         className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"
         style={{
-          background: `radial-gradient(400px circle at ${coords.x}px ${coords.y}px, rgba(6, 182, 212, 0.08), transparent 80%)`,
+          background: `radial-gradient(400px circle at ${coords.x}px ${coords.y}px, rgba(255, 170, 85, 0.08), transparent 80%)`,
         }}
       />
 
@@ -109,7 +109,7 @@ export default function CollaborationCard({
           {/* Cyan/Purple Gradient Overlay */}
           <div className="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-950/40 to-transparent" />
           
-          <span className="absolute top-4 right-4 font-mono text-[9px] tracking-wider text-cyan-400 uppercase bg-black/60 px-2.5 py-1 rounded-md border border-cyan-500/20 z-10 backdrop-blur-md">
+          <span className="absolute top-4 right-4 font-mono text-[9px] tracking-wider text-[#FFAA55] uppercase bg-black/60 px-2.5 py-1 rounded-md border border-[#FFAA55]/30 z-10 backdrop-blur-md">
             📍 {institution.location}
           </span>
         </div>
@@ -117,7 +117,7 @@ export default function CollaborationCard({
         {/* Brand/School Identity Section */}
         <div className="relative px-6 pb-4">
           {/* Overlapping Logo */}
-          <div className="absolute -top-10 left-6 w-18 h-18 rounded-2xl overflow-hidden border-2 border-white/10 bg-white shadow-xl flex-shrink-0 z-20 transition-all duration-500 group-hover:border-cyan-500/40">
+          <div className="absolute -top-10 left-6 w-18 h-18 rounded-2xl overflow-hidden border-2 border-white/10 bg-white shadow-xl flex-shrink-0 z-20 transition-all duration-500 group-hover:border-[#FFAA55]">
             <Image
               src={institution.logo}
               alt={`${institution.name} Logo`}
@@ -127,7 +127,7 @@ export default function CollaborationCard({
           </div>
 
           <div className="pt-10">
-            <h3 className="text-xl font-extrabold text-white group-hover:text-cyan-400 transition-colors duration-300 mt-2 leading-tight">
+            <h3 className="text-xl font-extrabold text-white group-hover:text-[#FFAA55] transition-colors duration-300 mt-2 leading-tight">
               {institution.name}
             </h3>
             <p className="text-xs text-gray-400 mt-3 leading-relaxed">
@@ -140,7 +140,7 @@ export default function CollaborationCard({
         <div className="grid grid-cols-3 gap-2 px-6 py-4 border-y border-white/5 bg-white/[0.01]">
           {institution.stats.map((stat, idx) => (
             <div key={idx} className="text-center">
-              <span className="block text-base font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400 font-mono">
+              <span className="block text-base font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#FFAA55] to-white font-mono">
                 {stat.value}
               </span>
               <span className="text-[9px] text-gray-500 uppercase tracking-wider font-mono">
@@ -152,14 +152,14 @@ export default function CollaborationCard({
 
         {/* Focus Areas */}
         <div className="px-6 pt-5">
-          <h4 className="text-[10px] font-mono uppercase tracking-widest text-cyan-400 mb-2.5 flex items-center gap-1.5">
+          <h4 className="text-[10px] font-mono uppercase tracking-widest text-[#FFAA55] mb-2.5 flex items-center gap-1.5">
             <Target className="w-3.5 h-3.5" /> Key Focus Domains
           </h4>
           <div className="flex flex-wrap gap-2">
             {institution.focusAreas.map((area, idx) => (
               <span
                 key={idx}
-                className="text-[9px] font-mono bg-white/5 text-gray-300 px-2.5 py-1 rounded-md border border-white/5 hover:border-cyan-500/20 hover:bg-cyan-950/20 transition-colors duration-300"
+                className="text-[9px] font-mono bg-white/5 text-gray-300 px-2.5 py-1 rounded-md border border-white/5 hover:border-[#FFAA55]/30 hover:bg-cyan-950/20 transition-colors duration-300"
               >
                 {area}
               </span>
@@ -169,13 +169,13 @@ export default function CollaborationCard({
 
         {/* Achievements */}
         <div className="px-6 pt-5">
-          <h4 className="text-[10px] font-mono uppercase tracking-widest text-purple-400 mb-2.5 flex items-center gap-1.5">
+          <h4 className="text-[10px] font-mono uppercase tracking-widest text-[#FFAA55] mb-2.5 flex items-center gap-1.5">
             <Award className="w-3.5 h-3.5" /> Milestones & Achievements
           </h4>
           <ul className="space-y-2">
             {institution.achievements.map((ach, idx) => (
               <li key={idx} className="flex items-start space-x-2 text-[11px] text-gray-400">
-                <CheckCircle className="w-3.5 h-3.5 text-cyan-500/80 mt-0.5 flex-shrink-0" />
+                <CheckCircle className="w-3.5 h-3.5 text-[#FFAA55] mt-0.5 flex-shrink-0" />
                 <span className="leading-snug">{ach}</span>
               </li>
             ))}
@@ -192,7 +192,7 @@ export default function CollaborationCard({
               <div
                 key={idx}
                 onClick={() => onEventGallery(institution)}
-                className="relative aspect-video rounded-lg overflow-hidden border border-white/5 bg-slate-900 cursor-pointer group/thumb hover:border-cyan-500/30 transition-colors duration-300"
+                className="relative aspect-video rounded-lg overflow-hidden border border-white/5 bg-slate-900 cursor-pointer group/thumb hover:border-[#FFAA55] transition-colors duration-300"
               >
                 <Image
                   src={img}
@@ -213,13 +213,13 @@ export default function CollaborationCard({
       <div className="px-6 py-6 mt-6 flex space-x-3 border-t border-white/5 bg-white/[0.01]">
         <button
           onClick={() => onViewCollaboration(institution)}
-          className="flex-1 bg-white/5 border border-white/10 hover:border-cyan-500/30 hover:bg-cyan-950/20 text-gray-300 hover:text-cyan-400 font-mono text-xs py-3.5 px-4 rounded-xl transition-all duration-300 flex items-center justify-center gap-1.5 cursor-pointer uppercase font-semibold"
+          className="flex-1 bg-white/5 border border-white/10 hover:border-[#FFAA55] hover:bg-cyan-950/20 text-gray-300 hover:text-[#FFAA55] font-mono text-xs py-3.5 px-4 rounded-xl transition-all duration-300 flex items-center justify-center gap-1.5 cursor-pointer uppercase font-semibold"
         >
           <Eye className="w-4 h-4" /> View Details
         </button>
         <button
           onClick={() => onEventGallery(institution)}
-          className="flex-1 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-mono text-xs py-3.5 px-4 rounded-xl transition-all duration-300 flex items-center justify-center gap-1.5 cursor-pointer uppercase shadow-lg shadow-cyan-500/10 hover:shadow-cyan-400/20 font-bold"
+          className="flex-1 bg-[#0A1230] hover:bg-[#FFAA55] text-white hover:text-[#111111] font-mono text-xs py-3.5 px-4 rounded-xl transition-all duration-300 flex items-center justify-center gap-1.5 cursor-pointer uppercase border border-[#FFAA55]/40 font-bold"
         >
           <ImageIcon className="w-4 h-4" /> Event Gallery
         </button>

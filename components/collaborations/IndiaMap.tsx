@@ -25,7 +25,7 @@ export default function IndiaMap() {
       location: 'Pallavaram, Southwest',
       x: 160 - 7,
       y: 180 - 7,
-      color: '#06b6d4', // Cyan
+      color: '#FFAA55', // Brand Orange
       details: 'Healthcare AI, MedNexus Hackathons & Research Alliance.',
     },
     {
@@ -34,7 +34,7 @@ export default function IndiaMap() {
       location: 'Kattankulathur, South',
       x: 110 - 7,
       y: 280 - 7,
-      color: '#8b5cf6', // Purple
+      color: '#FFAA55', // Brand Orange
       details: 'AWS Cloud webinars, Fullstack Bootcamps, Placement evaluations.',
     },
     {
@@ -43,7 +43,7 @@ export default function IndiaMap() {
       location: 'Poonamallee, West',
       x: 100 - 7,
       y: 90 - 7,
-      color: '#10b981', // Emerald
+      color: '#FFAA55', // Brand Orange
       details: 'Frontend developer cohorts, direct capstone project mentorship.',
     },
     {
@@ -52,7 +52,7 @@ export default function IndiaMap() {
       location: 'Sriperumbudur, West-Southwest',
       x: 60 - 7,
       y: 200 - 7,
-      color: '#f59e0b', // Amber
+      color: '#FFAA55', // Brand Orange
       details: 'Live SaaS coding sprints, React Native and Flutter mobile bootcamps.',
     },
   ];
@@ -85,7 +85,7 @@ export default function IndiaMap() {
   return (
     <section className="relative z-10 px-6 max-w-7xl mx-auto my-24">
       <div className="text-center mb-16">
-        <h2 className="text-xs font-mono uppercase tracking-widest text-cyan-400 mb-2">
+        <h2 className="text-xs font-mono uppercase tracking-widest text-[#FFAA55] mb-2">
           GEOGRAPHIC NETWORK
         </h2>
         <h3 className="text-3xl font-extrabold text-white">
@@ -103,7 +103,7 @@ export default function IndiaMap() {
         {/* Map Column (7 cols) */}
         <div className="lg:col-span-7 flex justify-center items-center relative min-h-[460px] overflow-hidden rounded-2xl bg-black/40 border border-white/5 p-4">
           <div className="absolute top-4 left-4 flex items-center space-x-2 bg-black/60 border border-white/10 px-3 py-1.5 rounded-lg text-[10px] font-mono text-gray-300">
-            <Compass className="w-3.5 h-3.5 animate-spin text-cyan-400" style={{ animationDuration: '6s' }} />
+            <Compass className="w-3.5 h-3.5 animate-spin text-[#FFAA55]" style={{ animationDuration: '6s' }} />
             <span>RADAR STATUS: ACTIVE</span>
           </div>
 
@@ -126,7 +126,7 @@ export default function IndiaMap() {
                       cx={dot.x}
                       cy={dot.y}
                       r="2.5"
-                      fill="#06b6d4"
+                      fill="#FFAA55"
                       opacity="0.8"
                     />
                   ))}
@@ -134,7 +134,7 @@ export default function IndiaMap() {
                   <path
                     d="M 205 30 L 220 65 L 200 120 L 140 160 L 95 215 L 150 240 L 160 360 L 205 445 L 235 350 L 290 255 L 360 185 L 310 190 L 235 125 Z"
                     fill="none"
-                    stroke="rgba(6, 182, 212, 0.25)"
+                    stroke="rgba(255, 170, 85, 0.35)"
                     strokeWidth="1"
                     strokeDasharray="4 4"
                   />
@@ -146,13 +146,13 @@ export default function IndiaMap() {
                   style={{ left: '52%', top: '78%' }}
                   onClick={() => setZoomed(true)}
                 >
-                  <span className="absolute -left-12 -top-8 bg-cyan-950/80 border border-cyan-400/30 text-[9px] font-mono px-2 py-0.5 rounded text-cyan-300 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <span className="absolute -left-12 -top-8 bg-[#0A1230]/90 border border-[#FFAA55]/40 text-[9px] font-mono px-2 py-0.5 rounded text-[#FFAA55] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     Chennai Cluster (Zoom)
                   </span>
                   {/* Pulsing rings */}
                   <span className="absolute flex h-5 w-5 -left-2.5 -top-2.5">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-5 w-5 bg-cyan-500 shadow-[0_0_15px_rgba(6,182,212,0.8)]"></span>
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FFAA55] opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-5 w-5 bg-[#FFAA55] shadow-[0_0_15px_rgba(6,182,212,0.8)]"></span>
                   </span>
                   <MapPin className="w-4 h-4 text-white absolute -left-2 -top-2 relative z-10" />
                 </div>
@@ -168,13 +168,13 @@ export default function IndiaMap() {
                 className="relative w-full max-w-[340px] aspect-square flex flex-col items-center justify-center"
               >
                 {/* Radial Target Rings */}
-                <div className="absolute inset-0 border border-cyan-500/10 rounded-full animate-pulse" />
-                <div className="absolute inset-[15%] border border-cyan-500/5 rounded-full" />
-                <div className="absolute inset-[30%] border border-purple-500/5 rounded-full" />
+                <div className="absolute inset-0 border border-[#FFAA55]/20 rounded-full animate-pulse" />
+                <div className="absolute inset-[15%] border border-[#FFAA55]/10 rounded-full" />
+                <div className="absolute inset-[30%] border border-white/10 rounded-full" />
                 <div className="absolute inset-[45%] border border-white/5 rounded-full" />
 
                 {/* Radar Line Sweep */}
-                <div className="absolute inset-0 bg-gradient-to-tr from-cyan-500/0 via-cyan-500/0 to-cyan-500/5 rounded-full animate-spin" style={{ animationDuration: '8s' }} />
+                <div className="absolute inset-0 bg-gradient-to-tr from-[#FFAA55]/0 via-[#FFAA55]/0 to-[#FFAA55]/10 rounded-full animate-spin" style={{ animationDuration: '8s' }} />
 
                 {/* Faint Grid and Chennai Coastline / Roads Representation */}
                 <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 340 340">
@@ -207,30 +207,30 @@ export default function IndiaMap() {
                   <path
                     d="M 290 0 Q 305 170 325 340"
                     fill="none"
-                    stroke="rgba(6, 182, 212, 0.4)"
+                    stroke="rgba(255, 170, 85, 0.45)"
                     strokeWidth="1.5"
                     strokeDasharray="4 4"
                   />
 
-                  <text x="315" y="80" fill="rgba(6, 182, 212, 0.4)" fontSize="8" fontFamily="monospace" fontWeight="bold" letterSpacing="2" transform="rotate(90 315 80)">
+                  <text x="315" y="80" fill="rgba(255, 170, 85, 0.6)" fontSize="8" fontFamily="var(--font-geist-mono), monospace" fontWeight="bold" letterSpacing="2" transform="rotate(90 315 80)">
                     BAY OF BENGAL
                   </text>
 
                   {/* Concentric Radar Rings centered at Hub (240, 100) */}
-                  <circle cx="240" cy="100" r="70" fill="none" stroke="rgba(6, 182, 212, 0.08)" strokeWidth="1" strokeDasharray="3 9" />
-                  <circle cx="240" cy="100" r="140" fill="none" stroke="rgba(6, 182, 212, 0.05)" strokeWidth="1" />
-                  <circle cx="240" cy="100" r="220" fill="none" stroke="rgba(6, 182, 212, 0.03)" strokeWidth="1" />
+                  <circle cx="240" cy="100" r="70" fill="none" stroke="rgba(255, 170, 85, 0.15)" strokeWidth="1" strokeDasharray="3 9" />
+                  <circle cx="240" cy="100" r="140" fill="none" stroke="rgba(255, 170, 85, 0.1)" strokeWidth="1" />
+                  <circle cx="240" cy="100" r="220" fill="none" stroke="rgba(255, 170, 85, 0.08)" strokeWidth="1" />
 
                   {/* Major Expressways / Connected Routes */}
                   {/* GST Road (NH-45) */}
                   <path
                     d="M 240 100 L 160 180 L 110 280"
                     fill="none"
-                    stroke="rgba(139, 92, 246, 0.4)"
+                    stroke="rgba(27, 47, 97, 0.5)"
                     strokeWidth="1.5"
                     className="animated-route"
                   />
-                  <text x="210" y="135" fill="rgba(139, 92, 246, 0.5)" fontSize="6" fontFamily="monospace" transform="rotate(45 210 135)" fontWeight="bold">
+                  <text x="210" y="135" fill="rgba(27, 47, 97, 0.7)" fontSize="6" fontFamily="var(--font-geist-mono), monospace" transform="rotate(45 210 135)" fontWeight="bold">
                     NH-45 (GST RD)
                   </text>
 
@@ -238,11 +238,11 @@ export default function IndiaMap() {
                   <path
                     d="M 240 100 L 100 90"
                     fill="none"
-                    stroke="rgba(16, 185, 129, 0.4)"
+                    stroke="rgba(255, 170, 85, 0.5)"
                     strokeWidth="1.5"
                     className="animated-route"
                   />
-                  <text x="170" y="91" fill="rgba(16, 185, 129, 0.5)" fontSize="6" fontFamily="monospace" transform="rotate(-4 170 91)" fontWeight="bold">
+                  <text x="170" y="91" fill="rgba(255, 170, 85, 0.7)" fontSize="6" fontFamily="var(--font-geist-mono), monospace" transform="rotate(-4 170 91)" fontWeight="bold">
                     NH-48 (POONAMALLEE HIGH RD)
                   </text>
 
@@ -250,36 +250,36 @@ export default function IndiaMap() {
                   <path
                     d="M 100 90 L 60 200"
                     fill="none"
-                    stroke="rgba(245, 158, 11, 0.4)"
+                    stroke="rgba(27, 47, 97, 0.5)"
                     strokeWidth="1.5"
                     className="animated-route"
                   />
-                  <text x="72" y="140" fill="rgba(245, 158, 11, 0.5)" fontSize="6" fontFamily="monospace" transform="rotate(70 72 140)" fontWeight="bold">
+                  <text x="72" y="140" fill="rgba(27, 47, 97, 0.7)" fontSize="6" fontFamily="var(--font-geist-mono), monospace" transform="rotate(70 72 140)" fontWeight="bold">
                     BANGALURU HWY
                   </text>
 
                   {/* Center Node: Chennai Core */}
-                  <circle cx="240" cy="100" r="5" fill="#06b6d4" />
-                  <circle cx="240" cy="100" r="10" fill="none" stroke="#06b6d4" strokeWidth="1" className="animate-ping" style={{ animationDuration: '3s' }} />
+                  <circle cx="240" cy="100" r="5" fill="#FFAA55" />
+                  <circle cx="240" cy="100" r="10" fill="none" stroke="#FFAA55" strokeWidth="1" className="animate-ping" style={{ animationDuration: '3s' }} />
 
                   {/* Geographic Labels */}
-                  <text x="160" y="168" fill="rgba(255,255,255,0.4)" fontSize="7" fontFamily="monospace" textAnchor="middle" fontWeight="bold">
+                  <text x="160" y="168" fill="rgba(255,255,255,0.4)" fontSize="7" fontFamily="var(--font-geist-mono), monospace" textAnchor="middle" fontWeight="bold">
                     PALLAVARAM
                   </text>
-                  <text x="110" y="268" fill="rgba(255,255,255,0.4)" fontSize="7" fontFamily="monospace" textAnchor="middle" fontWeight="bold">
+                  <text x="110" y="268" fill="rgba(255,255,255,0.4)" fontSize="7" fontFamily="var(--font-geist-mono), monospace" textAnchor="middle" fontWeight="bold">
                     KATTANKULATHUR
                   </text>
-                  <text x="100" y="78" fill="rgba(255,255,255,0.4)" fontSize="7" fontFamily="monospace" textAnchor="middle" fontWeight="bold">
+                  <text x="100" y="78" fill="rgba(255,255,255,0.4)" fontSize="7" fontFamily="var(--font-geist-mono), monospace" textAnchor="middle" fontWeight="bold">
                     POONAMALLEE
                   </text>
-                  <text x="60" y="188" fill="rgba(255,255,255,0.4)" fontSize="7" fontFamily="monospace" textAnchor="middle" fontWeight="bold">
+                  <text x="60" y="188" fill="rgba(255,255,255,0.4)" fontSize="7" fontFamily="var(--font-geist-mono), monospace" textAnchor="middle" fontWeight="bold">
                     SRIPERUMBUDUR
                   </text>
                 </svg>
 
                 {/* Chennai Center indicator */}
                 <div className="absolute left-[240px] top-[115px] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center pointer-events-none">
-                  <span className="text-[7px] font-mono text-[#06b6d4] font-bold">CHENNAI HUB</span>
+                  <span className="text-[7px] font-mono text-[#FFAA55] font-bold">CHENNAI HUB</span>
                 </div>
 
                 {/* Zoom out button */}
@@ -342,7 +342,7 @@ export default function IndiaMap() {
                       className="w-3 h-3 rounded-full"
                       style={{ backgroundColor: activeCampus.color }}
                     />
-                    <span className="font-mono text-[10px] uppercase tracking-wider text-cyan-400 bg-white/5 border border-white/5 px-2 py-0.5 rounded">
+                    <span className="font-mono text-[10px] uppercase tracking-wider text-[#FFAA55] bg-white/5 border border-white/5 px-2 py-0.5 rounded">
                       {activeCampus.location}
                     </span>
                   </div>
@@ -355,8 +355,8 @@ export default function IndiaMap() {
                     {activeCampus.details}
                   </p>
 
-                  <div className="pt-4 border-t border-white/5 flex items-center space-x-2 text-xs font-mono text-cyan-400">
-                    <Radio className="w-4 h-4 animate-pulse text-cyan-400" />
+                  <div className="pt-4 border-t border-white/5 flex items-center space-x-2 text-xs font-mono text-[#FFAA55]">
+                    <Radio className="w-4 h-4 animate-pulse text-[#FFAA55]" />
                     <span>COORDINATES: {activeCampus.x}&deg;N, {activeCampus.y}&deg;E</span>
                   </div>
                 </motion.div>
@@ -369,7 +369,7 @@ export default function IndiaMap() {
                   className="space-y-4 flex flex-col justify-center items-center text-center py-8 h-full"
                 >
                   <div className="p-4 bg-white/5 border border-white/10 rounded-full text-gray-400 animate-pulse">
-                    <Navigation className="w-6 h-6 rotate-45 text-cyan-400" />
+                    <Navigation className="w-6 h-6 rotate-45 text-[#FFAA55]" />
                   </div>
                   <h4 className="text-lg font-bold text-white">Select a Node</h4>
                   <p className="text-xs text-gray-400 max-w-xs">
@@ -384,7 +384,7 @@ export default function IndiaMap() {
             {zoomed && (
               <div className="mt-8 pt-4 border-t border-white/5 flex justify-between items-center text-[10px] font-mono text-gray-500">
                 <span>ZOOM: 8.5x (REGIONAL SATELLITE VIEW)</span>
-                <span className="text-cyan-400 animate-pulse">SWEEPING...</span>
+                <span className="text-[#FFAA55] animate-pulse">SWEEPING...</span>
               </div>
             )}
           </div>

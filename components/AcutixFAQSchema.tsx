@@ -1,70 +1,60 @@
-import React from 'react';
+const faqData = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What software development services does Acutix offer?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Acutix works on websites, web and mobile applications, custom software, and digital products. Contact the team to discuss the requirements and suitable scope for your project.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'How does your development process work?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Start with a conversation about your goals and workflows. The project scope, priorities, milestones, and delivery expectations can then be discussed with the Acutix team.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'How can a college partner with Acutix?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Colleges can contact Acutix to discuss academic collaboration, workshops, training, or other proposed initiatives. Visit the collaboration page to learn more.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Do you offer internships or industrial visits?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Visit the Careers page for current opportunities and contact Acutix to ask about internship or industrial-visit availability.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'How do I request a project estimate?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Use the contact form to describe your goals, required features, and timeline. The team can follow up to clarify the scope and discuss an estimate.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What happens after a project launches?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Post-launch support and ongoing improvements can be discussed as part of your project requirements. Contact Acutix to outline the support you need.',
+      },
+    },
+  ],
+};
 
 export default function AcutixFAQSchema() {
-  const faqData = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "What digital solutions help businesses improve efficiency and growth?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Custom software, web applications, mobile apps, SaaS platforms, and business automation solutions help organizations streamline operations, improve customer experiences, and support long-term growth through technology."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Why do businesses invest in custom software solutions?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Custom software is built around specific business needs, helping improve productivity, automate workflows, enhance data management, and provide greater flexibility than generic off-the-shelf solutions."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How can SaaS platforms support modern business operations?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Cloud-based SaaS platforms simplify business processes, improve accessibility, reduce infrastructure costs, and enable teams to manage operations, customers, and workflows more efficiently from anywhere."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What makes a successful website, application, or digital product?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Successful digital products combine clear business goals, user-focused design, reliable technology, scalability, security, and continuous optimization to deliver long-term value and performance."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What technologies are commonly used to build scalable software solutions?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Modern software solutions leverage cloud infrastructure, APIs, databases, web technologies, mobile frameworks, and secure architectures to deliver reliable, high-performance digital experiences."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Why are maintenance, support, and continuous improvements important?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Regular updates, security enhancements, performance monitoring, and feature improvements help software remain reliable, secure, and aligned with evolving business and customer requirements."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How do practical training programs and real-world projects benefit students?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Hands-on learning through live projects helps students develop technical skills, understand industry workflows, gain professional experience, and improve career readiness in the technology sector."
-        }
-      }
-    ]
-  };
-
- return (
+  return (
     <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(faqData) }}

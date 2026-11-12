@@ -1,77 +1,116 @@
 'use client';
-import { motion } from 'framer-motion';
-import { Search, PenTool, LayoutTemplate, Code2, TestTube, Rocket, Settings } from 'lucide-react';
-import { useState } from 'react';
+import Link from 'next/link';
+import {
+  Search,
+  PenTool,
+  LayoutTemplate,
+  Code2,
+  TestTube,
+  Rocket,
+  Settings,
+  ArrowRight
+} from 'lucide-react';
 
 const steps = [
-  { id: 1, title: 'Requirement Analysis', icon: Search, desc: 'We gather all project requirements, scope, and objectives to form a solid foundation.' },
-  { id: 2, title: 'Planning', icon: PenTool, desc: 'Creating a strategic roadmap, architecture design, and timeline.' },
-  { id: 3, title: 'UI/UX Design', icon: LayoutTemplate, desc: 'Crafting user-centric wireframes and beautiful high-fidelity prototypes.' },
-  { id: 4, title: 'Development', icon: Code2, desc: 'Agile coding process with regular sprints and client updates.' },
-  { id: 5, title: 'Testing', icon: TestTube, desc: 'Rigorous QA testing, automated checks, and performance optimization.' },
-  { id: 6, title: 'Deployment', icon: Rocket, desc: 'Seamless launch to production environments and app stores.' },
-  { id: 7, title: 'Maintenance', icon: Settings, desc: 'Continuous monitoring, updates, and post-launch support.' }
+  {
+    step: '01',
+    title: 'Requirement Analysis',
+    icon: Search,
+    desc: 'We gather all project requirements, scope, and objectives to form a solid foundation.'
+  },
+  {
+    step: '02',
+    title: 'Sprint Planning',
+    icon: PenTool,
+    desc: 'Creating a strategic roadmap, architecture design, and timeline.'
+  },
+  {
+    step: '03',
+    title: 'UI/UX Design',
+    icon: LayoutTemplate,
+    desc: 'Crafting user-centric wireframes and beautiful high-fidelity prototypes.'
+  },
+  {
+    step: '04',
+    title: 'Agile Development',
+    icon: Code2,
+    desc: 'Agile coding process with regular sprints and client updates.'
+  },
+  {
+    step: '05',
+    title: 'QA & Testing',
+    icon: TestTube,
+    desc: 'Rigorous QA testing, automated checks, and performance optimization.'
+  },
+  {
+    step: '06',
+    title: 'Deployment',
+    icon: Rocket,
+    desc: 'Seamless launch to production environments and app stores.'
+  },
+  {
+    step: '07',
+    title: 'Maintenance',
+    icon: Settings,
+    desc: 'Continuous monitoring, updates, and post-launch support.'
+  }
 ];
 
 export default function Timeline() {
-  const [activeStep, setActiveStep] = useState<number | null>(null);
-
   return (
-    <section className="py-24 bg-gray-950 relative overflow-hidden">
-      <div className="mx-auto max-w-4xl px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">Our Development Process</h2>
-          <p className="text-gray-400">A transparent and agile workflow ensuring project success.</p>
+    <section className="bg-[#0A1230] py-20 px-6 text-white border-y border-[#152352]">
+      <div className="container mx-auto max-w-7xl">
+        {/* Top Row: Two-column layout matching design template */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start pb-12 border-b border-[#18295E]/70">
+          {/* Left Column: Eyebrow + Main Heading */}
+          <div className="lg:col-span-7 text-left">
+            <p className="text-[11px] font-bold uppercase tracking-widest text-[#FF7A1A] mb-3">
+              OUR DELIVERY WORKFLOW
+            </p>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
+              A Transparent, Agile Development Process
+            </h2>
+          </div>
+
+          {/* Right Column: Paragraph + Action Link */}
+          <div className="lg:col-span-5 text-left flex flex-col justify-between h-full pt-1">
+            <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
+              A transparent and agile workflow ensuring project success. From discovery and sprint planning to continuous testing, deployment, and post-launch maintenance.
+            </p>
+            <div className="mt-4">
+              <Link
+                href="/contact"
+                className="group inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#FF7A1A] hover:text-[#FFAA55] transition-colors"
+              >
+                <span>START A PROJECT</span>
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+            </div>
+          </div>
         </div>
 
-        <div className="relative">
-          {/* Vertical Line */}
-          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-1 bg-gray-800 -translate-x-1/2"></div>
-          
-          <div className="space-y-12">
-            {steps.map((step, i) => (
-              <motion.div 
-                key={step.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className={`relative flex flex-col md:flex-row items-center gap-8 ${
-                  i % 2 === 0 ? 'md:flex-row-reverse' : ''
-                }`}
+        {/* Bottom Row: Horizontal strip of 7 steps with vertical dividers (No Boxes!) */}
+        <div className="pt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-8 lg:gap-0 lg:divide-x lg:divide-[#18295E]">
+          {steps.map((step, idx) => {
+            const Icon = step.icon;
+            return (
+              <div
+                key={step.step}
+                className={`flex flex-col items-start lg:px-4 text-left ${idx === 0 ? 'lg:pl-0' : ''} ${idx === steps.length - 1 ? 'lg:pr-0' : ''}`}
               >
-                {/* Connector dot */}
-                <div className="absolute left-4 md:left-1/2 w-8 h-8 rounded-full bg-gray-900 border-4 border-gray-800 -translate-x-1/2 flex items-center justify-center z-10 transition-colors duration-300">
-                  <div className="w-2 h-2 rounded-full bg-cyan-500"></div>
+                <div className="flex items-center gap-2.5 mb-3">
+                  <Icon className="h-6 w-6 text-[#FF7A1A] flex-shrink-0" />
+                  <span className="text-xs font-mono font-bold text-[#FF7A1A]">{step.step}</span>
                 </div>
-
-                {/* Content Box */}
-                <div 
-                  className={`w-full md:w-1/2 pl-12 md:pl-0 ${i % 2 === 0 ? 'md:pr-12 text-left md:text-right' : 'md:pl-12 text-left'}`}
-                >
-                  <div 
-                    onClick={() => setActiveStep(activeStep === step.id ? null : step.id)}
-                    className="p-6 bg-gray-900/50 backdrop-blur-sm border border-white/5 rounded-2xl cursor-pointer hover:border-cyan-500/30 hover:bg-gray-800/50 transition-all duration-300 group shadow-lg"
-                  >
-                    <div className={`flex items-center gap-4 ${i % 2 === 0 ? 'md:justify-end' : ''}`}>
-                      <div className="p-3 bg-gray-800 rounded-xl group-hover:bg-cyan-500/20 transition-colors">
-                        <step.icon className="w-6 h-6 text-cyan-400" />
-                      </div>
-                      <h4 className="text-xl font-bold text-white group-hover:text-cyan-300 transition-colors">{step.title}</h4>
-                    </div>
-                    
-                    <motion.div 
-                      initial={false}
-                      animate={{ height: activeStep === step.id ? 'auto' : 0, opacity: activeStep === step.id ? 1 : 0 }}
-                      className="overflow-hidden"
-                    >
-                      <p className="text-gray-400 mt-4 leading-relaxed">{step.desc}</p>
-                    </motion.div>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+                <h4 className="text-sm font-bold text-white leading-snug">
+                  {step.title}
+                </h4>
+                <p className="mt-2 text-xs text-slate-400 leading-relaxed">
+                  {step.desc}
+                </p>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

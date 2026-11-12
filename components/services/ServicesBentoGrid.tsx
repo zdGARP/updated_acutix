@@ -13,7 +13,7 @@ const servicesData = [
     category: 'Development',
     size: 'large',
     icon: Code,
-    image: '/images/services/custom_software.png',
+    image: '/Services/custom_software.png',
     description: 'Develop secure, scalable, and user-friendly software tailored to your business requirements. We build web applications, desktop applications, and enterprise solutions that streamline operations and improve productivity.',
     features: ['Custom Web Applications', 'Desktop Software', 'Enterprise Solutions', 'API Development', 'Third-Party Integrations'],
     tech: ['React', 'Node.js', 'PostgreSQL', 'Next.js'],
@@ -27,7 +27,7 @@ const servicesData = [
     category: 'Healthcare',
     size: 'large',
     icon: HeartPulse,
-    image: '/images/services/healthcare.png',
+    image: '/Services/healthcare.png',
     description: 'We provide comprehensive healthcare software solutions for hospitals, fertility centers, clinics, and diagnostic laboratories with complete patient lifecycle management.',
     features: ['Hospital Management System (HMS)', 'IVF & Fertility Management', 'Laboratory Information System (LIS)', 'Electronic Medical Records (EMR)', 'Appointment & Billing Management'],
     tech: ['Next.js', 'Python', 'AWS Healthcare', 'HL7'],
@@ -41,7 +41,7 @@ const servicesData = [
     category: 'AI',
     size: 'large',
     icon: Cpu,
-    image: '/images/services/ai_automation.png',
+    image: '/Services/ai_automation.png',
     description: 'Improve efficiency using Artificial Intelligence and workflow automation tailored to your business.',
     features: ['AI Chatbots', 'Document Automation', 'OCR Processing', 'Predictive Analytics', 'Workflow Automation'],
     tech: ['Python', 'TensorFlow', 'OpenAI API', 'LangChain'],
@@ -55,7 +55,7 @@ const servicesData = [
     category: 'Development',
     size: 'medium',
     icon: Globe,
-    image: '/images/services/website_development.png',
+    image: '/Services/website_development.png',
     description: 'Build modern, responsive, and SEO-friendly websites designed to enhance your online presence and deliver exceptional user experiences.',
     features: ['Corporate Websites', 'Landing Pages', 'Responsive Design', 'CMS Integration', 'Performance Optimization'],
     tech: ['Next.js', 'Tailwind', 'Vercel'],
@@ -69,7 +69,7 @@ const servicesData = [
     category: 'Development',
     size: 'medium',
     icon: Smartphone,
-    image: '/images/services/mobile_development.png',
+    image: '/Services/mobile_development.png',
     description: 'Create high-performance Android and iOS applications that help businesses stay connected with customers anytime, anywhere.',
     features: ['Android Apps', 'iOS Apps', 'Cross-platform Apps', 'API Integration', 'App Maintenance'],
     tech: ['React Native', 'Flutter', 'Swift', 'Kotlin'],
@@ -83,7 +83,7 @@ const servicesData = [
     category: 'Cloud',
     size: 'medium',
     icon: Cloud,
-    image: '/images/services/cloud_solutions.png',
+    image: '/Services/cloud_solutions.png',
     description: 'Secure cloud infrastructure for hosting, storage, backup, and application deployment with high availability and scalability.',
     features: ['Cloud Migration', 'Server Management', 'Backup & Recovery', 'Cloud Security', 'DevOps Deployment'],
     tech: ['AWS', 'Azure', 'Docker', 'Kubernetes'],
@@ -97,7 +97,7 @@ const servicesData = [
     category: 'Development',
     size: 'medium',
     icon: LayoutDashboard,
-    image: '/images/services/saas_product.png',
+    image: '/Services/saas_product.png',
     description: 'Transform your business idea into a scalable Software-as-a-Service platform with subscription management and cloud deployment.',
     features: ['Multi-Tenant Architecture', 'Subscription Plans', 'Role-Based Access', 'Secure Authentication', 'Analytics Dashboard'],
     tech: ['Next.js', 'Stripe', 'Supabase', 'Prisma'],
@@ -111,7 +111,7 @@ const servicesData = [
     category: 'Development',
     size: 'small',
     icon: Server,
-    image: '/images/services/api_integration.png',
+    image: '/Services/api_integration.png',
     description: 'Connect your applications with third-party services for seamless data exchange and automation.',
     features: ['Payment Gateway', 'SMS Gateway', 'Email Services', 'WhatsApp Integration', 'Government APIs'],
     tech: ['Node.js', 'Express', 'GraphQL', 'REST'],
@@ -125,7 +125,7 @@ const servicesData = [
     category: 'Analytics',
     size: 'small',
     icon: BarChart,
-    image: '/images/services/data_analytics.png',
+    image: '/Services/data_analytics.png',
     description: 'Convert business data into meaningful insights using powerful dashboards and interactive reports.',
     features: ['Real-time Dashboard', 'Business Reports', 'KPI Monitoring', 'Export to PDF & Excel', 'Custom Reports'],
     tech: ['PowerBI', 'Tableau', 'Metabase'],
@@ -139,7 +139,7 @@ const servicesData = [
     category: 'UI/UX',
     size: 'small',
     icon: Layout,
-    image: '/images/services/uiux_design.png',
+    image: '/Services/uiux_design.png',
     description: 'Design intuitive and engaging user interfaces that improve customer satisfaction and increase productivity.',
     features: ['Wireframing', 'Prototyping', 'User Research', 'Dashboard Design', 'Mobile UI Design'],
     tech: ['Figma', 'Framer', 'Adobe XD'],
@@ -153,7 +153,7 @@ const servicesData = [
     category: 'Security',
     size: 'small',
     icon: Shield,
-    image: '/images/services/cyber_security.png',
+    image: '/Services/cyber_security.png',
     description: 'Protect your applications and business data with advanced security measures and compliance standards.',
     features: ['Data Encryption', 'User Authentication', 'Access Control', 'Vulnerability Assessment', 'Security Audits'],
     tech: ['OWASP', 'Kali Linux', 'Burp Suite'],
@@ -167,7 +167,7 @@ const servicesData = [
     category: 'Development',
     size: 'small',
     icon: Settings,
-    image: '/images/services/software_maintenance.png',
+    image: '/Services/software_maintenance.png',
     description: 'Keep your software updated, secure, and running smoothly with continuous monitoring and technical support.',
     features: ['Bug Fixes', 'Performance Optimization', 'Security Updates', 'Version Upgrades', 'Technical Support'],
     tech: ['Datadog', 'Sentry', 'New Relic'],
@@ -200,8 +200,8 @@ export default function ServicesBentoGrid() {
                 onClick={() => setActiveFilter(cat)}
                 className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
                   activeFilter === cat 
-                    ? 'bg-cyan-500 text-white shadow-[0_0_15px_rgba(6,182,212,0.5)]' 
-                    : 'bg-gray-900 text-gray-400 hover:text-white hover:bg-gray-800 border border-gray-800'
+                    ? 'bg-[#FFAA55] text-[#111111] shadow-sm' 
+                    : 'border border-[#0A1230]/25 bg-[#F4F7FB] text-[#111111] hover:border-[#FFAA55] hover:text-[#0A1230]'
                 }`}
               >
                 {cat}
@@ -232,21 +232,21 @@ export default function ServicesBentoGrid() {
                   }`}
                 >
                   {service.image && (
-                    <div className="service-card-image absolute inset-0 z-0 opacity-50 group-hover:opacity-80 transition-opacity duration-500">
+                    <div className="service-card-image absolute inset-0 z-0 overflow-hidden">
                       <Image 
                         src={service.image} 
                         alt={service.title} 
                         fill 
-                        className="object-cover"
+                        className="object-cover transition-transform duration-500"
                       />
-                      <div className="service-card-image-overlay absolute inset-0 bg-gray-950/50"></div>
+                      <div className="service-card-image-overlay absolute inset-0 transition-all duration-300 pointer-events-none" />
                     </div>
                   )}
                   
                   <div className="relative z-20 flex flex-col h-full">
                     <div className="mb-auto">
                       <div className="w-14 h-14 rounded-2xl bg-gray-800 border border-gray-700 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500">
-                        <Icon className="w-7 h-7 text-cyan-400" />
+                        <Icon className="h-7 w-7 text-[#FFAA55]" />
                       </div>
                       <h3 className={`font-bold text-white mb-2 ${service.size === 'large' ? 'text-3xl' : 'text-xl'}`}>
                         {service.title}
@@ -266,7 +266,7 @@ export default function ServicesBentoGrid() {
                       </div>
                     )}
                     
-                    <div className="mt-6 flex items-center text-cyan-400 text-sm font-semibold group-hover:text-cyan-300">
+                    <div className="mt-6 flex items-center text-sm font-semibold text-[#FFAA55] group-hover:text-white">
                       Learn More
                       <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform" />
                     </div>
@@ -284,31 +284,31 @@ export default function ServicesBentoGrid() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
+              className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto bg-black/75 backdrop-blur-sm"
               onClick={() => setExpandedCard(null)}
             >
               <motion.div 
-                initial={{ scale: 0.9, y: 20 }}
-                animate={{ scale: 1, y: 0 }}
-                exit={{ scale: 0.9, y: 20 }}
+                initial={{ scale: 0.94, opacity: 0, y: 15 }}
+                animate={{ scale: 1, opacity: 1, y: 0 }}
+                exit={{ scale: 0.94, opacity: 0, y: 15 }}
                 onClick={(e) => e.stopPropagation()}
-                className="bg-gray-900 border border-gray-800 rounded-3xl w-full max-w-4xl max-h-[90vh] overflow-y-auto shadow-2xl relative"
+                className="service-modal relative m-auto my-auto max-h-[90vh] w-full max-w-4xl overflow-y-auto rounded-2xl border border-white/20 bg-[#0A1230] shadow-2xl"
               >
                 {servicesData.filter(s => s.id === expandedCard).map(s => (
                   <div key={s.id} className="p-8 md:p-12">
                     <button 
                       onClick={() => setExpandedCard(null)}
-                      className="absolute top-6 right-6 p-2 bg-gray-800 hover:bg-gray-700 text-white rounded-full transition-colors"
+                      className="service-modal-close absolute right-6 top-6 rounded-full border border-white/30 bg-white/10 p-2 text-white transition-colors hover:border-[#FFAA55] hover:bg-[#FFAA55] hover:text-[#111111]"
                     >
                       <X className="w-6 h-6" />
                     </button>
                     
                     <div className="flex items-center gap-4 mb-8">
                       <div className="w-16 h-16 rounded-2xl bg-gray-800 border border-gray-700 flex items-center justify-center">
-                        <s.icon className="w-8 h-8 text-cyan-400" />
+                        <s.icon className="h-8 w-8 text-[#0A1230]" />
                       </div>
                       <div>
-                        <span className="text-cyan-400 text-sm font-semibold uppercase tracking-wider">{s.category}</span>
+                        <span className="service-modal-category text-sm font-semibold uppercase tracking-wider">{s.category}</span>
                         <h2 className="text-3xl md:text-4xl font-bold text-white mt-1">{s.title}</h2>
                       </div>
                     </div>
@@ -335,13 +335,13 @@ export default function ServicesBentoGrid() {
                     <div className="mb-10">
                       <h4 className="text-white font-semibold mb-4">Development Workflow</h4>
                       <div className="p-4 bg-gray-950 rounded-xl border border-gray-800">
-                        <p className="text-cyan-400 text-sm font-mono">{s.workflow}</p>
+                        <p className="service-modal-workflow text-sm font-mono">{s.workflow}</p>
                       </div>
                       <p className="text-gray-400 text-sm mt-3">Estimated Timeline: <span className="text-white">{s.timeline}</span></p>
                     </div>
 
                     <div className="flex justify-end">
-                      <button className="px-8 py-3 bg-cyan-600 hover:bg-cyan-500 text-white rounded-xl font-semibold shadow-lg transition-colors">
+                      <button className="rounded-lg bg-[#FFAA55] px-8 py-3 font-semibold text-[#111111] shadow-lg transition-colors hover:bg-white">
                         Get Quote
                       </button>
                     </div>

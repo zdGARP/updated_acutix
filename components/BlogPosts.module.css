@@ -1,0 +1,137 @@
+.container {
+  width: min(100% - 2.5rem, 76rem);
+  margin-inline: auto;
+}
+
+/* SECTION 1: HERO (WHITE) */
+.heroSection {
+  background-color: #ffffff;
+  color: #111111;
+  padding-top: clamp(6.5rem, 12vh, 8.5rem);
+  padding-bottom: clamp(3.5rem, 8vh, 5.5rem);
+  border-bottom: 1px solid rgba(27, 47, 97, 0.12);
+}
+
+/* SECTION 2 & 3 & 4: CATEGORY FILTERS, LISTING & FEATURED (NAVY) */
+.articlesSection {
+  background-color: #0A1230;
+  color: #ffffff;
+  padding-top: clamp(4rem, 8vh, 6rem);
+  padding-bottom: clamp(4rem, 8vh, 6rem);
+}
+
+/* SECTION 5: FINAL CTA (WHITE) */
+.finalCtaSection {
+  background-color: #ffffff;
+  color: #111111;
+  padding-top: clamp(4.5rem, 9vh, 6.5rem);
+  padding-bottom: clamp(4.5rem, 9vh, 6.5rem);
+  border-top: 1px solid rgba(27, 47, 97, 0.12);
+}
+
+.eyebrow {
+  display: inline-block;
+  margin-bottom: 0.75rem;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: #ffaa55;
+}
+
+/* FILTER PILL BUTTONS */
+.filterPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.5rem 1.15rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: all 200ms ease;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background-color: transparent;
+  color: #ffffff;
+}
+
+.filterPill:hover {
+  border-color: #ffaa55;
+  color: #ffaa55;
+  background-color: rgba(255, 170, 85, 0.1);
+}
+
+.filterPillActive {
+  background-color: #ffaa55 !important;
+  color: #111111 !important;
+  border-color: #ffaa55 !important;
+  font-weight: 700;
+}
+
+/* ARTICLE CARD */
+.articleCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 0.625rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: #ffffff;
+  color: #111111;
+  overflow: hidden;
+  box-shadow: 0 4px 18px rgba(10, 15, 30, 0.14);
+  transition: transform 250ms ease, border-color 250ms ease, box-shadow 250ms ease;
+}
+
+.articleCard:hover {
+  transform: translateY(-3px);
+  border-color: #ffaa55;
+  box-shadow: 0 12px 28px rgba(10, 15, 30, 0.24);
+}
+
+/* BUTTONS */
+.btnPrimaryOrange {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: #ffaa55;
+  color: #111111;
+  font-weight: 700;
+  font-size: 0.9375rem;
+  padding: 0.75rem 1.625rem;
+  border-radius: 0.5rem;
+  border: 1px solid transparent;
+  transition: background-color 200ms ease, color 200ms ease, transform 150ms ease;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btnPrimaryOrange:hover {
+  background-color: #ffffff;
+  color: #111111;
+  transform: translateY(-1px);
+}
+
+.btnPrimaryNavy {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: #0A1230;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.9375rem;
+  padding: 0.75rem 1.625rem;
+  border-radius: 0.5rem;
+  border: 1px solid transparent;
+  transition: background-color 200ms ease, color 200ms ease, transform 150ms ease;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btnPrimaryNavy:hover {
+  background-color: #ffaa55;
+  color: #111111;
+  transform: translateY(-1px);
+}
+

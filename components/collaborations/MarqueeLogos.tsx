@@ -6,10 +6,10 @@ import { motion } from 'framer-motion';
 
 export default function MarqueeLogos() {
   const partners = [
-    { name: 'VISTAS', logo: '/logo_vistas.png' },
-    { name: 'SRM Valliammai', logo: '/logo_srmv.png' },
-    { name: 'SAEC Chennai', logo: '/logo_saec.png' },
-    { name: 'Jeppiaar IT', logo: '/logo_jit.png' },
+    { name: 'VISTAS', logo: '/Partnership/logo_vistas.png' },
+    { name: 'SRM Valliammai', logo: '/Partnership/logo_srmv.png' },
+    { name: 'SAEC Chennai', logo: '/Partnership/logo_saec.png' },
+    { name: 'Jeppiaar IT', logo: '/Partnership/logo_jit.png' },
     { name: 'FertiCare SaaS', isSaaS: true, text: '⚡ FertiCare' },
     { name: 'GymPad SaaS', isSaaS: true, text: '🏋️ GymPad' },
     { name: 'MotorConsult CRM', isSaaS: true, text: '🚗 MotorConsult' },
@@ -44,10 +44,10 @@ export default function MarqueeLogos() {
           {marqueeItems.map((item, idx) => (
             <div
               key={idx}
-              className="flex items-center space-x-4 bg-white/5 border border-white/10 hover:border-cyan-500/20 hover:bg-white/10 rounded-2xl px-6 py-3.5 backdrop-blur-md transition-all duration-300 group shadow-md"
+              className="flex items-center space-x-4 bg-white/5 border border-white/10 hover:border-[#FFAA55] hover:bg-white/10 rounded-2xl px-6 py-3.5 backdrop-blur-md transition-all duration-300 group shadow-md"
             >
               {item.isSaaS ? (
-                <span className="font-mono text-sm font-semibold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400 group-hover:scale-105 transition-transform duration-300">
+                <span className="font-mono text-sm font-semibold text-[#FFAA55] group-hover:scale-105 transition-transform duration-300">
                   {item.text}
                 </span>
               ) : (

@@ -1,7 +1,7 @@
 .services {
   isolation: isolate;
-  background: var(--landing-stage);
-  color: var(--landing-text);
+  background: #ffffff;
+  color: #111111;
   font-family: var(--font-geist-sans), Arial, sans-serif;
 }
 
@@ -9,96 +9,243 @@
   font-family: var(--font-geist-sans), Arial, sans-serif !important;
 }
 
-.services :global([class*="bg-gray-950"]),
-.services :global([class*="bg-gray-900"]),
-.services :global([class*="bg-gray-800"]),
-.services :global([class*="bg-[#0a0a0a]"]) {
-  background-color: var(--landing-card);
+.services > :global(section:nth-child(odd)) {
+  background-color: #ffffff;
+  color: #111111;
+}
+
+.services > :global(section:nth-child(even)) {
+  background-color: #0A1230;
+  color: #ffffff;
 }
 
 .services :global([class*="text-cyan-"]),
 .services :global([class*="text-blue-"]),
 .services :global([class*="text-purple-"]),
-.services :global([class*="text-indigo-"]) {
-  color: var(--landing-violet);
-}
-
+.services :global([class*="text-indigo-"]),
 .services :global([class*="text-emerald-"]),
 .services :global([class*="text-rose-"]),
 .services :global([class*="text-amber-"]),
 .services :global([class*="text-orange-"]) {
-  color: var(--landing-orange);
-}
-
-.services :global([class*="text-gray-100"]),
-.services :global([class*="text-white"]) {
-  color: var(--landing-text);
-}
-
-.services :global([class*="text-gray-300"]),
-.services :global([class*="text-gray-400"]) {
-  color: var(--landing-muted);
-}
-
-.services :global([class*="text-gray-500"]) {
-  color: #a5a7b4;
-}
-
-.services :global([class*="border-cyan-"]),
-.services :global([class*="border-blue-"]),
-.services :global([class*="border-purple-"]),
-.services :global([class*="border-emerald-"]),
-.services :global([class*="border-white/5"]) {
-  border-color: rgba(255, 255, 255, 0.1);
-}
-
-.services :global([class*="bg-gradient-to-"]) {
-  background-image: linear-gradient(135deg, var(--landing-orange), var(--landing-violet));
+  color: #ffaa55;
 }
 
 .services :global(.text-transparent) {
-  color: var(--landing-orange);
-  background: linear-gradient(100deg, var(--landing-orange), var(--landing-violet));
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #ffaa55;
+  background: none;
+  -webkit-text-fill-color: currentColor;
 }
 
-.services :global(button[class*="bg-gradient-to-"]) {
-  color: #211810;
-  box-shadow: none;
+.services > :global(section:nth-child(odd)) :global([class*="text-white"]),
+.services > :global(section:nth-child(odd)) :global([class*="text-gray-100"]) {
+  color: #111111;
+}
+
+.services > :global(section:nth-child(odd)) :global([class*="text-gray-300"]),
+.services > :global(section:nth-child(odd)) :global([class*="text-gray-400"]),
+.services > :global(section:nth-child(odd)) :global([class*="text-gray-500"]) {
+  color: rgba(17, 17, 17, 0.72);
+}
+
+.services > :global(section:nth-child(even)) :global([class*="text-white"]),
+.services > :global(section:nth-child(even)) :global([class*="text-gray-100"]) {
+  color: #ffffff;
+}
+
+.services > :global(section:nth-child(even)) :global([class*="text-gray-300"]),
+.services > :global(section:nth-child(even)) :global([class*="text-gray-400"]),
+.services > :global(section:nth-child(even)) :global([class*="text-gray-500"]) {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.services > :global(section:nth-child(odd)) :global([class*="bg-gray-900"]),
+.services > :global(section:nth-child(odd)) :global([class*="bg-gray-800"]),
+.services > :global(section:nth-child(odd)) :global([class*="bg-gray-950"]),
+.services > :global(section:nth-child(odd)) :global([class*="bg-[#0a0a0a]"]) {
+  background-color: #f4f7fb;
+}
+
+.services > :global(section:nth-child(even)) :global([class*="bg-gray-900"]),
+.services > :global(section:nth-child(even)) :global([class*="bg-gray-800"]),
+.services > :global(section:nth-child(even)) :global([class*="bg-gray-950"]),
+.services > :global(section:nth-child(even)) :global([class*="bg-[#0a0a0a]"]) {
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .services :global(.service-card:hover) {
-  border-color: rgba(255, 255, 255, 0.1);
-  box-shadow: none;
+  border-color: rgba(255, 170, 85, 0.9);
+  box-shadow: 0 16px 36px rgba(17, 17, 17, 0.18);
+  transform: translateY(-4px);
+}
+
+.services :global(.service-card) {
+  background-color: #0A1230;
+  transition: transform 280ms ease, border-color 280ms ease, box-shadow 280ms ease;
+}
+
+.services :global(.process-line) {
+  background-color: rgba(27, 47, 97, 0.3);
+}
+
+.services :global(.process-step-card) {
+  border-color: rgba(255, 255, 255, 0.72);
+  background: #ffffff;
+  color: #111111;
+  box-shadow: 0 12px 28px rgba(17, 17, 17, 0.14);
+  cursor: pointer;
+}
+
+.services :global(.process-step-card:hover),
+.services :global(.process-step-card:focus-visible),
+.services :global(.process-step-card[aria-expanded="true"]) {
+  border-color: #ffaa55;
+  box-shadow: 0 16px 34px rgba(17, 17, 17, 0.2);
+  transform: translateY(-3px);
+}
+
+.services :global(.process-step-icon) {
+  border-color: rgba(27, 47, 97, 0.16);
+  background: #f4f7fb;
+  color: #0A1230;
+}
+
+.services :global(.process-step-card:hover .process-step-icon),
+.services :global(.process-step-card[aria-expanded="true"] .process-step-icon) {
+  background: rgba(255, 170, 85, 0.18);
+  color: #0A1230;
+}
+
+.services :global(.process-step-title) {
+  color: #111111;
+}
+
+.services :global(.process-step-card:hover .process-step-title),
+.services :global(.process-step-card[aria-expanded="true"] .process-step-title) {
+  color: #0A1230;
+}
+
+.services :global(.process-step-description) {
+  color: rgba(17, 17, 17, 0.74);
+}
+
+.services :global(.process-step-chevron) {
+  color: #ffaa55;
 }
 
 .services :global(.service-card-image) {
-  transition: opacity 500ms ease;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.services :global(.service-card-image img) {
+  transition: filter 350ms ease, transform 450ms ease;
 }
 
 .services :global(.service-card-image-overlay) {
-  background-color: rgba(15, 17, 21, 0.5);
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(27, 47, 97, 0.45) 0%, rgba(17, 17, 17, 0.82) 100%);
+  transition: background 300ms ease, opacity 300ms ease;
+  z-index: 1;
 }
 
-.services :global(.tech-stack-edge),
-.services :global(.testimonial-edge) {
-  display: none;
+.services :global(.service-card:hover .service-card-image img) {
+  filter: blur(5px);
+  transform: scale(1.08);
+}
+
+.services :global(.service-card:hover .service-card-image-overlay) {
+  background: linear-gradient(180deg, rgba(27, 47, 97, 0.8) 0%, rgba(17, 17, 17, 0.95) 100%) !important;
+}
+
+.services :global(.service-card h3),
+.services :global(.service-card p) {
+  color: #ffffff !important;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9);
+}
+
+.services :global(.service-modal) {
+  margin: auto;
+  border-color: rgba(27, 47, 97, 0.2);
+  background-color: #ffffff;
+}
+
+.services :global(.service-modal) :is(h2, h4, p, [class*="text-white"], [class*="text-gray-"]) {
+  color: #111111 !important;
+}
+
+.services :global(.service-modal) :is([class*="bg-gray-800/50"], [class*="bg-gray-950"]) {
+  background-color: #f4f7fb !important;
+  border-color: rgba(27, 47, 97, 0.15) !important;
+}
+
+.services :global(.service-modal) span[class*="border"] {
+  background-color: #ffffff !important;
+  color: #0A1230 !important;
+  border-color: rgba(27, 47, 97, 0.2) !important;
+}
+
+.services :global(.service-modal-close) {
+  background-color: #0A1230 !important;
+  color: #ffffff !important;
+}
+
+.services :global(.service-modal-close:hover) {
+  background-color: #ffaa55 !important;
+  color: #111111 !important;
+}
+
+.services :global(.service-modal-category) {
+  color: #ffaa55 !important;
+}
+
+.services :global(.service-modal-workflow) {
+  color: #0A1230 !important;
+}
+
+.services :global(.tech-stack-edge) {
+  opacity: 0.9;
 }
 
 .services :global(.showcase-image-overlay) {
   background-image: linear-gradient(
     to top,
-    rgba(15, 17, 21, 0.78),
-    rgba(15, 17, 21, 0.12) 48%,
+    rgba(27, 47, 97, 0.88),
+    rgba(27, 47, 97, 0.24) 48%,
     transparent
   );
 }
 
+.services :global(.showcase-copy .showcase-title),
+.services :global(.showcase-copy .showcase-caption) {
+  color: #ffffff !important;
+}
+
+.services :global(.showcase-category) {
+  color: #ffaa55;
+}
+
+.services :global(.services-final-title) {
+  color: #111111 !important;
+}
+
+.services :global(.services-final-copy) {
+  color: rgba(17, 17, 17, 0.76) !important;
+}
+
+.services :global(.testimonial-edge:first-child) {
+  background-image: linear-gradient(to right, #ffffff, transparent);
+}
+
+.services :global(.testimonial-edge:last-child) {
+  background-image: linear-gradient(to left, #ffffff, transparent);
+}
+
 .services :global(.services-final-cta) {
-  background-image:
-    radial-gradient(ellipse at 50% 48%, rgba(147, 135, 245, 0.055), transparent 58%),
-    linear-gradient(135deg, rgba(243, 154, 85, 0.025), transparent 55%);
+  background-color: #ffffff !important;
+  background-image: none !important;
 }
 
 .services :global(.services-final-cta-glow) {
@@ -108,14 +255,14 @@
 .services :global(select),
 .services :global(input),
 .services :global(textarea) {
-  border-color: rgba(255, 255, 255, 0.14);
-  background-color: var(--landing-card);
-  color: var(--landing-text);
+  border-color: rgba(27, 47, 97, 0.3);
+  background-color: #ffffff;
+  color: #111111;
 }
 
 .services :global(select:focus),
 .services :global(input:focus),
 .services :global(textarea:focus) {
-  border-color: rgba(147, 135, 245, 0.65);
-  outline-color: rgba(147, 135, 245, 0.35);
+  border-color: #ffaa55;
+  outline-color: rgba(255, 170, 85, 0.45);
 }

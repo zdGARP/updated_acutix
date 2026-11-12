@@ -26,9 +26,9 @@ export default function HeroSection() {
       const el = document.getElementById(`service-${val}`);
       if (el) {
         el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        el.classList.add('ring-4', 'ring-cyan-500', 'ring-opacity-50', 'transition-all', 'duration-500');
+        el.classList.add('ring-4', 'ring-[#FFAA55]', 'ring-opacity-50', 'transition-all', 'duration-500');
         setTimeout(() => {
-          el.classList.remove('ring-4', 'ring-cyan-500', 'ring-opacity-50');
+          el.classList.remove('ring-4', 'ring-[#FFAA55]', 'ring-opacity-50');
         }, 1500);
       }
     }
@@ -38,9 +38,9 @@ export default function HeroSection() {
     <section className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-gray-950 pt-32 pb-16">
       {/* Background elements */}
       <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-5" style={{ backgroundSize: '30px 30px', backgroundImage: 'linear-gradient(to right, #ffffff10 1px, transparent 1px), linear-gradient(to bottom, #ffffff10 1px, transparent 1px)' }}></div>
-      <div className="absolute top-1/4 -left-32 w-96 h-96 bg-cyan-600 rounded-full mix-blend-multiply filter blur-[128px] opacity-40 animate-pulse"></div>
-      <div className="absolute top-1/3 -right-32 w-96 h-96 bg-purple-600 rounded-full mix-blend-multiply filter blur-[128px] opacity-40 animate-pulse" style={{ animationDelay: '2s' }}></div>
-      <div className="absolute -bottom-32 left-1/3 w-96 h-96 bg-emerald-600 rounded-full mix-blend-multiply filter blur-[128px] opacity-20 animate-pulse" style={{ animationDelay: '4s' }}></div>
+      <div className="absolute top-1/4 -left-32 h-96 w-96 rounded-full bg-[#0A1230] opacity-[0.04] blur-[128px]"></div>
+      <div className="absolute top-1/3 -right-32 h-96 w-96 rounded-full bg-[#FFAA55] opacity-[0.05] blur-[128px]" style={{ animationDelay: '2s' }}></div>
+      <div className="absolute -bottom-32 left-1/3 h-96 w-96 rounded-full bg-[#0A1230] opacity-[0.03] blur-[128px]" style={{ animationDelay: '4s' }}></div>
 
       <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10 w-full flex-grow flex flex-col justify-center">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -52,7 +52,7 @@ export default function HeroSection() {
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <h1 className="text-5xl md:text-6xl font-extrabold text-white tracking-tight mb-6 leading-tight">
-              We Build <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500">Digital Solutions</span> That Power Modern Businesses
+              We Build <span className="text-[#0A1230]">Digital Solutions</span> That Power Modern Businesses
             </h1>
             <p className="text-lg md:text-xl text-gray-300 mb-8 leading-relaxed max-w-2xl">
               From scalable enterprise software and AI solutions to cloud infrastructure and stunning mobile apps, we engineer the future of your business.
@@ -60,18 +60,18 @@ export default function HeroSection() {
             <div className="flex flex-col sm:flex-row gap-4">
               <Link href="/contact" className="contents">
                 <motion.button 
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-xl font-semibold shadow-lg shadow-cyan-500/30 hover:shadow-cyan-500/50 transition-all cursor-pointer text-center"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.985 }}
+                  className="cursor-pointer rounded-lg bg-[#FFAA55] px-8 py-4 text-center font-semibold text-[#111111] transition-colors hover:bg-[#0A1230] hover:text-white"
                 >
                   Get Free Consultation
                 </motion.button>
               </Link>
               <Link href="#services-bento" className="contents">
                 <motion.button 
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-8 py-4 bg-white/10 text-white backdrop-blur-md border border-white/20 rounded-xl font-semibold hover:bg-white/20 transition-all cursor-pointer text-center"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.985 }}
+                  className="cursor-pointer rounded-lg border border-[#0A1230] bg-white px-8 py-4 text-center font-semibold text-[#0A1230] transition-colors hover:bg-[#0A1230] hover:text-white"
                 >
                   Explore Services
                 </motion.button>
@@ -82,7 +82,7 @@ export default function HeroSection() {
           {/* Right Side: Animated 3D Illustration */}
           <div className="relative h-[400px] w-full hidden lg:block">
             <motion.div 
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-full blur-3xl"
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 rounded-full bg-gradient-to-br from-[#0A1230]/10 to-[#FFAA55]/10 blur-3xl"
               animate={{ scale: [1, 1.2, 1], opacity: [0.5, 0.8, 0.5] }}
               transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
             />
@@ -93,16 +93,16 @@ export default function HeroSection() {
               animate={{ y: [-10, 10, -10] }}
               transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}
             >
-              <Network className="w-12 h-12 text-cyan-400" />
+              <Network className="h-12 w-12 text-[#0A1230]" />
             </motion.div>
 
             {/* Orbiting nodes */}
             {[
-              { icon: Cloud, color: 'text-blue-400', delay: 0, pos: 'top-10 left-10' },
-              { icon: Smartphone, color: 'text-purple-400', delay: 1, pos: 'top-20 right-10' },
-              { icon: LayoutDashboard, color: 'text-emerald-400', delay: 2, pos: 'bottom-20 right-20' },
-              { icon: Cpu, color: 'text-rose-400', delay: 3, pos: 'bottom-10 left-20' },
-              { icon: Shield, color: 'text-amber-400', delay: 4, pos: 'top-1/2 -left-10' },
+              { icon: Cloud, color: 'text-[#0A1230]', delay: 0, pos: 'top-10 left-10' },
+              { icon: Smartphone, color: 'text-[#FFAA55]', delay: 1, pos: 'top-20 right-10' },
+              { icon: LayoutDashboard, color: 'text-[#0A1230]', delay: 2, pos: 'bottom-20 right-20' },
+              { icon: Cpu, color: 'text-[#FFAA55]', delay: 3, pos: 'bottom-10 left-20' },
+              { icon: Shield, color: 'text-[#0A1230]', delay: 4, pos: 'top-1/2 -left-10' },
             ].map((node, i) => (
               <motion.div
                 key={i}
@@ -137,7 +137,7 @@ export default function HeroSection() {
           </div>
           <div className="w-full md:w-auto relative">
             <select 
-              className="w-full appearance-none bg-gray-800 border border-gray-700 text-white px-6 py-3 rounded-xl pr-12 focus:outline-none focus:ring-2 focus:ring-cyan-500 cursor-pointer"
+              className="w-full cursor-pointer appearance-none rounded-lg border border-[#0A1230]/30 bg-white px-6 py-3 pr-12 text-[#111111] focus:outline-none focus:ring-2 focus:ring-[#FFAA55]"
               value={selectedService}
               onChange={handleSelect}
             >

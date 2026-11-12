@@ -3,15 +3,22 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useState, useEffect, useRef } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ArrowRight } from 'lucide-react';
+
+const mainNavItems = [
+  { name: 'PRODUCTS', href: '/products' },
+  { name: 'SERVICES', href: '/services' },
+  { name: 'PARTNERSHIPS', href: '/collaborations' },
+  { name: 'PROGRAMS', href: '/careers' },
+  { name: 'BLOGS', href: '/blogs' },
+  { name: 'ABOUT US', href: '/about' },
+];
 
 const Header = () => {
   const pathname = usePathname();
-  const isBrandedPage = ['/', '/products', '/collaboration', '/collaborations', '/services', '/careers', '/blogs', '/about', '/contact'].includes(pathname);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
 
-  // Close mobile menu on outside click
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
@@ -25,60 +32,67 @@ const Header = () => {
   }, [mobileMenuOpen]);
 
   return (
-    <header className={`fixed top-0 left-0 w-full z-50 backdrop-blur-md border-b transition-colors duration-300 ${
-      isBrandedPage
-        ? 'bg-[#222433]/95 border-white/10 shadow-[0_2px_18px_rgba(0,0,0,0.16)]'
-        : 'bg-black/50 border-cyan-500/30 shadow-[0_2px_15px_rgba(6,182,212,0.08)]'
-    }`}>
+    <header className="fixed top-0 left-0 w-full z-50 border-b border-[#152352] bg-[#0A1230] shadow-sm transition-colors duration-300">
       <div className="container mx-auto px-4 sm:px-8 lg:px-12 flex items-center justify-between h-20">
         {/* Logo */}
         <div className="flex-shrink-0 flex items-center">
-          <Link href="/" className="flex items-center">
-            <Image src="/logo.png" alt="Acutix Logo" width={86} height={86} priority className="border border-white/10 rounded-lg p-1 bg-black/20" />
+          <Link href="/" className="flex items-center gap-2 group">
+            <Image
+              src="/logo.png"
+              alt="Acutix Logo"
+              width={561}
+              height={474}
+              priority
+              className="h-9 w-auto object-contain transition-transform group-hover:scale-105"
+            />
           </Link>
         </div>
 
         {/* Desktop Navigation */}
-        <nav className="hidden lg:flex space-x-8 xl:space-x-10">
-          {[
-            { name: 'Home', href: '/' },
-            { name: 'Products', href: '/products' },
-            { name: 'Services', href: '/services' },
-            { name: 'Collaboration', href: '/collaborations' },
-            { name: 'Careers', href: '/careers' },
-            { name: 'Blogs', href: '/blogs' },
-            { name: 'About Us', href: '/about' },
-            { name: 'Contact Us', href: '/contact' }
-          ].map(item => (
-            <Link
-              key={item.name}
-              href={item.href}
-              aria-current={pathname === item.href ? 'page' : undefined}
-              className={`group relative font-medium transition-all duration-300 py-2 text-sm sm:text-base ${
-                isBrandedPage
-                  ? 'text-gray-200 hover:text-amber-300'
-                  : 'text-gray-300 hover:text-cyan-400 hover:drop-shadow-[0_0_8px_rgba(34,211,238,0.8)]'
-              }`}>
-              {item.name}
-              <span className={`absolute -bottom-1 left-0 h-0.5 transition-all duration-300 ${
-                isBrandedPage
-                  ? pathname === item.href ? 'w-full bg-amber-300' : 'w-0 bg-amber-300 group-hover:w-full'
-                  : 'w-0 bg-cyan-400 shadow-[0_0_8px_rgba(34,211,238,0.8)] group-hover:w-full'
-              }`}></span>
-            </Link>
-          ))}
+        <nav className="hidden lg:flex items-center space-x-6 xl:space-x-8">
+          {mainNavItems.map((item) => {
+            const isActive =
+              pathname === item.href ||
+              (item.href === '/collaborations' && (pathname === '/collaboration' || pathname === '/colloboration')) ||
+              (item.href === '/blogs' && pathname === '/blog');
+
+            return (
+              <Link
+                key={item.name}
+                href={item.href}
+                aria-current={isActive ? 'page' : undefined}
+                className={`relative text-xs font-semibold tracking-wider uppercase transition-colors duration-200 after:absolute after:-bottom-1.5 after:left-0 after:h-px after:bg-[#FF7A1A] after:transition-[width] after:duration-200 ${
+                  isActive
+                    ? 'text-[#FF7A1A] after:w-full'
+                    : 'text-slate-300 after:w-0 hover:text-[#FF7A1A] hover:after:w-full'
+                }`}
+              >
+                {item.name}
+              </Link>
+            );
+          })}
         </nav>
+
+        {/* CTA Button */}
+        <div className="hidden lg:flex items-center">
+          <Link
+            href="/contact"
+            className="inline-flex items-center gap-1.5 rounded-md bg-[#FF7A1A] px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-white shadow-sm transition-all duration-200 hover:bg-[#EA6608] hover:shadow-orange-500/20 hover:scale-[1.02]"
+          >
+            <span>CONTACT US</span>
+            <ArrowRight className="h-3.5 w-3.5" />
+          </Link>
+        </div>
 
         {/* Mobile menu button */}
         <div className="lg:hidden flex items-center">
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className={`inline-flex items-center justify-center p-2 rounded-lg bg-white/5 border border-white/10 focus:outline-none transition duration-150 ${
-              isBrandedPage
-                ? 'text-gray-200 hover:text-amber-300 hover:border-amber-300/50'
-                : 'text-gray-300 hover:text-cyan-400 hover:border-cyan-400/50'
-            }`}
-            aria-label="Main menu">
+            className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-lg border border-[#18295E] bg-[#101D48] p-2 text-slate-200 transition duration-150 hover:border-[#FF7A1A] hover:text-[#FF7A1A]"
+            aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-navigation"
+          >
             {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
         </div>
@@ -88,30 +102,34 @@ const Header = () => {
       {mobileMenuOpen && (
         <div
           ref={menuRef}
-          className={`lg:hidden fixed inset-x-0 top-20 backdrop-blur-lg border-t border-white/10 animate-slideDown z-40 ${
-            isBrandedPage ? 'bg-[#222433]' : 'bg-black/90'
-          }`}>
-          <div className="pt-4 pb-6 px-4 space-y-1">
-            {[
-              { name: 'Home', href: '/' },
-              { name: 'Products', href: '/products' },
-              { name: 'Services', href: '/services' },
-              { name: 'Collaboration', href: '/collaborations' },
-              { name: 'Careers', href: '/careers' },
-              { name: 'Blogs', href: '/blogs' },
-              { name: 'About Us', href: '/about' },
-              { name: 'Contact Us', href: '/contact' }
-            ].map(item => (
+          id="mobile-navigation"
+          className="fixed inset-x-0 top-20 z-40 border-t border-[#152352] bg-[#0A1230] shadow-2xl backdrop-blur-xl lg:hidden"
+        >
+          <div className="pt-4 pb-6 px-6 space-y-2">
+            {mainNavItems.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className={`block px-4 py-3 rounded-lg text-base font-medium text-gray-300 hover:bg-white/5 transition-colors duration-150 text-center ${
-                  isBrandedPage ? 'hover:text-amber-300' : 'hover:text-cyan-400'
+                className={`block rounded-lg px-4 py-3 text-sm font-semibold tracking-wider transition-colors duration-150 uppercase ${
+                  pathname === item.href
+                    ? 'bg-[#152352] text-[#FF7A1A]'
+                    : 'text-slate-300 hover:bg-[#101D48] hover:text-[#FF7A1A] hover:underline hover:decoration-[#FF7A1A] hover:underline-offset-4'
                 }`}
-                onClick={() => setMobileMenuOpen(false)}>
+                onClick={() => setMobileMenuOpen(false)}
+              >
                 {item.name}
               </Link>
             ))}
+            <div className="pt-2 border-t border-[#152352] flex flex-col gap-2">
+              <Link
+                href="/contact"
+                className="mt-2 flex items-center justify-center gap-2 rounded-lg bg-[#FF7A1A] px-4 py-3 text-sm font-bold uppercase tracking-wider text-white hover:bg-[#EA6608]"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                <span>CONTACT US</span>
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
           </div>
         </div>
       )}

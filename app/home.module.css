@@ -1,6 +1,14 @@
 .landing {
-  background: var(--landing-stage);
-  color: var(--landing-text);
+  background: #ffffff;
+  color: #111111;
+}
+
+.landing :global(.landing-hero) {
+  background-color: #111111;
+  background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.58), rgba(0, 0, 0, 0.34) 55%, rgba(0, 0, 0, 0.62)), url('/Home/hero.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .landing :global(.landing-intro) {
@@ -8,36 +16,7 @@
   max-width: none;
   margin-inline: 0;
   padding-inline: max(1.5rem, calc((100vw - 80rem) / 2));
-  background: linear-gradient(135deg, #363744, #30313d 55%, #39343d);
-}
-
-.landing :global(.landing-stats) {
-  margin-top: 3rem;
-}
-
-.landing :global(.landing-intro) > :global(div) > :global(div:first-child) {
-  color: var(--landing-orange);
-  border-color: rgba(243, 154, 85, 0.25);
-  background: rgba(243, 154, 85, 0.08);
-  box-shadow: none;
-}
-
-.landing :global(.landing-intro) a:nth-of-type(2) {
-  border-color: rgba(147, 135, 245, 0.4);
-  color: var(--landing-violet);
-}
-
-.landing :global(.landing-intro) a:nth-of-type(2):hover {
-  background: rgba(147, 135, 245, 0.1);
-}
-
-.landing > :global(div:first-child),
-.landing > :global(div:nth-child(2)) {
-  background-color: var(--landing-stage);
-}
-
-.landing > :global(div:nth-child(2)) > :global(div:last-child) {
-  background-color: var(--landing-stage);
+  background: transparent;
 }
 
 .landing :global(.scroll-section-trigger) {
@@ -49,124 +28,65 @@
 .landing :global(.scroll-section-trigger) > :global(div) {
   width: min(100%, 44rem);
   padding: clamp(1.5rem, 4vw, 3rem);
-  border: 1px solid rgba(255, 255, 255, 0.09);
-  border-radius: 1.5rem;
-  background: linear-gradient(145deg, #3a3b48, var(--landing-card));
-  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.5rem;
+  background: #0A1230;
+  box-shadow: 0 18px 48px rgba(17, 17, 17, 0.2);
+  color: #ffffff;
 }
 
 .landing :global(.scroll-section-trigger) h1 {
   max-width: 12ch;
-  color: var(--landing-text);
+  color: #ffffff;
   font-size: clamp(2.5rem, 4.3vw, 4.25rem);
   line-height: 1.08;
-  letter-spacing: -0.045em;
-}
-
-.landing :global(.scroll-section-trigger) h1 span {
-  color: var(--landing-orange);
-  background: none;
-  -webkit-text-fill-color: currentColor;
-}
-
-.landing :global(.scroll-section-trigger)[data-index="1"] h1 span,
-.landing :global(.scroll-section-trigger)[data-index="3"] h1 span {
-  color: var(--landing-violet);
 }
 
 .landing :global(.scroll-section-trigger) p {
   max-width: 62ch;
-  color: var(--landing-muted);
-  line-height: 1.8;
-}
-
-.landing :global(.scroll-section-trigger) > :global(div) > :global(div:first-child) {
-  color: var(--landing-orange);
-  border-color: rgba(243, 154, 85, 0.3);
-  background: rgba(243, 154, 85, 0.1);
-}
-
-.landing :global(.scroll-section-trigger)[data-index="1"] > :global(div) > :global(div:first-child),
-.landing :global(.scroll-section-trigger)[data-index="3"] > :global(div) > :global(div:first-child) {
-  color: var(--landing-violet);
-  border-color: rgba(147, 135, 245, 0.3);
-  background: rgba(147, 135, 245, 0.1);
-}
-
-.landing :global(.scroll-section-trigger) a {
-  border-radius: 0.75rem;
-  background: var(--landing-orange);
-  color: #201810;
-  box-shadow: none;
-  font-weight: 700;
-  transition: transform 180ms ease, background-color 180ms ease;
-}
-
-.landing :global(.scroll-section-trigger) a:hover {
-  background: var(--landing-orange-hover);
-  transform: translateY(-2px);
-}
-
-.landing :global(.scroll-section-trigger)[data-index="1"] a:nth-of-type(2) {
-  background: transparent;
-  border: 1px solid rgba(147, 135, 245, 0.45);
-  color: var(--landing-violet);
-}
-
-.landing :global(.scroll-section-trigger)[data-index="1"] a:nth-of-type(2):hover {
-  background: rgba(147, 135, 245, 0.1);
+  color: rgba(255, 255, 255, 0.86);
+  line-height: 1.7;
 }
 
 .landing :global(.scroll-section-trigger) :global(.bg-white\/5) {
-  border-color: rgba(255, 255, 255, 0.09);
-  background: rgba(255, 255, 255, 0.045);
+  border-color: rgba(27, 47, 97, 0.18);
+  background: #ffffff;
+  color: #111111;
 }
 
-.landing :global(.scroll-section-trigger)[data-index="1"] :global(.text-emerald-400),
-.landing :global(.scroll-section-trigger)[data-index="2"] :global(.text-blue-400),
-.landing :global(.scroll-section-trigger)[data-index="3"] :global(.text-rose-400) {
-  color: var(--landing-violet);
+.landing :global(.scroll-section-trigger) :global(.text-white) {
+  color: #ffffff;
 }
 
-.landing > :global(div):last-child :global(section) {
-  max-width: 58rem;
-  padding-top: clamp(4rem, 8vw, 7rem);
-  padding-bottom: clamp(4rem, 8vw, 7rem);
+.landing :global(.scroll-section-trigger) :global(.text-gray-300),
+.landing :global(.scroll-section-trigger) :global(.text-gray-400) {
+  color: rgba(255, 255, 255, 0.82);
 }
 
-.landing > :global(div):last-child h2 {
-  color: var(--landing-text);
-  font-size: clamp(2rem, 4vw, 3rem);
-  line-height: 1.15;
-  letter-spacing: -0.035em;
-  text-transform: none;
+.landing :global(.scroll-section-trigger) :global(.bg-white\/5) :global(.text-white) {
+  color: #111111;
 }
 
-.landing > :global(div):last-child h2 span {
-  color: var(--landing-orange);
-  background: none;
-  -webkit-text-fill-color: currentColor;
+.landing :global(.scroll-section-trigger) :global(.bg-white\/5) :global(.text-gray-400) {
+  color: rgba(17, 17, 17, 0.72);
 }
 
-.landing > :global(div):last-child details {
-  border-color: rgba(255, 255, 255, 0.1);
-  border-radius: 1rem;
-  background: var(--landing-card);
-  box-shadow: none;
+.landing :global(.scroll-section-trigger) :global(.student-card) {
+  border-color: rgba(27, 47, 97, 0.2);
+  background: #ffffff;
+  color: #111111;
 }
 
-.landing > :global(div):last-child summary {
-  color: var(--landing-text);
-  line-height: 1.55;
+.landing :global(.scroll-section-trigger) :global(.student-card) :global(.text-white) {
+  color: #111111;
 }
 
-.landing > :global(div):last-child details p {
-  color: var(--landing-muted);
-  line-height: 1.75;
+.landing :global(.scroll-section-trigger) :global(.student-card) :global(.text-gray-400) {
+  color: rgba(17, 17, 17, 0.72);
 }
 
-.landing > :global(div):last-child {
-  background: var(--landing-stage);
+.landing :global(.landing-faq) {
+  background: #ffffff;
 }
 
 @media (max-width: 1023px) {

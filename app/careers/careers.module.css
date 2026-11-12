@@ -1,78 +1,173 @@
 .careers {
+  position: relative;
   min-height: 100vh;
-  background: var(--landing-stage);
-  color: var(--landing-text);
+  background-color: #ffffff;
+  color: #111111;
   font-family: var(--font-geist-sans), Arial, sans-serif;
+  overflow-x: hidden;
 }
 
-.careers :global(*) {
-  font-family: var(--font-geist-sans), Arial, sans-serif !important;
+.careers * {
+  box-sizing: border-box;
 }
 
-.careers :global(section) {
-  background: transparent;
+.container {
+  width: min(100% - 2.5rem, 76rem);
+  margin-inline: auto;
 }
 
-.careers :global(h1),
-.careers :global(h2),
-.careers :global(h3) {
-  color: var(--landing-text);
+/* SECTION 1: HERO (WHITE) */
+.heroSection {
+  background-color: #ffffff;
+  color: #111111;
+  padding-top: clamp(6.5rem, 12vh, 8.5rem);
+  padding-bottom: clamp(3.5rem, 8vh, 5.5rem);
+  border-bottom: 1px solid rgba(27, 47, 97, 0.12);
 }
 
-.careers :global(p) {
-  color: var(--landing-muted);
+/* SECTION 2: WHY ACUTIX (NAVY) */
+.whyAcutixSection {
+  background-color: #0A1230;
+  color: #ffffff;
+  padding-top: clamp(4rem, 8vh, 6rem);
+  padding-bottom: clamp(4rem, 8vh, 6rem);
 }
 
-.careers :global([class*="bg-white"]),
-.careers :global([class*="bg-[#fff8dc]"]),
-.careers :global([class*="dark:bg-[#2d3440]"]),
-.careers :global([class*="dark:bg-[#3a4152]"]) {
-  background-color: var(--landing-card);
+/* SECTION 3: OPPORTUNITIES (WHITE) */
+.opportunitiesSection {
+  background-color: #ffffff;
+  color: #111111;
+  padding-top: clamp(4rem, 8vh, 6rem);
+  padding-bottom: clamp(4rem, 8vh, 6rem);
+  border-top: 1px solid rgba(27, 47, 97, 0.12);
+  border-bottom: 1px solid rgba(27, 47, 97, 0.12);
 }
 
-.careers :global([class*="border-[#323b42]"]),
-.careers :global([class*="dark:border-[#3a4152]"]),
-.careers :global([class*="border-l-4"]) {
-  border-color: rgba(255, 255, 255, 0.12);
+/* SECTION 4 & 5: EXPECTATIONS & APPLICATION PROCESS (NAVY) */
+.expectationsSection {
+  background-color: #0A1230;
+  color: #ffffff;
+  padding-top: clamp(4rem, 8vh, 6rem);
+  padding-bottom: clamp(4rem, 8vh, 6rem);
 }
 
-.careers :global([class*="text-red-700"]) {
-  color: var(--landing-text);
+/* SECTION 6: FINAL CTA (WHITE) */
+.finalCtaSection {
+  background-color: #ffffff;
+  color: #111111;
+  padding-top: clamp(4.5rem, 9vh, 6.5rem);
+  padding-bottom: clamp(4.5rem, 9vh, 6.5rem);
+  border-top: 1px solid rgba(27, 47, 97, 0.12);
 }
 
-.careers :global([class*="bg-red-700"]) {
-  background-color: var(--landing-orange);
-  color: #211810;
-  box-shadow: none;
+.eyebrow {
+  display: inline-block;
+  margin-bottom: 0.75rem;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: #ffaa55;
 }
 
-.careers :global([class*="hover:bg-red-600"]:hover) {
-  background-color: var(--landing-orange-hover);
+/* CARDS */
+.cardWhite {
+  background-color: #ffffff;
+  color: #111111;
+  border: 1px solid rgba(27, 47, 97, 0.18);
+  border-radius: 0.625rem;
+  box-shadow: 0 4px 18px rgba(17, 17, 17, 0.06);
+  transition: transform 250ms ease, border-color 250ms ease, box-shadow 250ms ease;
 }
 
-.careers :global([class*="text-blue-400"]),
-.careers :global([class*="text-cyan-400"]),
-.careers :global([class*="text-purple-400"]) {
-  color: var(--landing-violet);
+.cardWhite:hover {
+  border-color: #ffaa55;
+  box-shadow: 0 10px 24px rgba(17, 17, 17, 0.1);
+  transform: translateY(-2px);
 }
 
-.careers :global([class*="text-pink-400"]),
-.careers :global([class*="text-green-400"]),
-.careers :global([class*="text-yellow-400"]),
-.careers :global([class*="text-red-400"]) {
-  color: var(--landing-orange);
+.cardNavy {
+  background-color: rgba(255, 255, 255, 0.06);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 0.625rem;
+  box-shadow: 0 6px 20px rgba(10, 15, 30, 0.15);
+  transition: transform 250ms ease, border-color 250ms ease, box-shadow 250ms ease;
 }
 
-.careers :global([class*="text-gray-700"]),
-.careers :global([class*="text-gray-600"]) {
-  color: var(--landing-muted);
+.cardNavy:hover {
+  border-color: #ffaa55;
+  box-shadow: 0 12px 28px rgba(10, 15, 30, 0.25);
+  transform: translateY(-2px);
 }
 
-.careers :global([class*="shadow-2xl"]),
-.careers :global([class*="shadow-lg"]) {
-  box-shadow: 0 16px 38px rgba(14, 15, 24, 0.16);
+/* BUTTONS */
+.btnPrimaryOrange {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: #ffaa55;
+  color: #111111;
+  font-weight: 700;
+  font-size: 0.9375rem;
+  padding: 0.75rem 1.625rem;
+  border-radius: 0.5rem;
+  border: 1px solid transparent;
+  transition: background-color 200ms ease, color 200ms ease, transform 150ms ease;
+  text-decoration: none;
+  cursor: pointer;
 }
 
-.careers :global(img) {
-  border-radius: inherit;
+.btnPrimaryOrange:hover {
+  background-color: #ffffff;
+  color: #111111;
+  transform: translateY(-1px);
+}
+
+.btnPrimaryNavy {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: #0A1230;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.9375rem;
+  padding: 0.75rem 1.625rem;
+  border-radius: 0.5rem;
+  border: 1px solid transparent;
+  transition: background-color 200ms ease, color 200ms ease, transform 150ms ease;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btnPrimaryNavy:hover {
+  background-color: #ffaa55;
+  color: #111111;
+  transform: translateY(-1px);
+}
+
+.btnOutlineNavy {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: transparent;
+  color: #111111;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(27, 47, 97, 0.35);
+  transition: border-color 200ms ease, color 200ms ease, background-color 200ms ease, transform 150ms ease;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btnOutlineNavy:hover {
+  border-color: #ffaa55;
+  color: #111111;
+  background-color: rgba(255, 170, 85, 0.1);
+  transform: translateY(-1px);
 }

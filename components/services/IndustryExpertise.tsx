@@ -3,14 +3,14 @@ import { motion } from 'framer-motion';
 import { Stethoscope, GraduationCap, Building2, ShoppingBag, Factory, Truck, Home, Landmark } from 'lucide-react';
 
 const industries = [
-  { name: 'Healthcare', icon: Stethoscope, color: 'hover:text-blue-400', shadow: 'hover:shadow-blue-500/20' },
-  { name: 'Education', icon: GraduationCap, color: 'hover:text-yellow-400', shadow: 'hover:shadow-yellow-500/20' },
-  { name: 'Finance', icon: Building2, color: 'hover:text-emerald-400', shadow: 'hover:shadow-emerald-500/20' },
-  { name: 'Retail', icon: ShoppingBag, color: 'hover:text-rose-400', shadow: 'hover:shadow-rose-500/20' },
-  { name: 'Manufacturing', icon: Factory, color: 'hover:text-orange-400', shadow: 'hover:shadow-orange-500/20' },
-  { name: 'Logistics', icon: Truck, color: 'hover:text-cyan-400', shadow: 'hover:shadow-cyan-500/20' },
-  { name: 'Real Estate', icon: Home, color: 'hover:text-purple-400', shadow: 'hover:shadow-purple-500/20' },
-  { name: 'Government', icon: Landmark, color: 'hover:text-slate-400', shadow: 'hover:shadow-slate-500/20' }
+  { name: 'Healthcare', icon: Stethoscope, color: 'group-hover:text-[#FFAA55]', shadow: 'group-hover:shadow-[0_0_20px_rgba(255,170,85,0.2)]' },
+  { name: 'Education', icon: GraduationCap, color: 'group-hover:text-[#FFAA55]', shadow: 'group-hover:shadow-[0_0_20px_rgba(255,170,85,0.2)]' },
+  { name: 'Finance', icon: Building2, color: 'group-hover:text-[#FFAA55]', shadow: 'group-hover:shadow-[0_0_20px_rgba(255,170,85,0.2)]' },
+  { name: 'Retail', icon: ShoppingBag, color: 'group-hover:text-[#FFAA55]', shadow: 'group-hover:shadow-[0_0_20px_rgba(255,170,85,0.2)]' },
+  { name: 'Manufacturing', icon: Factory, color: 'group-hover:text-[#FFAA55]', shadow: 'group-hover:shadow-[0_0_20px_rgba(255,170,85,0.2)]' },
+  { name: 'Logistics', icon: Truck, color: 'group-hover:text-[#FFAA55]', shadow: 'group-hover:shadow-[0_0_20px_rgba(255,170,85,0.2)]' },
+  { name: 'Real Estate', icon: Home, color: 'group-hover:text-[#FFAA55]', shadow: 'group-hover:shadow-[0_0_20px_rgba(255,170,85,0.2)]' },
+  { name: 'Government', icon: Landmark, color: 'group-hover:text-[#FFAA55]', shadow: 'group-hover:shadow-[0_0_20px_rgba(255,170,85,0.2)]' }
 ];
 
 export default function IndustryExpertise() {

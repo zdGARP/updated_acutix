@@ -27,7 +27,7 @@ export default function Timeline() {
         '15 candidates fast-tracked into core development teams.',
         'Established direct campus recruitment placement channel.',
       ],
-      color: '#9387f5',
+      color: '#FFAA55',
     },
     {
       year: '2024',
@@ -39,7 +39,7 @@ export default function Timeline() {
         'Integrated student researchers into clinical software pilot programs.',
         'Shared joint publications in applied AI models for clinics.',
       ],
-      color: '#f39a55',
+      color: '#FFAA55',
     },
     {
       year: '2024 (Mid)',
@@ -51,7 +51,7 @@ export default function Timeline() {
         'Enabled 12 final-year students to submit commercial capstone projects.',
         '100% internship-to-grad placement rating for selected cohorts.',
       ],
-      color: '#9387f5',
+      color: '#FFAA55',
     },
     {
       year: '2025',
@@ -63,7 +63,7 @@ export default function Timeline() {
         'Integrated 8 student developers directly into live SaaS code sprints.',
         'Awarded 3 student teams with innovation sponsorships.',
       ],
-      color: '#f39a55',
+      color: '#FFAA55',
     },
     {
       year: '2026',
@@ -75,14 +75,14 @@ export default function Timeline() {
         'Standardizing academic curriculum alignment with enterprise-grade tech.',
         'Expanding live SaaS training environments to 1000+ new developers.',
       ],
-      color: '#9387f5',
+      color: '#FFAA55',
     },
   ];
 
   return (
     <section className="relative z-10 px-6 max-w-7xl mx-auto my-24">
       <div className="text-center mb-16">
-        <h2 className="text-xs font-mono uppercase tracking-widest text-cyan-400 mb-2">
+        <h2 className="text-xs font-mono uppercase tracking-widest text-[#FFAA55] mb-2">
           Evolutionary Milestones
         </h2>
         <h3 className="text-3xl font-extrabold text-white">
@@ -102,7 +102,7 @@ export default function Timeline() {
               onClick={() => setActiveIdx(idx)}
               className={`flex-shrink-0 flex items-center space-x-4 px-5 py-4 rounded-xl border text-left transition-all duration-300 w-fit lg:w-full cursor-pointer ${
                 activeIdx === idx
-                  ? 'bg-white/5 border-cyan-500/30 text-white shadow-lg'
+                  ? 'bg-white/5 border-[#FFAA55]/30 text-white shadow-lg'
                   : 'bg-transparent border-transparent text-gray-500 hover:text-gray-300'
               }`}
             >
@@ -149,7 +149,7 @@ export default function Timeline() {
                 transition={{ duration: 0.3 }}
                 className="space-y-6"
               >
-                <div className="flex items-center space-x-3 text-cyan-400">
+                <div className="flex items-center space-x-3 text-[#FFAA55]">
                   <Calendar className="w-5 h-5" style={{ color: milestones[activeIdx].color }} />
                   <span className="font-mono text-sm tracking-wider" style={{ color: milestones[activeIdx].color }}>
                     COOPERATION YEAR: {milestones[activeIdx].year}
@@ -170,7 +170,7 @@ export default function Timeline() {
                 </p>
 
                 <div className="space-y-3 pt-4 border-t border-white/5">
-                  <h5 className="text-[10px] font-mono uppercase tracking-widest text-cyan-400">
+                  <h5 className="text-[10px] font-mono uppercase tracking-widest text-[#FFAA55]">
                     Key Outcomes & Milestones
                   </h5>
                   <ul className="space-y-2.5">

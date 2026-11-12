@@ -45,37 +45,37 @@ export default function ImpactStats() {
       label: 'Students Mentored',
       value: 1500,
       suffix: '+',
-      icon: <Users className="w-6 h-6 text-cyan-400" />,
-      gradient: 'from-orange-500/20 to-amber-500/20',
-      glow: 'shadow-orange-500/10',
-      border: 'hover:border-orange-500/30',
+      icon: <Users className="w-6 h-6 text-[#FFAA55]" />,
+      gradient: 'from-[#FFAA55]/10 to-transparent',
+      glow: 'shadow-black/20',
+      border: 'hover:border-[#FFAA55]',
     },
     {
       label: 'Premier Academic Partners',
       value: 4,
       suffix: '',
-      icon: <School className="w-6 h-6 text-purple-400" />,
-      gradient: 'from-violet-500/20 to-indigo-500/20',
-      glow: 'shadow-violet-500/10',
-      border: 'hover:border-violet-500/30',
+      icon: <School className="w-6 h-6 text-[#FFAA55]" />,
+      gradient: 'from-[#FFAA55]/10 to-transparent',
+      glow: 'shadow-black/20',
+      border: 'hover:border-[#FFAA55]',
     },
     {
       label: 'Live SaaS Sprints',
       value: 45,
       suffix: '+',
-      icon: <Code className="w-6 h-6 text-emerald-400" />,
-      gradient: 'from-orange-500/20 to-violet-500/20',
-      glow: 'shadow-orange-500/10',
-      border: 'hover:border-orange-500/30',
+      icon: <Code className="w-6 h-6 text-[#FFAA55]" />,
+      gradient: 'from-[#FFAA55]/10 to-transparent',
+      glow: 'shadow-black/20',
+      border: 'hover:border-[#FFAA55]',
     },
     {
       label: 'Graduate Placement Rate',
       value: 94,
       suffix: '%',
-      icon: <Briefcase className="w-6 h-6 text-amber-400" />,
-      gradient: 'from-violet-500/20 to-indigo-500/20',
-      glow: 'shadow-violet-500/10',
-      border: 'hover:border-violet-500/30',
+      icon: <Briefcase className="w-6 h-6 text-[#FFAA55]" />,
+      gradient: 'from-[#FFAA55]/10 to-transparent',
+      glow: 'shadow-black/20',
+      border: 'hover:border-[#FFAA55]',
     },
   ];
 
@@ -104,7 +104,7 @@ export default function ImpactStats() {
   return (
     <section className="relative z-10 px-6 max-w-7xl mx-auto my-20">
       <div className="text-center mb-12">
-        <h2 className="text-xs font-mono uppercase tracking-widest text-cyan-400 mb-2">
+        <h2 className="text-xs font-mono uppercase tracking-widest text-[#FFAA55] mb-2">
           Cooperation Metrics
         </h2>
         <h3 className="text-3xl font-extrabold text-white">

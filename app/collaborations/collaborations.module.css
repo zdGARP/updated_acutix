@@ -1,154 +1,324 @@
 .collaborations {
   isolation: isolate;
-  background: var(--landing-stage);
-  color: var(--landing-text);
+  background-color: #ffffff;
+  color: #111111;
   font-family: var(--font-geist-sans), Arial, sans-serif;
+  overflow-x: hidden;
+  padding-top: clamp(4.5rem, 8vh, 6.5rem);
 }
 
 .collaborations :global(*) {
   font-family: var(--font-geist-sans), Arial, sans-serif !important;
+  box-sizing: border-box;
 }
 
-.collaborations::before {
-  position: absolute;
-  z-index: -1;
-  inset: 0;
-  background:
-    radial-gradient(ellipse at 12% 8%, rgba(243, 154, 85, 0.1), transparent 34rem),
-    radial-gradient(ellipse at 90% 18%, rgba(147, 135, 245, 0.12), transparent 36rem);
-  content: "";
-  pointer-events: none;
+/* SECTION 1: HERO (WHITE) */
+.collaborations > :global(section:nth-of-type(1)) {
+  background-color: #ffffff;
+  color: #111111;
+  padding-top: clamp(3rem, 6vh, 5rem);
+  padding-bottom: clamp(3.5rem, 7vh, 5.5rem);
+  border-bottom: 1px solid rgba(27, 47, 97, 0.12);
 }
 
-.collaborations :global(section h2) {
-  color: var(--landing-violet);
+.collaborations > :global(section:nth-of-type(1)) :global(h1) {
+  color: #111111;
 }
 
-.collaborations :global(section h3),
-.collaborations :global(section h4),
-.collaborations :global(section h5) {
-  color: var(--landing-text);
+.collaborations > :global(section:nth-of-type(1)) :global(p) {
+  color: rgba(17, 17, 17, 0.78);
 }
 
-.collaborations :global(section p),
-.collaborations :global(section li) {
-  color: var(--landing-muted);
+/* SECTION 2: IMPACT STATS (NAVY) */
+.collaborations > :global(section:nth-of-type(2)) {
+  background-color: #0A1230;
+  color: #ffffff;
+  padding-top: clamp(4rem, 8vh, 6rem);
+  padding-bottom: clamp(4rem, 8vh, 6rem);
+  margin-block: 0 !important;
 }
 
-.collaborations :global(.text-transparent) {
-  color: var(--landing-orange);
-  background: none;
-  -webkit-text-fill-color: currentColor;
+.collaborations > :global(section:nth-of-type(2)) :global(h2) {
+  color: #ffaa55;
 }
 
-.collaborations :global(.text-cyan-300),
-.collaborations :global(.text-cyan-400),
-.collaborations :global(.text-cyan-500),
-.collaborations :global(.text-blue-400),
-.collaborations :global(.text-emerald-400),
-.collaborations :global(.text-amber-400),
-.collaborations :global(.text-purple-400),
-.collaborations :global(.text-pink-400),
-.collaborations :global(.text-rose-400) {
-  color: var(--landing-violet);
+.collaborations > :global(section:nth-of-type(2)) :global(h3),
+.collaborations > :global(section:nth-of-type(2)) :global(h4) {
+  color: #ffffff;
 }
 
-.collaborations :global([class*="bg-gray-950"]),
-.collaborations :global([class*="bg-gray-900"]),
-.collaborations :global([class*="bg-black"]) {
-  background-color: var(--landing-card);
+.collaborations > :global(section:nth-of-type(2)) :global(p) {
+  color: rgba(255, 255, 255, 0.8);
 }
 
-.collaborations :global([class*="border-cyan-"]),
-.collaborations :global([class*="border-purple-"]),
-.collaborations :global([class*="border-white/5"]) {
-  border-color: rgba(255, 255, 255, 0.1);
+.collaborations > :global(section:nth-of-type(2)) :global([class*="bg-gray-900"]) {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
 }
 
-.collaborations :global(.text-white) {
-  color: var(--landing-text);
+/* SECTION 3: GEOGRAPHIC NETWORK / INDIA MAP (WHITE) */
+.collaborations > :global(section:nth-of-type(3)) {
+  background-color: #ffffff;
+  color: #111111;
+  padding-top: clamp(4rem, 8vh, 6rem);
+  padding-bottom: clamp(4rem, 8vh, 6rem);
+  margin-block: 0 !important;
+  border-top: 1px solid rgba(27, 47, 97, 0.12);
 }
 
-.collaborations :global(.text-gray-300),
-.collaborations :global(.text-gray-400) {
-  color: var(--landing-muted);
+.collaborations > :global(section:nth-of-type(3)) :global(h2) {
+  color: #ffaa55;
 }
 
-.collaborations :global(.text-gray-500) {
-  color: #a5a7b4;
+.collaborations > :global(section:nth-of-type(3)) :global(h3),
+.collaborations > :global(section:nth-of-type(3)) :global(h4) {
+  color: #111111 !important;
 }
 
-.collaborations :global(.collaboration-title-accent) {
-  color: var(--landing-orange);
+.collaborations > :global(section:nth-of-type(3)) :global(p) {
+  color: rgba(17, 17, 17, 0.76) !important;
 }
 
-.collaborations :global(.collaboration-quote) {
-  font-family: var(--font-geist-sans), Arial, sans-serif !important;
+.collaborations > :global(section:nth-of-type(3)) :global([class*="bg-gray-900"]),
+.collaborations > :global(section:nth-of-type(3)) :global([class*="bg-black/40"]) {
+  background-color: #0A1230 !important;
+  border-color: rgba(27, 47, 97, 0.2) !important;
+}
+
+.collaborations > :global(section:nth-of-type(3)) :global([class*="bg-gray-900"]) :is(h4, span, p) {
+  color: #ffffff !important;
+}
+
+/* SECTION 4: MARQUEE LOGOS STRIP (NAVY) */
+.collaborations > :global(section:nth-of-type(4)) {
+  background-color: #16264f !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  margin-block: 0 !important;
+}
+
+.collaborations > :global(section:nth-of-type(4)) :global(p) {
+  color: rgba(255, 255, 255, 0.65) !important;
+}
+
+.collaborations > :global(section:nth-of-type(4)) :global([class*="bg-white/5"]) {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+.collaborations > :global(section:nth-of-type(4)) :global(span) {
+  color: #ffffff !important;
+}
+
+/* SECTION 5: ACTIVE ACADEMIC ALLIANCES / CARDS (NAVY) */
+.collaborations > :global(section:nth-of-type(5)) {
+  background-color: #0A1230;
+  color: #ffffff;
+  padding-top: clamp(4rem, 8vh, 6rem);
+  padding-bottom: clamp(4rem, 8vh, 6rem);
+  margin-block: 0 !important;
+}
+
+.collaborations > :global(section:nth-of-type(5)) :global(h2) {
+  color: #ffaa55;
+}
+
+.collaborations > :global(section:nth-of-type(5)) :global(h3) {
+  color: #ffffff;
+}
+
+.collaborations > :global(section:nth-of-type(5)) :global(p) {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.collaborations :global(.collaboration-card),
+.collaborations > :global(section:nth-of-type(5)) :global([class*="bg-gray-950"]) {
+  background-color: #ffffff !important;
+  color: #111111 !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  box-shadow: 0 16px 36px rgba(10, 15, 30, 0.28) !important;
+}
+
+.collaborations > :global(section:nth-of-type(5)) :global([class*="bg-gray-950"]) :is(h3, h4) {
+  color: #111111 !important;
+}
+
+.collaborations > :global(section:nth-of-type(5)) :global([class*="bg-gray-950"]) :is(p, li, span:not([class*="bg-"])) {
+  color: rgba(17, 17, 17, 0.78) !important;
+}
+
+.collaborations > :global(section:nth-of-type(5)) :global([class*="bg-gray-950"]) :global([class*="text-transparent"]) {
+  color: #0A1230 !important;
+  background: none !important;
+  -webkit-text-fill-color: currentColor !important;
+}
+
+.collaborations > :global(section:nth-of-type(5)) :global([class*="bg-gray-950"]) :global(button) {
+  color: #111111 !important;
+  border-color: rgba(27, 47, 97, 0.2) !important;
+}
+
+.collaborations > :global(section:nth-of-type(5)) :global([class*="bg-gray-950"]) :global(button:hover) {
+  background-color: #ffaa55 !important;
+  border-color: #ffaa55 !important;
+  color: #111111 !important;
+}
+
+/* SECTION 6: PARTNERSHIP GROWTH TIMELINE (WHITE) */
+.collaborations > :global(section:nth-of-type(6)) {
+  background-color: #ffffff;
+  color: #111111;
+  padding-top: clamp(4rem, 8vh, 6rem);
+  padding-bottom: clamp(4rem, 8vh, 6rem);
+  margin-block: 0 !important;
+  border-top: 1px solid rgba(27, 47, 97, 0.12);
+}
+
+.collaborations > :global(section:nth-of-type(6)) :global(h2) {
+  color: #ffaa55;
+}
+
+.collaborations > :global(section:nth-of-type(6)) :global(h3),
+.collaborations > :global(section:nth-of-type(6)) :global(h4) {
+  color: #111111 !important;
+}
+
+.collaborations > :global(section:nth-of-type(6)) :global(p) {
+  color: rgba(17, 17, 17, 0.78) !important;
+}
+
+.collaborations > :global(section:nth-of-type(6)) :global([class*="bg-gray-900"]) {
+  background-color: #f4f7fb !important;
+  border-color: rgba(27, 47, 97, 0.15) !important;
+}
+
+.collaborations > :global(section:nth-of-type(6)) :global(button) {
+  border-color: rgba(27, 47, 97, 0.18) !important;
+}
+
+/* SECTION 7: STUDENT SUCCESS STORIES (NAVY) */
+.collaborations > :global(section:nth-of-type(7)) {
+  background-color: #0A1230;
+  color: #ffffff;
+  padding-top: clamp(4rem, 8vh, 6rem);
+  padding-bottom: clamp(4rem, 8vh, 6rem);
+  margin-block: 0 !important;
+}
+
+.collaborations > :global(section:nth-of-type(7)) :global(h2) {
+  color: #ffaa55;
+}
+
+.collaborations > :global(section:nth-of-type(7)) :global(h3) {
+  color: #ffffff;
+}
+
+.collaborations > :global(section:nth-of-type(7)) :global(p) {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.collaborations > :global(section:nth-of-type(7)) :global([class*="bg-gray-900"]) {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(255, 255, 255, 0.16) !important;
+}
+
+.collaborations > :global(section:nth-of-type(7)) :global(.collaboration-quote) {
+  color: #ffffff !important;
   font-style: italic;
-  font-weight: 500;
 }
 
-.collaborations :global(.collaboration-primary-button) {
-  border-color: rgba(243, 154, 85, 0.35);
-  background: var(--landing-orange);
-  color: #211810;
-  box-shadow: none;
+/* SECTION 8: COLLABORATION PROCESS (WHITE) */
+.collaborations > :global(section:nth-of-type(8)) {
+  background-color: #ffffff;
+  color: #111111;
+  padding-top: clamp(4rem, 8vh, 6rem);
+  padding-bottom: clamp(4rem, 8vh, 6rem);
+  margin-block: 0 !important;
+  border-top: 1px solid rgba(27, 47, 97, 0.12);
 }
 
-.collaborations :global(.collaboration-primary-button:hover) {
-  background: var(--landing-orange-hover);
+.collaborations > :global(section:nth-of-type(8)) :global(h2) {
+  color: #ffaa55;
 }
 
-.collaborations :global(.collaboration-secondary-button) {
-  border-color: rgba(147, 135, 245, 0.4);
-  color: var(--landing-violet);
+.collaborations > :global(section:nth-of-type(8)) :global(h3),
+.collaborations > :global(section:nth-of-type(8)) :global(h4) {
+  color: #111111 !important;
 }
 
-.collaborations :global(.collaboration-secondary-button:hover) {
-  background: rgba(147, 135, 245, 0.1);
-  color: #b7afff;
+.collaborations > :global(section:nth-of-type(8)) :global(p) {
+  color: rgba(17, 17, 17, 0.78) !important;
+}
+
+.collaborations > :global(section:nth-of-type(8)) :global([class*="bg-gray-900"]) {
+  background-color: #f4f7fb !important;
+  border-color: rgba(27, 47, 97, 0.16) !important;
+}
+
+/* SECTION 9: FINAL CTA (NAVY) */
+.collaborations > :global(section:nth-of-type(9)) {
+  background-color: #0A1230;
+  color: #ffffff;
+  padding-top: clamp(4.5rem, 8vh, 6.5rem);
+  padding-bottom: clamp(5rem, 9vh, 7rem);
+  margin-block: 0 !important;
 }
 
 .collaborations :global(.collaboration-final-card) {
-  border-color: rgba(255, 255, 255, 0.1);
-  background: linear-gradient(145deg, #393a48, var(--landing-card));
-  box-shadow: 0 24px 60px rgba(14, 15, 24, 0.18);
+  background-color: rgba(255, 255, 255, 0.07) !important;
+  border-color: rgba(255, 255, 255, 0.18) !important;
+  box-shadow: 0 20px 48px rgba(10, 15, 30, 0.35) !important;
 }
 
-.collaborations :global(.collaboration-final-button) {
-  border-color: rgba(243, 154, 85, 0.35);
-  background: var(--landing-orange);
-  color: #211810;
-  box-shadow: none;
+/* MODALS */
+.collaborations :global([class*="bg-gray-950/95"]) {
+  background-color: #ffffff !important;
+  color: #111111 !important;
+  border-color: rgba(27, 47, 97, 0.2) !important;
+  box-shadow: 0 24px 64px rgba(10, 15, 30, 0.4) !important;
 }
 
-.collaborations :global(.collaboration-final-button:hover) {
-  background: var(--landing-orange-hover);
-  box-shadow: none;
+.collaborations :global([class*="bg-gray-950/95"]) :is(h3, label, p, span) {
+  color: #111111 !important;
 }
 
-.collaborations :global(input),
-.collaborations :global(select),
-.collaborations :global(textarea) {
-  border-color: rgba(255, 255, 255, 0.14);
-  background-color: #282a36;
-  color: var(--landing-text);
+.collaborations :global([class*="bg-gray-950/95"]) :global(input),
+.collaborations :global([class*="bg-gray-950/95"]) :global(select),
+.collaborations :global([class*="bg-gray-950/95"]) :global(textarea) {
+  background-color: #f4f7fb !important;
+  color: #111111 !important;
+  border: 1px solid rgba(27, 47, 97, 0.2) !important;
 }
 
-.collaborations :global(input:focus),
-.collaborations :global(select:focus),
-.collaborations :global(textarea:focus) {
-  border-color: rgba(147, 135, 245, 0.65);
-  outline-color: rgba(147, 135, 245, 0.35);
+.collaborations :global([class*="bg-gray-950/95"]) :global(input:focus),
+.collaborations :global([class*="bg-gray-950/95"]) :global(select:focus),
+.collaborations :global([class*="bg-gray-950/95"]) :global(textarea:focus) {
+  border-color: #ffaa55 !important;
+  outline-color: rgba(255, 170, 85, 0.45) !important;
+  background-color: #ffffff !important;
 }
 
-.collaborations :global(input::placeholder),
-.collaborations :global(textarea::placeholder) {
-  color: #a5a7b4;
+.collaborations :global([class*="bg-gray-950/95"]) :global([class*="bg-black/50"]) {
+  background-color: #f4f7fb !important;
+  border-color: rgba(27, 47, 97, 0.15) !important;
+}
+
+.collaborations :global([class*="bg-gray-950/95"]) :global([class*="bg-black/50"] p) {
+  color: #111111 !important;
+}
+
+.collaborations :global([class*="bg-gray-950/95"]) :global(button[class*="rounded-full"]) {
+  background-color: #0A1230 !important;
+  color: #ffffff !important;
+  border-color: transparent !important;
+}
+
+.collaborations :global([class*="bg-gray-950/95"]) :global(button[class*="rounded-full"]:hover) {
+  background-color: #ffaa55 !important;
+  color: #111111 !important;
 }
 
 @media (max-width: 640px) {
   .collaborations {
-    padding-bottom: 3.5rem;
+    padding-top: 4rem;
   }
 }

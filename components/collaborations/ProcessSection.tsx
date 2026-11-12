@@ -25,7 +25,7 @@ export default function ProcessSection() {
       icon: <MessageSquare className="w-5 h-5" />,
       duration: '1-2 Weeks',
       deliverable: 'Initial Engagement Roadmap Proposal',
-      color: 'from-orange-400 to-amber-500',
+      color: 'from-[#FFAA55] to-[#FFAA55]',
     },
     {
       number: '02',
@@ -34,7 +34,7 @@ export default function ProcessSection() {
       icon: <Settings className="w-5 h-5" />,
       duration: '1 Week',
       deliverable: 'Bootcamp & Tech Lab Syllabus Outline',
-      color: 'from-violet-400 to-indigo-500',
+      color: 'from-[#0A1230] to-[#0A1230]',
     },
     {
       number: '03',
@@ -43,7 +43,7 @@ export default function ProcessSection() {
       icon: <FileText className="w-5 h-5" />,
       duration: '2-3 Weeks',
       deliverable: 'Signed Academic MoU & Cohort Enrolments',
-      color: 'from-orange-400 to-violet-500',
+      color: 'from-[#FFAA55] to-[#0A1230]',
     },
     {
       number: '04',
@@ -52,7 +52,7 @@ export default function ProcessSection() {
       icon: <Play className="w-5 h-5" />,
       duration: '4-6 Weeks',
       deliverable: 'Student Assessments & Certificate Distribution',
-      color: 'from-violet-400 to-indigo-500',
+      color: 'from-[#0A1230] to-[#0A1230]',
     },
     {
       number: '05',
@@ -61,14 +61,14 @@ export default function ProcessSection() {
       icon: <Rocket className="w-5 h-5" />,
       duration: '3-6 Months',
       deliverable: 'Live Code Commits & Graduate Placement Offers',
-      color: 'from-orange-400 to-amber-500',
+      color: 'from-[#FFAA55] to-[#FFAA55]',
     },
   ];
 
   return (
     <section className="relative z-10 px-6 max-w-7xl mx-auto my-24">
       <div className="text-center mb-16">
-        <h2 className="text-xs font-mono uppercase tracking-widest text-cyan-400 mb-2">
+        <h2 className="text-xs font-mono uppercase tracking-widest text-[#FFAA55] mb-2">
           Step-by-step Engagement
         </h2>
         <h3 className="text-3xl font-extrabold text-white">
@@ -91,7 +91,7 @@ export default function ProcessSection() {
               onClick={() => setActiveStep(idx)}
               className={`w-full text-left flex items-center gap-5 p-4 rounded-2xl border transition-all duration-300 cursor-pointer ${
                 activeStep === idx
-                  ? 'bg-white/5 border-cyan-500/25 shadow-lg shadow-cyan-500/5'
+                  ? 'bg-white/5 border-[#FFAA55] shadow-lg shadow-black/10'
                   : 'bg-transparent border-transparent opacity-50 hover:opacity-85'
               }`}
             >
@@ -166,7 +166,7 @@ export default function ProcessSection() {
                     <span className="text-gray-500 block uppercase tracking-wider text-[10px]">
                       🎯 Key Deliverable / Outcome
                     </span>
-                    <span className="text-cyan-400 font-bold block mt-0.5">
+                    <span className="text-[#FFAA55] font-bold block mt-0.5">
                       {steps[activeStep].deliverable}
                     </span>
                   </div>

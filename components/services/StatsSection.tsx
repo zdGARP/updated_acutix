@@ -25,7 +25,7 @@ const stats = [
     label: 'MSME & STARTUP FOCUSED', 
     value: 100, 
     suffix: '%', 
-    subtext: 'Recognized DPIIT Startup scaling local businesses' 
+    subtext: 'Focused on practical digital tools for small and growing businesses' 
   },
 ];
 
@@ -56,7 +56,7 @@ function Counter({ value, suffix }: { value: number; suffix: string }) {
   }, [isInView, value]);
 
   return (
-    <div ref={ref} className="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-emerald-400 mb-3">
+    <div ref={ref} className="mb-3 text-4xl font-extrabold text-[#FFAA55] md:text-5xl">
       {count}{suffix}
     </div>
   );
@@ -74,7 +74,7 @@ export default function StatsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, delay: i * 0.1 }}
-              className="p-6 md:p-8 rounded-2xl bg-[#0a0a0a] border border-white/5 backdrop-blur-sm flex flex-col justify-center min-h-[180px] hover:border-cyan-500/20 transition-all duration-300"
+              className="flex min-h-[180px] flex-col justify-center rounded-lg border border-white/10 bg-white/10 p-6 backdrop-blur-sm transition-all duration-300 hover:border-[#FFAA55]/70 md:p-8"
             >
               <Counter value={stat.value} suffix={stat.suffix} />
               <div className="text-gray-400 font-bold text-xs md:text-sm uppercase tracking-wider mb-2 leading-snug">{stat.label}</div>

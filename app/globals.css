@@ -7,25 +7,26 @@ html {
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --landing-shell: #222433;
+  --landing-shell: #ffffff;
   --landing-stage: #2a2c38;
   --landing-card: #353744;
-  --landing-text: #f4f2ef;
+  --landing-text: #171717;
   --landing-muted: #c3c4cd;
-  --landing-orange: #f39a55;
-  --landing-orange-hover: #ffad6c;
-  --landing-violet: #9387f5;
+  --landing-orange: #FFAA55;
+  --landing-orange-hover: #FFAA55;
+  --landing-violet: #2DA6DC;
   /* ACUTIX Logo Theme Colors */
-  --color-primary: #FFD98A; /* pastel yellow */
-  --color-accent: #F7B7A3; /* peach */
-  --color-secondary: #5EC6D9; /* blue/teal */
-  --color-tertiary: #7B6FEA; /* purple */
+  --color-primary: #FFD98A;
+  --color-accent: #F7B7A3;
+  --color-secondary: #5EC6D9;
+  --color-tertiary: #7B6FEA;
   --color-gradient-start: #FFD98A;
   --color-gradient-mid: #F7B7A3;
   --color-gradient-end: #5EC6D9;
   --color-primary-button: #303538;
   --color-text-primary: #FFFFFF;
-  
+  --font-display: var(--font-geist-sans);
+  --font-body: var(--font-geist-sans);
 }
 
 @theme inline {
@@ -41,511 +42,73 @@ html {
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --color-primary-button: #303538;
-
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
   background: #fff;
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-  
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
+  font-family: var(--font-body), sans-serif;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
 }
 
-body:has(.landing-page) > header {
-  background-color: var(--landing-shell);
-  border-color: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 2px 18px rgba(0, 0, 0, 0.18);
+/* Base header and footer dark background #0A1230 */
+header {
+  background-color: #0A1230 !important;
 }
 
-body:has(.landing-page) > header nav a {
-  color: var(--landing-text);
+footer {
+  background-color: #0A1230 !important;
 }
 
-body:has(.landing-page) > header nav a:hover {
-  color: var(--landing-orange-hover);
-  filter: none;
+main h1 {
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(2.25rem, 4vw, 3.75rem);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.08;
 }
 
-body:has(.landing-page) > header nav a span {
-  background-color: var(--landing-orange);
+main section h2:not([class*="text-xs"]) {
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
 }
 
-body:has(.landing-page) > header button:hover {
-  color: var(--landing-orange-hover);
-  border-color: rgba(243, 154, 85, 0.5);
+main p:not([class*="uppercase"]) {
+  font-family: var(--font-body), sans-serif;
+  font-size: 1rem;
+  line-height: 1.65;
 }
 
-body:has(.landing-page) > header > div + div {
-  background-color: var(--landing-shell);
+main > div > section {
+  padding-inline: clamp(1.5rem, 5vw, 3rem);
 }
 
-body:has(.landing-page) > footer {
-  background: var(--landing-shell);
-  border-color: rgba(255, 255, 255, 0.1);
+main > div > section > .container {
+  width: 100%;
+  max-width: 72rem;
+  margin-inline: auto;
 }
 
-body:has(.landing-page) > footer h4 {
-  color: var(--landing-violet);
+:focus-visible {
+  outline: 2px solid #FFAA55;
+  outline-offset: 3px;
 }
 
-body:has(.landing-page) > footer h4 > div {
-  color: var(--landing-orange);
-  background-color: rgba(243, 154, 85, 0.1);
-  border-color: rgba(243, 154, 85, 0.26);
-}
-
-body:has(.landing-page) > footer a:hover {
-  color: var(--landing-orange-hover);
-}
-
-body:has(.landing-page) > footer > div > div:last-child > div:last-child {
-  color: var(--landing-violet);
-}
-
-body:has(.products-page) > header {
-  background-color: var(--landing-shell);
-  border-color: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 2px 18px rgba(0, 0, 0, 0.18);
-}
-
-body:has(.products-page) > header nav a {
-  color: var(--landing-text);
-}
-
-body:has(.products-page) > header nav a:hover,
-body:has(.products-page) > header nav a[aria-current="page"] {
-  color: var(--landing-orange-hover);
-  filter: none;
-}
-
-body:has(.products-page) > header nav a span {
-  background-color: var(--landing-orange);
-}
-
-body:has(.products-page) > header button:hover {
-  color: var(--landing-orange-hover);
-  border-color: rgba(243, 154, 85, 0.5);
-}
-
-body:has(.products-page) > header > div + div {
-  background-color: var(--landing-shell);
-}
-
-body:has(.products-page) > footer {
-  background: var(--landing-shell);
-  border-color: rgba(255, 255, 255, 0.1);
-}
-
-body:has(.products-page) > footer h4 {
-  color: var(--landing-violet);
-}
-
-body:has(.products-page) > footer h4 > div {
-  color: var(--landing-orange);
-  background-color: rgba(243, 154, 85, 0.1);
-  border-color: rgba(243, 154, 85, 0.26);
-}
-
-body:has(.products-page) > footer a:hover {
-  color: var(--landing-orange-hover);
-}
-
-body:has(.products-page) > footer > div > div:last-child > div:last-child {
-  color: var(--landing-violet);
-}
-
-body:has(.collaboration-page) > header {
-  background-color: var(--landing-shell);
-  border-color: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 2px 18px rgba(0, 0, 0, 0.18);
-}
-
-body:has(.collaboration-page) > header nav a {
-  color: var(--landing-text);
-}
-
-body:has(.collaboration-page) > header nav a:hover,
-body:has(.collaboration-page) > header nav a[aria-current="page"] {
-  color: var(--landing-orange-hover);
-  filter: none;
-}
-
-body:has(.collaboration-page) > header nav a span {
-  background-color: var(--landing-orange);
-}
-
-body:has(.collaboration-page) > header button:hover {
-  color: var(--landing-orange-hover);
-  border-color: rgba(243, 154, 85, 0.5);
-}
-
-body:has(.collaboration-page) > header > div + div {
-  background-color: var(--landing-shell);
-}
-
-body:has(.collaboration-page) > footer {
-  background: var(--landing-shell) !important;
-  background-image: none !important;
-  border-color: rgba(255, 255, 255, 0.1) !important;
-  color: var(--landing-text);
-  font-family: var(--font-geist-sans), Arial, sans-serif !important;
-}
-
-body:has(.collaboration-page) > footer h4 {
-  color: var(--landing-violet) !important;
-  font-family: var(--font-geist-sans), Arial, sans-serif !important;
-}
-
-body:has(.collaboration-page) > footer h4 > div {
-  color: var(--landing-orange);
-  background-color: rgba(243, 154, 85, 0.1);
-  border-color: rgba(243, 154, 85, 0.26);
-}
-
-body:has(.collaboration-page) > footer a:hover {
-  color: var(--landing-orange-hover) !important;
-}
-
-body:has(.collaboration-page) > footer :is(p, a, address, span, h4) {
-  font-family: var(--font-geist-sans), Arial, sans-serif !important;
-}
-
-body:has(.collaboration-page) > footer > div > div:last-child > div:last-child {
-  color: var(--landing-violet) !important;
-}
-
-body:has(.services-page) > header {
-  background-color: var(--landing-shell);
-  border-color: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 2px 18px rgba(0, 0, 0, 0.18);
-}
-
-body:has(.services-page) > header nav a {
-  color: var(--landing-text);
-}
-
-body:has(.services-page) > header nav a:hover,
-body:has(.services-page) > header nav a[aria-current="page"] {
-  color: var(--landing-orange-hover);
-  filter: none;
-}
-
-body:has(.services-page) > header nav a span {
-  background-color: var(--landing-orange);
-}
-
-body:has(.services-page) > header button:hover {
-  color: var(--landing-orange-hover);
-  border-color: rgba(243, 154, 85, 0.5);
-}
-
-body:has(.services-page) > header > div + div {
-  background-color: var(--landing-shell);
-}
-
-body:has(.services-page) > footer {
-  background: var(--landing-shell) !important;
-  background-image: none !important;
-  border-color: rgba(255, 255, 255, 0.1) !important;
-  color: var(--landing-text);
-  font-family: var(--font-geist-sans), Arial, sans-serif !important;
-}
-
-body:has(.services-page) > footer h4 {
-  color: var(--landing-violet) !important;
-}
-
-body:has(.services-page) > footer h4 > div {
-  color: var(--landing-orange);
-  background-color: rgba(243, 154, 85, 0.1);
-  border-color: rgba(243, 154, 85, 0.26);
-}
-
-body:has(.services-page) > footer a:hover {
-  color: var(--landing-orange-hover) !important;
-}
-
-body:has(.services-page) > footer :is(p, a, address, span, h4) {
-  font-family: var(--font-geist-sans), Arial, sans-serif !important;
-}
-
-body:has(.services-page) > footer > div > div:last-child > div:last-child {
-  color: var(--landing-violet) !important;
-}
-
-body:has(.careers-page) > header {
-  background-color: var(--landing-shell);
-  border-color: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 2px 18px rgba(0, 0, 0, 0.18);
-}
-
-body:has(.careers-page) > header nav a {
-  color: var(--landing-text);
-}
-
-body:has(.careers-page) > header nav a:hover,
-body:has(.careers-page) > header nav a[aria-current="page"] {
-  color: var(--landing-orange-hover);
-  filter: none;
-}
-
-body:has(.careers-page) > header nav a span {
-  background-color: var(--landing-orange);
-}
-
-body:has(.careers-page) > header button:hover {
-  color: var(--landing-orange-hover);
-  border-color: rgba(243, 154, 85, 0.5);
-}
-
-body:has(.careers-page) > header > div + div {
-  background-color: var(--landing-shell);
-}
-
-body:has(.careers-page) > footer {
-  background: var(--landing-shell) !important;
-  background-image: none !important;
-  border-color: rgba(255, 255, 255, 0.1) !important;
-  color: var(--landing-text);
-  font-family: var(--font-geist-sans), Arial, sans-serif !important;
-}
-
-body:has(.careers-page) > footer h4 {
-  color: var(--landing-violet) !important;
-}
-
-body:has(.careers-page) > footer h4 > div {
-  color: var(--landing-orange);
-  background-color: rgba(243, 154, 85, 0.1);
-  border-color: rgba(243, 154, 85, 0.26);
-}
-
-body:has(.careers-page) > footer a:hover {
-  color: var(--landing-orange-hover) !important;
-}
-
-body:has(.careers-page) > footer :is(p, a, address, span, h4) {
-  font-family: var(--font-geist-sans), Arial, sans-serif !important;
-}
-
-body:has(.careers-page) > footer > div > div:last-child > div:last-child {
-  color: var(--landing-violet) !important;
-}
-
-body:has(.blogs-page) > header {
-  background-color: var(--landing-shell);
-  border-color: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 2px 18px rgba(0, 0, 0, 0.18);
-}
-
-body:has(.blogs-page) > header nav a {
-  color: var(--landing-text);
-}
-
-body:has(.blogs-page) > header nav a:hover,
-body:has(.blogs-page) > header nav a[aria-current="page"] {
-  color: var(--landing-orange-hover);
-  filter: none;
-}
-
-body:has(.blogs-page) > header nav a span {
-  background-color: var(--landing-orange);
-}
-
-body:has(.blogs-page) > header button:hover {
-  color: var(--landing-orange-hover);
-  border-color: rgba(243, 154, 85, 0.5);
-}
-
-body:has(.blogs-page) > header > div + div {
-  background-color: var(--landing-shell);
-}
-
-body:has(.blogs-page) footer {
-  background-color: var(--landing-shell) !important;
-  background-image: none !important;
-  border-color: rgba(255, 255, 255, 0.1) !important;
-  color: var(--landing-text);
-}
-
-body:has(.blogs-page) footer > div:first-child,
-body:has(.blogs-page) footer > div:nth-child(2) {
-  display: none;
-}
-
-body:has(.blogs-page) footer h4 {
-  color: var(--landing-violet) !important;
-}
-
-body:has(.blogs-page) footer h4 > div {
-  color: var(--landing-orange);
-  background-color: rgba(243, 154, 85, 0.1);
-  border-color: rgba(243, 154, 85, 0.26);
-}
-
-body:has(.blogs-page) footer a:hover {
-  color: var(--landing-orange-hover) !important;
-}
-
-body:has(.blogs-page) footer > div > div:last-child > div:last-child {
-  color: var(--landing-violet) !important;
-}
-
-body:has(.about-page) > header {
-  background-color: var(--landing-shell);
-  border-color: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 2px 18px rgba(0, 0, 0, 0.18);
-}
-
-body:has(.about-page) > header nav a {
-  color: var(--landing-text);
-}
-
-body:has(.about-page) > header nav a:hover,
-body:has(.about-page) > header nav a[aria-current="page"] {
-  color: var(--landing-orange-hover);
-  filter: none;
-}
-
-body:has(.about-page) > header nav a span {
-  background-color: var(--landing-orange);
-}
-
-body:has(.about-page) > header button:hover {
-  color: var(--landing-orange-hover);
-  border-color: rgba(243, 154, 85, 0.5);
-}
-
-body:has(.about-page) > header > div + div {
-  background-color: var(--landing-shell);
-}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 
-body:has(.about-page) footer {
-  background-color: var(--landing-shell) !important;
-  background-image: none !important;
-  border-color: rgba(255, 255, 255, 0.1) !important;
-  color: var(--landing-text);
-}
-
-body:has(.about-page) footer > div:first-child,
-body:has(.about-page) footer > div:nth-child(2) {
-  display: none;
-}
-
-body:has(.about-page) footer h4 {
-  color: var(--landing-violet) !important;
-}
-
-body:has(.about-page) footer h4 > div {
-  color: var(--landing-orange);
-  background-color: rgba(243, 154, 85, 0.1);
-  border-color: rgba(243, 154, 85, 0.26);
-}
-
-body:has(.about-page) footer a:hover {
-  color: var(--landing-orange-hover) !important;
-}
-
-body:has(.about-page) footer :is(p, a, address, span, h4) {
-  font-family: var(--font-geist-sans), Arial, sans-serif !important;
-}
-
-body:has(.about-page) footer > div > div:last-child > div:last-child {
-  color: var(--landing-violet) !important;
-}
-
-body:has(.contact-page) > header {
-  background-color: var(--landing-shell);
-  border-color: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 2px 18px rgba(0, 0, 0, 0.18);
-}
-
-body:has(.contact-page) > header nav a {
-  color: var(--landing-text);
-}
-
-body:has(.contact-page) > header nav a:hover,
-body:has(.contact-page) > header nav a[aria-current="page"] {
-  color: var(--landing-orange-hover);
-  filter: none;
-}
-
-body:has(.contact-page) > header nav a span {
-  background-color: var(--landing-orange);
-}
-
-body:has(.contact-page) > header button:hover {
-  color: var(--landing-orange-hover);
-  border-color: rgba(243, 154, 85, 0.5);
-}
-
-body:has(.contact-page) > header > div + div {
-  background-color: var(--landing-shell);
-}
-
-body:has(.contact-page) footer {
-  background-color: var(--landing-shell) !important;
-  background-image: none !important;
-  border-color: rgba(255, 255, 255, 0.1) !important;
-  color: var(--landing-text);
-}
-
-body:has(.contact-page) footer > div:first-child,
-body:has(.contact-page) footer > div:nth-child(2) {
-  display: none;
-}
-
-body:has(.contact-page) footer h4 {
-  color: var(--landing-violet) !important;
-}
-
-body:has(.contact-page) footer h4 > div {
-  color: var(--landing-orange);
-  background-color: rgba(243, 154, 85, 0.1);
-  border-color: rgba(243, 154, 85, 0.26);
-}
-
-body:has(.contact-page) footer a:hover {
-  color: var(--landing-orange-hover) !important;
-}
-
-body:has(.contact-page) footer :is(p, a, address, span, h4) {
-  font-family: var(--font-geist-sans), Arial, sans-serif !important;
-}
-
-body:has(.contact-page) footer > div > div:last-child > div:last-child {
-  color: var(--landing-violet) !important;
-}
-
-.mb-12 {
-  margin-bottom: 2rem !important;
-}
-.mb-8 {
-  margin-bottom: 1.25rem !important;
-}
-.py-16 {
-  padding-top: 2.5rem !important;
-  padding-bottom: 2.5rem !important;
-}
-.py-10 {
-  padding-top: 1.5rem !important;
-  padding-bottom: 1.5rem !important;
-}
-.gap-10 {
-  gap: 1.5rem !important;
-}
-.gap-8 {
-  gap: 1.25rem !important;
-}
-.gap-6 {
-  gap: 1rem !important;
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
 }

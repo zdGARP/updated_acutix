@@ -1,9 +1,15 @@
-import CareersSection from '../../components/CareersSection';
-import styles from './careers.module.css';
+import type { Metadata } from 'next';
+import CareersSection from '@/components/CareersSection';
+
+export const metadata: Metadata = {
+  title: 'Build Your Future with Acutix | Careers & Internships',
+  description:
+    'Work on real-world technology, develop practical skills, and collaborate with people who are passionate about building useful software.',
+};
 
 export default function Careers() {
   return (
-    <main className={`${styles.careers} careers-page`}>
+    <main>
       <CareersSection />
     </main>
   );

@@ -28,8 +28,8 @@ export default function Testimonials() {
           transition={{ repeat: Infinity, ease: 'linear', duration: 50 }}
         >
           {[...testimonials, ...testimonials, ...testimonials].map((t, i) => (
-            <div key={i} className="w-80 md:w-96 p-8 bg-gray-900/60 backdrop-blur-xl border border-white/5 rounded-3xl shrink-0 hover:border-cyan-500/30 transition-colors shadow-lg">
-              <div className="flex text-yellow-500 mb-4">
+            <div key={i} className="w-80 md:w-96 p-8 bg-gray-900/60 backdrop-blur-xl border border-white/10 rounded-2xl shrink-0 hover:border-[#FFAA55]/70 transition-colors shadow-lg">
+              <div className="mb-4 flex text-[#0A1230]">
                 {[...Array(t.rating)].map((_, j) => <Star key={j} className="w-4 h-4 fill-current" />)}
               </div>
               <p className="text-gray-300 mb-6 leading-relaxed text-sm italic">&quot;{t.feedback}&quot;</p>
@@ -39,7 +39,7 @@ export default function Testimonials() {
                 </div>
                 <div>
                   <h5 className="text-white font-semibold text-sm">{t.name}</h5>
-                  <span className="text-cyan-500 text-xs">{t.company}</span>
+                  <span className="text-[#0A1230] text-xs">{t.company}</span>
                 </div>
               </div>
             </div>

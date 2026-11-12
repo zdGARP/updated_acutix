@@ -6,167 +6,182 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { sendForm } from '../lib/sendForm';
 import { motion, AnimatePresence } from 'framer-motion';
-import styles from '@/app/collaborations/collaborations.module.css';
 import {
-  ChevronRight,
-  Send,
-  X,
-  School,
-  Terminal,
   ArrowRight,
-  Sparkles
+  School,
+  CheckCircle2,
+  Calendar,
+  Layers,
+  Award,
+  ChevronRight,
+  X,
+  ExternalLink,
+  Users,
+  Code,
+  Code2,
+  Sparkles,
+  FileText,
+  ShieldCheck,
+  Trophy
 } from 'lucide-react';
 
-// Subcomponents imports
-import FloatingParticles from './collaborations/FloatingParticles';
-import ImpactStats from './collaborations/ImpactStats';
-import IndiaMap from './collaborations/IndiaMap';
-import MarqueeLogos from './collaborations/MarqueeLogos';
-import CollaborationCard from './collaborations/CollaborationCard';
-import Timeline from './collaborations/Timeline';
-import SuccessStories from './collaborations/SuccessStories';
-import ProcessSection from './collaborations/ProcessSection';
-
-// Upgrade data structure
 const institutions = [
   {
     id: "vistas",
     name: "Vels Institute of Science Technology & Advanced Studies (VISTAS)",
-    location: "Pallavaram, TN",
-    desc: "Co-hosts of national initiatives, advanced healthcare AI hackathons, and research mentorship.",
-    details: {
-      framework: "Advanced academic research and co-venturing alliance. Main partnership items include:\n- Co-hosting of regional hackathons and technology incubation challenges.\n- Research collaboration in machine learning applications within women's health.\n- Development of pilot AI models alongside industry specialists.\n- Mentorship of graduate-level research designs and scientific projects.",
-      initiatives: ["MedNexus AI Hackathons", "Healthcare AI Research", "Faculty System Design Workshops"]
-    },
-    images: {
-      mou: "/gallery_02.jpg",
-      event1: "/gallery_03.jpg",
-      event2: "/gallery_04.jpg"
-    },
-    logo: "/logo_vistas.png",
-    banner: "/gallery_02.jpg",
-    stats: [
-      { label: "Participants", value: "300+" },
-      { label: "Joint Papers", value: "5+" },
-      { label: "Hackathons", value: "3" }
-    ],
+    shortName: "VISTAS",
+    logo: "/Partnership/logo_vistas.png",
+    category: "CO-ESTABLISHED INCUBATION LAB",
+    location: "Pallavaram, Chennai, TN",
+    desc: "SaaS development lab focused on full-stack web and mobile apps. Students work on production modules and healthcare AI hackathons.",
+    badges: ["300+ Participants", "Joint Papers 5+", "Hackathons 3"],
+    focusAreas: ["Healthcare AI", "Predictive Diagnostics", "Applied ML", "Data Ethics"],
     achievements: [
       "Best Healthtech Innovation Partner 2024",
       "Pilot AI diagnostics incubator nodes established",
       "Shared research database integration model"
     ],
-    focusAreas: ["Healthcare AI", "Predictive Diagnostics", "Applied ML", "Data Ethics"]
+    gallery: ["/Programs/gallery_02.jpg", "/Programs/gallery_03.jpg", "/Programs/gallery_04.jpg"]
   },
   {
     id: "srmv",
     name: "SRM Valliammai Engineering College",
+    shortName: "SRM Valliammai",
+    logo: "/Partnership/logo_srmv.png",
+    category: "INDUSTRY ALLIANCE & CODING LAB",
     location: "Kattankulathur, TN",
-    desc: "Joint industrial training programs, technical webinars, and emerging talent acceleration.",
-    details: {
-      framework: "Strategic talent alliance targeting modern web development. Collaborative tracks include:\n- Accelerated industrial full stack development courses.\n- Specialized webinars on AWS cloud integration and containerization.\n- Active faculty development programs on agile software execution.\n- Fast-track placement evaluation pathways for final-year candidates.",
-      initiatives: ["Cloud Architecture Webinars", "Fast-track Placement Interviews", "Fullstack Bootcamps"]
-    },
-    images: {
-      mou: "/mou_srmv.jpg",
-      event1: "/gallery_02.jpg",
-      event2: "/gallery_06.jpg"
-    },
-    logo: "/logo_srmv.png",
-    banner: "/gallery_02.jpg",
-    stats: [
-      { label: "Trained", value: "500+" },
-      { label: "Placements", value: "15+" },
-      { label: "Success Rate", value: "95%" }
-    ],
+    desc: "Joint laboratory training students in cloud architecture, DevOps, and backend microservices with fast-track placement interviews.",
+    badges: ["500+ Trained", "Placements 15+", "Success Rate 95%"],
+    focusAreas: ["AWS Cloud", "Docker Containerization", "CI/CD Pipelines", "Node REST APIs"],
     achievements: [
       "Established fast-track Cloud Developer recruitment pipeline",
       "Trained 500+ candidates in docker and AWS networks",
       "Accredited placement partner status"
     ],
-    focusAreas: ["AWS Cloud", "Docker Containerization", "CI/CD Pipelines", "Node REST APIs"]
+    gallery: ["/Partnership/mou_srmv.jpg", "/Programs/gallery_02.jpg", "/Programs/gallery_06.jpg"]
   },
   {
     id: "saec",
     name: "SA Engineering College",
+    shortName: "SA Engineering College",
+    logo: "/Partnership/logo_saec.png",
+    category: "SOFTWARE INCUBATION PARTNER",
     location: "Chennai, TN",
-    desc: "Industry internships, workshops, project mentoring, and technology initiatives.",
-    details: {
-      framework: "Established a strategic cooperation focused on frontend and fullstack developer preparation. Keys of alliance include:\n- Allocation of semester-long internships for core development teams.\n- Direct mentorship on real-world engineering project lifecycles.\n- On-campus web framework seminars and coding competitions.\n- Direct recruitment channels for outstanding final-year graduates.",
-      initiatives: ["React & Node Training", "Final Year Capstone Mentoring", "Intern Cohorts"]
-    },
-    images: {
-      mou: "/mou_saec.png",
-      event1: "/gallery_05.jpg",
-      event2: "/gallery_03.jpg"
-    },
-    logo: "/logo_saec.png",
-    banner: "/mou_saec.png",
-    stats: [
-      { label: "Intern Cohorts", value: "12+" },
-      { label: "React bootcamps", value: "3" },
-      { label: "Grad Rate", value: "100%" }
-    ],
+    desc: "Hands-on incubation program where student developers contributed to healthcare and ERP modules with semester-long internships.",
+    badges: ["Intern Cohorts 12+", "React Bootcamps 3", "Grad Rate 100%"],
+    focusAreas: ["React & Next.js", "State Management", "Tailwind styling", "Git Workflows"],
     achievements: [
       "Direct frontend developer internship pathways",
       "100% submission rating on commercial-grade capstones",
       "Direct student mentoring by SaaS engineering leads"
     ],
-    focusAreas: ["React & Next.js", "State Management", "Tailwind styling", "Git Workflows"]
+    gallery: ["/Partnership/mou_saec.png", "/Programs/gallery_05.jpg", "/Programs/gallery_03.jpg"]
   },
   {
     id: "jit",
     name: "Jeppiaar Institute of Technology",
+    shortName: "Jeppiaar Institute of Technology",
+    logo: "/Partnership/logo_jit.png",
+    category: "APPLICATION INCUBATION CELL",
     location: "Sriperumbudur, TN",
-    desc: "Live commercial-grade project immersion, tech meetups, and specialized developer training.",
-    details: {
-      framework: "Joint innovation incubation pathway targeting mobile and web product engineering. Activities involve:\n- Active training bootcamps using React Native and Flutter environments.\n- Practical engineering sprints inside proprietary SaaS product lines.\n- Campus hackathons with technical evaluations and career fast-tracks.\n- Structured visits to the development head office for project reviews.",
-      initiatives: ["Live SaaS Coding Immersion", "Flutter Bootcamps", "Bi-monthly Campus Meetups"]
-    },
-    images: {
-      mou: "/mou_jit.png",
-      event1: "/hackathon_jit.jpg",
-      event2: "/seminar_jit.jpg"
-    },
-    logo: "/logo_jit.png",
-    banner: "/seminar_jit.jpg",
-    stats: [
-      { label: "Bootcamp Grads", value: "350+" },
-      { label: "SaaS Sprints", value: "8" },
-      { label: "Campus Meetups", value: "10+" }
-    ],
+    desc: "Specialized training cohorts building microservices, AI integrations, and mobile solutions for live commercial product lines.",
+    badges: ["Bootcamp Grads 350+", "SaaS Sprints 8", "Campus Meetups 10+"],
+    focusAreas: ["React Native", "Flutter Mobile SDKs", "SaaS Core Engineering", "UI/UX Prototyping"],
     achievements: [
       "First-ever campus mobile app developer lab node",
       "Active contributors to live FertiCare mobile assets",
       "3 innovation sponsorships awarded in campus sprints"
     ],
-    focusAreas: ["React Native", "Flutter Mobile SDKs", "SaaS Core Engineering", "UI/UX Prototyping"]
+    gallery: ["/Partnership/mou_jit.png", "/Partnership/hackathon_jit.jpg", "/Partnership/seminar_jit.jpg"]
   }
 ];
 
-const CollaborationsSection = () => {
-  // Modal states
-  const [selectedInst, setSelectedInst] = useState<typeof institutions[0] | null>(null);
-  const [activeModal, setActiveModal] = useState<'mou' | null>(null);
+const milestones = [
+  {
+    year: "2022",
+    title: "MoU & Co-lab Foundation",
+    category: "FOUNDATIONAL PHASE",
+    desc: "First university alliance established, setting up dedicated developer workstations and developer curriculum."
+  },
+  {
+    year: "2023",
+    title: "SaaS Incubation Acceleration",
+    category: "EXPANSION PHASE",
+    desc: "Launch of real product development cohorts with students delivering production features into commercial products."
+  },
+  {
+    year: "2023-2024",
+    title: "Expanded Commercial Footprint",
+    category: "SCALE & IMPACT",
+    desc: "Over 1,000 students trained and 30+ production sprints completed across our partner institutions."
+  },
+  {
+    year: "2024",
+    title: "Next-Gen Talent Pipeline",
+    category: "TALENT MOBILITY",
+    desc: "Direct hiring pipeline established with partner tech firms and in-house SaaS engineering teams."
+  },
+  {
+    year: "2025",
+    title: "Regional Incubation Expansion",
+    category: "REGIONAL REACH",
+    desc: "Expanding to 10+ engineering campuses across southern tech corridors with dedicated co-labs."
+  }
+];
 
-  // Form state
+const engagementSteps = [
+  {
+    step: "01",
+    title: "Consultation & Scope Mapping",
+    desc: "Initial meetings with institutional leadership, defining goals, student cohorts, and infrastructure requirements.",
+    icon: FileText
+  },
+  {
+    step: "02",
+    title: "MoU Formalization",
+    desc: "Clear legal & academic agreement specifying lab facilities, mentoring schedules, and IP ownership.",
+    icon: ShieldCheck
+  },
+  {
+    step: "03",
+    title: "Infrastructure & Cohort Setup",
+    desc: "Deployment of development workstations, cloud accounts, and student selection tests.",
+    icon: Layers
+  },
+  {
+    step: "04",
+    title: "Mentorship & Live SaaS Sprints",
+    desc: "Weekly code reviews, daily standups, and production ticket assignments led by Acutix tech leads.",
+    icon: Code2
+  },
+  {
+    step: "05",
+    title: "Showcase, Hiring and Patents",
+    desc: "Final product showcases, placement interviews, certificates, and potential patent filings.",
+    icon: Trophy
+  }
+];
+
+export default function CollaborationsSection() {
+  const [selectedInst, setSelectedInst] = useState<typeof institutions[0] | null>(null);
+
   const [mouForm, setMouForm] = useState({
     collegeName: '',
     contactPerson: '',
     designation: '',
     email: '',
     phone: '',
-    proposalType: 'Workshop & Training',
+    cityState: '',
+    proposalType: 'Co-established Lab',
     details: ''
   });
 
   const [submittingMou, setSubmittingMou] = useState(false);
 
-  // Handle Form Inputs
   const handleMouChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     setMouForm({ ...mouForm, [e.target.name]: e.target.value });
   };
 
-  // Submit MoU Form
   const handleMouSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSubmittingMou(true);
@@ -189,462 +204,521 @@ const CollaborationsSection = () => {
         designation: '',
         email: '',
         phone: '',
-        proposalType: 'Workshop & Training',
+        cityState: '',
+        proposalType: 'Co-established Lab',
         details: ''
       });
-      setActiveModal(null);
     } else {
       toast.error(result.error || 'Failed to submit request. Please try again.');
     }
   };
 
   return (
-    <div className={`${styles.collaborations} collaboration-page min-h-screen text-gray-100 relative overflow-hidden font-sans pb-24 pt-32`}>
-      {/* Canvas Particles & Backdrop Lights */}
-      <FloatingParticles />
-      <div className="absolute top-1/4 -left-32 w-[500px] h-[500px] bg-orange-500/10 rounded-full blur-[160px] pointer-events-none" />
-      <div className="absolute top-1/3 -right-32 w-[500px] h-[500px] bg-violet-500/10 rounded-full blur-[160px] pointer-events-none" />
+    <div className="min-h-screen bg-slate-50 text-slate-900 font-sans">
+      <ToastContainer position="bottom-right" theme="dark" />
 
-      {/* Hero Section */}
-      <section className="relative z-10 px-6 max-w-7xl mx-auto text-center pt-8 pb-16">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: 'easeOut' }}
-          className="space-y-6"
-        >
-          {/* Tagline */}
-          <div className="inline-flex items-center space-x-2 bg-cyan-500/10 border border-cyan-400/20 px-3.5 py-1.5 rounded-full text-xs font-mono text-cyan-300">
-            <Sparkles className="w-3.5 h-3.5 animate-pulse text-cyan-400" />
-            <span>ACADEMIC CO-VENTURING & ALLIANCES</span>
-          </div>
-
-          {/* Title */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white tracking-tight uppercase leading-none">
-            Academic{' '}
-            <span className="collaboration-title-accent text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-400 to-emerald-400">
-              Alliance Hub
-            </span>
+      {/* 1. Dark Blue Hero Section (#0A1230) */}
+      <section className="relative bg-[#0A1230] pt-32 pb-20 px-6 text-white border-b border-[#152352]">
+        <div className="container mx-auto max-w-6xl">
+          <p className="text-xs font-bold uppercase tracking-[0.25em] text-[#FF7A1A] mb-3">
+            ACADEMIC ALLIANCE &amp; SPRINT
+          </p>
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white max-w-3xl leading-tight">
+            Academic Alliance Hub
           </h1>
-
-          {/* Description */}
-          <p className="text-base sm:text-lg text-gray-400 max-w-3xl mx-auto leading-relaxed">
-            Bridging the gap between commercial SaaS engineering and hands-on developer training. We partner with leading institutions to establish campus innovation centers, incubate talent, and deploy live production systems.
+          <p className="mt-4 text-base sm:text-lg text-slate-300 max-w-2xl leading-relaxed">
+            Bridging the gap between academia and industry. We co-establish production labs with colleges, train students on commercial SaaS products, and groom future-ready software engineers.
           </p>
 
-          {/* CTA Buttons */}
-          <div className="pt-4 flex flex-wrap justify-center gap-4">
-            <button
-              onClick={() => setActiveModal('mou')}
-              className="collaboration-primary-button bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 hover:from-cyan-400 hover:to-purple-500 text-white font-mono text-xs font-bold px-8 py-4 rounded-xl transition-all duration-300 flex items-center gap-2 cursor-pointer uppercase border border-cyan-400/20"
-            >
-              Initiate Academic MoU <ArrowRight className="w-4 h-4" />
-            </button>
+          <div className="mt-8 flex flex-wrap gap-4">
             <a
-              href="#alliance-cards"
-              className="collaboration-secondary-button bg-white/5 border border-white/10 hover:border-white/20 text-gray-300 hover:text-white font-mono text-xs font-bold px-8 py-4 rounded-xl transition-all duration-300 flex items-center gap-2 cursor-pointer uppercase"
+              href="#mou-form"
+              className="inline-flex items-center gap-2 rounded-lg bg-[#FF7A1A] hover:bg-[#EA6608] px-6 py-3 text-xs font-bold uppercase tracking-wider text-white shadow-sm transition-all hover:scale-[1.02]"
             >
-              Explore Partners
+              <span>INITIATE AN ALLIANCE</span>
+              <ArrowRight className="h-4 w-4" />
+            </a>
+            <a
+              href="#co-established-labs"
+              className="inline-flex items-center rounded-lg border border-[#18295E] bg-[#101D48]/50 hover:bg-[#101D48] px-6 py-3 text-xs font-bold uppercase tracking-wider text-white transition-colors"
+            >
+              EXPLORE CASE STUDIES
             </a>
           </div>
-        </motion.div>
+        </div>
       </section>
 
-      {/* Impact Stats Section */}
-      <ImpactStats />
-
-      {/* Interactive India Map */}
-      <IndiaMap />
-
-      {/* Auto-scrolling logo wall */}
-      <MarqueeLogos />
-
-      {/* College Showcase Cards Grid */}
-      <section id="alliance-cards" className="relative z-10 px-6 max-w-7xl mx-auto my-24 scroll-mt-24">
-        <div className="text-center mb-16">
-          <h2 className="text-xs font-mono uppercase tracking-widest text-cyan-400 mb-2">
-            INCUBATION NODES
-          </h2>
-          <h3 className="text-3xl font-extrabold text-white">
-            Active Academic Alliances
-          </h3>
-          <p className="text-sm text-gray-400 max-w-2xl mx-auto mt-3">
-            Explore our co-established labs, student cohorts, and live SaaS project sprint deliverables inside each university campus.
+      {/* 2. Impact Stats Bar (Light Background) */}
+      <section className="py-12 px-6 bg-slate-50 border-b border-slate-200">
+        <div className="container mx-auto max-w-6xl">
+          <p className="text-[11px] font-bold uppercase tracking-widest text-[#FF7A1A] mb-1">
+            SHARED REPUTATION
           </p>
-        </div>
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mb-8">
+            Our Shared Academic Impact
+          </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          {institutions.map((inst) => (
-            <motion.div
-              key={inst.id}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-100px' }}
-              transition={{ duration: 0.5 }}
-            >
-              <CollaborationCard
-                institution={inst}
-                onViewCollaboration={(i) => setSelectedInst(i)}
-                onEventGallery={(i) => setSelectedInst(i)}
-              />
-            </motion.div>
-          ))}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-left">
+            <div>
+              <p className="text-3xl sm:text-4xl font-extrabold text-slate-900">1,500+</p>
+              <p className="mt-1 text-xs text-slate-600 font-medium">Students Trained</p>
+            </div>
+            <div>
+              <p className="text-3xl sm:text-4xl font-extrabold text-slate-900">4</p>
+              <p className="mt-1 text-xs text-slate-600 font-medium">Co-established Labs</p>
+            </div>
+            <div>
+              <p className="text-3xl sm:text-4xl font-extrabold text-slate-900">45+</p>
+              <p className="mt-1 text-xs text-slate-600 font-medium">Live SaaS Sprints</p>
+            </div>
+            <div>
+              <p className="text-3xl sm:text-4xl font-extrabold text-slate-900">94%</p>
+              <p className="mt-1 text-xs text-slate-600 font-medium">Placement Success Rate</p>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Interactive Partnership Timeline */}
-      <Timeline />
+      {/* 3. Co-established Labs, Student Cohorts and Live SaaS Sprints (Dark Blue Background #0A1230) */}
+      <section id="co-established-labs" className="bg-[#0A1230] py-16 px-6 text-white border-y border-[#152352]">
+        <div className="container mx-auto max-w-6xl">
+          <div className="mb-10 text-left">
+            <p className="text-[11px] font-bold uppercase tracking-widest text-[#FF7A1A] mb-1">
+              INCUBATION HUBS &amp; LABS
+            </p>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+              Co-established labs, student cohorts and live SaaS sprints
+            </h2>
+            <p className="mt-1 text-sm text-slate-400 max-w-xl">
+              Discover our institutional partnerships and joint engineering hubs.
+            </p>
+          </div>
 
-      {/* Student Success Stories */}
-      <SuccessStories />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {institutions.map((inst) => (
+              <div
+                key={inst.id}
+                className="bg-[#101D48] rounded-2xl border border-[#18295E] p-6 flex flex-col justify-between hover:border-[#1E2E62] transition-colors group"
+              >
+                <div>
+                  <div className="flex items-center justify-between mb-3">
+                    <div className="w-12 h-12 rounded-xl bg-white p-1.5 flex items-center justify-center border border-[#18295E] shadow-sm">
+                      <Image
+                        src={inst.logo}
+                        alt={`${inst.shortName} logo`}
+                        width={40}
+                        height={40}
+                        className="object-contain max-h-full"
+                      />
+                    </div>
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-[#FF7A1A] bg-[#152352] px-2.5 py-1 rounded-full border border-[#18295E]">
+                      {inst.category}
+                    </span>
+                  </div>
 
-      {/* Collaboration Process */}
-      <ProcessSection />
+                  <h3 className="text-lg font-bold text-white group-hover:text-[#FF7A1A] transition-colors">
+                    {inst.shortName}
+                  </h3>
+                  <p className="text-[11px] text-slate-400 mt-0.5 font-medium">
+                    {inst.location}
+                  </p>
 
-      {/* Visual Final CTA */}
-      <section className="relative z-10 px-6 max-w-7xl mx-auto my-24">
-        <div className="collaboration-final-card max-w-4xl mx-auto bg-gradient-to-br from-gray-950 via-gray-900/60 to-gray-950 border border-white/5 rounded-3xl p-8 sm:p-14 shadow-2xl relative overflow-hidden text-center space-y-8">
-          {/* Glow spots */}
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-72 h-72 rounded-full bg-cyan-500/10 blur-3xl pointer-events-none" />
-          <div className="absolute bottom-0 left-1/4 w-48 h-48 rounded-full bg-purple-500/10 blur-3xl pointer-events-none" />
+                  <p className="mt-3 text-xs leading-relaxed text-slate-300 min-h-[48px]">
+                    {inst.desc}
+                  </p>
 
-          <div className="flex justify-center">
-            <div className="p-4 bg-cyan-500/10 rounded-2xl text-cyan-400 border border-cyan-500/20 shadow-inner">
-              <School className="w-8 h-8" />
+                  {/* Badges */}
+                  <div className="mt-4 flex flex-wrap gap-1.5">
+                    {inst.badges.map((b, i) => (
+                      <span
+                        key={i}
+                        className="rounded-full bg-[#152352] px-2.5 py-1 text-[11px] font-medium text-slate-300 border border-[#18295E]"
+                      >
+                        {b}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* Focus Areas */}
+                  <div className="mt-4 pt-3 border-t border-[#18295E]">
+                    <p className="text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-1.5">
+                      FOCUS TRACKS
+                    </p>
+                    <div className="flex flex-wrap gap-1.5">
+                      {inst.focusAreas.map((fa, i) => (
+                        <span key={i} className="text-[11px] text-slate-300 bg-[#0A1230] px-2 py-0.5 rounded border border-[#18295E]">
+                          {fa}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="mt-6 pt-4 border-t border-[#18295E]">
+                  <button
+                    onClick={() => setSelectedInst(inst)}
+                    className="w-full inline-flex items-center justify-center gap-1.5 rounded-lg border border-[#18295E] bg-[#152352] hover:bg-[#1E2E62] py-2.5 px-4 text-xs font-bold uppercase tracking-wider text-white transition-colors"
+                  >
+                    <span>VIEW LAB DETAILS &amp; MOU</span>
+                    <ExternalLink className="h-3.5 w-3.5 text-[#FF7A1A]" />
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 4. Evolutionary Milestones (Light Background) */}
+      <section className="py-16 px-6 bg-slate-50 border-b border-slate-200">
+        <div className="container mx-auto max-w-6xl text-left">
+          <p className="text-[11px] font-bold uppercase tracking-widest text-[#FF7A1A] mb-1">
+            PATHWAY &amp; GROWTH
+          </p>
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mb-10">
+            Evolutionary Milestones
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {milestones.map((m, idx) => (
+              <div
+                key={idx}
+                className="bg-white rounded-xl border border-slate-200 p-6 shadow-sm flex flex-col justify-between"
+              >
+                <div>
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-lg font-extrabold text-[#FF7A1A]">{m.year}</span>
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 bg-slate-100 px-2 py-0.5 rounded">
+                      {m.category}
+                    </span>
+                  </div>
+                  <h3 className="text-base font-bold text-slate-900 mb-1.5">{m.title}</h3>
+                  <p className="text-xs text-slate-600 leading-relaxed">{m.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 5. Step-by-Step Engagement (Dark Blue Background #0A1230) */}
+      <section className="bg-[#0A1230] py-20 px-6 text-white border-y border-[#152352]">
+        <div className="container mx-auto max-w-7xl">
+          {/* Top Row: Two-column layout matching design template */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start pb-12 border-b border-[#18295E]/70">
+            {/* Left Column: Eyebrow + Main Heading */}
+            <div className="lg:col-span-7 text-left">
+              <p className="text-[11px] font-bold uppercase tracking-widest text-[#FF7A1A] mb-3">
+                ALLIANCE ROADMAP
+              </p>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
+                Step-by-Step Engagement
+              </h2>
+            </div>
+
+            {/* Right Column: Paragraph + Action Link */}
+            <div className="lg:col-span-5 text-left flex flex-col justify-between h-full pt-1">
+              <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
+                A structured pathway from institutional MoU to high-impact live student engineering. We formalize Bilateral agreements, install dedicated lab facilities, and deploy students into commercial product cohorts.
+              </p>
+              <div className="mt-4">
+                <a
+                  href="#mou-form"
+                  className="group inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#FF7A1A] hover:text-[#FFAA55] transition-colors"
+                >
+                  <span>INITIATE ACADEMIC MOU</span>
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </a>
+              </div>
             </div>
           </div>
 
-          <h3 className="text-3xl font-extrabold text-white uppercase">
-            Partner With{' '}
-            <span className="collaboration-title-accent text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400">
-              Acutix Soft
-            </span>
-          </h3>
-
-          <p className="text-gray-400 text-sm leading-relaxed max-w-2xl mx-auto">
-            Connect your engineering department with our software labs. Establish a structured MoU for student internships, industrial visits, guest workshops, and curriculum alignment to give your developers edge in commercial SaaS spaces.
-          </p>
-
-          <div className="flex justify-center pt-4">
-            <button
-              onClick={() => setActiveModal('mou')}
-              className="collaboration-final-button bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-extrabold px-10 py-4.5 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer text-sm font-mono uppercase border border-cyan-400/30"
-            >
-              Initiate Academic MoU <ArrowRight className="w-4 h-4" />
-            </button>
+          {/* Bottom Row: Horizontal strip of 5 steps with vertical dividers (No Boxes!) */}
+          <div className="pt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-0 lg:divide-x lg:divide-[#18295E]">
+            {engagementSteps.map((step, idx) => {
+              const StepIcon = step.icon;
+              return (
+                <div
+                  key={step.step}
+                  className={`flex flex-col items-start lg:px-5 text-left ${idx === 0 ? 'lg:pl-0' : ''} ${idx === engagementSteps.length - 1 ? 'lg:pr-0' : ''}`}
+                >
+                  <div className="flex items-center gap-2.5 mb-3">
+                    <StepIcon className="h-6 w-6 text-[#FF7A1A] flex-shrink-0" />
+                    <span className="text-xs font-mono font-bold text-[#FF7A1A]">STEP {step.step}</span>
+                  </div>
+                  <h4 className="text-sm font-bold text-white leading-snug">
+                    {step.title}
+                  </h4>
+                  <p className="mt-2 text-xs text-slate-400 leading-relaxed">
+                    {step.desc}
+                  </p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* Gallery Modal (Framer-motion powered) */}
-      <AnimatePresence>
-        {selectedInst && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-            {/* Backdrop overlay */}
-            <motion.div
-              className="absolute inset-0 bg-black/80 backdrop-blur-md"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setSelectedInst(null)}
-            />
+      {/* 6. Initiate Academic MoU Form (Light Background) */}
+      <section id="mou-form" className="py-16 px-6 bg-white border-b border-slate-200">
+        <div className="container mx-auto max-w-6xl">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+            
+            {/* Left Column */}
+            <div className="lg:col-span-5 text-left">
+              <p className="text-[11px] font-bold uppercase tracking-widest text-[#FF7A1A] mb-1">
+                PARTNER WITH ACUTIX
+              </p>
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+                Initiate Academic MoU
+              </h2>
+              <p className="mt-3 text-sm text-slate-600 leading-relaxed">
+                Fill out the form to begin exploring a university partnership, co-established lab, student cohort training, or faculty development program.
+              </p>
 
-            {/* Modal Box */}
-            <motion.div
-              className="bg-gray-950/95 border border-white/10 rounded-3xl shadow-2xl p-6 md:p-8 max-w-4xl w-full max-h-[90vh] overflow-y-auto relative z-10 backdrop-blur-2xl text-white"
-              initial={{ scale: 0.92, opacity: 0, y: 15 }}
-              animate={{ scale: 1, opacity: 1, y: 0 }}
-              exit={{ scale: 0.92, opacity: 0, y: 15 }}
-              transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-            >
-              {/* Header */}
-              <div className="flex justify-between items-start mb-6 pb-4 border-b border-white/5">
-                <div>
-                  <span className="text-[10px] font-mono text-cyan-400 uppercase tracking-widest block mb-1">
-                    Partnership Gallery & MoU details
-                  </span>
-                  <h3 className="text-xl sm:text-2xl font-bold text-white">
-                    {selectedInst.name}
-                  </h3>
-                </div>
-                <button
-                  onClick={() => setSelectedInst(null)}
-                  className="p-2 rounded-full bg-white/5 border border-white/10 text-slate-400 hover:text-white transition-colors cursor-pointer"
-                >
-                  <X className="w-5 h-5" />
-                </button>
-              </div>
-
-              {/* Layout: Split Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-5 gap-6 mb-6">
-                {/* Details Section (2 cols) */}
-                <div className="md:col-span-2 space-y-4">
-                  <div className="bg-black/50 border border-white/5 rounded-xl p-5 font-mono text-xs text-slate-300 space-y-3 leading-relaxed h-full">
-                    <div className="flex items-center gap-2 border-b border-white/5 pb-2 text-cyan-400">
-                      <Terminal className="w-4 h-4" />
-                      <span>COOPERATION_MANIFEST // ACTIVE</span>
-                    </div>
-                    <p className="whitespace-pre-line leading-relaxed text-gray-300">
-                      {selectedInst.details.framework}
-                    </p>
+              <div className="mt-8 space-y-4">
+                <div className="flex items-start gap-3">
+                  <CheckCircle2 className="h-5 w-5 text-emerald-600 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <h4 className="text-xs font-bold uppercase text-slate-800">MoU Backed &amp; Formalized</h4>
+                    <p className="text-xs text-slate-500">Official bilateral institutional agreement with clear guidelines.</p>
                   </div>
                 </div>
-
-                {/* Images Section (3 cols) */}
-                <div className="md:col-span-3 space-y-4">
-                  {/* Left/Main Column: Official MoU Signing Moment */}
-                  <div className="relative aspect-[16/10] w-full rounded-xl overflow-hidden border border-white/10 group bg-white/5">
-                    <Image
-                      src={selectedInst.images.mou}
-                      alt="MoU Signing Moment"
-                      fill
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                      className="object-cover group-hover:scale-105 transition-transform duration-700"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-4">
-                      <span className="font-mono text-[9px] text-cyan-400 bg-cyan-950/80 px-2 py-1 rounded border border-cyan-500/20 uppercase">
-                        ⚡ MoU Signing Moment
-                      </span>
-                    </div>
+                <div className="flex items-start gap-3">
+                  <CheckCircle2 className="h-5 w-5 text-emerald-600 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <h4 className="text-xs font-bold uppercase text-slate-800">Commercial SaaS Sprints</h4>
+                    <p className="text-xs text-slate-500">Students work directly with lead software engineers on live codebases.</p>
                   </div>
-
-                  {/* Two Smaller Live Campus Photos */}
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="relative aspect-[4/3] rounded-xl overflow-hidden border border-white/10 group bg-white/5">
-                      <Image
-                        src={selectedInst.images.event1}
-                        alt="Live campus technical seminar"
-                        fill
-                        sizes="(max-width: 768px) 50vw, 25vw"
-                        className="object-cover group-hover:scale-105 transition-transform duration-700"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-3">
-                        <span className="font-mono text-[8px] text-cyan-300 uppercase">
-                          🖥️ Live Seminars
-                        </span>
-                      </div>
-                    </div>
-                    <div className="relative aspect-[4/3] rounded-xl overflow-hidden border border-white/10 group bg-white/5">
-                      <Image
-                        src={selectedInst.images.event2}
-                        alt="Technical hackathon and workshop"
-                        fill
-                        sizes="(max-width: 768px) 50vw, 25vw"
-                        className="object-cover group-hover:scale-105 transition-transform duration-700"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-3">
-                        <span className="font-mono text-[8px] text-cyan-300 uppercase">
-                          ⚙️ Hackathons
-                        </span>
-                      </div>
-                    </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <CheckCircle2 className="h-5 w-5 text-emerald-600 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <h4 className="text-xs font-bold uppercase text-slate-800">Direct Placement Pathways</h4>
+                    <p className="text-xs text-slate-500">Top performers are fast-tracked into software development positions.</p>
                   </div>
                 </div>
               </div>
+            </div>
 
-              {/* Modal Actions */}
-              <div className="flex justify-end gap-3 pt-4 border-t border-white/5">
-                <button
-                  onClick={() => setSelectedInst(null)}
-                  className="bg-white/5 border border-white/10 text-slate-300 hover:bg-white/10 transition cursor-pointer font-mono px-5 py-2.5 rounded-lg text-xs"
-                >
-                  Close Document
-                </button>
-                <button
-                  onClick={() => {
-                    setSelectedInst(null);
-                    setMouForm((prev) => ({ ...prev, collegeName: selectedInst.name }));
-                    setActiveModal('mou');
-                  }}
-                  className="bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-extrabold px-5 py-2.5 rounded-lg text-xs hover:from-cyan-400 hover:to-blue-500 transition cursor-pointer font-mono flex items-center gap-1.5"
-                >
-                  Expand Cooperation <ChevronRight className="w-3.5 h-3.5" />
-                </button>
-              </div>
-            </motion.div>
-          </div>
-        )}
-      </AnimatePresence>
-
-      {/* MODAL FORM: INITIATE MOU */}
-      <AnimatePresence>
-        {activeModal === 'mou' && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-            <motion.div
-              className="absolute inset-0 bg-black/80 backdrop-blur-md"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setActiveModal(null)}
-            />
-
-            <motion.div
-              className="bg-gray-950/95 border border-white/10 rounded-3xl shadow-2xl p-6 md:p-8 max-w-2xl w-full relative z-10 backdrop-blur-2xl text-white"
-              initial={{ scale: 0.92, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.92, opacity: 0 }}
-            >
-              <div className="flex justify-between items-start mb-6">
-                <div>
-                  <h3 className="text-xl sm:text-2xl font-bold flex items-center gap-2 text-white uppercase">
-                    <School className="text-cyan-400 w-6 h-6" /> Initiate Academic MoU
-                  </h3>
-                  <p className="text-xs text-slate-400 mt-1">
-                    Connect your institution with our engineering training framework.
-                  </p>
-                </div>
-                <button
-                  onClick={() => setActiveModal(null)}
-                  className="p-2 rounded-full bg-white/5 border border-white/10 text-slate-400 hover:text-white transition-colors cursor-pointer"
-                >
-                  <X className="w-5 h-5" />
-                </button>
-              </div>
-
+            {/* Right Column: Form */}
+            <div className="lg:col-span-7 bg-slate-50 rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm">
               <form onSubmit={handleMouSubmit} className="space-y-4">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-xs font-mono text-slate-400 uppercase mb-1.5">
-                      Institution Name *
-                    </label>
-                    <input
-                      required
-                      type="text"
-                      name="collegeName"
-                      value={mouForm.collegeName}
-                      onChange={handleMouChange}
-                      className="block w-full rounded bg-black/60 border border-white/10 px-3 py-2.5 text-white text-xs focus:border-cyan-400 focus:outline-none transition font-sans"
-                      placeholder="e.g. SRM Valliammai"
-                      disabled={submittingMou}
-                    />
-                  </div>
+                <div>
+                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">
+                    Institution Name *
+                  </label>
+                  <input
+                    type="text"
+                    name="collegeName"
+                    required
+                    value={mouForm.collegeName}
+                    onChange={handleMouChange}
+                    placeholder="e.g. SRM Valliammai Engineering College"
+                    className="w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2.5 text-xs text-slate-900 focus:border-[#FF7A1A] focus:outline-none"
+                  />
+                </div>
 
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-mono text-slate-400 uppercase mb-1.5">
-                      Contact Person Name *
+                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">
+                      Contact Person *
                     </label>
                     <input
-                      required
                       type="text"
                       name="contactPerson"
+                      required
                       value={mouForm.contactPerson}
                       onChange={handleMouChange}
-                      className="block w-full rounded bg-black/60 border border-white/10 px-3 py-2.5 text-white text-xs focus:border-cyan-400 focus:outline-none transition font-sans"
-                      placeholder="e.g. Dr. A. Kumar"
-                      disabled={submittingMou}
+                      placeholder="e.g. Dr. Rajesh Kumar"
+                      className="w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2.5 text-xs text-slate-900 focus:border-[#FF7A1A] focus:outline-none"
                     />
                   </div>
-
                   <div>
-                    <label className="block text-xs font-mono text-slate-400 uppercase mb-1.5">
-                      Designation *
+                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">
+                      Designation / Role
                     </label>
                     <input
-                      required
                       type="text"
                       name="designation"
                       value={mouForm.designation}
                       onChange={handleMouChange}
-                      className="block w-full rounded bg-black/60 border border-white/10 px-3 py-2.5 text-white text-xs focus:border-cyan-400 focus:outline-none transition font-sans"
-                      placeholder="e.g. HOD / Placement Officer"
-                      disabled={submittingMou}
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-mono text-slate-400 uppercase mb-1.5">
-                      Email Address *
-                    </label>
-                    <input
-                      required
-                      type="email"
-                      name="email"
-                      value={mouForm.email}
-                      onChange={handleMouChange}
-                      className="block w-full rounded bg-black/60 border border-white/10 px-3 py-2.5 text-white text-xs focus:border-cyan-400 focus:outline-none transition font-sans"
-                      placeholder="hod.cse@college.edu"
-                      disabled={submittingMou}
+                      placeholder="e.g. Dean of Academics / HOD CSE"
+                      className="w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2.5 text-xs text-slate-900 focus:border-[#FF7A1A] focus:outline-none"
                     />
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-mono text-slate-400 uppercase mb-1.5">
+                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">
+                      Official Email *
+                    </label>
+                    <input
+                      type="email"
+                      name="email"
+                      required
+                      value={mouForm.email}
+                      onChange={handleMouChange}
+                      placeholder="dean@institution.edu.in"
+                      className="w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2.5 text-xs text-slate-900 focus:border-[#FF7A1A] focus:outline-none"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">
                       Phone Number *
                     </label>
                     <input
-                      required
                       type="tel"
                       name="phone"
+                      required
                       value={mouForm.phone}
                       onChange={handleMouChange}
-                      className="block w-full rounded bg-black/60 border border-white/10 px-3 py-2.5 text-white text-xs focus:border-cyan-400 focus:outline-none transition font-sans"
                       placeholder="+91 98765 43210"
-                      disabled={submittingMou}
+                      className="w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2.5 text-xs text-slate-900 focus:border-[#FF7A1A] focus:outline-none"
                     />
                   </div>
+                </div>
 
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-mono text-slate-400 uppercase mb-1.5">
-                      Cooperation Focus *
+                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">
+                      City &amp; State
+                    </label>
+                    <input
+                      type="text"
+                      name="cityState"
+                      value={mouForm.cityState}
+                      onChange={handleMouChange}
+                      placeholder="Chennai, Tamil Nadu"
+                      className="w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2.5 text-xs text-slate-900 focus:border-[#FF7A1A] focus:outline-none"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">
+                      Engagement Type
                     </label>
                     <select
                       name="proposalType"
                       value={mouForm.proposalType}
                       onChange={handleMouChange}
-                      className="block w-full rounded bg-black/60 border border-white/10 px-3 py-2.5 text-white text-xs focus:border-cyan-400 focus:outline-none transition font-sans"
-                      disabled={submittingMou}
+                      className="w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2.5 text-xs text-slate-900 focus:border-[#FF7A1A] focus:outline-none"
                     >
-                      <option>Workshop & Technical Training</option>
-                      <option>Semester Internships</option>
-                      <option>Joint AI/SaaS Research</option>
-                      <option>Comprehensive institutional MoU</option>
+                      <option value="Co-established Lab">Co-established Incubation Lab</option>
+                      <option value="Student Cohort Training">Student Cohort SaaS Training</option>
+                      <option value="Faculty Development">Faculty Enablement &amp; FDP</option>
+                      <option value="Industrial Visit">Industrial Visit &amp; Technical Talks</option>
+                      <option value="Hackathon Sponsorship">Hackathon &amp; Coding Sprints</option>
                     </select>
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-xs font-mono text-slate-400 uppercase mb-1.5">
-                    Additional Details / Proposals
+                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">
+                    Additional Details / Infrastructure Available
                   </label>
                   <textarea
+                    rows={3}
                     name="details"
-                    rows={4}
                     value={mouForm.details}
                     onChange={handleMouChange}
-                    className="block w-full rounded bg-black/60 border border-white/10 px-3 py-2.5 text-white text-xs focus:border-cyan-400 focus:outline-none transition font-sans"
-                    placeholder="Provide details on target student departments, year, or custom ideas..."
-                    disabled={submittingMou}
+                    placeholder="Briefly describe target student departments, batch size, or existing lab setup..."
+                    className="w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2 text-xs text-slate-900 focus:border-[#FF7A1A] focus:outline-none"
                   />
                 </div>
 
-                <div className="flex justify-end gap-3 pt-4 border-t border-white/5">
-                  <button
-                    type="button"
-                    onClick={() => setActiveModal(null)}
-                    className="bg-white/5 border border-white/10 text-slate-300 hover:bg-white/10 transition cursor-pointer font-mono px-5 py-2.5 rounded-lg text-xs"
-                    disabled={submittingMou}
-                  >
-                    Cancel
-                  </button>
-                  <button
-                    type="submit"
-                    className="bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-extrabold px-6 py-2.5 rounded-lg text-xs hover:from-cyan-400 hover:to-blue-500 transition flex items-center gap-1.5 cursor-pointer font-mono"
-                    disabled={submittingMou}
-                  >
-                    {submittingMou ? 'Sending...' : 'Send MoU Request'} <Send className="w-3.5 h-3.5" />
-                  </button>
-                </div>
+                <button
+                  type="submit"
+                  disabled={submittingMou}
+                  className="w-full rounded-lg bg-[#FF7A1A] hover:bg-[#EA6608] py-3 px-4 text-xs font-bold uppercase tracking-wider text-white shadow-sm transition-all hover:shadow disabled:opacity-50"
+                >
+                  {submittingMou ? 'SUBMITTING...' : 'SUBMIT MOU REQUEST'}
+                </button>
               </form>
-            </motion.div>
+            </div>
           </div>
+        </div>
+      </section>
+
+      {/* Institutional Details Modal */}
+      <AnimatePresence>
+        {selectedInst && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setSelectedInst(null)}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/75 p-4 backdrop-blur-sm"
+          >
+            <motion.div
+              initial={{ scale: 0.95, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.95, opacity: 0 }}
+              onClick={(e) => e.stopPropagation()}
+              className="relative max-w-2xl w-full bg-white rounded-2xl overflow-hidden shadow-2xl border border-slate-200"
+            >
+              <div className="flex items-center justify-between border-b border-slate-100 px-6 py-4 bg-slate-50">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-lg bg-white p-1 border border-slate-200 flex items-center justify-center flex-shrink-0 shadow-xs">
+                    <Image src={selectedInst.logo} alt={selectedInst.shortName} width={36} height={36} className="object-contain max-h-full" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-slate-900 text-base">{selectedInst.name}</h3>
+                    <p className="text-[11px] text-[#FF7A1A] font-semibold">{selectedInst.category} • {selectedInst.location}</p>
+                  </div>
+                </div>
+                <button
+                  onClick={() => setSelectedInst(null)}
+                  className="rounded-full p-1.5 text-slate-400 hover:text-slate-700 hover:bg-slate-200 transition-colors"
+                >
+                  <X className="h-5 w-5" />
+                </button>
+              </div>
+
+              <div className="p-6 space-y-4 max-h-[75vh] overflow-y-auto">
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  {selectedInst.desc}
+                </p>
+
+                <div>
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-slate-800 mb-2">Key Alliances &amp; Achievements</h4>
+                  <ul className="space-y-1.5">
+                    {selectedInst.achievements.map((ach, i) => (
+                      <li key={i} className="flex items-center gap-2 text-xs text-slate-700">
+                        <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600 flex-shrink-0" />
+                        <span>{ach}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Gallery Images */}
+                <div>
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-slate-800 mb-2">Alliance Moments</h4>
+                  <div className="grid grid-cols-3 gap-2">
+                    {selectedInst.gallery.map((img, i) => (
+                      <div key={i} className="relative aspect-[4/3] rounded-lg overflow-hidden border border-slate-200 bg-slate-100">
+                        <Image src={img} alt="Collaboration event" fill className="object-cover" />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              <div className="px-6 py-4 bg-slate-50 border-t border-slate-100 flex items-center justify-between">
+                <span className="text-xs text-slate-500 font-medium">Interested in a similar partnership?</span>
+                <a
+                  href="#mou-form"
+                  onClick={() => setSelectedInst(null)}
+                  className="rounded-lg bg-[#FF7A1A] hover:bg-[#EA6608] px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-white"
+                >
+                  INITIATE MOU
+                </a>
+              </div>
+            </motion.div>
+          </motion.div>
         )}
       </AnimatePresence>
-
-      <ToastContainer position="bottom-right" />
     </div>
   );
-};
-
-export default CollaborationsSection;
+}
