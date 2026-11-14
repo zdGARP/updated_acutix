@@ -18,6 +18,7 @@ import {
   Search,
   Cpu
 } from 'lucide-react';
+import HorizontalMarquee from '@/components/HorizontalMarquee';
 
 const whyAcutixPoints = [
   {
@@ -74,14 +75,23 @@ const opportunities = [
 ];
 
 const galleryImages = [
-  '/Programs/gallery_01.jpg',
-  '/Programs/gallery_02.jpg',
-  '/Programs/gallery_03.jpg',
-  '/Programs/gallery_04.jpg',
-  '/Programs/gallery_05.jpg',
-  '/Programs/gallery_06.jpg',
-  '/Programs/gallery_07.jpg',
-  '/Programs/gallery_08.jpg',
+  { src: '/Programs/gallery_01.jpg', alt: 'Acutix team moment' },
+  { src: '/Programs/gallery_02.jpg', alt: 'Acutix team collaboration' },
+  { src: '/Programs/gallery_03.jpg', alt: 'Acutix team working together' },
+  { src: '/Programs/gallery_04.jpg', alt: 'Acutix team learning session' },
+  { src: '/Programs/gallery_05.jpg', alt: 'Acutix team event' },
+  { src: '/Programs/gallery_06.jpg', alt: 'Acutix team and students' },
+  { src: '/Programs/gallery_07.jpg', alt: 'Acutix collaborative project' },
+  { src: '/Programs/gallery_08.jpg', alt: 'Acutix team gathering' },
+  { src: '/Partnership/hackathon_jit.jpg', alt: 'Acutix at the Jeppiaar Institute of Technology hackathon' },
+  { src: '/Partnership/seminar_jit.jpg', alt: 'Acutix seminar at Jeppiaar Institute of Technology' },
+  { src: '/Partnership/mou_jit.png', alt: 'Acutix and Jeppiaar Institute of Technology memorandum of understanding', contain: true },
+  { src: '/Partnership/mou_saec.png', alt: 'Acutix and SA Engineering College memorandum of understanding', contain: true },
+  { src: '/Partnership/mou_srmv.jpg', alt: 'Acutix and SRM Valliammai Engineering College memorandum of understanding', contain: true },
+  { src: '/Partnership/logo_jit.png', alt: 'Jeppiaar Institute of Technology partner logo', contain: true },
+  { src: '/Partnership/logo_saec.png', alt: 'SA Engineering College partner logo', contain: true },
+  { src: '/Partnership/logo_srmv.png', alt: 'SRM Valliammai Engineering College partner logo', contain: true },
+  { src: '/Partnership/logo_vistas.png', alt: 'Vels Institute of Science, Technology and Advanced Studies partner logo', contain: true },
 ];
 
 const candidateQualities = [
@@ -239,16 +249,29 @@ export default function CareersSection() {
                 Our Collaborative Culture &amp; Team Moments
               </h3>
             </div>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
-              {galleryImages.map((src, idx) => (
-                <div key={idx} className="relative aspect-[4/3] rounded-xl overflow-hidden border border-slate-200 bg-slate-100 shadow-sm group">
-                  <Image
-                    src={src}
-                    alt={`Life at Acutix ${idx + 1}`}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
+            <div className="space-y-4">
+              {[galleryImages.filter((_, index) => index % 2 === 0), galleryImages.filter((_, index) => index % 2 === 1)].map((row, rowIndex) => (
+                <HorizontalMarquee
+                  key={rowIndex}
+                  direction={rowIndex === 0 ? 'left' : 'right'}
+                  duration={rowIndex === 0 ? '52s' : '58s'}
+                  label={rowIndex === 0 ? 'Life at Acutix gallery, first row' : 'Life at Acutix gallery, second row'}
+                >
+                  {row.map((image) => (
+                    <div
+                      key={image.src}
+                      className="group relative aspect-[4/3] w-56 shrink-0 overflow-hidden rounded-xl border border-slate-200 bg-slate-100 shadow-sm sm:w-64"
+                    >
+                      <Image
+                        src={image.src}
+                        alt={image.alt}
+                        fill
+                        sizes="(max-width: 640px) 224px, 256px"
+                        className={`${image.contain ? 'bg-white object-contain p-2' : 'object-cover'} transition-transform duration-300 group-hover:scale-105`}
+                      />
+                    </div>
+                  ))}
+                </HorizontalMarquee>
               ))}
             </div>
           </div>

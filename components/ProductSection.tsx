@@ -1,26 +1,8 @@
 'use client';
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { motion, AnimatePresence } from 'framer-motion';
-import {
-  HeartPulse,
-  Activity,
-  Car,
-  Package,
-  Hospital,
-  ChevronRight,
-  ShieldCheck,
-  CheckCircle2,
-  X,
-  ExternalLink
-} from 'lucide-react';
-
-interface ProductFeature {
-  title: string;
-  desc: string;
-}
 
 interface ProductItem {
   id: string;
@@ -37,6 +19,15 @@ interface ProductItem {
   image: string;
   imageAlt: string;
   imageCaption: string;
+  detailCategory: string;
+  detailHeadline: string;
+  detailIntro: string;
+  detailFeatures: {
+    title: string;
+    description: string;
+  }[];
+  detailClosing: string;
+  exploreLabel: string;
   sections: {
     heading: string;
     description: string;
@@ -59,6 +50,18 @@ const products: ProductItem[] = [
     image: '/Products/ferticare-ascas-dashboard.png',
     imageAlt: 'ASCA fertility clinic dashboard showing billing totals and administrative controls',
     imageCaption: 'ASCA dashboard preview',
+    detailCategory: 'FERTILITY & WOMEN’S HEALTH MANAGEMENT',
+    detailHeadline: 'Every Patient Journey Matters. Every Detail Counts.',
+    detailIntro: 'Fertility care involves complex treatment cycles, couple-based medical histories, clinical documentation, and multiple investigations. Managing these across disconnected systems makes continuity of care difficult. FertiCare brings the entire fertility care workflow together, helping specialists manage patient journeys with better clinical visibility and operational control.',
+    detailFeatures: [
+      { title: 'Unified Patient Records', description: 'Couple-based profiles, medical histories, and consultation records in one place.' },
+      { title: 'Treatment Cycle Management', description: 'Structured tracking of OI, IUI, and IVF journeys.' },
+      { title: 'Clinical Documentation', description: 'Specialized templates for consultations, procedures, and investigations.' },
+      { title: 'Integrated Operations', description: 'Laboratory reports, billing, packages, and payment tracking.' },
+      { title: 'Patient Communication', description: 'Automated appointment reminders and communication workflows.' }
+    ],
+    detailClosing: 'Built for fertility centres that need more than a general clinic management system.',
+    exploreLabel: 'EXPLORE FERTICARE',
     techStack: ['Next.js', 'React', 'Node.js', 'AWS'],
     sections: [
       {
@@ -90,6 +93,18 @@ const products: ProductItem[] = [
     image: '/Products/gympad-fitness-illustration.png',
     imageAlt: 'Fitness website artwork showing gym equipment and a training promotion',
     imageCaption: 'GymPad concept dashboard',
+    detailCategory: 'FITNESS & GYM MANAGEMENT',
+    detailHeadline: 'Less Time Managing the Gym. More Time Growing It.',
+    detailIntro: 'Managing memberships, trainer schedules, attendance, and member progress through separate processes creates unnecessary administrative work and a disconnected fitness experience. GymPad brings gym owners, trainers, and members onto one platform, making everyday fitness operations easier to coordinate and manage.',
+    detailFeatures: [
+      { title: 'Membership Management', description: 'Goal-aligned subscriptions for weight loss, muscle gain, and fitness programs.' },
+      { title: 'Trainer Coordination', description: 'Centralized schedules, trainee assignments, and attendance.' },
+      { title: 'Smart Slot Booking', description: 'Simplified training session scheduling and availability management.' },
+      { title: 'Member Engagement', description: 'Direct trainer communication and personalized diet guidance.' },
+      { title: 'Progress Visibility', description: 'Track attendance, fitness progress, and training activities.' }
+    ],
+    detailClosing: 'One connected platform. From the front desk to the fitness floor.',
+    exploreLabel: 'EXPLORE GYMPAD',
     techStack: ['React', 'Node.js', 'PostgreSQL', 'Tailwind'],
     sections: [
       {
@@ -121,6 +136,18 @@ const products: ProductItem[] = [
     image: '/Products/motorconsult-development-illustration.jpg',
     imageAlt: 'Motor insurance platform workspace preview',
     imageCaption: 'MotorConsult platform overview',
+    detailCategory: 'MOTOR INSURANCE MANAGEMENT',
+    detailHeadline: 'Don’t Let Policy Renewals, Claims, and Commissions Slip Through the Cracks.',
+    detailIntro: 'Insurance professionals handle multiple customers, policy renewals, claims, documents, and commission records every day. When these activities are scattered across spreadsheets and manual follow-ups, important details can easily get overlooked. MotorConsult brings these operations into a centralized workspace, helping insurance businesses stay organized and maintain better control over their customer and policy lifecycle.',
+    detailFeatures: [
+      { title: 'Customer & Policy Management', description: 'Centralized customer profiles and policy records.' },
+      { title: 'Renewal Tracking', description: 'Stay ahead of upcoming renewals and customer follow-ups.' },
+      { title: 'Claims Management', description: 'Organize claim registrations, supporting documents, and settlement progress.' },
+      { title: 'Commission Tracking', description: 'Monitor commissions, service charges, and payment records.' },
+      { title: 'Business Visibility', description: 'Keep track of policy activities and revenue operations.' }
+    ],
+    detailClosing: 'From the first policy to the next renewal, keep every interaction accounted for.',
+    exploreLabel: 'EXPLORE MOTORCONSULT',
     techStack: ['Next.js', 'Python', 'FastAPI', 'PostgreSQL'],
     sections: [
       {
@@ -152,6 +179,19 @@ const products: ProductItem[] = [
     image: '/Products/boxcare-development-illustration.jpg',
     imageAlt: 'Packaging manufacturing management platform',
     imageCaption: 'BoxCare packaging management workflow',
+    detailCategory: 'PACKAGING BUSINESS MANAGEMENT',
+    detailHeadline: 'From Customer Enquiry to Final Delivery. Nothing Gets Lost.',
+    detailIntro: 'Packaging businesses deal with customized requirements, frequent quotation revisions, order approvals, production coordination, and delivery tracking. When these processes operate independently, businesses lose visibility into orders and struggle to maintain a smooth customer experience. BoxCare connects the entire order lifecycle, bringing customer management, quotations, production, and delivery into one coordinated system.',
+    detailFeatures: [
+      { title: 'Enquiry Management', description: 'Capture customer requirements and packaging specifications.' },
+      { title: 'Quotation Automation', description: 'Create and manage customized quotations.' },
+      { title: 'Order Management', description: 'Convert approved quotations into confirmed orders.' },
+      { title: 'Production Visibility', description: 'Monitor order progress and production activities.' },
+      { title: 'Delivery Coordination', description: 'Keep customers informed with order and delivery updates.' },
+      { title: 'Inventory Awareness', description: 'Improve visibility into raw material requirements and stock.' }
+    ],
+    detailClosing: 'From the first customer enquiry to the final shipment, keep your operations connected.',
+    exploreLabel: 'EXPLORE BOXCARE',
     techStack: ['React', 'Express', 'MongoDB', 'AWS'],
     sections: [
       {
@@ -171,18 +211,31 @@ const products: ProductItem[] = [
   },
   {
     id: 'clinic-cms',
-    name: 'Clinic CMS',
+    name: 'AcuCare',
     letter: 'C',
     letterBg: 'bg-teal-500',
     tagline: 'General Clinic Administration',
     category: 'GENERAL CLINIC ADMINISTRATION',
-    summary: 'Clinic CMS simplifies general clinic administration through client onboarding, appointment scheduling, staff workflows, document management, and client communication.',
+    summary: 'AcuCare simplifies general clinic administration through patient onboarding, appointment scheduling, staff workflows, document management, and patient communication.',
     status: 'Live',
     action: 'DISCUSS YOUR REQUIREMENTS',
     request: 'Requirements discussion',
     image: '/Products/clinic-cms-development-illustration.jpg',
-    imageAlt: 'Clinic CMS administration dashboard preview',
-    imageCaption: 'Clinic CMS dashboard preview',
+    imageAlt: 'AcuCare administration dashboard preview',
+    imageCaption: 'AcuCare dashboard preview',
+    detailCategory: 'GENERAL CLINIC MANAGEMENT',
+    detailHeadline: 'Your Clinic Runs on Care. Your Operations Should Run on Clarity.',
+    detailIntro: 'Managing appointments, patient records, staff activities, medical documents, and daily administrative tasks across disconnected systems takes valuable time away from clinic operations. AcuCare brings essential clinic activities under one roof, helping healthcare teams manage their daily responsibilities through a structured digital environment.',
+    detailFeatures: [
+      { title: 'Simplified Patient Onboarding', description: 'Organize registrations and maintain centralized patient records.' },
+      { title: 'Appointment Coordination', description: 'Manage schedules based on availability and reduce manual coordination.' },
+      { title: 'Staff Management', description: 'Organize user roles, responsibilities, and assigned patient activities.' },
+      { title: 'Digital Documentation', description: 'Upload, manage, and securely share medical documents and reports.' },
+      { title: 'Automated Communication', description: 'Keep patients and staff informed through status notifications.' },
+      { title: 'Administrative Control', description: 'Manage users, workflows, and clinic operations from one place.' }
+    ],
+    detailClosing: 'Less administrative complexity. More time for what matters — patient care.',
+    exploreLabel: 'EXPLORE ACUCARE',
     techStack: ['Next.js', 'React', 'Node.js', 'PostgreSQL'],
     sections: [
       {
@@ -203,7 +256,6 @@ const products: ProductItem[] = [
 ];
 
 export default function ProductSection() {
-  const [selectedProduct, setSelectedProduct] = useState<ProductItem | null>(null);
   const [filterId, setFilterId] = useState<string>('all');
 
   const filteredProducts = filterId === 'all'
@@ -263,14 +315,11 @@ export default function ProductSection() {
               <div
                 key={product.id}
                 id={product.id}
-                className="bg-white rounded-2xl border border-slate-200/90 shadow-sm overflow-hidden flex flex-col justify-between hover:shadow-md transition-all duration-300 relative group"
+                className="bg-white rounded-2xl border border-slate-200/90 shadow-sm overflow-hidden flex flex-col justify-between hover:-translate-y-1 hover:shadow-md transition-all duration-300 relative group"
               >
                 <div>
                   {/* Product Card Image Banner */}
-                  <div
-                    onClick={() => setSelectedProduct(product)}
-                    className="relative aspect-[16/10] w-full bg-[#0A1230] overflow-hidden cursor-pointer"
-                  >
+                  <div className="relative aspect-[16/10] w-full bg-[#0A1230] overflow-hidden">
                     <Image
                       src={product.image}
                       alt={product.imageAlt}
@@ -302,75 +351,19 @@ export default function ProductSection() {
                     <p className="text-[11px] font-bold uppercase tracking-wider text-slate-500 mt-0.5">
                       {product.category}
                     </p>
-                    <p className="mt-3 text-xs leading-relaxed text-slate-600 min-h-[48px]">
+                    <p className="mt-3 min-h-[48px] line-clamp-3 text-xs leading-relaxed text-slate-600">
                       {product.summary}
                     </p>
-
-                    {/* Visual Preview Button */}
-                    <button
-                      onClick={() => setSelectedProduct(product)}
-                      className="mt-3 flex items-center gap-1.5 text-[11px] font-semibold text-[#FF7A1A] hover:underline"
-                    >
-                      <span>View interface preview</span>
-                      <ExternalLink className="h-3 w-3" />
-                    </button>
-
-                    <div className="my-4 border-t border-slate-100" />
-
-                    {/* Feature Breakdown Sections */}
-                    <div className="space-y-3.5">
-                      {product.sections.map((sec, idx) => (
-                        <div key={idx}>
-                          <h4 className="text-[10px] font-bold uppercase tracking-wider text-slate-700 mb-1">
-                            {sec.heading}
-                          </h4>
-                          <p className="text-xs text-slate-600 leading-relaxed">
-                            {sec.description}
-                          </p>
-                        </div>
-                      ))}
-                    </div>
-
-                    {/* Highlight Pills */}
-                    <div className="mt-5 flex flex-wrap gap-1.5">
-                      {product.highlights.map((h, i) => (
-                        <span
-                          key={i}
-                          className="rounded-full bg-slate-100 px-2.5 py-1 text-[11px] font-medium text-slate-700 border border-slate-200/60"
-                        >
-                          {h}
-                        </span>
-                      ))}
-                    </div>
-
-                    {/* Tech Stack */}
-                    {product.techStack && (
-                      <div className="mt-4 pt-3 border-t border-slate-100">
-                        <p className="text-[11px] text-slate-500 font-medium">
-                          <span className="font-bold text-slate-700">Stack:</span>{' '}
-                          {product.techStack.join(' | ')}
-                        </p>
-                      </div>
-                    )}
                   </div>
                 </div>
 
-                {/* Card Actions */}
                 <div className="px-6 pb-6 pt-0">
-                  <div className="pt-4 border-t border-slate-100 flex flex-col gap-2">
-                    <Link
-                      href={`/contact?product=${encodeURIComponent(product.name)}&request=${encodeURIComponent(product.request)}`}
-                      className="w-full rounded-lg bg-[#FF7A1A] hover:bg-[#EA6608] py-2.5 px-4 text-center text-xs font-bold uppercase tracking-wider text-white shadow-sm transition-all hover:shadow"
-                    >
-                      {product.action}
-                    </Link>
-                    <Link
-                      href={`/contact?product=${encodeURIComponent(product.name)}&request=General%20Enquiry`}
-                      className="w-full rounded-lg border border-slate-300 hover:border-slate-400 bg-white hover:bg-slate-50 py-2 px-4 text-center text-xs font-bold uppercase tracking-wider text-slate-700 transition-colors"
-                    >
-                      ASK ABOUT {product.name.toUpperCase()}
-                    </Link>
-                  </div>
+                  <Link
+                    href={`/products/${product.id}`}
+                    className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-[#FF7A1A] px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-white shadow-sm transition-all hover:bg-[#EA6608] hover:shadow"
+                  >
+                    LEARN MORE
+                  </Link>
                 </div>
               </div>
             ))}
@@ -406,58 +399,174 @@ export default function ProductSection() {
         </div>
       </section>
 
-      {/* Product Image Modal */}
-      <AnimatePresence>
-        {selectedProduct && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setSelectedProduct(null)}
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/75 p-4 backdrop-blur-sm"
-          >
-            <motion.div
-              initial={{ scale: 0.95, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.95, opacity: 0 }}
-              onClick={(e) => e.stopPropagation()}
-              className="relative max-w-3xl w-full bg-white rounded-2xl overflow-hidden shadow-2xl border border-slate-700"
-            >
-              <div className="flex items-center justify-between border-b border-slate-100 px-6 py-4 bg-slate-50">
-                <div>
-                  <h3 className="font-bold text-slate-900 text-lg">{selectedProduct.name} Interface</h3>
-                  <p className="text-xs text-slate-500">{selectedProduct.imageCaption}</p>
+    </div>
+  );
+}
+
+export function ProductDetail({ productId }: { productId: string }) {
+  const product = products.find((item) => item.id === productId);
+
+  if (!product) {
+    return (
+      <section className="min-h-[60vh] bg-slate-50 px-6 py-32 text-center">
+        <h1 className="text-3xl font-extrabold text-slate-900">Product not found</h1>
+        <Link href="/products" className="mt-6 inline-flex text-sm font-bold text-[#FF7A1A] hover:underline">
+          Back to products
+        </Link>
+      </section>
+    );
+  }
+
+  return (
+    <div className="min-h-screen bg-slate-50 text-slate-900">
+      <section className="bg-[#0A1230] px-6 pb-12 pt-32 text-white">
+        <div className="mx-auto max-w-6xl">
+          <Link href="/products" className="text-xs font-bold uppercase tracking-wider text-[#FFAA55] hover:text-white">
+            Products
+          </Link>
+          <p className="mt-8 text-xs font-bold uppercase tracking-[0.25em] text-[#FF7A1A]">
+            {product.detailCategory}
+          </p>
+          <h1 className="mt-3 max-w-3xl text-4xl font-extrabold tracking-tight sm:text-5xl">
+            {product.name}
+          </h1>
+          <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate-300 sm:text-lg">
+            {product.summary}
+          </p>
+          <span className={`mt-6 inline-flex rounded-full border px-3 py-1 text-xs font-bold uppercase tracking-wider ${
+            product.status === 'Live'
+              ? 'border-emerald-300 bg-emerald-500/15 text-emerald-200'
+              : 'border-amber-300 bg-amber-500/15 text-amber-200'
+          }`}>
+            {product.status}
+          </span>
+        </div>
+      </section>
+
+      <section id="product-capabilities" className="px-6 py-14">
+        <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[1.1fr_0.9fr]">
+          <div className="relative aspect-[16/10] overflow-hidden rounded-2xl border border-slate-200 bg-[#0A1230] shadow-lg">
+            <Image
+              src={product.image}
+              alt={product.imageAlt}
+              fill
+              priority
+              sizes="(max-width: 1024px) 100vw, 55vw"
+              className="object-contain"
+            />
+            <p className="absolute inset-x-0 bottom-0 bg-[#0A1230]/80 px-4 py-3 text-xs text-white">
+              {product.imageCaption}
+            </p>
+          </div>
+
+          <div>
+            <h2 className="text-2xl font-extrabold text-slate-900">Product capabilities</h2>
+            <div className="mt-6 space-y-5">
+              {product.sections.map((section) => (
+                <div key={section.heading} className="border-l-2 border-[#FFAA55] pl-4">
+                  <h3 className="text-xs font-bold uppercase tracking-wider text-[#0A1230]">
+                    {section.heading}
+                  </h3>
+                  <p className="mt-1 text-sm leading-relaxed text-slate-600">
+                    {section.description}
+                  </p>
                 </div>
-                <button
-                  onClick={() => setSelectedProduct(null)}
-                  className="rounded-full p-1.5 text-slate-500 hover:bg-slate-200 transition-colors"
-                >
-                  <X className="h-5 w-5" />
-                </button>
-              </div>
+              ))}
+            </div>
+            <div className="mt-7 flex flex-wrap gap-2">
+              {product.highlights.map((highlight) => (
+                <span key={highlight} className="rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-700">
+                  {highlight}
+                </span>
+              ))}
+            </div>
+            {product.techStack && (
+              <p className="mt-6 border-t border-slate-200 pt-4 text-xs leading-relaxed text-slate-600">
+                <span className="font-bold text-slate-800">Stack:</span> {product.techStack.join(' | ')}
+              </p>
+            )}
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link
+                href={`/contact?product=${encodeURIComponent(product.name)}&request=${encodeURIComponent(product.request)}`}
+                className="rounded-lg bg-[#FF7A1A] px-5 py-3 text-xs font-bold uppercase tracking-wider text-white shadow-sm transition-colors hover:bg-[#EA6608]"
+              >
+                {product.action}
+              </Link>
+              <Link
+                href="/products"
+                className="rounded-lg border border-slate-300 bg-white px-5 py-3 text-xs font-bold uppercase tracking-wider text-slate-700 transition-colors hover:bg-slate-100"
+              >
+                ALL PRODUCTS
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
 
-              <div className="relative aspect-[16/10] w-full bg-[#0A1230]">
-                <Image
-                  src={selectedProduct.image}
-                  alt={selectedProduct.imageAlt}
-                  fill
-                  className="object-contain"
-                />
+      <section className="bg-white px-6 py-16">
+        <div className="mx-auto max-w-6xl">
+          <div className="max-w-3xl">
+            <h2 className="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
+              {product.detailHeadline}
+            </h2>
+            <p className="mt-5 text-base leading-relaxed text-slate-600">
+              {product.detailIntro}
+            </p>
+          </div>
+          <h3 className="mt-10 text-xs font-bold uppercase tracking-[0.2em] text-[#FF7A1A]">
+            What it brings together
+          </h3>
+          <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {product.detailFeatures.map((feature) => (
+              <div key={feature.title} className="rounded-xl border border-slate-200 bg-slate-50 p-5">
+                <h4 className="font-bold text-slate-900">{feature.title}</h4>
+                <p className="mt-2 text-sm leading-relaxed text-slate-600">{feature.description}</p>
               </div>
+            ))}
+          </div>
+          <div className="mt-8 flex flex-col items-start justify-between gap-5 rounded-xl bg-[#0A1230] p-6 text-white sm:flex-row sm:items-center md:p-8">
+            <p className="max-w-2xl text-sm font-medium leading-relaxed text-slate-200">
+              {product.detailClosing}
+            </p>
+            <div className="flex shrink-0 flex-wrap gap-3">
+              <Link
+                href={`/contact?product=${encodeURIComponent(product.name)}&request=${encodeURIComponent(product.request)}`}
+                className="rounded-lg bg-[#FF7A1A] px-5 py-3 text-xs font-bold uppercase tracking-wider text-white transition-colors hover:bg-[#EA6608]"
+              >
+                {product.action}
+              </Link>
+              <Link
+                href="#product-capabilities"
+                className="rounded-lg border border-slate-500 px-5 py-3 text-xs font-bold uppercase tracking-wider text-white transition-colors hover:bg-white/10"
+              >
+                {product.exploreLabel}
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
 
-              <div className="p-6 bg-white flex items-center justify-between">
-                <p className="text-xs text-slate-600 max-w-md">{selectedProduct.summary}</p>
-                <Link
-                  href={`/contact?product=${encodeURIComponent(selectedProduct.name)}`}
-                  className="rounded-lg bg-[#FF7A1A] hover:bg-[#EA6608] px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-white"
-                >
-                  {selectedProduct.action}
-                </Link>
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <section className="bg-slate-50 px-6 py-14">
+        <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-6 rounded-2xl border border-slate-200 bg-white p-8 shadow-sm md:flex-row md:items-center">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#FF7A1A]">
+              Your business. Your workflow. Our engineering.
+            </p>
+            <h2 className="mt-3 max-w-2xl text-2xl font-extrabold tracking-tight text-slate-900">
+              Don’t Just Adapt Your Business to Software. Find Software That Fits Your Business.
+            </h2>
+            <p className="mt-3 max-w-2xl text-sm leading-relaxed text-slate-600">
+              Every business operates differently. If your requirements go beyond our existing products, let’s explore how we can build or customize a solution around your operational needs.
+            </p>
+          </div>
+          <Link
+            href={`/contact?product=${encodeURIComponent(product.name)}&request=${encodeURIComponent('Requirements discussion')}`}
+            className="shrink-0 rounded-lg bg-[#FF7A1A] px-5 py-3 text-xs font-bold uppercase tracking-wider text-white transition-colors hover:bg-[#EA6608]"
+          >
+            LET&apos;S DISCUSS YOUR REQUIREMENTS →
+          </Link>
+        </div>
+      </section>
     </div>
   );
 }

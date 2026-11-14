@@ -1,6 +1,13 @@
 import { NextResponse } from 'next/server';
 
 export const GET = async () => {
+  const productUrls = ['ferticare', 'gym-pad', 'motor-consult', 'box-care', 'clinic-cms']
+    .map((id) => `    <url>
+      <loc>https://www.acutixsoft.com/products/${id}</loc>
+      <priority>0.8</priority>
+    </url>`)
+    .join('\n');
+
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
   <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
@@ -11,6 +18,11 @@ export const GET = async () => {
       <loc>https://www.acutixsoft.com/services</loc>
       <priority>0.8</priority>
     </url>
+    <url>
+      <loc>https://www.acutixsoft.com/products</loc>
+      <priority>0.8</priority>
+    </url>
+${productUrls}
     <url>
       <loc>https://www.acutixsoft.com/careers</loc>
       <priority>0.7</priority>

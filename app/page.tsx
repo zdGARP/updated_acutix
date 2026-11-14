@@ -20,6 +20,8 @@ import {
   Trophy
 } from 'lucide-react';
 import AcutixFAQSchema from '@/components/AcutixFAQSchema';
+import AnimatedCounter from '@/components/AnimatedCounter';
+import FAQAccordion from '@/components/FAQAccordion';
 
 export const metadata: Metadata = {
   title: 'Digital Solutions & Industry-Academia Engineering | Acutix Soft',
@@ -214,7 +216,7 @@ export default function Home() {
                 <div className="px-4 pb-4 pt-0">
                   <div className="pt-3 border-t border-slate-100">
                     <Link
-                      href={`/products#${p.id}`}
+                      href={`/products/${p.id}`}
                       className="inline-flex items-center gap-1 text-xs font-bold text-[#FF7A1A] hover:underline"
                     >
                       <span>Explore Product</span>
@@ -360,13 +362,13 @@ export default function Home() {
                     Incubation Hub
                   </span>
                   <h3 className="mt-3 text-xl sm:text-2xl font-bold leading-snug drop-shadow-md">
-                    1,500+ Engineers Trained in Live SaaS Sprints
+                    <AnimatedCounter value={1500} suffix="+ Engineers Trained in Live SaaS Sprints" />
                   </h3>
                 </div>
 
                 <div className="relative z-10 flex items-center justify-between text-xs text-slate-200 border-t border-white/20 pt-4 backdrop-blur-xs">
-                  <span>Co-established Labs: 4 Colleges</span>
-                  <span>Placement Success: 94%</span>
+                  <span>Co-established Labs: <AnimatedCounter value={4} /> Colleges</span>
+                  <span>Placement Success: <AnimatedCounter value={94} suffix="%" /></span>
                 </div>
               </div>
             </div>
@@ -409,7 +411,7 @@ export default function Home() {
             {/* Column 3: Stat counter with vertical divider */}
             <div className="lg:col-span-3 text-left lg:border-l lg:border-[#18295E]/80 lg:pl-8 flex flex-col justify-center h-full pt-2 lg:pt-0">
               <p className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#FF7A1A] tracking-tight">
-                5000+
+                <AnimatedCounter value={5000} suffix="+" />
               </p>
               <p className="text-sm font-semibold text-slate-200 mt-1">
                 Students Trained
@@ -455,39 +457,12 @@ export default function Home() {
       </section>
 
       {/* 6. Frequently Asked Questions (Light Background) */}
-      <section className="py-16 px-6 bg-slate-50 border-b border-slate-200">
-        <div className="container mx-auto max-w-6xl">
-          <div className="mb-10 text-left">
-            <p className="text-[11px] font-bold uppercase tracking-widest text-[#FF7A1A] mb-1">
-              FAQ
-            </p>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-              Frequently Asked Questions
-            </h2>
-            <p className="mt-1 text-sm text-slate-600 max-w-xl">
-              Find answers to common questions about our services, products, and academic partnerships.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {faqs.map((faq, i) => (
-              <div
-                key={i}
-                className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm flex flex-col justify-between"
-              >
-                <div>
-                  <h3 className="text-sm font-bold text-slate-900 mb-2">
-                    {faq.question}
-                  </h3>
-                  <p className="text-xs text-slate-600 leading-relaxed">
-                    {faq.answer}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <FAQAccordion
+        eyebrow="FAQ"
+        title="Frequently Asked Questions"
+        description="Find answers to common questions about our services, products, and academic partnerships."
+        items={faqs}
+      />
 
       <AcutixFAQSchema />
     </div>

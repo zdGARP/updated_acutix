@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { sendForm } from '../lib/sendForm';
+import FAQAccordion from '@/components/FAQAccordion';
 import {
   Mail,
   Phone,
@@ -346,29 +347,11 @@ export default function ContactSection({ productContext = '' }: ContactSectionPr
         </div>
       </section>
 
-      {/* 5. Frequently Asked Questions (Dark Blue Background #0A1230) */}
-      <section className="bg-[#0A1230] py-16 px-6 text-white border-y border-[#152352]">
-        <div className="container mx-auto max-w-6xl text-left">
-          <p className="text-[11px] font-bold uppercase tracking-widest text-[#FF7A1A] mb-1">
-            FAQ
-          </p>
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight mb-8">
-            Frequently Asked Questions
-          </h2>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {faqs.map((f, i) => (
-              <div
-                key={i}
-                className="rounded-xl border border-[#18295E] bg-[#101D48] p-6 hover:border-[#1E2E62] transition-colors"
-              >
-                <h3 className="text-sm font-bold text-white mb-2">{f.question}</h3>
-                <p className="text-xs text-slate-400 leading-relaxed">{f.answer}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <FAQAccordion
+        eyebrow="FAQ"
+        title="Frequently Asked Questions"
+        items={faqs}
+      />
 
       {/* 6. We're Ready to Hear From You (Light Background) */}
       <section className="py-14 px-6 bg-white border-b border-slate-200">

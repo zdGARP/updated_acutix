@@ -14,6 +14,7 @@ import {
   ShieldCheck,
   Quote
 } from 'lucide-react';
+import HorizontalMarquee from '@/components/HorizontalMarquee';
 
 const capabilities = [
   {
@@ -339,23 +340,32 @@ export default function AboutSection() {
             What our collaborators say
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {testimonials.map((t, idx) => (
-              <div
-                key={idx}
-                className="rounded-xl border border-[#18295E] bg-[#101D48] p-6 flex flex-col justify-between hover:border-[#1E2E62] transition-colors"
+          <div className="space-y-4">
+            {[testimonials.filter((_, idx) => idx % 2 === 0), testimonials.filter((_, idx) => idx % 2 === 1)].map((row, rowIndex) => (
+              <HorizontalMarquee
+                key={rowIndex}
+                direction={rowIndex === 0 ? 'left' : 'right'}
+                duration={rowIndex === 0 ? '56s' : '62s'}
+                label={rowIndex === 0 ? 'Client testimonials, first row' : 'Client testimonials, second row'}
               >
-                <div>
-                  <Quote className="h-4 w-4 text-[#FF7A1A] mb-2 opacity-70" />
-                  <p className="text-xs text-slate-300 leading-relaxed italic mb-4">
-                    &ldquo;{t.text}&rdquo;
-                  </p>
-                </div>
-                <div className="pt-3 border-t border-[#18295E]">
-                  <h4 className="text-xs font-bold text-white">{t.name}</h4>
-                  <p className="text-[11px] text-[#FF7A1A]">{t.role}</p>
-                </div>
-              </div>
+                {row.map((t) => (
+                  <div
+                    key={t.name}
+                    className="flex w-[320px] shrink-0 flex-col justify-between rounded-xl border border-[#18295E] bg-[#101D48] p-6 transition-colors hover:border-[#1E2E62] sm:w-[380px]"
+                  >
+                    <div>
+                      <Quote className="mb-2 h-4 w-4 text-[#FF7A1A] opacity-70" />
+                      <p className="mb-4 text-xs italic leading-relaxed text-slate-300">
+                        &ldquo;{t.text}&rdquo;
+                      </p>
+                    </div>
+                    <div className="border-t border-[#18295E] pt-3">
+                      <h4 className="text-xs font-bold text-white">{t.name}</h4>
+                      <p className="text-[11px] text-[#FF7A1A]">{t.role}</p>
+                    </div>
+                  </div>
+                ))}
+              </HorizontalMarquee>
             ))}
           </div>
         </div>

@@ -1,6 +1,6 @@
 'use client';
-import { motion } from 'framer-motion';
 import { Star } from 'lucide-react';
+import HorizontalMarquee from '@/components/HorizontalMarquee';
 
 const testimonials = [
   { name: 'Sarah Jenkins', company: 'TechFlow Inc.', rating: 5, feedback: 'The level of professionalism and technical expertise is unmatched. They transformed our legacy systems into a modern cloud architecture flawlessly.' },
@@ -21,30 +21,33 @@ export default function Testimonials() {
         <p className="text-gray-400">Hear from the enterprises that trust our solutions.</p>
       </div>
 
-      <div className="flex relative w-full overflow-hidden">
-        <motion.div 
-          className="flex space-x-6 shrink-0 px-6"
-          animate={{ x: ["0%", "-50%"] }}
-          transition={{ repeat: Infinity, ease: 'linear', duration: 50 }}
-        >
-          {[...testimonials, ...testimonials, ...testimonials].map((t, i) => (
-            <div key={i} className="w-80 md:w-96 p-8 bg-gray-900/60 backdrop-blur-xl border border-white/10 rounded-2xl shrink-0 hover:border-[#FFAA55]/70 transition-colors shadow-lg">
-              <div className="mb-4 flex text-[#0A1230]">
-                {[...Array(t.rating)].map((_, j) => <Star key={j} className="w-4 h-4 fill-current" />)}
-              </div>
-              <p className="text-gray-300 mb-6 leading-relaxed text-sm italic">&quot;{t.feedback}&quot;</p>
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-gray-800 border border-gray-700 rounded-full flex items-center justify-center text-white font-bold text-lg">
-                  {t.name.charAt(0)}
+      <div className="relative flex w-full flex-col gap-5">
+        {[testimonials.filter((_, index) => index % 2 === 0), testimonials.filter((_, index) => index % 2 === 1)].map((row, rowIndex) => (
+          <HorizontalMarquee
+            key={rowIndex}
+            direction={rowIndex === 0 ? 'left' : 'right'}
+            duration={rowIndex === 0 ? '54s' : '60s'}
+            label={rowIndex === 0 ? 'Client testimonials, first row' : 'Client testimonials, second row'}
+          >
+            {row.map((t) => (
+              <div key={t.name} className="w-80 shrink-0 rounded-2xl border border-white/10 bg-gray-900/60 p-8 shadow-lg backdrop-blur-xl transition-colors hover:border-[#FFAA55]/70 md:w-96">
+                <div className="mb-4 flex text-[#FFAA55]">
+                  {[...Array(t.rating)].map((_, j) => <Star key={j} className="h-4 w-4 fill-current" />)}
                 </div>
-                <div>
-                  <h5 className="text-white font-semibold text-sm">{t.name}</h5>
-                  <span className="text-[#0A1230] text-xs">{t.company}</span>
+                <p className="mb-6 text-sm italic leading-relaxed text-gray-300">&quot;{t.feedback}&quot;</p>
+                <div className="flex items-center gap-4">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full border border-gray-700 bg-gray-800 text-lg font-bold text-white">
+                    {t.name.charAt(0)}
+                  </div>
+                  <div>
+                    <h5 className="text-sm font-semibold text-white">{t.name}</h5>
+                    <span className="text-xs text-[#FFAA55]">{t.company}</span>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
-        </motion.div>
+            ))}
+          </HorizontalMarquee>
+        ))}
       </div>
     </section>
   );

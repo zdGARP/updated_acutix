@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -31,6 +31,8 @@ import {
   Users,
   Headphones
 } from 'lucide-react';
+import AnimatedCounter from '@/components/AnimatedCounter';
+import FAQ from '@/components/services/FAQ';
 
 interface ServiceItem {
   id: string;
@@ -270,6 +272,29 @@ const workflowSteps = [
 export default function OurServices() {
   const [activeCategory, setActiveCategory] = useState('All');
   const [selectedService, setSelectedService] = useState<ServiceItem | null>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    if (!selectedService) return;
+
+    const previousFocus = document.activeElement instanceof HTMLElement
+      ? document.activeElement
+      : null;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setSelectedService(null);
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    closeButtonRef.current?.focus();
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener('keydown', handleKeyDown);
+      previousFocus?.focus();
+    };
+  }, [selectedService]);
 
   const filteredServices = activeCategory === 'All'
     ? servicesData
@@ -346,19 +371,19 @@ export default function OurServices() {
         <div className="container mx-auto max-w-6xl">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-left">
             <div>
-              <p className="text-3xl sm:text-4xl font-extrabold text-white">4</p>
+              <p className="text-3xl sm:text-4xl font-extrabold text-white"><AnimatedCounter value={4} /></p>
               <p className="mt-1 text-xs text-slate-300 font-medium">Full-stack SaaS Deliveries</p>
             </div>
             <div>
-              <p className="text-3xl sm:text-4xl font-extrabold text-white">10+</p>
+              <p className="text-3xl sm:text-4xl font-extrabold text-white"><AnimatedCounter value={10} suffix="+" /></p>
               <p className="mt-1 text-xs text-slate-300 font-medium">Heavy SaaS Features (Billing, Roles, EMR)</p>
             </div>
             <div>
-              <p className="text-3xl sm:text-4xl font-extrabold text-white">100+</p>
+              <p className="text-3xl sm:text-4xl font-extrabold text-white"><AnimatedCounter value={100} suffix="+" /></p>
               <p className="mt-1 text-xs text-slate-300 font-medium">Years of Collective Team Experience</p>
             </div>
             <div>
-              <p className="text-3xl sm:text-4xl font-extrabold text-white">100%</p>
+              <p className="text-3xl sm:text-4xl font-extrabold text-white"><AnimatedCounter value={100} suffix="%" /></p>
               <p className="mt-1 text-xs text-slate-300 font-medium">Production Deployed Applications</p>
             </div>
           </div>
@@ -387,10 +412,7 @@ export default function OurServices() {
                 >
                   <div>
                     {/* Service Card Image Banner */}
-                    <div
-                      onClick={() => setSelectedService(service)}
-                      className="relative aspect-[16/10] w-full bg-[#0A1230] overflow-hidden cursor-pointer"
-                    >
+                    <div className="relative aspect-[16/10] w-full bg-[#0A1230] overflow-hidden">
                       <Image
                         src={service.image}
                         alt={service.title}
@@ -411,28 +433,9 @@ export default function OurServices() {
                       <h3 className="text-lg font-bold text-slate-900 group-hover:text-[#FF7A1A] transition-colors">
                         {service.title}
                       </h3>
-                      <p className="mt-2 text-xs leading-relaxed text-slate-600 min-h-[48px]">
-                        {service.description}
+                      <p className="mt-2 min-h-[48px] text-xs leading-relaxed text-slate-600">
+                        {service.description.split('. ')[0].replace(/[.!?]+$/, '')}.
                       </p>
-
-                      {/* Feature Pills */}
-                      <div className="mt-4 flex flex-wrap gap-1.5">
-                        {service.features.map((feat, idx) => (
-                          <span
-                            key={idx}
-                            className="rounded-full bg-slate-100 px-2.5 py-1 text-[11px] font-medium text-slate-700 border border-slate-200/60"
-                          >
-                            {feat}
-                          </span>
-                        ))}
-                      </div>
-
-                      {/* Highlight Box */}
-                      <div className="mt-4 pt-3 border-t border-slate-100">
-                        <p className="text-[11px] text-slate-600 italic">
-                          {service.highlight}
-                        </p>
-                      </div>
                     </div>
                   </div>
 
@@ -569,6 +572,8 @@ export default function OurServices() {
         </div>
       </section>
 
+      <FAQ />
+
       {/* 7. Ready to Build Banner (Light Background) */}
       <section className="py-14 px-6 bg-white border-b border-slate-200">
         <div className="container mx-auto max-w-6xl flex flex-col md:flex-row items-center justify-between gap-6">
@@ -602,6 +607,7 @@ export default function OurServices() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setSelectedService(null)}
+            role="presentation"
             className="fixed inset-0 z-50 flex items-center justify-center bg-black/75 p-4 backdrop-blur-sm"
           >
             <motion.div
@@ -609,6 +615,9 @@ export default function OurServices() {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.95, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="service-modal-title"
               className="relative max-w-2xl w-full bg-white rounded-2xl overflow-hidden shadow-2xl border border-slate-200"
             >
               <div className="flex items-center justify-between border-b border-slate-100 px-6 py-4 bg-slate-50">
@@ -617,11 +626,14 @@ export default function OurServices() {
                     {selectedService.letter}
                   </div>
                   <div>
-                    <h3 className="font-bold text-slate-900 text-base">{selectedService.title}</h3>
+                    <h3 id="service-modal-title" className="font-bold text-slate-900 text-base">{selectedService.title}</h3>
                     <p className="text-[11px] text-slate-500">{selectedService.category}</p>
                   </div>
                 </div>
                 <button
+                  ref={closeButtonRef}
+                  type="button"
+                  aria-label="Close service details"
                   onClick={() => setSelectedService(null)}
                   className="rounded-full p-1.5 text-slate-400 hover:text-slate-700 hover:bg-slate-200 transition-colors"
                 >
