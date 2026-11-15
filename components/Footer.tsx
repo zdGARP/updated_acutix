@@ -59,16 +59,16 @@ const Footer = () => {
                 { href: '/', text: 'Home' },
                 { href: '/products', text: 'Products' },
                 { href: '/services', text: 'Services' },
-                { href: '/collaborations', text: 'Collaboration' },
-                { href: '/careers', text: 'Careers' },
-                { href: '/blogs', text: 'Blog' },
+                { href: '/collaborations', text: 'Partnerships' },
+                { href: '/careers', text: 'Programs' },
+                { href: '/blogs', text: 'Blogs' },
                 { href: '/about', text: 'About Us' },
                 { href: '/contact', text: 'Contact Us' }
               ].map((item, index) => (
                 <li key={index}>
                   <Link
                     href={item.href}
-                    className="inline-block text-xs sm:text-sm text-slate-400 transition-colors duration-200 hover:text-[#FF7A1A]"
+                    className="site-nav-link inline-block text-xs sm:text-sm text-slate-400"
                   >
                     {item.text}
                   </Link>

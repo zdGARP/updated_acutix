@@ -24,6 +24,7 @@ import {
   ShieldCheck,
   Trophy
 } from 'lucide-react';
+import HeroVisual from '@/components/HeroVisual';
 
 const institutions = [
   {
@@ -220,30 +221,35 @@ export default function CollaborationsSection() {
       {/* 1. Dark Blue Hero Section (#0A1230) */}
       <section className="relative bg-[#0A1230] pt-32 pb-20 px-6 text-white border-b border-[#152352]">
         <div className="container mx-auto max-w-6xl">
-          <p className="text-xs font-bold uppercase tracking-[0.25em] text-[#FF7A1A] mb-3">
-            ACADEMIC ALLIANCE &amp; SPRINT
-          </p>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white max-w-3xl leading-tight">
-            Academic Alliance Hub
-          </h1>
-          <p className="mt-4 text-base sm:text-lg text-slate-300 max-w-2xl leading-relaxed">
-            Bridging the gap between academia and industry. We co-establish production labs with colleges, train students on commercial SaaS products, and groom future-ready software engineers.
-          </p>
+          <div className="grid items-center gap-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(18rem,0.85fr)]">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[0.25em] text-[#FF7A1A] mb-3">
+                ACADEMIC ALLIANCE &amp; SPRINT
+              </p>
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white max-w-3xl leading-tight">
+                Academic Alliance Hub
+              </h1>
+              <p className="mt-4 text-base sm:text-lg text-slate-300 max-w-2xl leading-relaxed">
+                Bridging the gap between academia and industry. We co-establish production labs with colleges, train students on commercial SaaS products, and groom future-ready software engineers.
+              </p>
 
-          <div className="mt-8 flex flex-wrap gap-4">
-            <a
-              href="#mou-form"
-              className="inline-flex items-center gap-2 rounded-lg bg-[#FF7A1A] hover:bg-[#EA6608] px-6 py-3 text-xs font-bold uppercase tracking-wider text-white shadow-sm transition-all hover:scale-[1.02]"
-            >
-              <span>INITIATE AN ALLIANCE</span>
-              <ArrowRight className="h-4 w-4" />
-            </a>
-            <a
-              href="#co-established-labs"
-              className="inline-flex items-center rounded-lg border border-[#18295E] bg-[#101D48]/50 hover:bg-[#101D48] px-6 py-3 text-xs font-bold uppercase tracking-wider text-white transition-colors"
-            >
-              EXPLORE CASE STUDIES
-            </a>
+              <div className="mt-8 flex flex-wrap gap-4">
+                <a
+                  href="#mou-form"
+                  className="inline-flex items-center gap-2 rounded-lg bg-[#FF7A1A] hover:bg-[#EA6608] px-6 py-3 text-xs font-bold uppercase tracking-wider text-white shadow-sm transition-all hover:scale-[1.02]"
+                >
+                  <span>INITIATE AN ALLIANCE</span>
+                  <ArrowRight className="h-4 w-4" />
+                </a>
+                <a
+                  href="#co-established-labs"
+                  className="inline-flex items-center rounded-lg border border-[#18295E] bg-[#101D48]/50 hover:bg-[#101D48] px-6 py-3 text-xs font-bold uppercase tracking-wider text-white transition-colors"
+                >
+                  EXPLORE CASE STUDIES
+                </a>
+              </div>
+            </div>
+            <HeroVisual variant="partnerships" />
           </div>
         </div>
       </section>

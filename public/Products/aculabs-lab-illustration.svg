@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" fill="none">
+  <defs>
+    <linearGradient id="background" x1="84" y1="68" x2="1097" y2="662" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#172A5A"/>
+      <stop offset="1" stop-color="#0A1230"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="110" y1="0" x2="1090" y2="720" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#35C6D0"/>
+      <stop offset="1" stop-color="#FF7A1A"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="720" rx="36" fill="url(#background)"/>
+  <circle cx="1054" cy="148" r="118" fill="#35C6D0" fill-opacity=".08"/>
+  <circle cx="158" cy="599" r="142" fill="#FF7A1A" fill-opacity=".08"/>
+  <rect x="91" y="75" width="1018" height="570" rx="24" fill="#F8FAFC"/>
+  <path d="M91 99C91 85.745 101.745 75 115 75H1085C1098.25 75 1109 85.745 1109 99V145H91V99Z" fill="white"/>
+  <circle cx="126" cy="110" r="7" fill="#FF7A1A"/>
+  <circle cx="151" cy="110" r="7" fill="#35C6D0"/>
+  <circle cx="176" cy="110" r="7" fill="#CBD5E1"/>
+  <text x="211" y="117" fill="#0A1230" font-family="Arial, sans-serif" font-size="24" font-weight="700">AcuLabs</text>
+  <text x="1015" y="115" fill="#64748B" font-family="Arial, sans-serif" font-size="14" font-weight="600" text-anchor="end">LAB WORKFLOW</text>
+  <text x="130" y="190" fill="#0A1230" font-family="Arial, sans-serif" font-size="24" font-weight="700">Laboratory overview</text>
+  <text x="130" y="218" fill="#64748B" font-family="Arial, sans-serif" font-size="14">A clear view from test order to verified report</text>
+  <rect x="130" y="246" width="292" height="98" rx="14" fill="white" stroke="#E2E8F0"/>
+  <rect x="149" y="265" width="34" height="34" rx="10" fill="#E0F7F7"/>
+  <path d="M160 272H172M163 272V280L157 291C156 293 158 296 161 296H172C175 296 177 293 176 291L170 280V272" stroke="#1597A0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="196" y="278" fill="#64748B" font-family="Arial, sans-serif" font-size="13" font-weight="600">PATIENTS</text>
+  <text x="196" y="314" fill="#0A1230" font-family="Arial, sans-serif" font-size="14" font-weight="700">Registration &amp; history</text>
+  <rect x="454" y="246" width="292" height="98" rx="14" fill="white" stroke="#E2E8F0"/>
+  <rect x="473" y="265" width="34" height="34" rx="10" fill="#FFF2E8"/>
+  <path d="M490 272V291M483 279H497M486 269H494V273H486V269Z" stroke="#E56D18" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="520" y="278" fill="#64748B" font-family="Arial, sans-serif" font-size="13" font-weight="600">TEST ORDERS</text>
+  <text x="520" y="314" fill="#0A1230" font-family="Arial, sans-serif" font-size="14" font-weight="700">Create &amp; track</text>
+  <rect x="778" y="246" width="292" height="98" rx="14" fill="white" stroke="#E2E8F0"/>
+  <rect x="797" y="265" width="34" height="34" rx="10" fill="#EAF8F0"/>
+  <path d="M807 282L812 287L822 276" stroke="#18834B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="844" y="278" fill="#64748B" font-family="Arial, sans-serif" font-size="13" font-weight="600">SAMPLE FLOW</text>
+  <text x="844" y="314" fill="#0A1230" font-family="Arial, sans-serif" font-size="14" font-weight="700">Collect &amp; process</text>
+  <rect x="130" y="370" width="600" height="232" rx="14" fill="white" stroke="#E2E8F0"/>
+  <text x="154" y="405" fill="#0A1230" font-family="Arial, sans-serif" font-size="16" font-weight="700">Recent test orders</text>
+  <text x="154" y="438" fill="#94A3B8" font-family="Arial, sans-serif" font-size="11" font-weight="700">PATIENT</text>
+  <text x="352" y="438" fill="#94A3B8" font-family="Arial, sans-serif" font-size="11" font-weight="700">TEST</text>
+  <text x="576" y="438" fill="#94A3B8" font-family="Arial, sans-serif" font-size="11" font-weight="700">STATUS</text>
+  <path d="M154 451H706M154 501H706M154 551H706" stroke="#E2E8F0"/>
+  <text x="154" y="481" fill="#334155" font-family="Arial, sans-serif" font-size="13" font-weight="600">Patient record</text>
+  <text x="352" y="481" fill="#64748B" font-family="Arial, sans-serif" font-size="13">Blood panel</text>
+  <rect x="576" y="463" width="99" height="24" rx="12" fill="#E0F7F7"/>
+  <text x="625.5" y="479" fill="#167E86" font-family="Arial, sans-serif" font-size="11" font-weight="700" text-anchor="middle">IN REVIEW</text>
+  <text x="154" y="531" fill="#334155" font-family="Arial, sans-serif" font-size="13" font-weight="600">Patient record</text>
+  <text x="352" y="531" fill="#64748B" font-family="Arial, sans-serif" font-size="13">Thyroid profile</text>
+  <rect x="576" y="513" width="99" height="24" rx="12" fill="#FFF2E8"/>
+  <text x="625.5" y="529" fill="#B95710" font-family="Arial, sans-serif" font-size="11" font-weight="700" text-anchor="middle">PROCESSING</text>
+  <text x="154" y="581" fill="#334155" font-family="Arial, sans-serif" font-size="13" font-weight="600">Patient record</text>
+  <text x="352" y="581" fill="#64748B" font-family="Arial, sans-serif" font-size="13">Lipid profile</text>
+  <rect x="576" y="563" width="99" height="24" rx="12" fill="#EAF8F0"/>
+  <text x="625.5" y="579" fill="#167243" font-family="Arial, sans-serif" font-size="11" font-weight="700" text-anchor="middle">VERIFIED</text>
+  <rect x="762" y="370" width="308" height="232" rx="14" fill="white" stroke="#E2E8F0"/>
+  <text x="786" y="405" fill="#0A1230" font-family="Arial, sans-serif" font-size="16" font-weight="700">Report workflow</text>
+  <text x="786" y="434" fill="#64748B" font-family="Arial, sans-serif" font-size="12">Review each result before release</text>
+  <rect x="786" y="458" width="260" height="37" rx="9" fill="#F8FAFC"/>
+  <circle cx="804" cy="476.5" r="5" fill="#94A3B8"/>
+  <text x="820" y="481" fill="#475569" font-family="Arial, sans-serif" font-size="12" font-weight="600">Draft</text>
+  <path d="M1010 473L1015 478L1024 469" stroke="#94A3B8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="786" y="504" width="260" height="37" rx="9" fill="#E0F7F7"/>
+  <circle cx="804" cy="522.5" r="5" fill="#1597A0"/>
+  <text x="820" y="527" fill="#167E86" font-family="Arial, sans-serif" font-size="12" font-weight="700">Under Review</text>
+  <circle cx="804" cy="568.5" r="5" fill="#CBD5E1"/>
+  <text x="820" y="573" fill="#64748B" font-family="Arial, sans-serif" font-size="12" font-weight="600">Approved</text>
+  <rect x="981" y="551" width="65" height="27" rx="8" fill="#FF7A1A"/>
+  <text x="1013.5" y="569" fill="white" font-family="Arial, sans-serif" font-size="10" font-weight="700" text-anchor="middle">VERIFY</text>
+</svg>

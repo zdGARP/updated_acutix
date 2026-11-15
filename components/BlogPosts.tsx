@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, X } from 'lucide-react';
+import HeroVisual from '@/components/HeroVisual';
 
 interface BlogPost {
   id: string;
@@ -126,24 +127,29 @@ export default function BlogPosts() {
       {/* 1. Dark Blue Hero Section (#0A1230) */}
       <section className="relative bg-[#0A1230] pt-32 pb-20 px-6 text-white border-b border-[#152352]">
         <div className="container mx-auto max-w-6xl">
-          <p className="text-xs font-bold uppercase tracking-[0.25em] text-[#FF7A1A] mb-3">
-            ACUTIX INSIGHTS
-          </p>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white max-w-3xl leading-tight">
-            Insights, Ideas &amp; Technology
-          </h1>
-          <p className="mt-4 text-base sm:text-lg text-slate-300 max-w-2xl leading-relaxed">
-            Practical insights on software development, digital transformation, emerging technologies, and the ideas shaping the future of business. Our articles aim to make technology easier to understand.
-          </p>
+          <div className="grid items-center gap-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(18rem,0.85fr)]">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[0.25em] text-[#FF7A1A] mb-3">
+                ACUTIX INSIGHTS
+              </p>
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white max-w-3xl leading-tight">
+                Insights, Ideas &amp; Technology
+              </h1>
+              <p className="mt-4 text-base sm:text-lg text-slate-300 max-w-2xl leading-relaxed">
+                Practical insights on software development, digital transformation, emerging technologies, and the ideas shaping the future of business. Our articles aim to make technology easier to understand.
+              </p>
 
-          <div className="mt-8">
-            <a
-              href="#articles-grid"
-              className="inline-flex items-center gap-2 rounded-lg bg-[#FF7A1A] hover:bg-[#EA6608] px-6 py-3 text-xs font-bold uppercase tracking-wider text-white shadow-sm transition-all hover:scale-[1.02]"
-            >
-              <span>READ LATEST ARTICLES</span>
-              <ArrowRight className="h-4 w-4" />
-            </a>
+              <div className="mt-8">
+                <a
+                  href="#articles-grid"
+                  className="inline-flex items-center gap-2 rounded-lg bg-[#FF7A1A] hover:bg-[#EA6608] px-6 py-3 text-xs font-bold uppercase tracking-wider text-white shadow-sm transition-all hover:scale-[1.02]"
+                >
+                  <span>READ LATEST ARTICLES</span>
+                  <ArrowRight className="h-4 w-4" />
+                </a>
+              </div>
+            </div>
+            <HeroVisual variant="blogs" />
           </div>
         </div>
       </section>

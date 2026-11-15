@@ -6,12 +6,13 @@ import { useState, useEffect, useRef } from 'react';
 import { Menu, X, ArrowRight } from 'lucide-react';
 
 const mainNavItems = [
-  { name: 'PRODUCTS', href: '/products' },
-  { name: 'SERVICES', href: '/services' },
-  { name: 'PARTNERSHIPS', href: '/collaborations' },
-  { name: 'PROGRAMS', href: '/careers' },
-  { name: 'BLOGS', href: '/blogs' },
-  { name: 'ABOUT US', href: '/about' },
+  { name: 'Home', href: '/' },
+  { name: 'Products', href: '/products' },
+  { name: 'Services', href: '/services' },
+  { name: 'Partnerships', href: '/collaborations' },
+  { name: 'Programs', href: '/careers' },
+  { name: 'Blogs', href: '/blogs' },
+  { name: 'About Us', href: '/about' },
 ];
 
 const Header = () => {
@@ -32,8 +33,8 @@ const Header = () => {
   }, [mobileMenuOpen]);
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 border-b border-[#152352] bg-[#0A1230] shadow-sm transition-colors duration-300">
-      <div className="container mx-auto px-4 sm:px-8 lg:px-12 flex items-center justify-between h-20">
+    <header className="fixed left-1/2 top-3 z-50 w-[calc(100%-2rem)] max-w-5xl -translate-x-1/2 rounded-full border border-[#152352] bg-[#0A1230]/95 shadow-xl shadow-[#0A1230]/20 backdrop-blur-md transition-colors duration-300">
+      <div className="flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Logo */}
         <div className="flex-shrink-0 flex items-center">
           <Link href="/" className="flex items-center gap-2 group">
@@ -49,7 +50,7 @@ const Header = () => {
         </div>
 
         {/* Desktop Navigation */}
-        <nav className="hidden lg:flex items-center space-x-6 xl:space-x-8">
+        <nav className="hidden items-center space-x-4 lg:flex xl:space-x-6">
           {mainNavItems.map((item) => {
             const isActive =
               pathname === item.href ||
@@ -61,10 +62,10 @@ const Header = () => {
                 key={item.name}
                 href={item.href}
                 aria-current={isActive ? 'page' : undefined}
-                className={`relative text-xs font-semibold tracking-wider uppercase transition-colors duration-200 after:absolute after:-bottom-1.5 after:left-0 after:h-px after:bg-[#FF7A1A] after:transition-[width] after:duration-200 ${
+                className={`site-nav-link text-xs font-semibold tracking-wide lg:text-[13px] xl:text-sm ${
                   isActive
-                    ? 'text-[#FF7A1A] after:w-full'
-                    : 'text-slate-300 after:w-0 hover:text-[#FF7A1A] hover:after:w-full'
+                    ? 'text-[#FF7A1A]'
+                    : 'text-slate-300'
                 }`}
               >
                 {item.name}
@@ -77,9 +78,9 @@ const Header = () => {
         <div className="hidden lg:flex items-center">
           <Link
             href="/contact"
-            className="inline-flex items-center gap-1.5 rounded-md bg-[#FF7A1A] px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-white shadow-sm transition-all duration-200 hover:bg-[#EA6608] hover:shadow-orange-500/20 hover:scale-[1.02]"
+            className="inline-flex items-center gap-1.5 rounded-full bg-[#FF7A1A] px-5 py-2.5 text-sm font-semibold tracking-wide text-white shadow-sm transition-all duration-200 hover:bg-[#EA6608] hover:shadow-orange-500/20 hover:scale-[1.02]"
           >
-            <span>CONTACT US</span>
+            <span>Book free demo</span>
             <ArrowRight className="h-3.5 w-3.5" />
           </Link>
         </div>
@@ -103,14 +104,14 @@ const Header = () => {
         <div
           ref={menuRef}
           id="mobile-navigation"
-          className="fixed inset-x-0 top-20 z-40 border-t border-[#152352] bg-[#0A1230] shadow-2xl backdrop-blur-xl lg:hidden"
+          className="fixed inset-x-4 top-20 z-40 rounded-2xl border border-[#152352] bg-[#0A1230] shadow-2xl backdrop-blur-xl lg:hidden"
         >
           <div className="pt-4 pb-6 px-6 space-y-2">
             {mainNavItems.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className={`block rounded-lg px-4 py-3 text-sm font-semibold tracking-wider transition-colors duration-150 uppercase ${
+                className={`site-nav-link block rounded-lg px-4 py-3 text-sm font-semibold tracking-wide transition-colors duration-150 ${
                   pathname === item.href
                     ? 'bg-[#152352] text-[#FF7A1A]'
                     : 'text-slate-300 hover:bg-[#101D48] hover:text-[#FF7A1A] hover:underline hover:decoration-[#FF7A1A] hover:underline-offset-4'
@@ -123,10 +124,10 @@ const Header = () => {
             <div className="pt-2 border-t border-[#152352] flex flex-col gap-2">
               <Link
                 href="/contact"
-                className="mt-2 flex items-center justify-center gap-2 rounded-lg bg-[#FF7A1A] px-4 py-3 text-sm font-bold uppercase tracking-wider text-white hover:bg-[#EA6608]"
+                className="mt-2 flex items-center justify-center gap-2 rounded-lg bg-[#FF7A1A] px-4 py-3 text-sm font-bold tracking-wider text-white hover:bg-[#EA6608]"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                <span>CONTACT US</span>
+                <span>Book free demo</span>
                 <ArrowRight className="h-4 w-4" />
               </Link>
             </div>

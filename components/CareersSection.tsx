@@ -19,6 +19,7 @@ import {
   Cpu
 } from 'lucide-react';
 import HorizontalMarquee from '@/components/HorizontalMarquee';
+import HeroVisual from '@/components/HeroVisual';
 
 const whyAcutixPoints = [
   {
@@ -156,30 +157,35 @@ export default function CareersSection() {
       {/* 1. Dark Blue Hero Section (#0A1230) */}
       <section className="relative bg-[#0A1230] pt-32 pb-20 px-6 text-white border-b border-[#152352]">
         <div className="container mx-auto max-w-6xl">
-          <p className="text-xs font-bold uppercase tracking-[0.25em] text-[#FF7A1A] mb-3">
-            CAREERS &amp; INTERNSHIPS
-          </p>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white max-w-3xl leading-tight">
-            Build Your Future with Acutix
-          </h1>
-          <p className="mt-4 text-base sm:text-lg text-slate-300 max-w-2xl leading-relaxed">
-            Work on real-world technology, develop practical skills, and collaborate with people passionate about building useful software. We value curiosity, continuous learning, teamwork, and turning ideas into working solutions.
-          </p>
+          <div className="grid items-center gap-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(18rem,0.85fr)]">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[0.25em] text-[#FF7A1A] mb-3">
+                CAREERS &amp; INTERNSHIPS
+              </p>
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white max-w-3xl leading-tight">
+                Build Your Future with Acutix
+              </h1>
+              <p className="mt-4 text-base sm:text-lg text-slate-300 max-w-2xl leading-relaxed">
+                Work on real-world technology, develop practical skills, and collaborate with people passionate about building useful software. We value curiosity, continuous learning, teamwork, and turning ideas into working solutions.
+              </p>
 
-          <div className="mt-8 flex flex-wrap gap-4">
-            <a
-              href="#opportunities"
-              className="inline-flex items-center gap-2 rounded-lg bg-[#FF7A1A] hover:bg-[#EA6608] px-6 py-3 text-xs font-bold uppercase tracking-wider text-white shadow-sm transition-all hover:scale-[1.02]"
-            >
-              <span>EXPLORE OPPORTUNITIES</span>
-              <ArrowRight className="h-4 w-4" />
-            </a>
-            <Link
-              href="/contact"
-              className="inline-flex items-center rounded-lg border border-[#18295E] bg-[#101D48]/50 hover:bg-[#101D48] px-6 py-3 text-xs font-bold uppercase tracking-wider text-white transition-colors"
-            >
-              CONTACT US
-            </Link>
+              <div className="mt-8 flex flex-wrap gap-4">
+                <a
+                  href="#opportunities"
+                  className="inline-flex items-center gap-2 rounded-lg bg-[#FF7A1A] hover:bg-[#EA6608] px-6 py-3 text-xs font-bold uppercase tracking-wider text-white shadow-sm transition-all hover:scale-[1.02]"
+                >
+                  <span>EXPLORE OPPORTUNITIES</span>
+                  <ArrowRight className="h-4 w-4" />
+                </a>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center rounded-lg border border-[#18295E] bg-[#101D48]/50 hover:bg-[#101D48] px-6 py-3 text-xs font-bold uppercase tracking-wider text-white transition-colors"
+                >
+                  CONTACT US
+                </Link>
+              </div>
+            </div>
+            <HeroVisual variant="programs" />
           </div>
         </div>
       </section>

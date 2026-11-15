@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 
 export const GET = async () => {
-  const productUrls = ['ferticare', 'gym-pad', 'motor-consult', 'box-care', 'clinic-cms']
+  const productUrls = ['ferticare', 'thaai-seyali', 'gym-pad', 'aculabs', 'motor-consult', 'box-care', 'clinic-cms']
     .map((id) => `    <url>
       <loc>https://www.acutixsoft.com/products/${id}</loc>
       <priority>0.8</priority>

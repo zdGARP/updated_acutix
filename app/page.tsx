@@ -107,45 +107,23 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 font-sans">
       
-      {/* 1. Dark Blue Hero Section (#0A1230) */}
-      <section className="relative w-full min-h-screen min-h-[100dvh] bg-[#0A1230] pt-28 pb-16 sm:pt-32 sm:pb-20 px-6 text-white border-b border-[#152352] overflow-hidden flex items-center">
-        {/* Landing Page Background Image (h1.png) - extended so top and bottom are fully visible without cropping */}
-        <div className="absolute inset-0 z-0 pointer-events-none">
-          <Image
-            src="/Home/h1.png"
-            alt="Landing Hero Background"
-            fill
-            priority
-            className="object-cover object-center"
-          />
-
-          {/* Smooth blur mask over the left-side text area (up to 75%), fading to normal crisp image on the right */}
-          <div
-            className="absolute inset-0 backdrop-blur-md sm:backdrop-blur-lg"
-            style={{
-              maskImage: 'linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 45%, rgba(0,0,0,0.4) 65%, rgba(0,0,0,0) 75%)',
-              WebkitMaskImage: 'linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 45%, rgba(0,0,0,0.4) 65%, rgba(0,0,0,0) 75%)',
-            }}
-          />
-
-          {/* Smooth dark gradient layer to ensure clear text contrast behind content */}
-          <div
-            className="absolute inset-0 bg-gradient-to-r from-[#0A1230]/90 via-[#0A1230]/65 to-transparent"
-            style={{
-              maskImage: 'linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,0.95) 50%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 80%)',
-              WebkitMaskImage: 'linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,0.95) 50%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 80%)',
-            }}
-          />
-        </div>
+      {/* 1. Landing page hero */}
+      <section className="relative isolate flex min-h-screen min-h-[100dvh] w-full items-center overflow-hidden border-b border-slate-200 bg-[#f7faff] px-6 pb-16 pt-28 text-[#0A1230] sm:pb-20 sm:pt-32">
+        <img
+          src="/Home/futuristic-blue-hud.png"
+          alt=""
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 z-0 h-full w-full object-contain object-[100%_0%]"
+        />
 
         <div className="container mx-auto max-w-6xl relative z-10">
           <p className="text-xs font-bold uppercase tracking-[0.25em] text-[#FF7A1A] mb-3">
             BUILD / SCALE / INNOVATE / NURTURE FUTURE
           </p>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white max-w-3xl leading-tight">
+          <h1 className="max-w-[16ch] text-4xl font-extrabold leading-tight tracking-tight text-[#0A1230] sm:text-5xl lg:text-6xl">
             Digital Solutions. Engineering Excellence. Future-Ready Talent.
           </h1>
-          <p className="mt-4 text-base sm:text-lg text-slate-300 max-w-2xl leading-relaxed">
+          <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate-700 sm:text-lg">
             Acutix Soft builds production-grade software for growing businesses while training and deploying high-caliber developer talent through real-world SaaS engineering programs.
           </p>
 
@@ -159,7 +137,7 @@ export default function Home() {
             </Link>
             <Link
               href="/collaborations"
-              className="inline-flex items-center rounded-lg border border-[#18295E] bg-[#101D48]/50 hover:bg-[#101D48] px-6 py-3 text-xs font-bold uppercase tracking-wider text-white transition-colors"
+              className="inline-flex items-center rounded-lg border border-[#0A1230] bg-[#0A1230] px-6 py-3 text-xs font-bold uppercase tracking-wider text-white transition-colors hover:bg-[#152352]"
             >
               EXPLORE OUR ECOSYSTEM
             </Link>

@@ -52,6 +52,16 @@ export default function FAQAccordion({
             return (
               <div
                 key={item.question}
+                onPointerEnter={(event) => {
+                  if (event.pointerType !== 'touch') {
+                    setOpenIndex(index);
+                  }
+                }}
+                onPointerLeave={(event) => {
+                  if (event.pointerType !== 'touch') {
+                    setOpenIndex((current) => current === index ? null : current);
+                  }
+                }}
                 className={`overflow-hidden rounded-xl border transition-colors duration-300 ${
                   isOpen
                     ? 'border-[#0A1230] bg-white shadow-sm'
